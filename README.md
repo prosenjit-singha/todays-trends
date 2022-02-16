@@ -47,3 +47,6 @@ terms.
 other sources are saying about a certain topic. The app will have
 news from CNN, BBC etc.
 
+#Environment Setup
+1. Install react using npx create-react-app
+2. Install Alan AI using npm i @alan-ai/alan-sdk-web @material-ui/core classnames words-to-numbers
