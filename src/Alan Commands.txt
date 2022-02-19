@@ -1,11 +1,12 @@
-intent("What does this webpage do?", "What can I do here?", reply("This webpage will provide you the latest news and also the old ones."));
+intent("What does this webpage do?", "What can I do here?", 
+       reply("This webpage will provide you the latest news and also the old ones."));
 
 const API_KEY = 'daeddbe4bc074bf48d19a82ff073c046';
 
 let savedArticles = [];
 
 // News by Source
-intent('Give me the news from $(source* (.*))', (p) => {
+intent('Show me the news from $(source* (.*))', (p) => {
     let NEWS_API_URL = `https://newsapi.org/v2/top-headlines?apiKey=${API_KEY}`;
     
     if(p.source.value) {
@@ -16,13 +17,36 @@ intent('Give me the news from $(source* (.*))', (p) => {
         const { articles } = JSON.parse(body);
         
         if(!articles.length) {
-            p.play('Sorry, please try searching for news from a different source');
+            p.play('Sorry, (please try searching for news from another source|There is no news from this source)');
             return;
         }
         
         savedArticles = articles;
         
         p.play({ command: 'newHeadlines', articles });
-        p.play(`Here are the (latest|recent) ${p.source.value}.`);
+        p.play(`Here are the (latest|recent|up-to-date) news from ${p.source.value}.`);
+    });
+})
+
+//News by Terms
+intent('(What\'s up with|I wanna know about|Show me the news about) $(term* (.*))', (p) => {
+    let NEWS_API_URL = `https://newsapi.org/v2/everything?apiKey=${API_KEY}`;
+    
+    if(p.term.value) {
+        NEWS_API_URL = `${NEWS_API_URL}&q=${p.term.value}`
+    }
+    
+    api.request(NEWS_API_URL, (error, response, body) => {
+        const { articles } = JSON.parse(body);
+        
+        if(!articles.length) {
+            p.play('Sorry, please try searching for (something else|another term|another topic)');
+            return;
+        }
+        
+        savedArticles = articles;
+        
+        p.play({ command: 'newHeadlines', articles });
+        p.play(`Here are the (latest|recent|up-to-date) news on ${p.term.value}.`);
     });
 })
