@@ -6,7 +6,7 @@ const API_KEY = 'daeddbe4bc074bf48d19a82ff073c046';
 let savedArticles = [];
 
 // News by Source
-intent('Show me the news from $(source* (.*))', (p) => {
+intent(`(Give me|Tell me|Show me) the news from $(source* (.*))`, (p) => {
     let NEWS_API_URL = `https://newsapi.org/v2/top-headlines?apiKey=${API_KEY}`;
     
     if(p.source.value) {
@@ -25,11 +25,14 @@ intent('Show me the news from $(source* (.*))', (p) => {
         
         p.play({ command: 'newHeadlines', articles });
         p.play(`Here are the (latest|recent|up-to-date) news from ${p.source.value}.`);
+        
+        p.play('(Would you like me to read the headlines?|Do you want me to read the headlines for you?)');
+        p.then(confirm);
     });
 })
 
 //News by Terms
-intent('(What\'s up with|I wanna know about|Show me the news about) $(term* (.*))', (p) => {
+intent('(What\'s up with|I wanna know about) $(term* (.*))', (p) => {
     let NEWS_API_URL = `https://newsapi.org/v2/everything?apiKey=${API_KEY}`;
     
     if(p.term.value) {
@@ -47,7 +50,11 @@ intent('(What\'s up with|I wanna know about|Show me the news about) $(term* (.*)
         savedArticles = articles;
         
         p.play({ command: 'newHeadlines', articles });
-        p.play(`Here are the (latest|recent|up-to-date) news on ${p.term.value}.`);
+        p.play(`Here are the (latest|recent|up-to-date) (articles|news) on ${p.term.value}.`);
+        
+        p.play('(Would you like me to read the headlines?|Do you want me to read the headlines for you?)');
+        p.then(confirm);
+        
     });
 })
 
@@ -74,6 +81,28 @@ intent(`(show me|show|what is|tell me|what's|what are|what're|read) (the|) (rece
         savedArticles = articles;
         
         p.play({ command: 'newHeadlines', articles });
-        p.play(`Here are the (latest|recent|up-to-date) (articles|news) on ${p.ctgr.value}.`);
+        
+        if(p.C.value) {
+            p.play(`Here are the (latest|recent) articles on ${p.C.value}.`);        
+        } else {
+            p.play(`Here are the (latest|recent) news`);   
+        }
+        
+        p.play('(Would you like me to read the headlines?|Do you want me to read the headlines for you?)');
+        p.then(confirm);
+        
     });
+})
+
+const confirm = context(() => {
+    intent('(yes|of course|why not?)', async (p) => {
+        for(let i = 0; i < savedArticles.length; i++){
+            p.play({ command: 'highlight', article: savedArticles[i]});
+            p.play(`${savedArticles[i].title}`);
+        }
+    })
+    
+    intent('(no|never mind)', (p) => {
+        p.play('(Sure|Well), (sounds good to me|as your wish).')
+    })
 })
