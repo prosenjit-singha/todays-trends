@@ -95,11 +95,12 @@ intent(`(show me|show|what is|tell me|what's|what are|what're|read) (the|) (rece
 })
 
 const confirm = context(() => {
-    intent('(yes|of course|why not?)', async (p) => {
+    intent('(yes|of course|sure|why not?)', async (p) => {
         for(let i = 0; i < savedArticles.length; i++){
             p.play({ command: 'highlight', article: savedArticles[i]});
             p.play(`${savedArticles[i].title}`);
         }
+        p.play('That\'s all for now.')
     })
     
     intent('(no|never mind)', (p) => {
