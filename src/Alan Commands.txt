@@ -95,7 +95,7 @@ intent(`(show me|show|what is|tell me|what's|what are|what're|read) (the|) (rece
 })
 
 const confirm = context(() => {
-    intent('(yes|of course|sure|why not?)', async (p) => {
+    intent('(yes|of course|sure|why not?|go on)', async (p) => {
         for(let i = 0; i < savedArticles.length; i++){
             p.play({ command: 'highlight', article: savedArticles[i]});
             p.play(`${savedArticles[i].title}`);
@@ -115,6 +115,6 @@ intent('open (the|) (article|) (number|) $(number* (.*))', (p) => {
 })
 
 intent('(go back|back|can you go back?)', (p) => {
-    p.play('(Sure, going back|Of course, going back now)');
+    p.play('(Sure, going back|Of course, going back now|Going back.)');
     p.play({ command: 'newHeadlines', articles: []})
 })
