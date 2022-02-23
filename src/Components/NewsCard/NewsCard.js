@@ -11,14 +11,15 @@ import {
 import { mergeClasses } from "@material-ui/styles";
 
 import useStyles from "./style";
+import classNames from 'classnames';
 
 const NewsCard = ({
   article: { description, publishedAt, source, title, url, urlToImage },
-  i,
+  i, activeArticle,
 }) => {
   const classes = useStyles();
   return (
-    <Card className={classes.card}>
+    <Card className={ activeArticle === i ? classes.activeCard : classes.card}>
       <CardActionArea href={url} target="_blank">
         <CardMedia className={classes.media} image={urlToImage} />
         <div className={classes.details}>
