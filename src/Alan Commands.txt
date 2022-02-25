@@ -1,12 +1,14 @@
-intent("What does this webpage do?", "What can I do here?", 
-       reply("This webpage will provide you the latest news and also the old ones."));
+intent("What does this webpage do?", 
+       "What can I do here?", 
+       reply("This webpage will provide you the latest news and also the old ones.", 
+             "This webpage will keep you up-to-date with the news"));
 
 const API_KEY = 'daeddbe4bc074bf48d19a82ff073c046';
 
 let savedArticles = [];
 
 // News by Source
-intent(`(Give me|Tell me|Show me) the news from $(source* (.*))`, (p) => {
+intent(`(Give|Tell|Show|) (me|) (the|) news from $(source* (.*))`, (p) => {
     let NEWS_API_URL = `https://newsapi.org/v2/top-headlines?apiKey=${API_KEY}`;
     
     if(p.source.value) {
