@@ -105,7 +105,7 @@ const confirm = context(() => {
         p.play('That\'s all for now.')
     })
     
-    intent('(no|never mind)', (p) => {
+    intent('(no|never mind|stop)', (p) => {
         p.play('(Sure|Well), (sounds good to me|as your wish).')
     })
 })
