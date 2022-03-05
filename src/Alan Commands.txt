@@ -64,7 +64,7 @@ intent('(What\'s up with|I wanna know about) $(term* (.*))', (p) => {
 const CATEGORIES = ['business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology'];
 const CATEGORIES_INTENT = `${CATEGORIES.map((category) => `${category}~${category}`).join('|')}|`;
 
-intent(`(show me|show|what is|tell me|what's|what are|what're|read) (the|) (recent|latest|) $(N articles|news|headlines) (in|about|on|) $(ctgr~ ${CATEGORIES_INTENT})`,
+intent(`(show me|show|what is|tell me|what's|what are|what're|read|) (the|) (recent|latest|) $(N articles|news|headlines) (in|about|on|) $(ctgr~ ${CATEGORIES_INTENT})`,
   `(read|show me|show|get|bring me|give me) (the|) (recent|latest|) $(ctgr~ ${CATEGORIES_INTENT}) $(N articles|news|headlines)`, (p) => {
     let NEWS_API_URL = `https://newsapi.org/v2/top-headlines?apiKey=${API_KEY}&country=us`;
     
