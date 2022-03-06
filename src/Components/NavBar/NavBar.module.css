@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+.active {
+  font-size: larger;
+  color: skyblue;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.562);
+  text-decoration: none;
+}
+.container {
+  font-size: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  width: 100%;
+  height: 10%;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 10vh;
+  background-color: rgb(6, 27, 39);
+  box-shadow: 0 0.1em 1em 1em rgba(0, 0, 0, 0.5);
+}
+.logo {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  padding-left: 2vw;
+  /* font-weight: bolder; */
+  /* justify-self: center; */
+  align-self: center;
+  text-overflow: none;
+}
+
+.logo span {
+  color: rgb(0, 225, 255);
+  font-size: 2em;
+  font-family: "Lobster", cursive;
+}
+.logo span:hover {
+  color: aliceblue;
+  text-shadow: 0 0 5px cyan;
+}
+.menu {
+  grid-column-start: 2;
+  grid-column-end: -1;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 5%;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+}
+
+.menu ul > li {
+  padding-left: 2em;
+}
+.menuItem {
+  color: skyblue;
+  font-size: 1em;
+  text-decoration: none;
+  transition: 500ms ease;
+}
+
+.menuItem:hover {
+  font-size: larger;
+  color: skyblue;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.562);
+  text-decoration: none;
+}
+
+.mi {
+  color: red;
+}

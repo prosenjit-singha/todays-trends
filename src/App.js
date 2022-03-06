@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { Navigate, Routes, Route } from "react-router-dom";
 import alanBtn from "@alan-ai/alan-sdk-web";
 
-import wordsToNumbers from 'words-to-numbers';
+import wordsToNumbers from "words-to-numbers";
 
+import NavBar2 from "./Components/NavBar/NavBar2";
 import NewsCards from "./Components/NewsCards/NewsCards";
+import Home from "./Components/Home/Home";
+import About from "./Components/About/About";
+import CommandList from "./Components/CommandList/CommandList";
+import Developers from "./Components/Dev/Dev";
+import Error from "./Components/Error/Error";
 import classNames from "classnames";
 
 const alanKey =
@@ -20,19 +27,22 @@ const App = () => {
         if (command === "newHeadlines") {
           setNewsArticles(articles);
           setActiveArticle(-1);
-        } else if (command === 'highlight') {
+        } else if (command === "highlight") {
           setActiveArticle((prevActiveArticle) => prevActiveArticle + 1);
-        } else if (command === 'open') {
-          const parsedNumber = number.length > 2 ? wordsToNumbers((number), { fuzzy: true }) : number;
+        } else if (command === "open") {
+          const parsedNumber =
+            number.length > 2
+              ? wordsToNumbers(number, { fuzzy: true })
+              : number;
           const article = articles[parsedNumber - 1];
 
           if (parsedNumber > articles.length) {
-            alanBtn().playText('Please try that again...');
+            alanBtn().playText("Please try that again...");
           } else if (article) {
-            window.open(article.url, '_blank');
-            alanBtn().playText('Opening...');
+            window.open(article.url, "_blank");
+            alanBtn().playText("Opening...");
           } else {
-            alanBtn().playText('Please try that again...');
+            alanBtn().playText("Please try that again...");
           }
         }
       },
@@ -40,9 +50,20 @@ const App = () => {
   }, []);
   return (
     <React.Fragment>
-      <div className={classNames.logo}>
-        <img />
-      </div>
+      <NavBar2 />
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route
+          path="/home"
+          element={
+            <Home articles={newsArticles} activeArticle={activeArticle} />
+          }
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/command-list" element={<CommandList />} />
+        <Route path="/developers" element={<Developers />} />
+        <Route path="/*" element={<Error />} />
+      </Routes>
       <NewsCards articles={newsArticles} activeArticle={activeArticle} />
     </React.Fragment>
   );
