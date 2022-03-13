@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+.hamburger {
+  position: relative;
+  display: block;
+  height: 0.25rem;
+  width: 1.8rem;
+  border-radius: 5px;
+  background-color: var(--bg-dark-500);
+  z-index: 11;
+  transition: background-color 300ms ease-out;
+}
+
+.hamburger::before {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 100%;
+  width: 100%;
+  top: 8px;
+  background-color: var(--bg-dark-500);
+  border-radius: 5px;
+  transition: all 300ms ease-out;
+}
+
+.hamburger::after {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 100%;
+  width: 100%;
+  bottom: 8px;
+  background-color: var(--bg-dark-500);
+  border-radius: 5px;
+  transition: all 300ms ease-out;
+}
+
+.myNav {
+  width: 100vw;
+  height: fit-content;
+  /* max-height: fit-content; */
+  background-color: var(--bg-dark-400);
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  transition: all 300ms ease-out;
+}
+/* .myNav .menu .menuItem {
+  padding: 0.5rem 1.5rem;
+} */
+.myNav ul .menuItem {
+  position: relative;
+  display: block;
+  color: var(--fg-light-400);
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+.myNav ul .menuItem:hover {
+  background-color: var(--bg-dark-500);
+}
+.myNav .menu {
+  clear: both;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  max-height: 0;
+  background-color: var(--bg-dark-400);
+  z-index: 9;
+  transition: max-height 300ms ease-out;
+}
+
+.myNav .myLogo {
+  text-decoration: none;
+  color: var(--fg-light-300);
+  font-family: "Bebas Neue", cursive;
+  font-size: 2rem;
+  float: left;
+  display: block;
+  background-image: linear-gradient(
+    to right,
+    var(--bg-dark-500),
+    var(--bg-dark-400)
+  );
+  padding: 4px 15px;
+}
+.myNav .menuIcon {
+  float: right;
+  position: relative;
+  padding: 20px 1rem;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.myNav .toggleButton {
+  display: none;
+}
+
+.myNav #menuButton:checked ~ .myNav {
+  height: 100vh;
+  /* max-height: 600px; */
+}
+
+.myNav #menuButton:checked ~ .menu {
+  max-height: 800px;
+}
+
+.myNav #menuButton:checked ~ .menuIcon .hamburger {
+  background-color: transparent;
+}
+.myNav #menuButton:checked ~ .menuIcon .hamburger::before {
+  top: 0;
+  transform: rotate(-45deg);
+}
+.myNav #menuButton:checked ~ .menuIcon .hamburger::after {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+.submenu {
+  padding-left: 1.5rem;
+  list-style: none;
+  overflow: hidden;
+  max-height: 0;
+  background-color: rgb(26, 28, 31);
+  z-index: 8;
+  transition: max-height 300ms ease-out;
+}
+.submenu > li > .menuItem {
+  z-index: 9;
+  background-color: rgb(31, 32, 34);
+}
+.myNav #newsBy:checked ~ .submenu {
+  max-height: 800px;
+}
+
+/* for desktop version */
+@media (min-width: 790px) {
+  .hamburger {
+    display: none;
+  }
+  .myNav .myLogo {
+    float: none;
+    display: inline;
+  }
+  .myNav .menu > li {
+    float: left;
+  }
+  .myNav .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .myNav .menuIcon {
+    padding: 0;
+    margin: 0;
+  }
+}

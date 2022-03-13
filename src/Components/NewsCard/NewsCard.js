@@ -8,14 +8,13 @@ import {
   Button,
   Typography,
 } from "@material-ui/core";
-import { mergeClasses } from "@material-ui/styles";
 
 import useStyles from "./style";
-import classNames from 'classnames';
 
 const NewsCard = ({
   article: { description, publishedAt, source, title, url, urlToImage },
-  i, activeArticle,
+  i,
+  activeArticle,
 }) => {
   const classes = useStyles();
   const [elRefs, setElRefs] = useState([]);
@@ -24,7 +23,11 @@ const NewsCard = ({
   useEffect(() => {
     window.scroll(0, 0);
 
-    setElRefs((refs) => Array(20).fill().map((_, j) => refs[j] || createRef()));
+    setElRefs((refs) =>
+      Array(20)
+        .fill()
+        .map((_, j) => refs[j] || createRef())
+    );
   }, []);
 
   useEffect(() => {
@@ -34,7 +37,10 @@ const NewsCard = ({
   }, [i, activeArticle, elRefs]);
 
   return (
-    <Card ref={elRefs[i]}  className={ activeArticle === i ? classes.activeCard : classes.card}>
+    <Card
+      ref={elRefs[i]}
+      className={activeArticle === i ? classes.activeCard : classes.card}
+    >
       <CardActionArea href={url} target="_blank">
         <CardMedia className={classes.media} image={urlToImage} />
         <div className={classes.details}>

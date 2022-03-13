@@ -1,0 +1,36 @@
+ <NavLink className="nav-item" to="/categories">
+                Categories
+              </NavLink>
+              <NavLink className="nav-item" to="/sourse">
+                Sources
+              </NavLink>
+              <NavLink className="nav-item" to="/terms">
+                Terms
+              </NavLink>
+
+const categories = [
+  {
+    category: "Business",
+    path: "/business",
+  },
+  {
+    category: "Entertainment",
+    path: "/entertainment",
+  },
+  {
+    category: "General",
+    path: "/general",
+  },
+  {
+    category: "Science",
+    path: "/science",
+  },
+  {
+    category: "Sports",
+    path: "/sports",
+  },
+  {
+    category: "Technology",
+    path: "/technology",
+  },
+];

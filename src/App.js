@@ -4,14 +4,15 @@ import alanBtn from "@alan-ai/alan-sdk-web";
 
 import wordsToNumbers from "words-to-numbers";
 
-import NavBar2 from "./Components/NavBar/NavBar2";
+import NewsBy from "./Components/NewsBy/NewsBy";
+import NavBar from "./Components/NavBar/NavBar";
+import Nav from "./Components/Nav/Index";
 import NewsCards from "./Components/NewsCards/NewsCards";
 import Home from "./Components/Home/Home";
 import About from "./Components/About/About";
 import CommandList from "./Components/CommandList/CommandList";
 import Developers from "./Components/Dev/Dev";
 import Error from "./Components/Error/Error";
-import classNames from "classnames";
 
 const alanKey =
   "9d1324a30a0a78d5a51fdfa0d05b9c372e956eca572e1d8b807a3e2338fdd0dc/stage";
@@ -50,15 +51,17 @@ const App = () => {
   }, []);
   return (
     <React.Fragment>
-      <NavBar2 />
+      {/* <NavBar /> */}
+      <Nav />
       <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<Navigate to="/" />} />
         <Route
-          path="/home"
+          path="/"
           element={
             <Home articles={newsArticles} activeArticle={activeArticle} />
           }
         />
+        <Route path="/news-by/:option1/:option2" element={<NewsBy />} />
         <Route path="/about" element={<About />} />
         <Route path="/command-list" element={<CommandList />} />
         <Route path="/developers" element={<Developers />} />
