@@ -2,7 +2,7 @@ import React from "react";
 import Data from "../../../Data/categories.json";
 import { NavLink } from "react-router-dom";
 import "./categories.css";
-
+// import "../../../Styles/index.css";
 const Categories = ({ toggleMenuButton }) => {
   return (
     <ul id="categoryList" className="submenuChildList">

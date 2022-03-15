@@ -1,15 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-// import { MdOutlineKeyboardArrowDown as DownArrow } from "react-icons/md";
-// import { MdOutlineKeyboardArrowRight as RightArrow } from "react-icons/md";
-// import Categories from "../../Data/categories.json";
-// import Sources from "../../Data/sources.json";
-// import Terms from "../../Data/terms.json";
+
 import Categories from "./Categories/Categories";
 import Sources from "./Sources/Sources";
 import Terms from "./Terms/Terms";
 import "./style.css";
+// import "../../Styles/index.css";
 
 const Index = () => {
   const [openMenu, setOpenMenu] = useState(false);

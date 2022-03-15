@@ -8,9 +8,9 @@
 #categoryList > li > .menuItem {
   background-color: rgb(23, 25, 28);
   z-index: 5;
-}
-#categoryList > li > .menuItem:hover {
-  background-color: var(--bg-dark-500);
+  &:hover {
+    background-color: var(--bg-dark-500);
+  }
 }
 
 .submenu #categories:checked ~ #categoryList {

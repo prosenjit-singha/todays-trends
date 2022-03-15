@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+:root {
+  --fg-light-300: #ffffff;
+  --fg-light-400: rgb(238, 238, 238);
+  --fg-light-500: rgb(0, 173, 181);
+  --bg-dark-400: rgb(58, 71, 80);
+  --bg-dark-500: rgb(48, 56, 65);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: var(--fg-light-400);
+}
+
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark-500);
+}
+
+.active {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.1)), color-stop(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+}
+
+.myNav {
+  width: 100vw;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: var(--bg-dark-400);
+  -webkit-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.4);
+          box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.4);
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+
+.myNav .myLogo {
+  text-decoration: none;
+  color: var(--fg-light-300);
+  font-family: "Bebas Neue", cursive;
+  font-size: 2rem;
+  float: left;
+  display: block;
+  background-image: -webkit-gradient(linear, left top, right top, from(var(--bg-dark-500)), to(var(--bg-dark-400)));
+  background-image: linear-gradient(to right, var(--bg-dark-500), var(--bg-dark-400));
+  padding: 4px 15px;
+}
+
+.myNav #menuButton:checked ~ .myNav {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.myNav #menuButton:checked ~ .myNav::checked ~ .menu {
+  max-height: 800px;
+}
+
+.myNav #menuButton:checked ~ .myNav:checked ~ .menuIcon .hamburger {
+  background-color: transparent;
+}
+
+.myNav #menuButton:checked ~ .myNav:checked ~ .menuIcon .hamburger::before {
+  top: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.myNav #menuButton:checked ~ .myNav:checked ~ .menuIcon .hamburger::after {
+  bottom: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.myNav .toggleButton {
+  display: none;
+}
+
+.myNav .menuIcon {
+  float: right;
+  position: relative;
+  padding: 20px 1rem;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.myNav .menuIcon .hamburger {
+  position: relative;
+  display: block;
+  height: 0.25rem;
+  width: 1.8rem;
+  border-radius: 5px;
+  background-color: var(--bg-dark-500);
+  /* z-index: 11; */
+  -webkit-transition: background-color 300ms ease-out;
+  transition: background-color 300ms ease-out;
+}
+
+.myNav .menuIcon .hamburger::before {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 100%;
+  width: 100%;
+  top: 8px;
+  background-color: var(--bg-dark-500);
+  border-radius: 5px;
+  -webkit-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+.myNav .menuIcon .hamburger::after {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 100%;
+  width: 100%;
+  bottom: 8px;
+  background-color: var(--bg-dark-500);
+  border-radius: 5px;
+  -webkit-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+.myNav .menu {
+  clear: both;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  max-height: 0;
+  background-color: var(--bg-dark-400);
+  z-index: 9;
+  -webkit-transition: max-height 300ms ease-out;
+  transition: max-height 300ms ease-out;
+}
+
+.myNav .menu li > #newsBy:checked ~ .submenu {
+  max-height: 800px;
+}
+
+.myNav .menu li > .submenu {
+  padding-left: 1.5rem;
+  list-style: none;
+  overflow: hidden;
+  max-height: 0;
+  background-color: #1a1c1f;
+  z-index: 8;
+  -webkit-transition: max-height 300ms ease-out;
+  transition: max-height 300ms ease-out;
+}
+
+.myNav .menu li > .submenu li > .menuItem {
+  z-index: 9;
+  background-color: #1f2022;
+}
+
+.myNav .menu .menuItem {
+  position: relative;
+  display: block;
+  color: var(--fg-light-400);
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.myNav .menu .menuItem:hover {
+  background-color: var(--bg-dark-500);
+}
+
+/* for desktop version */
+@media (min-width: 790px) {
+  .hamburger {
+    display: none;
+  }
+  .myNav .myLogo {
+    float: none;
+    display: inline;
+  }
+  .myNav .menu > li {
+    float: left;
+  }
+  .myNav .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .myNav .menuIcon {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.submenuChildList {
+  padding-left: 1.5rem;
+  list-style: none;
+  max-height: 0;
+  background-color: #17191c;
+  -webkit-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+#categoryList > li > .menuItem {
+  background-color: #17191c;
+  z-index: 5;
+}
+
+#categoryList > li > .menuItem:hover {
+  background-color: var(--bg-dark-500);
+}
+
+.submenu #categories:checked ~ #categoryList {
+  max-height: 400px;
+}
+
+#sourceList > li > .menuItem {
+  background-color: #17191c;
+  z-index: 6;
+}
+
+#sourceList > li > .menuItem:hover {
+  background-color: var(--bg-dark-500);
+}
+
+#sourceList > li > .submenu #sources:checked ~ #sourceList {
+  max-height: 400px;
+}
+
+#termList > li > .menuItem {
+  background-color: #17191c;
+  z-index: 7;
+}
+
+#termList > li > .menuItem:hover {
+  background-color: var(--bg-dark-500);
+}
+
+.submenu #terms:checked ~ #termList {
+  max-height: 400px;
+}
+/*# sourceMappingURL=index.css.map */
