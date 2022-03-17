@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Data from "../../../Data/terms.json";
 // import "./terms.css";
-import "../../../Styles/index.css";
+// import "../../../Styles/index.css";
 
 const Terms = ({ toggleMenuButton }) => {
   return (

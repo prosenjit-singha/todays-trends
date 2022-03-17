@@ -7,8 +7,8 @@ import "bootstrap/dist/js/bootstrap.js";
 import App from "./App";
 // import NC from "./Components/NC/NC";
 // import "./index.css";
-import "./style.css";
-// import "./Styles/index.css";
+// import "./style.css";
+import "./Styles/index.css";
 
 ReactDOM.render(
   <BrowserRouter>

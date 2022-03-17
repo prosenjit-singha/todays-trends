@@ -5,8 +5,8 @@ import { NavLink } from "react-router-dom";
 import Categories from "./Categories/Categories";
 import Sources from "./Sources/Sources";
 import Terms from "./Terms/Terms";
-import "./style.css";
-// import "../../Styles/index.css";
+// import "./style.css";
+import "../../Styles/index.css";
 
 const Index = () => {
   const [openMenu, setOpenMenu] = useState(false);

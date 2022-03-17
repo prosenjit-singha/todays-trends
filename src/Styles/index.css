@@ -1,13 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-:root {
-  --fg-light-300: #ffffff;
-  --fg-light-400: rgb(238, 238, 238);
-  --fg-light-500: rgb(0, 173, 181);
-  --bg-dark-400: rgb(58, 71, 80);
-  --bg-dark-500: rgb(48, 56, 65);
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +7,7 @@
           box-sizing: border-box;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-  color: var(--fg-light-400);
+  color: #eeeeee;
 }
 
 *::before,
@@ -25,7 +17,7 @@
 }
 
 body {
-  background-color: var(--bg-dark-500);
+  background-color: #303841;
 }
 
 .active {
@@ -38,49 +30,25 @@ body {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  background-color: var(--bg-dark-400);
+  /* max-height: fit-content; */
+  background-color: #3a4750;
   -webkit-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.4);
           box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.4);
-  -webkit-transition: all 1s ease-out;
-  transition: all 1s ease-out;
+  /* z-index: 10; */
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }
 
 .myNav .myLogo {
   text-decoration: none;
-  color: var(--fg-light-300);
+  color: #ffffff;
   font-family: "Bebas Neue", cursive;
   font-size: 2rem;
   float: left;
   display: block;
-  background-image: -webkit-gradient(linear, left top, right top, from(var(--bg-dark-500)), to(var(--bg-dark-400)));
-  background-image: linear-gradient(to right, var(--bg-dark-500), var(--bg-dark-400));
+  background-image: -webkit-gradient(linear, left top, right top, from(#303841), to(#3a4750));
+  background-image: linear-gradient(to right, #303841, #3a4750);
   padding: 4px 15px;
-}
-
-.myNav #menuButton:checked ~ .myNav {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-
-.myNav #menuButton:checked ~ .myNav::checked ~ .menu {
-  max-height: 800px;
-}
-
-.myNav #menuButton:checked ~ .myNav:checked ~ .menuIcon .hamburger {
-  background-color: transparent;
-}
-
-.myNav #menuButton:checked ~ .myNav:checked ~ .menuIcon .hamburger::before {
-  top: 0;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-
-.myNav #menuButton:checked ~ .myNav:checked ~ .menuIcon .hamburger::after {
-  bottom: 0;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
 }
 
 .myNav .toggleButton {
@@ -101,23 +69,10 @@ body {
   height: 0.25rem;
   width: 1.8rem;
   border-radius: 5px;
-  background-color: var(--bg-dark-500);
-  /* z-index: 11; */
+  background-color: #303841;
+  z-index: 11;
   -webkit-transition: background-color 300ms ease-out;
   transition: background-color 300ms ease-out;
-}
-
-.myNav .menuIcon .hamburger::before {
-  position: absolute;
-  display: block;
-  content: "";
-  height: 100%;
-  width: 100%;
-  top: 8px;
-  background-color: var(--bg-dark-500);
-  border-radius: 5px;
-  -webkit-transition: all 300ms ease-out;
-  transition: all 300ms ease-out;
 }
 
 .myNav .menuIcon .hamburger::after {
@@ -127,7 +82,20 @@ body {
   height: 100%;
   width: 100%;
   bottom: 8px;
-  background-color: var(--bg-dark-500);
+  background-color: #303841;
+  border-radius: 5px;
+  -webkit-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+.myNav .menuIcon .hamburger::before {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 100%;
+  width: 100%;
+  top: 8px;
+  background-color: #303841;
   border-radius: 5px;
   -webkit-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
@@ -139,36 +107,16 @@ body {
   list-style: none;
   overflow: hidden;
   max-height: 0;
-  background-color: var(--bg-dark-400);
+  background-color: #3a4750;
   z-index: 9;
-  -webkit-transition: max-height 300ms ease-out;
-  transition: max-height 300ms ease-out;
-}
-
-.myNav .menu li > #newsBy:checked ~ .submenu {
-  max-height: 800px;
-}
-
-.myNav .menu li > .submenu {
-  padding-left: 1.5rem;
-  list-style: none;
-  overflow: hidden;
-  max-height: 0;
-  background-color: #1a1c1f;
-  z-index: 8;
-  -webkit-transition: max-height 300ms ease-out;
-  transition: max-height 300ms ease-out;
-}
-
-.myNav .menu li > .submenu li > .menuItem {
-  z-index: 9;
-  background-color: #1f2022;
+  -webkit-transition: max-height 500ms ease-in-out;
+  transition: max-height 500ms ease-in-out;
 }
 
 .myNav .menu .menuItem {
   position: relative;
   display: block;
-  color: var(--fg-light-400);
+  color: #eeeeee;
   padding: 0.5rem 1.5rem;
   text-decoration: none;
   cursor: pointer;
@@ -179,33 +127,34 @@ body {
 }
 
 .myNav .menu .menuItem:hover {
-  background-color: var(--bg-dark-500);
+  background-color: #303841;
 }
 
-/* for desktop version */
-@media (min-width: 790px) {
-  .hamburger {
-    display: none;
-  }
-  .myNav .myLogo {
-    float: none;
-    display: inline;
-  }
-  .myNav .menu > li {
-    float: left;
-  }
-  .myNav .menu {
-    clear: none;
-    float: right;
-    max-height: none;
-  }
-  .myNav .menuIcon {
-    padding: 0;
-    margin: 0;
-  }
+.myNav .menu #newsBy:checked ~ .submenu {
+  max-height: 800px;
 }
 
-.submenuChildList {
+.myNav .menu .submenu {
+  padding-left: 1.5rem;
+  list-style: none;
+  overflow: hidden;
+  max-height: 0;
+  background-color: #1a1c1f;
+  z-index: 8;
+  -webkit-transition: max-height 300ms ease-out;
+  transition: max-height 300ms ease-out;
+}
+
+.myNav .menu .submenu .menuItem {
+  z-index: 9;
+  background-color: #1f2022;
+}
+
+.myNav .menu .submenu .menuItem:hover {
+  background-color: #303841;
+}
+
+.myNav .menu .submenu .submenuChildList {
   padding-left: 1.5rem;
   list-style: none;
   max-height: 0;
@@ -214,42 +163,89 @@ body {
   transition: all 300ms ease-out;
 }
 
-#categoryList > li > .menuItem {
-  background-color: #17191c;
-  z-index: 5;
-}
-
-#categoryList > li > .menuItem:hover {
-  background-color: var(--bg-dark-500);
-}
-
-.submenu #categories:checked ~ #categoryList {
-  max-height: 400px;
-}
-
-#sourceList > li > .menuItem {
+.myNav .menu .submenu #sourceList > li > .menuItem {
   background-color: #17191c;
   z-index: 6;
 }
 
-#sourceList > li > .menuItem:hover {
-  background-color: var(--bg-dark-500);
+.myNav .menu .submenu #sourceList > li > .menuItem > li > .menuItem:hover {
+  background-color: #303841;
 }
 
-#sourceList > li > .submenu #sources:checked ~ #sourceList {
-  max-height: 400px;
+.myNav .menu .submenu #categoryList > li > .menuItem {
+  background-color: #17191c;
+  z-index: 5;
 }
 
-#termList > li > .menuItem {
+.myNav .menu .submenu #categoryList > li > .menuItem:hover {
+  background-color: #303841;
+}
+
+.myNav .menu .submenu #termList > li > .menuItem {
   background-color: #17191c;
   z-index: 7;
 }
 
-#termList > li > .menuItem:hover {
-  background-color: var(--bg-dark-500);
+.myNav .menu .submenu #termList > li > .menuItem > li > .menuItem:hover {
+  background-color: #303841;
 }
 
-.submenu #terms:checked ~ #termList {
+.myNav .menu .submenu #categories:checked ~ #categoryList {
   max-height: 400px;
+}
+
+.myNav .menu .submenu #sources:checked ~ #sourceList {
+  max-height: 400px;
+}
+
+.myNav .menu .submenu #terms:checked ~ #termList {
+  max-height: 400px;
+}
+
+.myNav #menuButton:checked ~ .myNav {
+  height: 100vh;
+}
+
+.myNav #menuButton:checked ~ .menu {
+  max-height: 800px;
+}
+
+.myNav #menuButton:checked ~ .menuIcon .hamburger {
+  background-color: transparent;
+}
+
+.myNav #menuButton:checked ~ .menuIcon .hamburger::before {
+  top: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.myNav #menuButton:checked ~ .menuIcon .hamburger::after {
+  bottom: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+/* for desktop version */
+@media (min-width: 790px) {
+  .myNav .myLogo {
+    float: none;
+    display: inline;
+  }
+  .myNav .menuIcon {
+    padding: 0;
+    margin: 0;
+  }
+  .myNav .menuIcon .hamburger {
+    display: none;
+  }
+  .myNav .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .myNav .menu > li {
+    float: left;
+  }
 }
 /*# sourceMappingURL=index.css.map */
