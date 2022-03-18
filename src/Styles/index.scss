@@ -1,3 +1,17 @@
 @import "variables";
 @import "reset";
 @import "./Navbar/index";
+.ripple {
+  position: relative;
+  overflow: hidden;
+  /* background-color: rgb(2, 122, 122); */
+  cursor: pointer;
+  padding: 10px;
+  /* border-radius: 5px; */
+}
+@keyframes ripple {
+  100% {
+    transform: translate(-50%, -50%) scale(100);
+    opacity: 0;
+  }
+}

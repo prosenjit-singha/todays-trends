@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-
-$fg-light-300: #ffffff;
-$fg-light-400: rgb(238, 238, 238);
-$fg-light-500: rgb(0, 173, 181);
-$bg-dark-400: rgb(58, 71, 80);
-$bg-dark-500: rgb(48, 56, 65);
+@import "variables";
 
 * {
   margin: 0;
@@ -20,6 +15,26 @@ $bg-dark-500: rgb(48, 56, 65);
   padding: 0;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  padding: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: $bg-dark-500;
+}
+::-webkit-scrollbar-thumb {
+  width: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: $fg-light-300;
+  box-shadow: 0 0 20px 0 $fg-light-400;
+}
+
 body {
   background-color: $bg-dark-500;
+}
+
+button {
+  background-color: transparent;
+  border: none;
 }

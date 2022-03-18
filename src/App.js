@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Navigate, Routes, Route } from "react-router-dom";
 import alanBtn from "@alan-ai/alan-sdk-web";
-
+import rippleEffect from "./Components/RippleEffect";
 import wordsToNumbers from "words-to-numbers";
 
 import NewsBy from "./Components/NewsBy/NewsBy";
@@ -22,6 +22,7 @@ const App = () => {
   const [newsArticles, setNewsArticles] = useState([]);
 
   useEffect(() => {
+    rippleEffect();
     alanBtn({
       key: alanKey,
       onCommand: ({ command, articles, number }) => {
