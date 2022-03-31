@@ -1,11 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Data from "../../../Data/sources.json";
-// import "./sources.css";
-// import "../../../Styles/index.css";
-const Sources = ({ toggleMenuButton }) => {
+
+const Sources = ({ toggleMenuButton, sourcesRef }) => {
   return (
-    <ul id="sourceList" className="submenuChildList">
+    <ul {...sourcesRef} id="sourceList" className="submenuChildList">
       {Data.map((source, i) => (
         <li key={i}>
           <NavLink

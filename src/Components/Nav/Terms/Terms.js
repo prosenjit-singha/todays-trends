@@ -4,9 +4,9 @@ import Data from "../../../Data/terms.json";
 // import "./terms.css";
 // import "../../../Styles/index.css";
 
-const Terms = ({ toggleMenuButton }) => {
+const Terms = ({ toggleMenuButton, termsRef }) => {
   return (
-    <ul id="termList" className="submenuChildList">
+    <ul {...termsRef} id="termList" className="submenuChildList">
       {Data.map((term, i) => (
         <li key={i}>
           <NavLink

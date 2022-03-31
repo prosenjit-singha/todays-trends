@@ -1,5 +1,40 @@
+$neutral-100: #f6f7f9;
+$neutral-200: #e5e7ea;
+$neutral-300: #ced2d6;
+$neutral-400: #9ea5ad;
+$neutral-500: #7f8790;
+$neutral-600: #676e76;
+$neutral-700: #596066;
+$neutral-800: #454c52;
+$neutral-900: #383f45;
+$neutral-1000: #24292e;
+
+$red-100: #ffbdad;
+$red-200: #ff8f73;
+$red-300: #ff7452;
+$red-400: #ff5630;
+$red-500: #de350b;
+
+$yellow-100: #fff0b3;
+$yellow-200: #ffe380;
+$yellow-300: #ffc400;
+$yellow-400: #ffab00;
+$yellow-500: #ff991f;
+
+$green-100: #abf5d1;
+$green-200: #57d9a3;
+$green-300: #36b37e;
+$green-400: #00875a;
+$green-500: #006644;
+
+$blue-100: #b3f5ff;
+$blue-200: #79e2f2;
+$blue-300: #00c7e6;
+$blue-400: #00b8d9;
+$blue-500: #00a3bf;
+
 $fg-light-300: #ffffff;
 $fg-light-400: rgb(238, 238, 238);
 $fg-light-500: rgb(0, 173, 181);
-$bg-dark-400: rgb(58, 71, 80);
-$bg-dark-500: rgb(48, 56, 65);
+$bg-dark-400: $neutral-800;
+$bg-dark-500: $neutral-900;

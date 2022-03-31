@@ -1,6 +1,9 @@
 @import "variables";
 @import "reset";
-@import "./Navbar/index";
+@import "navbar";
+@import "about";
+@import "commandList";
+
 .ripple {
   position: relative;
   overflow: hidden;

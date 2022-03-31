@@ -1,5 +1,4 @@
 function setRippleElement(el) {
-  console.log("setRippleElement triggered!");
   const dot = document.createElement("span");
   dot.setAttribute("id", "rpl");
   const largestSide = Math.sqrt(
@@ -23,7 +22,7 @@ function setRippleElement(el) {
   //   el.style.overflow = "hidden";
   el.addEventListener("click", (event) => {
     //console.log(event);
-    const { pageX, pageY, currentTarget, target } = event;
+    const { pageX, pageY, currentTarget } = event;
     const x =
       ((pageX - currentTarget.offsetLeft) * 100) / currentTarget.offsetWidth;
     const y =

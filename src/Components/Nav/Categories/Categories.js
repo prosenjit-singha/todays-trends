@@ -3,9 +3,9 @@ import Data from "../../../Data/categories.json";
 import { NavLink } from "react-router-dom";
 // import "./categories.css";
 // import "../../../Styles/index.css";
-const Categories = ({ toggleMenuButton }) => {
+const Categories = ({ toggleMenuButton, categoryRef }) => {
   return (
-    <ul id="categoryList" className="submenuChildList">
+    <ul {...categoryRef} id="categoryList" className="submenuChildList">
       {Data.map((category, i) => (
         <li key={i}>
           <NavLink

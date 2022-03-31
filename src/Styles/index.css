@@ -22,7 +22,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #303841;
+  background-color: #383f45;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -35,7 +35,7 @@
 }
 
 body {
-  background-color: #303841;
+  background-color: #383f45;
 }
 
 button {
@@ -54,7 +54,7 @@ button {
   height: -moz-fit-content;
   height: fit-content;
   /* max-height: fit-content; */
-  background-color: #3a4750;
+  background-color: #454c52;
   -webkit-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.4);
           box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.4);
   /* z-index: 10; */
@@ -69,8 +69,8 @@ button {
   font-size: 2rem;
   float: left;
   display: block;
-  background-image: -webkit-gradient(linear, left top, right top, from(#303841), to(#3a4750));
-  background-image: linear-gradient(to right, #303841, #3a4750);
+  background-image: -webkit-gradient(linear, left top, right top, from(#383f45), to(#454c52));
+  background-image: linear-gradient(to right, #383f45, #454c52);
   padding: 4px 15px;
 }
 
@@ -92,7 +92,7 @@ button {
   height: 0.25rem;
   width: 1.8rem;
   border-radius: 5px;
-  background-color: #303841;
+  background-color: #383f45;
   z-index: 11;
   -webkit-transition: background-color 300ms ease-out;
   transition: background-color 300ms ease-out;
@@ -105,7 +105,7 @@ button {
   height: 100%;
   width: 100%;
   bottom: 8px;
-  background-color: #303841;
+  background-color: #383f45;
   border-radius: 5px;
   -webkit-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
@@ -118,25 +118,30 @@ button {
   height: 100%;
   width: 100%;
   top: 8px;
-  background-color: #303841;
+  background-color: #383f45;
   border-radius: 5px;
   -webkit-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
 
-.myNav .menu {
+.myNav .menuWrapper {
   clear: both;
+  background-color: #454c52;
+  overflow: hidden;
+}
+
+.myNav .menuWrapper .menu {
   padding: 0;
   list-style: none;
-  overflow: hidden;
-  max-height: 0;
-  background-color: #3a4750;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
   z-index: 9;
   -webkit-transition: max-height 500ms ease-in-out;
   transition: max-height 500ms ease-in-out;
 }
 
-.myNav .menu .menuItem {
+.myNav .menuWrapper .menu .menuItem {
   position: relative;
   display: block;
   color: #eeeeee;
@@ -149,89 +154,67 @@ button {
           user-select: none;
 }
 
-.myNav .menu .menuItem:hover {
-  background-color: #303841;
+.myNav .menuWrapper .menu .menuItem:hover {
+  background-color: #383f45;
 }
 
-.myNav .menu #newsBy:checked ~ .submenu {
-  max-height: 800px;
+.myNav .menuWrapper .menu .submenuWrapper {
+  overflow: hidden;
+  background-color: #1a1c1f;
 }
 
-.myNav .menu .submenu {
+.myNav .menuWrapper .menu .submenuWrapper .submenu {
   padding-left: 1.5rem;
   list-style: none;
-  overflow: hidden;
-  max-height: 0;
-  background-color: #1a1c1f;
   z-index: 8;
   -webkit-transition: max-height 300ms ease-out;
   transition: max-height 300ms ease-out;
 }
 
-.myNav .menu .submenu .menuItem {
-  padding: 0.2rem 1.5rem;
-  z-index: 9;
-  background-color: #1f2022;
-}
-
-.myNav .menu .submenu .menuItem:hover {
-  background-color: #303841;
-}
-
-.myNav .menu .submenu .submenuChildList {
+.myNav .menuWrapper .menu .submenuWrapper .submenu .childListWrapper .submenuChildList {
   padding-left: 1.5rem;
   list-style: none;
-  max-height: 0;
+  max-height: auto;
   background-color: #17191c;
   -webkit-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
 
-.myNav .menu .submenu #categoryList > li > .menuItem {
+.myNav .menuWrapper .menu .submenuWrapper .submenu .menuItem {
+  padding: 0.2rem 1.5rem;
+  z-index: 9;
+  background-color: #1f2022;
+}
+
+.myNav .menuWrapper .menu .submenuWrapper .submenu .menuItem:hover {
+  background-color: #383f45;
+}
+
+.myNav .menuWrapper .menu .submenuWrapper .submenu #categoryList > li > .menuItem {
   background-color: #17191c;
   z-index: 5;
 }
 
-.myNav .menu .submenu #categoryList > li > .menuItem:hover {
-  background-color: #303841;
+.myNav .menuWrapper .menu .submenuWrapper .submenu #categoryList > li > .menuItem:hover {
+  background-color: #383f45;
 }
 
-.myNav .menu .submenu #sourceList > li > .menuItem {
+.myNav .menuWrapper .menu .submenuWrapper .submenu #sourceList > li > .menuItem {
   background-color: #17191c;
   z-index: 6;
 }
 
-.myNav .menu .submenu #sourceList > li > .menuItem:hover {
-  background-color: #303841;
+.myNav .menuWrapper .menu .submenuWrapper .submenu #sourceList > li > .menuItem:hover {
+  background-color: #383f45;
 }
 
-.myNav .menu .submenu #termList > li > .menuItem {
+.myNav .menuWrapper .menu .submenuWrapper .submenu #termList > li > .menuItem {
   background-color: #17191c;
   z-index: 7;
 }
 
-.myNav .menu .submenu #termList > li > .menuItem:hover {
-  background-color: #303841;
-}
-
-.myNav .menu .submenu #categories:checked ~ #categoryList {
-  max-height: 400px;
-}
-
-.myNav .menu .submenu #sources:checked ~ #sourceList {
-  max-height: 400px;
-}
-
-.myNav .menu .submenu #terms:checked ~ #termList {
-  max-height: 400px;
-}
-
-.myNav #menuButton:checked ~ .myNav {
-  height: 100vh;
-}
-
-.myNav #menuButton:checked ~ .menu {
-  max-height: 800px;
+.myNav .menuWrapper .menu .submenuWrapper .submenu #termList > li > .menuItem:hover {
+  background-color: #383f45;
 }
 
 .myNav #menuButton:checked ~ .menuIcon .hamburger {
@@ -267,7 +250,7 @@ button {
     from {
       -webkit-transform: scale(1);
               transform: scale(1);
-      background-color: #303841;
+      background-color: #383f45;
     }
     20% {
       -webkit-transform: scale(0.9);
@@ -283,7 +266,7 @@ button {
     from {
       -webkit-transform: scale(1);
               transform: scale(1);
-      background-color: #303841;
+      background-color: #383f45;
     }
     20% {
       -webkit-transform: scale(0.9);
@@ -306,18 +289,23 @@ button {
   .myNav .menuIcon .hamburger {
     display: none;
   }
-  .myNav .menu {
+  .myNav .menuWrapper {
+    float: right;
+    overflow: visible;
+  }
+  .myNav .menuWrapper .menu {
     clear: none;
     float: right;
     max-height: none;
     padding-top: 8px;
+    z-index: 10;
   }
-  .myNav .menu .menuItem {
+  .myNav .menuWrapper .menu .menuItem {
     position: relative;
     -webkit-transition: all 300ms ease-in-out;
     transition: all 300ms ease-in-out;
   }
-  .myNav .menu .menuItem::after {
+  .myNav .menuWrapper .menu .menuItem::after {
     content: "";
     position: absolute;
     display: block;
@@ -330,24 +318,41 @@ button {
     -webkit-transition: height 200ms ease-out;
     transition: height 200ms ease-out;
   }
-  .myNav .menu .menuItem:hover::after {
+  .myNav .menuWrapper .menu .menuItem:hover::after {
     height: 10%;
   }
-  .myNav .menu > li {
+  .myNav .menuWrapper .menu > li {
     float: left;
   }
-  .myNav .menu .submenu {
+  .myNav .menuWrapper .menu .submenu {
     position: absolute;
     padding-left: 0.5rem;
     border-bottom-right-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
   }
-  .myNav .menu .submenu .submenuChildList {
+  .myNav .menuWrapper .menu .submenu .submenuChildList {
     padding-left: 0.5rem;
   }
-  .myNav .menu #newsBy:checked ~ .submenu {
+  .myNav .menuWrapper .menu #newsBy:checked ~ .submenu {
     max-height: 700px;
   }
+}
+
+#about {
+  position: relative;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#commandList {
+  padding: 2rem;
+}
+
+#commandList .blockContainer {
+  padding: 1rem;
+  border: 2px solid red;
 }
 
 .ripple {
