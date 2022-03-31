@@ -1,4 +1,5 @@
 import React from "react";
+import aos from "aos";
 
 function BlockCard({ commandList }) {
   return (
@@ -70,7 +71,7 @@ const CommandLists = () => {
   ];
   return (
     <div id="commandList">
-      <h2>Normal Commands</h2>
+      <h2 data-aos="fade-left">Normal Commands</h2>
       <BlockCard commandList={normalCommands} />
       <h2>Additional Commands</h2>
       <BlockCard commandList={additionalCommands} />

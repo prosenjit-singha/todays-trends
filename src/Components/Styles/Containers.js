@@ -31,7 +31,8 @@ export const Nav = styled.nav`
   grid-template-rows: repeat(2, auto);
   width: 100vw;
   height: auto;
-  background-color: ${colors.neutral[800]};
+  /* background-color: ${colors.neutral[800]}; */
+  backdrop-filter: blur(10px);
   box-shadow: 0px 0px 5px ${colors.neutral[1000]};
   position: fixed;
   z-index: 10;
@@ -178,4 +179,11 @@ export const ActiveLinkEffect = styled(animated.span)`
   background-color: ${colors.neutral[700]};
   transform: translateX(100%);
   will-change: transform;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  width: 100vw;
+  height: fit-content;
+  padding: 1.5rem;
 `;
