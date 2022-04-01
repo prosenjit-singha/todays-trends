@@ -46,10 +46,23 @@ export const Image = styled.img`
   background-size: cover;
 `;
 
+export const Source = styled.span`
+  font-size: 1.3rem;
+`;
+
+export const Date = styled.span`
+  font-size: 1.25rem;
+  font-style: italic;
+`;
 export const Title = styled.h1`
   font-size: 1.25rem;
 `;
 export const Desc = styled.p`
   font-size: 1rem;
   z-index: 3;
+`;
+
+export const ReadMore = styled.button`
+  border: 0;
+  padding: 0;
 `;

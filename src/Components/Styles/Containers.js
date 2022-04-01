@@ -18,6 +18,30 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
+    &::-webkit-scrollbar {
+        width: 15px;
+      }
+    &::-webkit-scrollbar-track{
+      background-color: ${colors.neutral[900]};
+      border-radius: 10px;
+      box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.3),
+    -4px -4px 5px 0px rgba(255, 255, 255, 0.1),
+    inset 4px 4px 5px 0px rgba(0, 0, 0, 0.3),
+    inset -4px -4px 5px 0px rgba(255, 255, 255, 0.1);
+    }
+    &::-webkit-scrollbar-thumb{
+      margin: 2px;
+      background-color: ${colors.neutral[800]};
+      border-radius: 5px;
+      box-shadow: inset 4px 4px 3px 0px rgba(255, 255, 255, 0.1),
+      inset -4px -4px 3px 0px  rgba(0, 0, 0, 0.3);
+      &:hover{
+        background-color: ${colors.neutral[700]};
+      }
+    }
+    &::-webkit-scrollbar-corner{
+      background-color: transparent;
+    }
     }
     body{
         color: ${colors.neutral[100]};
@@ -182,7 +206,7 @@ export const ActiveLinkEffect = styled(animated.span)`
   position: absolute;
   width: 5.55rem;
   height: 2rem;
-  border-radius: 0.25rem;
+  border-radius: 0.2rem;
   background-color: ${colors.neutral[700]};
   transform: translateX(100%);
 `;
@@ -191,13 +215,13 @@ export const Container = styled.div`
   /* display: flex; */
   width: 100vw;
   height: fit-content;
+  min-height: 100vh;
   padding: 1.5rem;
 `;
 
 export const Footer = styled.footer`
-  float: bottom;
-  display: flex;
+  position: relative;
   width: 100vw;
   height: 20vh;
-  backdrop-filter: blur(10px);
+  background-color: red;
 `;
