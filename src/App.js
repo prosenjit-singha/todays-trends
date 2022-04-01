@@ -7,6 +7,7 @@ import AOS from "aos";
 import "../node_modules/aos/dist/aos.css";
 import Nav from "./Components/Nav/Index";
 import NavBar from "./Components/NavBar/NavBar";
+import Footer from "./Components/Footer/Footer";
 import { NavBarSpace } from "./Components/Styles/Containers";
 import NewsCards from "./Components/NewsCards/NewsCards";
 import Home from "./Components/Home/Home";
@@ -74,6 +75,7 @@ const App = () => {
         <Route path="/*" element={<Error />} />
       </Routes>
       <NewsCards articles={newsArticles} activeArticle={activeArticle} />
+      <Footer />
     </React.Fragment>
   );
 };

@@ -1,9 +1,10 @@
 import React from "react";
 import aos from "aos";
+import { Container } from "../Styles/Containers";
 
 function BlockCard({ commandList }) {
   return (
-    <React.Fragment>
+    <Container>
       {commandList.map((block, i) => (
         <div className="blockContainer" key={i}>
           <h3 data-aos="fade-left">{block.title}</h3>
@@ -16,7 +17,7 @@ function BlockCard({ commandList }) {
           </ul>
         </div>
       ))}
-    </React.Fragment>
+    </Container>
   );
 }
 const CommandLists = () => {
@@ -73,7 +74,7 @@ const CommandLists = () => {
     <div id="commandList">
       <h2 data-aos="fade-left">Normal Commands</h2>
       <BlockCard commandList={normalCommands} />
-      <h2>Additional Commands</h2>
+      <h2 data-aos="fade-left">Additional Commands</h2>
       <BlockCard commandList={additionalCommands} />
     </div>
   );

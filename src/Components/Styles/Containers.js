@@ -9,6 +9,10 @@ const smDevice = "791px";
 export const GlobalStyle = createGlobalStyle`
  @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+ /* font-family: 'Comfortaa', cursive; */
+ @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+ /* font-family: 'Fjalla One', sans-serif; */
     *{
     padding: 0;
     margin: 0;
@@ -63,14 +67,14 @@ export const HamburgerContainer = styled.div`
 `;
 
 export const Line = styled(animated.span)`
+  /* will-change: background-color; */
   position: absolute;
   display: block;
   height: 0.25rem;
   width: 100%;
   left: 0;
-  background-color: ${colors.neutral[900]};
+  background-color: ${colors.neutral[700]};
   border-radius: 5px;
-  will-change: background-color;
 
   &:nth-child(1) {
     /* background-color: red; */
@@ -143,7 +147,7 @@ export const MenuListItem = styled.li`
     margin-bottom: 0.5rem;
   }
   @media (min-width: ${smDevice}) {
-    width: 8rem;
+    width: fit-content;
     &:last-child {
       margin-bottom: 0rem;
     }
@@ -151,6 +155,8 @@ export const MenuListItem = styled.li`
 `;
 
 export const MenuLink = styled(animated(NavLink))`
+  font-family: "Comfortaa", cursive;
+  text-transform: uppercase;
   text-decoration: none;
   width: 100%;
   height: 100%;
@@ -163,27 +169,35 @@ export const MenuLink = styled(animated(NavLink))`
     background-color: transparent;
   }
   @media (min-width: ${smDevice}) {
-    width: 8rem;
+    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    padding: 0 1rem;
   }
 `;
 
 export const ActiveLinkEffect = styled(animated.span)`
-  /* position: absolute; */
-  width: 8rem;
+  will-change: transform;
+  position: absolute;
+  width: 5.55rem;
   height: 2rem;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   background-color: ${colors.neutral[700]};
   transform: translateX(100%);
-  will-change: transform;
 `;
 
 export const Container = styled.div`
-  display: flex;
+  /* display: flex; */
   width: 100vw;
   height: fit-content;
   padding: 1.5rem;
+`;
+
+export const Footer = styled.footer`
+  float: bottom;
+  display: flex;
+  width: 100vw;
+  height: 20vh;
+  backdrop-filter: blur(10px);
 `;

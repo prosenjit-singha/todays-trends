@@ -3,10 +3,12 @@ import axios from "axios";
 import { useMeasure } from "../../Helpers";
 import { useSpring, animated } from "react-spring";
 import { Container } from "../Styles/Containers";
-import { Grid, CardContainer, Title, Desc, Image } from "./Styles";
+import { Grid } from "./Styles";
+import { CardContainer, Card, Title, Desc, Image } from "../Styles/CardStyles";
 import newsAltImage from "../../img/newspaper-2.svg";
 import NewsCards from "../NewsCards/NewsCards";
 const Home = ({ articles, activeArticles }) => {
+  //console.log(articles.length());
   const [newsData, setNewsData] = useState([]);
   useEffect(() => {
     axios
@@ -25,13 +27,15 @@ const Home = ({ articles, activeArticles }) => {
           (data, i) =>
             data.author != null && (
               <CardContainer>
-                <Image
-                  src={
-                    data.urlToImage === null ? newsAltImage : data.urlToImage
-                  }
-                />
-                <Title>{data.title}</Title>
-                <Desc>{data.description}</Desc>
+                <Card hover={true}>
+                  <Image
+                    src={
+                      data.urlToImage === null ? newsAltImage : data.urlToImage
+                    }
+                  />
+                  <Title>{data.title}</Title>
+                  <Desc>{data.description}</Desc>
+                </Card>
               </CardContainer>
             )
         )}

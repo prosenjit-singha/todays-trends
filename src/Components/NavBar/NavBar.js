@@ -19,12 +19,14 @@ const NavBar = () => {
   const { pathname } = useLocation();
   const homeRef = useRef();
   function calTrans() {
-    if (pathname === "/" || pathname === "/home") return 100;
-    if (pathname === "/command-list") return 200;
-    if (pathname === "/about") return 300;
+    if (pathname === "/" || pathname === "/home")
+      return { scl: 1, trans: -289 };
+    if (pathname === "/command-list") return { scl: 1.9, trans: -147 };
+    if (pathname === "/about") return { scl: 1, trans: -1 };
   }
+  console.log(calTrans());
   const activeMenuStyle = useSpring({
-    transform: `translateX(${calTrans()}%)`,
+    transform: `translateX(${calTrans().trans}%) scaleX(${calTrans().scl})`,
     config: {
       mass: 0.8,
       tension: 140,
