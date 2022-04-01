@@ -13,6 +13,8 @@ export const GlobalStyle = createGlobalStyle`
  /* font-family: 'Comfortaa', cursive; */
  @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
  /* font-family: 'Fjalla One', sans-serif; */
+ @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+ /* font-family: 'Anton', sans-serif; */
     *{
     padding: 0;
     margin: 0;

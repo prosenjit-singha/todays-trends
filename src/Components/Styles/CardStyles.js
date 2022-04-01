@@ -13,37 +13,47 @@ export const CardContainer = styled.div`
     inset 4px 4px 5px 0px rgba(0, 0, 0, 0.3),
     inset -4px -4px 5px 0px rgba(255, 255, 255, 0.1);
   border-radius: 0.5rem;
-  min-height: 500px;
+  min-height: 510px;
 `;
 
 const tbrl = "10px";
-export const Card = styled.div`
-  border: 2px solid ${colors.neutral[900]};
+
+export const Card = styled(animated.div)`
+  will-change: transform, box-shadow;
+  //border: 2px solid ${colors.neutral[900]};
   border-radius: 0.5rem;
   background-color: ${colors.neutral[800]};
   overflow: hidden;
   position: absolute;
   padding: 0.5rem;
   transform: translateY(0);
-  box-shadow: none;
+  //box-shadow: inset 4px 4px 5px 0px rgba(255, 255, 255, 0.1),
+  //  inset -4px -4px 5px 0px rgba(0, 0, 0, 0.3);
   top: ${tbrl};
   bottom: ${tbrl};
   left: ${tbrl};
   right: ${tbrl};
-  transition: transform, box-shadow, 300ms ease-in-out;
-  &:hover {
-    transform: translateY(-5%);
-    box-shadow: 10px 15px 6px rgba(0, 0, 0, 0.3);
-  }
 `;
 
-export const Image = styled.img`
+export const Image = styled.div`
   width: 100%;
-  max-height: 190px;
+  height: 250px;
   background-image: url(${(props) => props.imgURL});
-  background-position: center;
-  background-repeat: no-repeat;
+  display: block;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  &::before {
+    content: "${(props) => props.index}";
+    position: absolute;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 10rem;
+    font-family: "Anton", sans-serif;
+    letter-spacing: 0;
+    -webkit-text-stroke: 2px rgba(0, 0, 0, 0.1);
+    top: -2rem;
+    right: 15px;
+  }
 `;
 
 export const Source = styled.span`
@@ -63,6 +73,17 @@ export const Desc = styled.p`
 `;
 
 export const ReadMore = styled.button`
+  position: absolute;
   border: 0;
-  padding: 0;
+  border-radius: 0.8rem;
+  padding: 0.2rem 0.5rem;
+  background-color: ${colors.yellow[300]};
+  bottom: ${tbrl};
+  right: ${tbrl};
+  box-shadow: none;
+  transition: box-shadow, font-weight 250ms ease-in-out;
+  &:hover {
+    box-shadow: 0px 0px 1rem ${colors.yellow[300]};
+    font-weight: bold;
+  }
 `;

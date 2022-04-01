@@ -4,7 +4,7 @@ import { Container } from "../Styles/Containers";
 
 function BlockCard({ commandList }) {
   return (
-    <Container>
+    <Container style={{ minHeight: "fit-content" }}>
       {commandList.map((block, i) => (
         <div className="blockContainer" key={i}>
           <h3 data-aos="fade-left">{block.title}</h3>

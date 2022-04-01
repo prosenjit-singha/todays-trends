@@ -24,7 +24,6 @@ const NavBar = () => {
     if (pathname === "/command-list") return { scl: 1.9, trans: -147 };
     if (pathname === "/about") return { scl: 1, trans: -1 };
   }
-  console.log(calTrans());
   const activeMenuStyle = useSpring({
     transform: `translateX(${calTrans().trans}%) scaleX(${calTrans().scl})`,
     config: {

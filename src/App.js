@@ -16,12 +16,13 @@ import CommandList from "./Components/CommandList/CommandList";
 import Developers from "./Components/Dev/Dev";
 import Error from "./Components/Error/Error";
 import { GlobalStyle } from "./Components/Styles/Containers";
+import axios from "axios";
 
 const alanKey =
   "9d1324a30a0a78d5a51fdfa0d05b9c372e956eca572e1d8b807a3e2338fdd0dc/stage";
 
 const App = () => {
-  const [activeArticle, setActiveArticle] = useState(0);
+  const [activeArticle, setActiveArticle] = useState(1); //set null
   const [newsArticles, setNewsArticles] = useState([]);
 
   useEffect(() => {
@@ -53,6 +54,13 @@ const App = () => {
         }
       },
     });
+    axios
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=us&apiKey=daeddbe4bc074bf48d19a82ff073c046"
+      )
+      .then((res) => {
+        setNewsArticles(res.data.articles);
+      });
   }, []);
   return (
     <React.Fragment>
@@ -74,7 +82,7 @@ const App = () => {
         <Route path="/developers" element={<Developers />} />
         <Route path="/*" element={<Error />} />
       </Routes>
-      <NewsCards articles={newsArticles} activeArticle={activeArticle} />
+      {/* <NewsCards articles={newsArticles} activeArticle={activeArticle} /> */}
       <Footer />
     </React.Fragment>
   );
