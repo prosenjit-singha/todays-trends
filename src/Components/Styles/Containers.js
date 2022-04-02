@@ -65,7 +65,7 @@ export const Nav = styled.nav`
   backdrop-filter: blur(10px);
   box-shadow: 0px 0px 5px ${colors.neutral[1000]};
   position: fixed;
-  z-index: 10;
+  z-index: 30;
   @media (min-width: ${smDevice}) {
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto;

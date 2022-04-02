@@ -21,7 +21,7 @@ export const colors = {
   yellow: {
     100: "#fff0b3",
     200: "#ffe380",
-    300: "#ffc400",
+    300: "rgba(255, 196, 0, 1)",
     400: "#ffab00",
     500: "#ff991f",
   },

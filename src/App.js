@@ -22,7 +22,7 @@ const alanKey =
   "9d1324a30a0a78d5a51fdfa0d05b9c372e956eca572e1d8b807a3e2338fdd0dc/stage";
 
 const App = () => {
-  const [activeArticle, setActiveArticle] = useState(1); //set null
+  const [activeArticle, setActiveArticle] = useState(null); //set null
   const [newsArticles, setNewsArticles] = useState([]);
 
   useEffect(() => {
