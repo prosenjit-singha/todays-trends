@@ -5,10 +5,9 @@ import { colors } from "../Styles/Variables";
 const Logo = () => {
   const [hovered, setHovered] = useState(false);
   const props = useSpring({
-    color: hovered ? `${colors.red[300]}` : `${colors.blue[300]}`,
-    fontSize: hovered ? `2.015rem` : `2rem`,
-    textShadow: `${hovered ? 3 : 0}px ${hovered ? 3 : 0}px 1px black`,
-    //backgroundColor: hovered ? "red" : "blue",
+    color: hovered ? `${colors.blue[100]}` : `${colors.blue[300]}`,
+
+    textShadow: `0px 0px ${hovered ? 20 : 0}px ${colors.blue[100]}`,
   });
   return (
     <Hero

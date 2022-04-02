@@ -74,11 +74,12 @@ export const Content = styled(animated.div)`
   will-change: max-height;
   position: relative;
   display: flex;
+  //flex-wrap: wrap;
   flex-direction: column;
   //width: 100%;
   height: 50%;
   flex-basis: 100%;
-  padding: 1.5rem 1.5rem;
+  padding: 1rem 1rem;
   margin-bottom: 0.8rem;
   max-height: auto;
   overflow: hidden;
@@ -88,15 +89,16 @@ export const Content = styled(animated.div)`
 `;
 
 export const Source = styled.span`
-  font-size: 1.3rem;
+  float: right;
+  font-size: 1rem;
 `;
 
 export const Date = styled.span`
-  font-size: 1.25rem;
-  font-style: italic;
+  font-size: 0.8rem;
 `;
 export const Title = styled.h1`
   font-size: 1.25rem;
+  padding-top: 0.5rem;
   bottom: 0;
 `;
 export const Desc = styled.div`

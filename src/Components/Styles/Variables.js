@@ -41,4 +41,7 @@ export const colors = {
     400: "#00b8d9",
     500: "#00a3bf",
   },
+  pink: {
+    500: "#FA2FBD",
+  },
 };

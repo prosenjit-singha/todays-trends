@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import {
   CardContainer,
   Card,
+  Source,
+  Date,
   Title,
   Desc,
   Image,
@@ -99,6 +101,8 @@ const NewsCard = ({
         <ContentWrapper style={contentAnimation}>
           <Image image={urlToImage} index={index} />
           <Content>
+            <Source>{source.name} </Source>
+            <Date>{publishedAt} </Date>
             <Title>{title}</Title>
             <Desc>{description}</Desc>
           </Content>

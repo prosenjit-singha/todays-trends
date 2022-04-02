@@ -61,7 +61,7 @@ export const Nav = styled.nav`
   grid-template-rows: repeat(2, auto);
   width: 100vw;
   height: auto;
-  /* background-color: ${colors.neutral[800]}; */
+  background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   box-shadow: 0px 0px 5px ${colors.neutral[1000]};
   position: fixed;
@@ -181,6 +181,7 @@ export const MenuListItem = styled.li`
 `;
 
 export const MenuLink = styled(animated(NavLink))`
+  will-change: text-shadow, color;
   font-family: "Comfortaa", cursive;
   text-transform: uppercase;
   text-decoration: none;
@@ -188,11 +189,18 @@ export const MenuLink = styled(animated(NavLink))`
   height: 100%;
   padding-top: 0.25rem;
   padding-left: 2rem;
-  color: ${colors.neutral[200]};
+  color: white;
+  font-weight: bolder;
+  text-shadow: none;
   cursor: pointer;
+  //background-color: ${(props) => (props.isactive ? "red" : "blue")};
+  transition: color, text-shadow 300ms ease;
   &:hover {
-    color: ${colors.neutral[100]};
+    color: white;
     background-color: transparent;
+    text-shadow: 0px 0px 25rem ${(props) => props.color},
+      0px 0px 20px ${(props) => props.color},
+      0px 0px 10px ${(props) => props.color};
   }
   @media (min-width: ${smDevice}) {
     width: fit-content;
@@ -206,10 +214,11 @@ export const MenuLink = styled(animated(NavLink))`
 export const ActiveLinkEffect = styled(animated.span)`
   will-change: transform;
   position: absolute;
-  width: 5.55rem;
-  height: 2rem;
+  width: 4rem;
+  height: 0.8rem;
   border-radius: 0.2rem;
-  background-color: ${colors.neutral[700]};
+  filter: blur(14px);
+  opacity: 1;
   transform: translateX(100%);
 `;
 
