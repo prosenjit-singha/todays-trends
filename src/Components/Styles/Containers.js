@@ -189,19 +189,19 @@ export const MenuLink = styled(animated(NavLink))`
   height: 100%;
   padding-top: 0.25rem;
   padding-left: 2rem;
-  color: white;
+  //color: white;
   font-weight: bolder;
   text-shadow: none;
   cursor: pointer;
   //background-color: ${(props) => (props.isactive ? "red" : "blue")};
   transition: color, text-shadow 300ms ease;
-  &:hover {
+  /* &:hover {
     color: white;
     background-color: transparent;
     text-shadow: 0px 0px 25rem ${(props) => props.color},
       0px 0px 20px ${(props) => props.color},
       0px 0px 10px ${(props) => props.color};
-  }
+  } */
   @media (min-width: ${smDevice}) {
     width: fit-content;
     display: flex;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, createRef } from "react";
 import {
   CardContainer,
   Card,
@@ -21,12 +21,32 @@ const NewsCard = ({
   index,
   activeArticle,
 }) => {
+  //auto scrolling effect for
+  const [elementRefs, setElRefs] = useState([]);
+  const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 85);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+
+    setElRefs((refs) =>
+      Array(20)
+        .fill()
+        .map((_, j) => refs[j] || createRef())
+    );
+  }, []);
+
+  useEffect(() => {
+    if (index === activeArticle && elementRefs[activeArticle]) {
+      scrollToRef(elementRefs[activeArticle]);
+    }
+  }, [index, activeArticle, elementRefs]);
+  //end of auto scrolling
   const isTheArticleActive = activeArticle === index ? true : false;
   const [hovered, setHovered] = useState(false);
   const active = useSpring({
     transform:
       isTheArticleActive || hovered
-        ? "translateY(-5%) scale(1)"
+        ? "translateY(-1%) scale(1)"
         : "translateY(0%) scale(1)",
     boxShadow:
       isTheArticleActive || hovered
@@ -64,6 +84,9 @@ const NewsCard = ({
   });
   const readMoreEffect = useSpring({
     fontWeight: "bold",
+    backgroundColor: isTheArticleActive
+      ? colors.green[200]
+      : "rgba(255, 196, 0, 0.9)",
     boxShadow: hovered
       ? `0px 0px 2rem ${
           isTheArticleActive ? colors.green[200] : "rgba(255, 196, 0, 0.9)"
@@ -92,7 +115,7 @@ const NewsCard = ({
     config: { duration: 1000 },
   });
   return (
-    <CardContainer>
+    <CardContainer ref={elementRefs[index]}>
       <Card
         style={active}
         onMouseEnter={() => setHovered(true)}

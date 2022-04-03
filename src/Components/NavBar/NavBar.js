@@ -1,11 +1,12 @@
-import { useSpring } from "react-spring";
-import React, { useEffect, useState } from "react";
+import { useSpring, useSprings } from "react-spring";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { useBreakpoint } from "react-use-size";
 import { useMeasure } from "../../Helpers";
 import Hamburger from "./Hamburger";
 import Logo from "./Logo";
 import { colors } from "../Styles/Variables";
+import { menuItems as mi } from "./MenuItems";
 
 import {
   ActiveLinkEffect,
@@ -67,25 +68,32 @@ const NavBar = () => {
       friction: 10,
     },
   });
-  const homeStyle = useSpring({
-    color: `${activeNav.home ? "white" : colors.green[200]}`,
-    textShadow: `0px 0px ${activeNav.home ? "10" : "0"}px ${colors.green[100]}`,
-  });
-  const cmdStyle = useSpring({
-    color: `${activeNav.commandList ? "white" : colors.blue[200]}`,
-    textShadow: `0px 0px ${activeNav.commandList ? "10" : "0"}px ${
-      colors.blue[100]
-    }`,
-    //backgroundColor: activeNav.commandList ? "red" : "blue",
-  });
-  const aboutStyle = useSpring({
-    color: `${activeNav.about ? "white" : colors.yellow[200]}`,
-    textShadow: `0px 0px ${activeNav.about ? "10" : "0"}px ${
-      colors.yellow[100]
-    }`,
-    //backgroundColor: activeNav.about ? "red" : "blue",
-  });
+
+  const [menuItems, setMenuItems] = useSprings(mi.length, (index) => ({
+    ...mi[index],
+    textShadow:
+      mi[index].path === pathname
+        ? mi[index].textShadowTo
+        : mi[index].textShadowFrom,
+    config: {
+      duration: 200,
+    },
+  }));
+
+  const activeThisLink = (i) => {
+    //let style = {};
+    toggleMenu(!openMenu);
+    setMenuItems.start((index) => {
+      if (index === i)
+        return { ...mi[index], textShadow: mi[index].textShadowTo };
+      else return { ...mi[index], textShadow: mi[index].textShadowFrom };
+    });
+  };
+  const print = (isActive) => {
+    console.log(isActive ? "true" : "false");
+  };
   //styling-end
+  const menu = useRef();
 
   return (
     <Nav>
@@ -94,37 +102,19 @@ const NavBar = () => {
       <MenuWrapper style={smDevice ? menuStyles : { maxHeight: "3.2rem" }}>
         <MenuList {...menuRef}>
           {!smDevice && <ActiveLinkEffect style={activeMenuStyle} />}
-          <MenuListItem>
-            <MenuLink
-              style={homeStyle}
-              color={colors.green[200]}
-              to="/"
-              onClick={() => handleActiveNav("home")}
-            >
-              Home
-            </MenuLink>
-          </MenuListItem>
-
-          <MenuListItem>
-            <MenuLink
-              style={cmdStyle}
-              color={colors.blue[200]}
-              to="/command-list"
-              onClick={() => handleActiveNav("commandList")}
-            >
-              Command List
-            </MenuLink>
-          </MenuListItem>
-          <MenuListItem>
-            <MenuLink
-              style={aboutStyle}
-              color={colors.yellow[200]}
-              to="/about"
-              onClick={() => handleActiveNav("about")}
-            >
-              About
-            </MenuLink>
-          </MenuListItem>
+          {menuItems.map(({ name, path, color, textShadow }, i) => (
+            <MenuListItem key={i}>
+              <MenuLink
+                {...menu}
+                id={name}
+                style={{ color, textShadow }}
+                to={path}
+                onClick={() => activeThisLink(i)}
+              >
+                {name}
+              </MenuLink>
+            </MenuListItem>
+          ))}
         </MenuList>
       </MenuWrapper>
     </Nav>
