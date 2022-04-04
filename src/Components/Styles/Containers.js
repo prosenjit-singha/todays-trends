@@ -7,14 +7,7 @@ import { animated } from "react-spring";
 const smDevice = "791px";
 
 export const GlobalStyle = createGlobalStyle`
- @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
- @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
- @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
- /* font-family: 'Comfortaa', cursive; */
- @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
- /* font-family: 'Fjalla One', sans-serif; */
- @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
- /* font-family: 'Anton', sans-serif; */
+ 
     *{
     padding: 0;
     margin: 0;
@@ -66,6 +59,7 @@ export const Nav = styled.nav`
   box-shadow: 0px 0px 5px ${colors.neutral[1000]};
   position: fixed;
   z-index: 30;
+  overflow: hidden;
   @media (min-width: ${smDevice}) {
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto;
@@ -126,12 +120,11 @@ export const Hamburger = styled.div`
   }
 `;
 export const MenuWrapper = styled(animated.div)`
+  will-change: max-height;
   grid-column: 1/-1;
   grid-row: 2/-1;
   width: 100%;
   height: 100%;
-  will-change: max-height;
-  overflow: hidden;
   @media (min-width: ${smDevice}) {
     position: relative;
     display: flex;
@@ -150,6 +143,7 @@ export const MenuList = styled.ul`
   padding: 0;
   margin: 0;
   display: flex;
+  overflow: visible;
   flex-direction: column;
   align-content: center;
   @media (min-width: ${smDevice}) {
@@ -168,7 +162,7 @@ export const MenuListItem = styled.li`
   margin: 0;
   padding: 0;
   display: flex;
-
+  overflow: visible;
   &:last-child {
     margin-bottom: 0.5rem;
   }
@@ -189,19 +183,12 @@ export const MenuLink = styled(animated(NavLink))`
   height: 100%;
   padding-top: 0.25rem;
   padding-left: 2rem;
+  overflow: visible;
   //color: white;
   font-weight: bolder;
   text-shadow: none;
   cursor: pointer;
-  //background-color: ${(props) => (props.isactive ? "red" : "blue")};
   transition: color, text-shadow 300ms ease;
-  /* &:hover {
-    color: white;
-    background-color: transparent;
-    text-shadow: 0px 0px 25rem ${(props) => props.color},
-      0px 0px 20px ${(props) => props.color},
-      0px 0px 10px ${(props) => props.color};
-  } */
   @media (min-width: ${smDevice}) {
     width: fit-content;
     display: flex;
@@ -211,22 +198,28 @@ export const MenuLink = styled(animated(NavLink))`
   }
 `;
 
-export const ActiveLinkEffect = styled(animated.span)`
+export const ActiveLinkEffectContainer = styled(animated.span)`
   will-change: transform;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  width: 4rem;
-  height: 0.8rem;
-  border-radius: 0.2rem;
-  filter: blur(14px);
+  width: 91.6875px;
+  height: 32px;
+  filter: blur(0px);
+  border: 1px solid red;
+  //z-index: 60;
   opacity: 1;
-  transform: translateX(100%);
 `;
-
+export const ActiveLinkEffect = styled(animated.span)`
+  width: 80%;
+  height: 60%;
+  background-color: blue;
+`;
 export const Container = styled.div`
-  /* display: flex; */
   width: 100vw;
   height: fit-content;
-  min-height: 100vh;
+  min-height: 95vh;
   padding: 1.5rem;
 `;
 

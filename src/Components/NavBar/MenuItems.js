@@ -3,6 +3,7 @@ import { colors } from "../Styles/Variables";
 const blurAmount = [25, 20, 10];
 export const menuItems = [
   {
+    id: "home",
     name: "Home",
     path: "/",
     color: colors.green[200],
@@ -16,6 +17,7 @@ export const menuItems = [
     transform: `scale(1)`,
   },
   {
+    id: "commandList",
     name: "Command List",
     path: "/command-list",
     color: colors.blue[200],
@@ -30,6 +32,7 @@ export const menuItems = [
   },
 
   {
+    id: "about",
     name: "About",
     path: "/about",
     color: colors.yellow[200],

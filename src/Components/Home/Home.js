@@ -7,8 +7,10 @@ import { Container } from "../Styles/Containers";
 import { Grid } from "./Styles";
 import { CardContainer, Card, Title, Desc, Image } from "../Styles/CardStyles";
 import newsAltImage from "../../img/newspaper-2.svg";
+import Loading from "../Loading";
 const Home = ({ articles, activeArticle }) => {
-  return <NewsCards articles={articles} activeArticle={activeArticle} />;
+  // return <NewsCards articles={articles} activeArticle={activeArticle} />;
+  return <Loading />;
 };
 
 export default React.memo(Home);

@@ -11,6 +11,7 @@ const Logo = () => {
   });
   return (
     <Hero
+      id="logo"
       to="/"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}

@@ -35,6 +35,6 @@ function setRippleElement(el) {
 
 //main function
 export default function rippleEffect() {
-  console.log("ripple clicked");
+  //console.log("ripple clicked");
   document.querySelectorAll(".ripple").forEach(setRippleElement);
 }
