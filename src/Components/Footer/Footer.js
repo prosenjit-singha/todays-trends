@@ -67,7 +67,7 @@ const Container = styled.div`
   overflow: hidden;
   @media (min-width: ${smDevice}) {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 4fr 1fr;
     grid-template-rows: repeat(3, auto);
   }
 `;
