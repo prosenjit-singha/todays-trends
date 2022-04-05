@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import Logo from "../NavBar/Logo";
 import { Footer as FT } from "../Styles/Containers";
 import styled from "styled-components";
@@ -11,6 +11,8 @@ import {
   FaInstagram as Insta,
   FaLinkedinIn as Linkedin,
 } from "react-icons/fa";
+
+const smDevice = "791px";
 
 const SocialIcons = ({ size, color }) => {
   const styles = {
@@ -31,21 +33,17 @@ const SocialIcons = ({ size, color }) => {
     height: auto;
     justify-content: space-evenly;
     margin-bottom: 8px;
+    @media (min-width: ${smDevice}) {
+      height: auto;
+      margin-left: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
   `;
-  const fb = useRef();
-  const handleClick = () => {
-    console.log(document.getElementById("fb"));
-  };
+
   return (
     <React.Fragment>
       <Container>
-        <Fb
-          id="fb"
-          size={size}
-          color={color}
-          style={styles}
-          onClick={handleClick}
-        />
+        <Fb id="fb" size={size} color={color} style={styles} />
         <Insta size={size} color={color} style={styles} />
         <Twitter size={size} color={color} style={styles} />
         <Linkedin size={size} color={color} style={styles} />
@@ -66,6 +64,12 @@ const Container = styled.div`
   padding-top: 0.8rem;
   box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.3);
   z-index: 10;
+  overflow: hidden;
+  @media (min-width: ${smDevice}) {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(3, auto);
+  }
 `;
 
 const BriefAbout = styled.div`
@@ -73,6 +77,10 @@ const BriefAbout = styled.div`
   align-items: center;
   flex-direction: column;
   grid-row: 1/2;
+  @media (min-width: ${smDevice}) {
+    grid-row: 1/2;
+    grid-column: 1/2;
+  }
 `;
 const TextBox = styled.p`
   font-family: "Roboto", sans-serif;
@@ -87,12 +95,20 @@ const UsefulLinks = styled.div`
   align-items: center;
   flex-direction: column;
   grid-row: 2/3;
+  @media (min-width: ${smDevice}) {
+    align-items: start;
+    grid-row: 1/3;
+    grid-column: 2/3;
+    padding-top: 1rem;
+    height: 100%;
+  }
 `;
 
 const FLink = styled(NavLink)`
   color: ${colors.neutral[200]};
   font-weight: lighter;
   text-decoration: none;
+  transition: color 300ms ease;
   &:hover {
     color: white;
   }
@@ -102,6 +118,12 @@ const FollowUs = styled.div`
   flex-direction: column;
   align-items: center;
   grid-row: 3/4;
+  @media (min-width: ${smDevice}) {
+    flex-direction: row;
+    justify-content: center;
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
 `;
 
 const Rights = styled.span`
@@ -112,6 +134,10 @@ const Rights = styled.span`
   padding: 0.5rem 0rem;
   padding-bottom: 1rem;
   font-weight: lighter;
+  @media (min-width: ${smDevice}) {
+    grid-row: 3/-1;
+    grid-column: 1/-1;
+  }
 `;
 const Hr = styled.div`
   background-color: rgb(6 36 40);
@@ -121,6 +147,9 @@ const Hr = styled.div`
   height: 3px;
   width: 90%;
   margin: 8px 0rem;
+  @media (min-width: ${smDevice}) {
+    display: none;
+  }
 `;
 
 const Footer = () => {

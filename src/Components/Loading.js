@@ -11,10 +11,13 @@ const Text = styled(animated.div)`
   width: 100%;
   font-weight: bolder;
   color: ${colors.neutral[900]};
-  font-size: 10rem;
+  font-size: 5rem;
   text-align: center;
   text-shadow: 5px 5px 5px ${colors.neutral[1000]},
     -4px -4px 5px ${colors.neutral[800]};
+  @media (min-width: 791px) {
+    font-size: 10rem;
+  }
 `;
 const Loading = () => {
   const props = useSpring({
@@ -39,6 +42,7 @@ const Loading = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        width: "auto",
       }}
     >
       <Text style={props}>Loading...</Text>

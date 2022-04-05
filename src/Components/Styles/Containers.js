@@ -217,7 +217,7 @@ export const ActiveLinkEffect = styled(animated.span)`
   background-color: blue;
 `;
 export const Container = styled.div`
-  width: 100vw;
+  width: auto;
   height: fit-content;
   min-height: 95vh;
   padding: 1.5rem;
@@ -225,6 +225,6 @@ export const Container = styled.div`
 
 export const Footer = styled.footer`
   position: relative;
-  width: 100vw;
+  width: auto;
   height: fit-content;
 `;
