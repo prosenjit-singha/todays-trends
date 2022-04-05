@@ -226,6 +226,5 @@ export const Container = styled.div`
 export const Footer = styled.footer`
   position: relative;
   width: 100vw;
-  height: 20vh;
-  background-color: red;
+  height: fit-content;
 `;
