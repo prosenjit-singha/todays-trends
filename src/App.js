@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navigate, Routes, Route } from "react-router-dom";
 import alanBtn from "@alan-ai/alan-sdk-web";
-import rippleEffect from "./Components/RippleEffect";
 import wordsToNumbers from "words-to-numbers";
 import AOS from "aos";
 import "../node_modules/aos/dist/aos.css";
@@ -24,7 +23,8 @@ const App = () => {
   const [newsArticles, setNewsArticles] = useState([]);
 
   useEffect(() => {
-    rippleEffect();
+    let NEWS_API =
+      "https://newsapi.org/v2/top-headlines?country=us&apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12";
     AOS.init(); //for scroll animation
     alanBtn({
       key: alanKey,
@@ -52,13 +52,9 @@ const App = () => {
         }
       },
     });
-    axios
-      .get(
-        "https://newsapi.org/v2/top-headlines?country=us&apiKey=daeddbe4bc074bf48d19a82ff073c046"
-      )
-      .then((res) => {
-        setNewsArticles(res.data.articles);
-      });
+    axios.get(NEWS_API).then((res) => {
+      setNewsArticles(res.data.articles);
+    });
   }, []);
   return (
     <React.Fragment>
@@ -81,7 +77,7 @@ const App = () => {
         <Route path="/*" element={<Error />} />
       </Routes>
       {/* <NewsCards articles={newsArticles} activeArticle={activeArticle} /> */}
-      <Footer />
+      <Footer />r
     </React.Fragment>
   );
 };

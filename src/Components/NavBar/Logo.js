@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSpring, animated } from "react-spring";
 import { Hero } from "../Styles/Containers";
 import { colors } from "../Styles/Variables";
-const Logo = () => {
+const Logo = ({ activeThisLink }) => {
   const [hovered, setHovered] = useState(false);
   const props = useSpring({
     color: hovered ? `${colors.blue[100]}` : `${colors.blue[300]}`,
@@ -13,6 +13,7 @@ const Logo = () => {
     <Hero
       id="logo"
       to="/"
+      onClick={() => activeThisLink(0)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={props}

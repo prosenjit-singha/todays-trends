@@ -6,3 +6,9 @@
 /* font-family: 'Fjalla One', sans-serif; */
 @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 /* font-family: 'Anton', sans-serif; */
+@keyframes ripple {
+  100% {
+    transform: translate(-50%, -50%) scale(100);
+    opacity: 0;
+  }
+}

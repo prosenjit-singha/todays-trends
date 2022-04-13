@@ -16,6 +16,7 @@ const smDevice = "791px";
 
 const SocialIcons = ({ size, color }) => {
   const styles = {
+    cursor: "pointer",
     padding: "5px",
     borderRadius: "5px",
     boxShadow: `3px 3px 4px rgba(0,0,0, 0.6), 

@@ -22,7 +22,7 @@ const tbrl = "10px";
 export const Card = styled(animated.div)`
   /* display: flex;
   flex-direction: column; */
-  height: 30rem;
+  height: 25rem;
   position: relative;
   max-height: 100%;
   width: 100%;
@@ -96,13 +96,14 @@ export const Source = styled.span`
 export const Date = styled.span`
   font-size: 0.8rem;
 `;
-export const Title = styled.h1`
-  font-size: 1.25rem;
+export const Title = styled.h3`
+  font-size: 1rem;
   padding-top: 0.5rem;
   bottom: 0;
 `;
 export const Desc = styled.div`
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-weight: lighter;
   text-align: justify;
   z-index: 3;
 `;
@@ -140,7 +141,7 @@ export const Shine = styled(animated.div)`
 export const ContentWrapper = styled(animated.div)`
   position: relative;
   width: 100%;
-  height: 30rem;
+  height: 25rem;
   bottom: 2rem;
   display: flex;
   flex-direction: column;

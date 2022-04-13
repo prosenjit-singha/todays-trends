@@ -59,12 +59,11 @@ const NavBar = () => {
         ? mi[index].textShadowTo
         : mi[index].textShadowFrom,
     config: {
-      duration: 200,
+      duration: 100,
     },
   }));
 
   const activeThisLink = (i) => {
-    //let style = {};
     toggleMenu(!openMenu);
     setMenuItems.start((index) => {
       if (index === i)
@@ -81,7 +80,7 @@ const NavBar = () => {
 
   return (
     <Nav>
-      <Logo />
+      <Logo activeThisLink={activeThisLink} />
       {smDevice && <Hamburger openMenu={openMenu} toggleMenu={toggleMenu} />}
       <MenuWrapper style={smDevice ? menuStyles : { maxHeight: "3.2rem" }}>
         <MenuList {...menuRef}>
