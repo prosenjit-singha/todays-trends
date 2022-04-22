@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSpring, animated } from "react-spring";
+import { useSpring } from "react-spring";
 import { Hero } from "../Styles/Containers";
 import { colors } from "../Styles/Variables";
 const Logo = ({ activeThisLink }) => {

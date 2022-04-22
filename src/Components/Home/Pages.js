@@ -28,7 +28,7 @@ const Pages = ({ totalResults }) => {
     <Container>
       <Button>Previous</Button>
       {[...Array(limit)].map((element, index) => (
-        <Item>{index + 1}</Item>
+        <Item key={index}>{index + 1}</Item>
       ))}
       <Button>Next</Button>
     </Container>

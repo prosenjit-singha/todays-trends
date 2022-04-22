@@ -1,7 +1,10 @@
 import React from "react";
+import ThemeSwitch from "../NavBar/ThemeSwitch/ThemeSwitch";
+
 import "./style.css";
+
 const Dev = () => {
-  return <div>Dev</div>;
+  return <ThemeSwitch />;
 };
 
 export default Dev;

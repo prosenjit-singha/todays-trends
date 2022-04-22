@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { animated } from "react-spring";
-import { neutral, green } from "../../Utiles/Colors";
+import { neutral } from "../../Utiles/Colors";
 const borderRadius = "0.4rem";
 
 export const Label = styled.label`
@@ -17,26 +17,26 @@ export const Radio = styled.input`
   display: none;
 `;
 export const Option = styled(animated.div)`
-  border-bottom: 1px solid ${neutral[900]};
+  border-bottom: 1px solid ${(props) => props.theme.background};
 `;
 export const Options = styled(animated.div)`
   //overflow: hidden;
   max-height: 250px;
-  background-color: ${neutral[800]};
+  background-color: ${(props) => props.theme.forground};
   overflow-y: auto;
   overflow-x: hidden;
   &::-webkit-scrollbar {
     width: 5px;
   }
   &::-webkit-scrollbar-track {
-    background-color: ${neutral[900]};
+    background-color: ${(props) => props.theme.forgroundHighlight};
     border-radius: 2px;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: ${neutral[700]};
+    background-color: ${(props) => props.theme.backgroundShadow};
     border-radius: 2px;
     &:hover {
-      background-color: ${neutral[700]};
+      background-color: ${(props) => props.theme.background};
     }
   }
 `;

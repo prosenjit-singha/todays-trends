@@ -11,7 +11,6 @@ import { IoIosArrowDown as Icon } from "react-icons/io";
 import { useMeasure } from "../../Helpers";
 import {
   Container,
-  Title,
   SelectWrapper,
   Select,
   OptionContainer,
@@ -66,7 +65,6 @@ const Dropdown = ({ background, data, handleData }) => {
     0,
     isOpen ? 0.1 : 0.2,
   ]);
-  const r = useRef();
   return (
     <>
       <Container>

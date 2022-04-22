@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { animated } from "react-spring";
 import { colors } from "../Styles/Variables";
 
+//const tbrl = "10px";
+
 export const CardContainer = styled.div`
   position: relative;
   padding: 0.5rem;
@@ -9,15 +11,13 @@ export const CardContainer = styled.div`
   justify-content: center;
   align-items: center;
   //border: 1px solid ${colors.neutral[900]};
-  box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.3),
-    -4px -4px 5px 0px rgba(255, 255, 255, 0.1),
-    inset 4px 4px 5px 0px rgba(0, 0, 0, 0.3),
-    inset -4px -4px 5px 0px rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 5px 0px ${(props) => props.theme.backgroundShadow},
+    -4px -4px 5px 0px ${(props) => props.theme.backgroundHighlight},
+    inset 4px 4px 5px 0px ${(props) => props.theme.backgroundShadow},
+    inset -4px -4px 5px 0px ${(props) => props.theme.backgroundHighlight};
   border-radius: 0.5rem;
   height: fit-content;
 `;
-
-const tbrl = "10px";
 
 export const Card = styled(animated.div)`
   /* display: flex;
@@ -147,6 +147,6 @@ export const ContentWrapper = styled(animated.div)`
   flex-direction: column;
   border-radius: 0.5rem;
   //background-color: blue;
-  background-color: ${colors.neutral[800]};
+  background-color: ${(props) => props.theme.forground};
   z-index: 6;
 `;
