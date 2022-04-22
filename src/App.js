@@ -66,7 +66,7 @@ const App = () => {
     axios.get(NEWS_API).then((res) => {
       setNewsArticles(res.data.articles);
     });
-  }, [dispatch, mode]);
+  }, []);
   return (
     <React.Fragment>
       <ThemeProvider theme={themeStyle}>
