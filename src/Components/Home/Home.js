@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import NewsCards from "./NewsCards";
 import { Container } from "../Styles/Containers";
 import Filter from "./Filter/Filter";
@@ -89,8 +89,8 @@ const Home = ({ articles, activeArticle }) => {
     },
   });
   const [keyword, setKeyword] = useState(""); //terms
-  const pageSize = 10;
-  const [totalResults, setTotalResult] = useState();
+  //const pageSize = 10;
+  //const [totalResults, setTotalResult] = useState();
 
   // return <NewsCards articles={articles} activeArticle={activeArticle} />;
   return (

@@ -1,17 +1,11 @@
 import styled from "styled-components";
-import {
-  neutral,
-  lightGreen,
-  blue,
-  pink,
-  yellow,
-} from "../../../Utiles/Colors";
+import { yellow } from "../../../Utiles/Colors";
 
 const smDevice = `(max-width: 1035px)`;
-const giveOuterShadow = (positive, color) => {
-  if (positive) return `3px 3px 5px ${color}`;
-  else return `-3px -3px 5px ${color}`;
-};
+// const giveOuterShadow = (positive, color) => {
+//   if (positive) return `3px 3px 5px ${color}`;
+//   else return `-3px -3px 5px ${color}`;
+// };
 
 export const FilterDiv = styled.div`
   display: flex;

@@ -38,17 +38,20 @@ const NavBar = () => {
       duration: 100,
     },
   }));
-  const applyLinkStyle = (i) => {
-    setMenuItems.start((index) => {
-      if (index === i)
-        return {
-          ...mi[index],
-          textShadow: mi[index].textShadowTo,
-          color: "white",
-        };
-      else return { ...mi[index], textShadow: mi[index].textShadowFrom };
-    });
-  };
+  const applyLinkStyle = useCallback(
+    (i) => {
+      setMenuItems.start((index) => {
+        if (index === i)
+          return {
+            ...mi[index],
+            textShadow: mi[index].textShadowTo,
+            color: "white",
+          };
+        else return { ...mi[index], textShadow: mi[index].textShadowFrom };
+      });
+    },
+    [setMenuItems]
+  );
   const activeThisLink = (i) => {
     toggleMenu(!openMenu);
     applyLinkStyle(i);
@@ -60,7 +63,7 @@ const NavBar = () => {
     else if (pathname === "/command-list") i = 1;
     else if (pathname === "/about") i = 2;
     applyLinkStyle(i);
-  }, [pathname]);
+  }, [pathname, applyLinkStyle]);
   return (
     <Nav>
       <Logo activeThisLink={activeThisLink} />

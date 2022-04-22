@@ -9,12 +9,12 @@ import {
 
 const smDevice = "791px";
 
-const Shine = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100%;
-  color: blue;
-`;
+// const Shine = styled.div`
+//   display: flex;
+//   width: 100%;
+//   height: 100%;
+//   color: blue;
+// `;
 const Container = styled.div`
   display: flex;
   width: 180px;

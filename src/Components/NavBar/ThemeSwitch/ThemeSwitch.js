@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "../../Redux/Theme/action";
 import { LIGHT, DARK } from "../../Redux/Theme/types";
-import { BsSunFill, BsMoon } from "react-icons/bs";
+import { BsSunFill } from "react-icons/bs";
 import { IoMdMoon } from "react-icons/io";
 import { Container, Image } from "./styles";
 

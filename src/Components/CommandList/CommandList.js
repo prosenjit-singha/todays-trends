@@ -1,5 +1,4 @@
 import React from "react";
-import aos from "aos";
 import { Container } from "../Styles/Containers";
 
 function BlockCard({ commandList }) {

@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { animated } from "react-spring";
-import { colors } from "../Styles/Variables";
+
 //mobile first approch
 export const Grid = styled.div`
   //margin-top: 2rem;

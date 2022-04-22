@@ -29,7 +29,7 @@ export const useRippleEffect = () => {
     `;
     //event listner;
     const applyEffect = (event) => {
-      const { pageX, pageY, target } = event;
+      const { pageX, pageY } = event;
       const { height, width, top, left } = element.getBoundingClientRect();
       console.log();
       // x and y in percentages

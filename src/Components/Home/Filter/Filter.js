@@ -10,15 +10,9 @@ import {
 } from "./filterStyle";
 import Dropdown from "../../Dropdown/Dropdown";
 import { useRippleEffect } from "../../RippleEffect";
-import {
-  neutral,
-  lightGreen,
-  blue,
-  pink,
-  yellow,
-} from "../../../Utiles/Colors";
+import { lightGreen, blue, pink } from "../../../Utiles/Colors";
 
-const smDevice = `(max-width: 790px)`;
+//const smDevice = `(max-width: 790px)`;
 
 const Filter = ({
   country,

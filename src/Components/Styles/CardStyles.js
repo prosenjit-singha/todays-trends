@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { animated } from "react-spring";
 import { colors } from "../Styles/Variables";
 
+//const tbrl = "10px";
+
 export const CardContainer = styled.div`
   position: relative;
   padding: 0.5rem;
@@ -16,8 +18,6 @@ export const CardContainer = styled.div`
   border-radius: 0.5rem;
   height: fit-content;
 `;
-
-const tbrl = "10px";
 
 export const Card = styled(animated.div)`
   /* display: flex;

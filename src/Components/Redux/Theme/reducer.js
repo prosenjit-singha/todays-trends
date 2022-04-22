@@ -1,5 +1,5 @@
 import { TOGGLE_THEME } from "./types";
-import { DARK, LIGHT } from "./types";
+import { LIGHT } from "./types";
 import { createReducer } from "@reduxjs/toolkit";
 import { dark, light } from "../../Styles/theme";
 
@@ -9,7 +9,7 @@ const initialState = {
 
 const reducer = createReducer(initialState, (builder) => {
   builder.addCase(TOGGLE_THEME, (state, action) => {
-    state.theme = action.payload === "light" ? light : dark;
+    state.theme = action.payload === LIGHT ? light : dark;
   });
 });
 
