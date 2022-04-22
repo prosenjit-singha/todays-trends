@@ -5,18 +5,16 @@ import { useBreakpoint } from "react-use-size";
 import { useMeasure } from "../../Helpers";
 import Hamburger from "./Hamburger";
 import Logo from "./Logo";
-import { colors } from "../Styles/Variables";
 import { menuItems as mi } from "./MenuItems";
 
 import {
-  ActiveLinkEffectContainer,
-  ActiveLinkEffect,
   Nav,
   MenuWrapper,
   MenuList,
   MenuListItem,
   MenuLink,
 } from "../Styles/Containers";
+import ThemeSwitch from "./ThemeSwitch/ThemeSwitch";
 
 const NavBar = () => {
   const menuRefs = useRef([]);
@@ -25,28 +23,6 @@ const NavBar = () => {
   const [openMenu, toggleMenu] = useState(false);
   const smDevice = useBreakpoint(790);
 
-  // function handleActiveNav(slug) {
-  //   toggleMenu(!openMenu);
-  //   //setLinkActive(!isLinkActive);
-  //   if (slug === "home")
-  //     setActiveNav({
-  //       home: true,
-  //       commandList: false,
-  //       about: false,
-  //     });
-  //   if (slug === "commandList")
-  //     setActiveNav({
-  //       home: false,
-  //       commandList: true,
-  //       about: false,
-  //     });
-  //   if (slug === "about")
-  //     setActiveNav({
-  //       home: false,
-  //       commandList: false,
-  //       about: true,
-  //     });
-  // }
   //styling-start
   const menuStyles = useSpring({
     maxHeight: openMenu ? menuHeight : 0,
@@ -62,9 +38,7 @@ const NavBar = () => {
       duration: 100,
     },
   }));
-
-  const activeThisLink = (i) => {
-    toggleMenu(!openMenu);
+  const applyLinkStyle = (i) => {
     setMenuItems.start((index) => {
       if (index === i)
         return {
@@ -75,9 +49,18 @@ const NavBar = () => {
       else return { ...mi[index], textShadow: mi[index].textShadowFrom };
     });
   };
-
+  const activeThisLink = (i) => {
+    toggleMenu(!openMenu);
+    applyLinkStyle(i);
+  };
   //styling-end
-
+  useEffect(() => {
+    let i = 0;
+    if (pathname === "/") i = 0;
+    else if (pathname === "/command-list") i = 1;
+    else if (pathname === "/about") i = 2;
+    applyLinkStyle(i);
+  }, [pathname]);
   return (
     <Nav>
       <Logo activeThisLink={activeThisLink} />
@@ -97,6 +80,7 @@ const NavBar = () => {
               </MenuLink>
             </MenuListItem>
           ))}
+          {!smDevice && <ThemeSwitch />}
         </MenuList>
       </MenuWrapper>
     </Nav>

@@ -14,10 +14,11 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     &::-webkit-scrollbar {
-        width: 15px;
+        width: 10px;
       }
     &::-webkit-scrollbar-track{
-      background-color: ${colors.neutral[900]};
+      margin-block: -0.35em;
+      background-color: ${(props) => props.theme.background};
       border-radius: 10px;
       box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.3),
     -4px -4px 5px 0px rgba(255, 255, 255, 0.1),
@@ -26,12 +27,12 @@ export const GlobalStyle = createGlobalStyle`
     }
     &::-webkit-scrollbar-thumb{
       margin: 2px;
-      background-color: ${colors.neutral[800]};
+      background-color: ${(props) => props.theme.forground};
       border-radius: 5px;
       box-shadow: inset 4px 4px 3px 0px rgba(255, 255, 255, 0.1),
       inset -4px -4px 3px 0px  rgba(0, 0, 0, 0.3);
       &:hover{
-        background-color: ${colors.neutral[700]};
+        background-color: ${(props) => props.theme.forgroundHighlight};
       }
     }
     &::-webkit-scrollbar-corner{
@@ -39,8 +40,9 @@ export const GlobalStyle = createGlobalStyle`
     }
     }
     body{
-        color: ${colors.neutral[100]};
-        background-color: ${colors.neutral[900]};
+        color: ${(props) => props.theme.text};
+        background-color: ${(props) => props.theme.background};
+        //${colors.neutral[900]};
     }
 `;
 
@@ -54,9 +56,9 @@ export const Nav = styled.nav`
   grid-template-rows: repeat(2, auto);
   width: 100vw;
   height: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
-  box-shadow: 0px 0px 5px ${colors.neutral[1000]};
+  //box-shadow: 0px 0px 5px ${colors.neutral[1000]};
   position: fixed;
   z-index: 30;
   overflow: hidden;
@@ -93,7 +95,7 @@ export const Line = styled(animated.span)`
   height: 0.25rem;
   width: 100%;
   left: 0;
-  background-color: ${colors.neutral[700]};
+  background-color: ${(props) => props.theme.forground};
   border-radius: 5px;
 
   &:nth-child(1) {
@@ -112,6 +114,7 @@ export const Hamburger = styled.div`
   align-items: center;
   position: relative;
   padding: 1rem;
+  margin-left: 1rem;
   cursor: pointer;
   &:hover {
     ${Line} {

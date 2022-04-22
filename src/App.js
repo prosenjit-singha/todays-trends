@@ -14,15 +14,27 @@ import Developers from "./Components/Dev/Dev";
 import Error from "./Components/Error/Error";
 import { GlobalStyle } from "./Components/Styles/Containers";
 import axios from "axios";
+import ScrollToTop from "./Components/ScrollToTop";
+import { ThemeProvider } from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { DARK, LIGHT } from "./Components/Redux/Theme/types";
+import { toggleTheme } from "./Components/Redux/Theme/action";
 
 const alanKey =
   "9d1324a30a0a78d5a51fdfa0d05b9c372e956eca572e1d8b807a3e2338fdd0dc/stage";
 
 const App = () => {
+  const [theme, setTheme] = useState("dark");
+  const themeStyle = useSelector((state) => state.theme);
+  const localTheme = localStorage.getItem("theme");
+  const mode = localTheme === LIGHT ? LIGHT : DARK;
+  const dispatch = useDispatch();
+
   const [activeArticle, setActiveArticle] = useState(null); //set null
   const [newsArticles, setNewsArticles] = useState([]);
 
   useEffect(() => {
+    dispatch(toggleTheme(mode));
     let NEWS_API =
       "https://newsapi.org/v2/top-headlines?country=us&apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12";
     AOS.init(); //for scroll animation
@@ -58,26 +70,29 @@ const App = () => {
   }, []);
   return (
     <React.Fragment>
-      <GlobalStyle />
-      <NavBar />
-      <NavBarSpace />
-      {/* <Nav /> */}
-      <Routes>
-        <Route path="/home" element={<Navigate to="/" />} />
-        <Route
-          path="/"
-          element={
-            <Home articles={newsArticles} activeArticle={activeArticle} />
-          }
-        />
-        {/* <Route path="/news-by/:option1/:option2" element={<NewsBy />} /> */}
-        <Route path="/about" element={<About />} />
-        <Route path="/command-list" element={<CommandList />} />
-        <Route path="/developers" element={<Developers />} />
-        <Route path="/*" element={<Error />} />
-      </Routes>
-      {/* <NewsCards articles={newsArticles} activeArticle={activeArticle} /> */}
-      <Footer />r
+      <ThemeProvider theme={themeStyle}>
+        <ScrollToTop />
+        <GlobalStyle />
+        <NavBar />
+        <NavBarSpace />
+        {/* <Nav /> */}
+        <Routes>
+          <Route path="/home" element={<Navigate to="/" />} />
+          <Route
+            path="/"
+            element={
+              <Home articles={newsArticles} activeArticle={activeArticle} />
+            }
+          />
+          {/* <Route path="/news-by/:option1/:option2" element={<NewsBy />} /> */}
+          <Route path="/about" element={<About />} />
+          <Route path="/command-list" element={<CommandList />} />
+          <Route path="/developers" element={<Developers />} />
+          <Route path="/*" element={<Error />} />
+        </Routes>
+        {/* <NewsCards articles={newsArticles} activeArticle={activeArticle} /> */}
+        <Footer />
+      </ThemeProvider>
     </React.Fragment>
   );
 };

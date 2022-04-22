@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSpring } from "react-spring";
+import ThemeSwitch from "./ThemeSwitch/ThemeSwitch";
 import {
   HamburgerContainer,
   Hamburger as HB,
@@ -27,6 +28,7 @@ const Hamburger = ({ openMenu, toggleMenu }) => {
 
   return (
     <HamburgerContainer>
+      <ThemeSwitch />
       <HB
         onClick={() => toggleMenu(!openMenu)}
         onMouseEnter={() => setMenuIconHover(true)}
