@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 import { animated } from "react-spring";
-
+import back from "../../img/newspaper-2.svg";
 const smDevice = "791px";
 
 export const GlobalStyle = createGlobalStyle`
@@ -40,9 +40,16 @@ export const GlobalStyle = createGlobalStyle`
     }
     }
     body{
+        height: 100vh;
+        width: 100%;
         color: ${(props) => props.theme.text};
-        background-color: ${(props) => props.theme.background};
+        //background-color: ${(props) => props.theme.background};
         //${colors.neutral[900]};
+        background-image: url(${back});
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
     }
 `;
 

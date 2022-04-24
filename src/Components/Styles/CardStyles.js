@@ -4,6 +4,9 @@ import { colors } from "../Styles/Variables";
 
 //const tbrl = "10px";
 
+const borderWidth = 2;
+const borderRadius = 16;
+
 export const CardContainer = styled.div`
   position: relative;
   padding: 0.5rem;
@@ -11,12 +14,32 @@ export const CardContainer = styled.div`
   justify-content: center;
   align-items: center;
   //border: 1px solid ${colors.neutral[900]};
-  box-shadow: 4px 4px 5px 0px ${(props) => props.theme.backgroundShadow},
+  /* box-shadow: 4px 4px 5px 0px ${(props) => props.theme.backgroundShadow},
     -4px -4px 5px 0px ${(props) => props.theme.backgroundHighlight},
     inset 4px 4px 5px 0px ${(props) => props.theme.backgroundShadow},
-    inset -4px -4px 5px 0px ${(props) => props.theme.backgroundHighlight};
-  border-radius: 0.5rem;
+    inset -4px -4px 5px 0px ${(props) => props.theme.backgroundHighlight}; */
   height: fit-content;
+  //glassmorphism effect
+  border: ${borderWidth}px solid rgba(255,255,255,0.5);
+  border-radius: ${borderRadius}px;
+  backdrop-filter: blur(10px);
+  //end of glassmorphism code
+  /* &::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: ${borderWidth}px solid transparent;
+    border-radius: ${borderRadius - borderWidth}px;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, red, blue) border-box;
+    -webkit-mask: linear-gradient(white, white) padding-box,
+      linear-gradient(white, white);
+    -webkit-mask-composite: xor; /*5'*/
+    mask-composite: exclude; /*5*/
+  } */
 `;
 
 export const Card = styled(animated.div)`
@@ -146,7 +169,8 @@ export const ContentWrapper = styled(animated.div)`
   display: flex;
   flex-direction: column;
   border-radius: 0.5rem;
-  //background-color: blue;
-  background-color: ${(props) => props.theme.forground};
+  background-color: rgba(0, 0, 0, 0.6);
+  //background-color: ${(props) => props.theme.forground};
+  backdrop-filter: blur(10px);
   z-index: 6;
 `;

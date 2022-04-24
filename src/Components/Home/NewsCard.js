@@ -129,7 +129,7 @@ const NewsCard = ({
             <Title>{title}</Title>
             <Desc>{description}</Desc>
           </Content>
-          <GlowEffect href={url} target="_blank" style={glowEffect} />
+          {/* <GlowEffect href={url} target="_blank" style={glowEffect} /> */}
         </ContentWrapper>
         <ReadMore href={url} target="_blank" style={readMoreEffect}>
           <Shine style={shineEffect} />

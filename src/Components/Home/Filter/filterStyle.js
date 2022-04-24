@@ -10,6 +10,7 @@ const smDevice = `(max-width: 1035px)`;
 export const FilterDiv = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-inline: 1.5rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
   align-items: center;
