@@ -10,11 +10,14 @@ const smDevice = `(max-width: 1035px)`;
 export const FilterDiv = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-inline: 1.5rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
   align-items: center;
-  background-color: ${(props) => props.theme.forground};
-  box-shadow: 3px 3px 8px ${(props) => props.theme.backgroundShadow};
+  border: 1px solid ${(props) => props.theme.forground};
+  background-color: ${(props) => props.theme.forgroundShadow};
+  box-shadow: 4px 4px 5px 0px ${(props) => props.theme.backgroundShadow},
+    -4px -4px 5px 0px ${(props) => props.theme.backgroundHighlight};
   @media ${smDevice} {
     flex-direction: column;
   }
@@ -28,13 +31,12 @@ export const TextField = styled.input`
   width: 180px;
   height: 30.38px;
   color: ${(props) => props.theme.text};
-  background-color: transparent;
+  background-color: ${(props) => props.theme.background};
   border: none;
   border-radius: 0.5rem;
   padding-left: 0.5rem;
-  box-shadow: 3px 3px 5px ${(props) => props.theme.forgroundShadow},
-    inset 3px 3px 5px ${(props) => props.theme.forgroundShadow},
-    -3px -3px 5px ${(props) => props.theme.forgroundHighlight},
+
+  box-shadow: inset 3px 3px 5px ${(props) => props.theme.backgroundShadow},
     inset -3px -3px 5px ${(props) => props.theme.forgroundHighlight};
   &:focus-visible {
     outline: none;

@@ -30,6 +30,10 @@ const NavBar = () => {
 
   const [menuItems, setMenuItems] = useSprings(mi.length, (index) => ({
     ...mi[index],
+    boxShadow:
+      mi[index].path === pathname
+        ? mi[index].boxShadowTo
+        : mi[index].boxShadowFrom,
     textShadow:
       mi[index].path === pathname
         ? mi[index].textShadowTo
@@ -46,8 +50,14 @@ const NavBar = () => {
             ...mi[index],
             textShadow: mi[index].textShadowTo,
             color: "white",
+            boxShadow: mi[index].boxShadowTo,
           };
-        else return { ...mi[index], textShadow: mi[index].textShadowFrom };
+        else
+          return {
+            ...mi[index],
+            textShadow: mi[index].textShadowFrom,
+            boxShadow: mi[index].boxShadowFrom,
+          };
       });
     },
     [setMenuItems]
@@ -70,19 +80,21 @@ const NavBar = () => {
       {smDevice && <Hamburger openMenu={openMenu} toggleMenu={toggleMenu} />}
       <MenuWrapper style={smDevice ? menuStyles : { maxHeight: "3.2rem" }}>
         <MenuList {...menuRef}>
-          {menuItems.map(({ id, name, path, color, textShadow }, i) => (
-            <MenuListItem key={i}>
-              <MenuLink
-                ref={(r) => (menuRefs.current[i] = r)}
-                id={id}
-                style={{ color, textShadow }}
-                to={path}
-                onClick={() => activeThisLink(i)}
-              >
-                {name}
-              </MenuLink>
-            </MenuListItem>
-          ))}
+          {menuItems.map(
+            ({ id, name, path, color, textShadow, boxShadow }, i) => (
+              <MenuListItem key={i}>
+                <MenuLink
+                  ref={(r) => (menuRefs.current[i] = r)}
+                  id={id}
+                  style={{ color, textShadow, boxShadow }}
+                  to={path}
+                  onClick={() => activeThisLink(i)}
+                >
+                  {name}
+                </MenuLink>
+              </MenuListItem>
+            )
+          )}
           {!smDevice && <ThemeSwitch />}
         </MenuList>
       </MenuWrapper>

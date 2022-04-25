@@ -15,7 +15,8 @@ export const Container = styled.div`
   background-color: ${(props) =>
     props.theme.name === "dark" ? lightGreen[1000] : lightGreen[800]};
   padding-top: 0.8rem;
-  //box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 4px 5px 0px ${(props) => props.theme.backgroundShadow},
+    -4px -4px 5px 0px ${(props) => props.theme.backgroundHighlight};
   z-index: 10;
   overflow: hidden;
   @media (min-width: ${smDevice}) {

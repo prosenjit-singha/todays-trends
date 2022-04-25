@@ -148,5 +148,6 @@ export const ContentWrapper = styled(animated.div)`
   border-radius: 0.5rem;
   //background-color: blue;
   background-color: ${(props) => props.theme.forground};
+  border: 1px solid ${(props) => props.theme.background};
   z-index: 6;
 `;

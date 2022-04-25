@@ -56,9 +56,9 @@ export const Nav = styled.nav`
   grid-template-rows: repeat(2, auto);
   width: 100vw;
   height: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px);
-  //box-shadow: 0px 0px 5px ${colors.neutral[1000]};
+  background-color: ${(props) => props.theme.forground};
+  //backdrop-filter: blur(10px);
+  box-shadow: 0px 4px 5px 0px ${(props) => props.theme.backgroundShadow};
   position: fixed;
   z-index: 30;
   overflow: hidden;

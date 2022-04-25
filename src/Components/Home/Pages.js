@@ -1,20 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import { neutral } from "../../Utiles/Colors";
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
 `;
 const Item = styled.button`
-  color: ${neutral[200]};
+  color: ${(props) => props.theme.text};
+  font-weight: bold;
   width: 2rem;
   padding: 0 0.5rem;
+  margin: 0.2rem 0.5rem;
   text-align: center;
-  border: none;
+  border: 1px solid ${(props) => props.theme.forgroundHighlight};
   border-radius: 0.5rem;
-  background-color: ${neutral[700]};
-  margin: 0.1rem 0.25rem;
+  background-color: ${(props) => props.theme.forground};
+  box-shadow: 4px 4px 5px 0px ${(props) => props.theme.backgroundShadow},
+    -4px -4px 5px 0px ${(props) => props.theme.backgroundHighlight};
 `;
 
 const Button = styled(Item)`
