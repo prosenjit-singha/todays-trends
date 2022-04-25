@@ -5,7 +5,20 @@ import { Link, NavLink } from "react-router-dom";
 import { animated } from "react-spring";
 
 const smDevice = "791px";
-
+const getBoxShadow = {
+  to(highlight, shadow) {
+    return `4px 4px 5px 0px ${shadow},
+    -4px -4px 5px 0px ${highlight},
+    inset 0px 0px 0px 0px ${shadow},
+    inset 0px 0px 0px 0px ${highlight}`;
+  },
+  from(highlight, shadow) {
+    return `0px 0px 0px 0px ${shadow},
+    0px 0px 0px 0px ${highlight},
+    inset 4px 4px 5px 0px ${shadow},
+    inset -4px -4px 5px 0px ${highlight}`;
+  },
+};
 export const GlobalStyle = createGlobalStyle`
  
     *{
@@ -162,7 +175,7 @@ export const MenuListItem = styled.li`
   height: 2rem;
   position: relative;
   user-select: none;
-  margin: 0;
+  margin: 0 0.3rem;
   padding: 0;
   display: flex;
   overflow: visible;
@@ -180,6 +193,8 @@ export const MenuListItem = styled.li`
 export const MenuLink = styled(animated(NavLink))`
   will-change: text-shadow, color;
   font-family: "Comfortaa", cursive;
+  border-radius: 0.3rem;
+  color: ${(props) => props.theme.link};
   text-transform: uppercase;
   text-decoration: none;
   width: 100%;
@@ -190,14 +205,29 @@ export const MenuLink = styled(animated(NavLink))`
   //color: white;
   font-weight: bolder;
   text-shadow: none;
+  box-shadow: ${(props) => {
+    const highlight = props.theme.forgroundHighlight;
+    const shadow = props.theme.forgroundShadow;
+    const r = getBoxShadow.from(highlight, shadow);
+    return r;
+  }};
   cursor: pointer;
-  transition: color, text-shadow 300ms ease;
+  transition: all 400ms ease;
   @media (min-width: ${smDevice}) {
     width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 1rem;
+    &.${(props) => props.activeClassname} {
+      color: ${(props) => props.theme.text};
+      box-shadow: ${(props) => {
+        const highlight = props.theme.forgroundHighlight;
+        const shadow = props.theme.forgroundShadow;
+        const r = getBoxShadow.to(highlight, shadow);
+        return r;
+      }};
+    }
   }
 `;
 

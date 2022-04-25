@@ -32,11 +32,21 @@ const Footer = () => {
         </BriefAbout>
         <UsefulLinks>
           <Title>Useful Links</Title>
-          <FLink to="/">Home</FLink>
-          <FLink to="/command-list">Command List</FLink>
-          <FLink to="/about">About</FLink>
-          <FLink to="/terms&conditions">Terms & Conditions</FLink>
-          <FLink to="/developers">Meet Developers</FLink>
+          <FLink activeClassname="active" to="/">
+            Home
+          </FLink>
+          <FLink activeClassname="active" to="/command-list">
+            Command List
+          </FLink>
+          <FLink activeClassname="active" to="/about">
+            About
+          </FLink>
+          <FLink activeClassname="active" to="/terms&conditions">
+            Terms & Conditions
+          </FLink>
+          <FLink activeClassname="active" to="/developers">
+            Meet Developers
+          </FLink>
           <Hr />
         </UsefulLinks>
         <FollowUs>

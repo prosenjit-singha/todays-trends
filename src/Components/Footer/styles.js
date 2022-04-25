@@ -63,6 +63,9 @@ export const FLink = styled(NavLink)`
   //font-weight: lighter;
   text-decoration: none;
   transition: color 300ms ease;
+  &.${(props) => props.activeClassname} {
+    color: ${(props) => props.theme.text};
+  }
   &:hover {
     color: white;
   }

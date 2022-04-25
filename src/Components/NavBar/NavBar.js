@@ -1,4 +1,4 @@
-import { useSpring, useSprings } from "react-spring";
+import { to, useSpring, useSprings } from "react-spring";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import { useBreakpoint } from "react-use-size";
@@ -6,6 +6,7 @@ import { useMeasure } from "../../Helpers";
 import Hamburger from "./Hamburger";
 import Logo from "./Logo";
 import { menuItems as mi } from "./MenuItems";
+import { useSelector } from "react-redux";
 
 import {
   Nav,
@@ -16,7 +17,24 @@ import {
 } from "../Styles/Containers";
 import ThemeSwitch from "./ThemeSwitch/ThemeSwitch";
 
+const getBoxShadow = {
+  highlight: "rgba(255,255,255,0.4)",
+  shadow: "rgba(0,0,0,0.4)",
+  from(highlight, shadow) {
+    return `4px 4px 5px 0px ${this.shadow},
+    -4px -4px 5px 0px ${this.highlight},
+    inset 0px 0px 0px 0px ${this.shadow},
+    inset 0px 0px 0px 0px ${this.highlight}`;
+  },
+  to(highlight, shadow) {
+    return `0px 0px 0px 0px ${this.shadow},
+    0px 0px 0px 0px ${this.highlight},
+    inset 4px 4px 5px 0px ${this.shadow},
+    inset -4px -4px 5px 0px ${this.highlight}`;
+  },
+};
 const NavBar = () => {
+  const themeStyle = useSelector((state) => state.theme);
   const menuRefs = useRef([]);
   const { pathname } = useLocation();
   const [menuRef, { height: menuHeight }] = useMeasure();
@@ -32,8 +50,14 @@ const NavBar = () => {
     ...mi[index],
     boxShadow:
       mi[index].path === pathname
-        ? mi[index].boxShadowTo
-        : mi[index].boxShadowFrom,
+        ? getBoxShadow.to(
+            themeStyle.forgroundHighlight,
+            themeStyle.forgroundShadow
+          )
+        : getBoxShadow.from(
+            themeStyle.forgroundHighlight,
+            themeStyle.forgroundShadow
+          ),
     textShadow:
       mi[index].path === pathname
         ? mi[index].textShadowTo
@@ -50,13 +74,19 @@ const NavBar = () => {
             ...mi[index],
             textShadow: mi[index].textShadowTo,
             color: "white",
-            boxShadow: mi[index].boxShadowTo,
+            boxShadow: getBoxShadow.to(
+              themeStyle.forgroundHighlight,
+              themeStyle.forgroundShadow
+            ),
           };
         else
           return {
             ...mi[index],
             textShadow: mi[index].textShadowFrom,
-            boxShadow: mi[index].boxShadowFrom,
+            boxShadow: getBoxShadow.from(
+              themeStyle.forgroundHighlight,
+              themeStyle.forgroundShadow
+            ),
           };
       });
     },
@@ -73,7 +103,7 @@ const NavBar = () => {
     else if (pathname === "/command-list") i = 1;
     else if (pathname === "/about") i = 2;
     applyLinkStyle(i);
-  }, [pathname, applyLinkStyle]);
+  }, [pathname, applyLinkStyle, localStorage.getItem("theme")]);
   return (
     <Nav>
       <Logo activeThisLink={activeThisLink} />
@@ -86,7 +116,7 @@ const NavBar = () => {
                 <MenuLink
                   ref={(r) => (menuRefs.current[i] = r)}
                   id={id}
-                  style={{ color, textShadow, boxShadow }}
+                  activeClassname="active"
                   to={path}
                   onClick={() => activeThisLink(i)}
                 >
