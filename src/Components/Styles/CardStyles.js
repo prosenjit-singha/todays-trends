@@ -14,15 +14,12 @@ export const CardContainer = styled.div`
   justify-content: center;
   align-items: center;
   //border: 1px solid ${colors.neutral[900]};
-  /* box-shadow: 4px 4px 5px 0px ${(props) => props.theme.backgroundShadow},
-    -4px -4px 5px 0px ${(props) => props.theme.backgroundHighlight},
-    inset 4px 4px 5px 0px ${(props) => props.theme.backgroundShadow},
-    inset -4px -4px 5px 0px ${(props) => props.theme.backgroundHighlight}; */
+  box-shadow: 4px 4px 8px 0px ${(props) => props.theme.backgroundShadow};
   height: fit-content;
   //glassmorphism effect
   border: ${borderWidth}px solid rgba(255,255,255,0.5);
   border-radius: ${borderRadius}px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
   //end of glassmorphism code
   /* &::before {
     position: absolute;
@@ -126,7 +123,7 @@ export const Title = styled.h3`
 `;
 export const Desc = styled.div`
   font-size: 0.9rem;
-  font-weight: lighter;
+  //font-weight: lighter;
   text-align: justify;
   z-index: 3;
 `;
@@ -168,8 +165,9 @@ export const ContentWrapper = styled(animated.div)`
   bottom: 2rem;
   display: flex;
   flex-direction: column;
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
   //background-color: ${(props) => props.theme.forground};
   backdrop-filter: blur(10px);
   z-index: 6;

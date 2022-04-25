@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 import { animated } from "react-spring";
-import back from "../../img/newspaper-2.svg";
+import lightBg from "../../img/light_background.jpg";
+import darkBg from "../../img/dark_background.jpg";
 const smDevice = "791px";
 
 export const GlobalStyle = createGlobalStyle`
@@ -45,7 +46,8 @@ export const GlobalStyle = createGlobalStyle`
         color: ${(props) => props.theme.text};
         //background-color: ${(props) => props.theme.background};
         //${colors.neutral[900]};
-        background-image: url(${back});
+        background-image: url(${(props) =>
+          props.theme.name === "dark" ? darkBg : lightBg});
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -63,7 +65,7 @@ export const Nav = styled.nav`
   grid-template-rows: repeat(2, auto);
   width: 100vw;
   height: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);
   //box-shadow: 0px 0px 5px ${colors.neutral[1000]};
   position: fixed;
