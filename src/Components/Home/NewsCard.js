@@ -9,6 +9,7 @@ import {
   Image,
   ContentWrapper,
   Content,
+  BottomBlock,
   ReadMore,
   Shine,
   GlowEffect,
@@ -117,11 +118,13 @@ const NewsCard = ({
   return (
     <CardContainer ref={elementRefs[index]}>
       <Card
-        style={active}
+        // style={active}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
-        <ContentWrapper style={contentAnimation}>
+        <ContentWrapper
+        // style={contentAnimation}
+        >
           <Image image={urlToImage} index={index} />
           <Content>
             <Source>{source.name} </Source>
@@ -129,12 +132,14 @@ const NewsCard = ({
             <Title>{title}</Title>
             <Desc>{description}</Desc>
           </Content>
-          <GlowEffect href={url} target="_blank" style={glowEffect} />
+          {/* <GlowEffect href={url} target="_blank" style={glowEffect} /> */}
         </ContentWrapper>
-        <ReadMore href={url} target="_blank" style={readMoreEffect}>
-          <Shine style={shineEffect} />
-          Read More
-        </ReadMore>
+        <BottomBlock>
+          <ReadMore href={url} target="_blank">
+            {/* <Shine style={shineEffect} /> */}
+            Read More
+          </ReadMore>
+        </BottomBlock>
       </Card>
     </CardContainer>
   );

@@ -30,10 +30,6 @@ const NavBar = () => {
 
   const [menuItems, setMenuItems] = useSprings(mi.length, (index) => ({
     ...mi[index],
-    boxShadow:
-      mi[index].path === pathname
-        ? mi[index].boxShadowTo
-        : mi[index].boxShadowFrom,
     textShadow:
       mi[index].path === pathname
         ? mi[index].textShadowTo
@@ -50,13 +46,11 @@ const NavBar = () => {
             ...mi[index],
             textShadow: mi[index].textShadowTo,
             color: "white",
-            boxShadow: mi[index].boxShadowTo,
           };
         else
           return {
             ...mi[index],
             textShadow: mi[index].textShadowFrom,
-            boxShadow: mi[index].boxShadowFrom,
           };
       });
     },

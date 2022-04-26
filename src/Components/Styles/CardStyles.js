@@ -1,22 +1,21 @@
 import styled from "styled-components";
 import { animated } from "react-spring";
 import { colors } from "../Styles/Variables";
+import { boxShadow } from "../../Utiles/functions";
 
 //const tbrl = "10px";
 
 export const CardContainer = styled.div`
   position: relative;
-  padding: 0.5rem;
+  //padding: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   //border: 1px solid ${colors.neutral[900]};
-  box-shadow: 4px 4px 5px 0px ${(props) => props.theme.backgroundShadow},
-    -4px -4px 5px 0px ${(props) => props.theme.backgroundHighlight},
-    inset 4px 4px 5px 0px ${(props) => props.theme.backgroundShadow},
-    inset -4px -4px 5px 0px ${(props) => props.theme.backgroundHighlight};
+  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.5);
   border-radius: 0.5rem;
   height: fit-content;
+  z-index: 1;
 `;
 
 export const Card = styled(animated.div)`
@@ -27,10 +26,23 @@ export const Card = styled(animated.div)`
   max-height: 100%;
   width: 100%;
   border-radius: 0.5rem;
-  //background-color: ${colors.yellow[300]};
-  //overflow: hidden;
+  background-color: ${(props) => props.theme.forgroundShadow};
+  overflow: hidden;
 `;
-
+export const ContentWrapper = styled(animated.div)`
+  position: relative;
+  width: 100%;
+  height: 22.2rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  //background-color: blue;
+  //background-color: ${(props) => props.theme.forground};
+  //border: 1px solid ${(props) => props.theme.background};
+  z-index: 6;
+`;
 export const GlowEffect = styled(animated.a)`
   will-change: box-shadow, background-image;
   position: absolute;
@@ -110,12 +122,11 @@ export const Desc = styled.div`
 
 export const ReadMore = styled(animated.a)`
   will-change: box-shadow, font-weight;
-  position: absolute;
-  border-bottom-left-radius: 0.65rem;
-  border-bottom-right-radius: 0.65rem;
-  height: 2.8rem;
-  width: 100%;
-  padding-top: 1rem;
+  border-radius: 0.4rem;
+  padding: 0.1rem 0.5rem;
+  height: auto;
+  width: auto;
+  //padding: 0.9rem 0;
   background-color: rgba(255, 196, 0, 1);
   text-align: center;
   text-decoration: none;
@@ -123,8 +134,22 @@ export const ReadMore = styled(animated.a)`
   z-index: 5;
   bottom: 0rem;
   &:hover {
-    color: ${colors.neutral[900]};
+    color: black;
   }
+`;
+export const BottomBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  border-bottom-left-radius: 0.65rem;
+  border-bottom-right-radius: 0.65rem;
+  height: 2.8rem;
+  width: 100%;
+  //padding: 0.9rem 0;
+  background-color: ${(props) => props.theme.forground};
+  z-index: 5;
+  bottom: 0rem;
 `;
 export const Shine = styled(animated.div)`
   position: absolute;
@@ -136,18 +161,4 @@ export const Shine = styled(animated.div)`
   z-index: 5;
   bottom: 0rem;
   //opacity: 0.5;
-`;
-
-export const ContentWrapper = styled(animated.div)`
-  position: relative;
-  width: 100%;
-  height: 25rem;
-  bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  border-radius: 0.5rem;
-  //background-color: blue;
-  background-color: ${(props) => props.theme.forground};
-  border: 1px solid ${(props) => props.theme.background};
-  z-index: 6;
 `;

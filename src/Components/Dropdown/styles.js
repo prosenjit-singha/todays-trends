@@ -44,9 +44,10 @@ export const OptionContainer = styled(animated.div)`
   overflow: hidden;
   position: absolute;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
   border-radius: ${borderRadius};
   margin-top: 0.2rem;
+
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 `;
 export const SelectWrapper = styled.div`

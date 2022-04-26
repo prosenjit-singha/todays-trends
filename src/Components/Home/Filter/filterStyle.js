@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { yellow } from "../../../Utiles/Colors";
+import { boxShadow } from "../../../Utiles/functions";
 
 const smDevice = `(max-width: 1035px)`;
 // const giveOuterShadow = (positive, color) => {
@@ -16,8 +17,7 @@ export const FilterDiv = styled.div`
   align-items: center;
   border: 1px solid ${(props) => props.theme.forground};
   background-color: ${(props) => props.theme.forgroundShadow};
-  box-shadow: 4px 4px 5px 0px ${(props) => props.theme.backgroundShadow},
-    -4px -4px 5px 0px ${(props) => props.theme.backgroundHighlight};
+  box-shadow: ${boxShadow.default()};
   @media ${smDevice} {
     flex-direction: column;
   }
@@ -25,6 +25,7 @@ export const FilterDiv = styled.div`
 export const Label = styled.label`
   color: ${(props) => props.theme.text};
   padding: 0 0.5rem;
+  padding-top: 0.2rem;
   margin: 0;
 `;
 export const TextField = styled.input`
@@ -35,9 +36,6 @@ export const TextField = styled.input`
   border: none;
   border-radius: 0.5rem;
   padding-left: 0.5rem;
-
-  box-shadow: inset 3px 3px 5px ${(props) => props.theme.backgroundShadow},
-    inset -3px -3px 5px ${(props) => props.theme.forgroundHighlight};
   &:focus-visible {
     outline: none;
   }

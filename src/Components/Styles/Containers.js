@@ -95,7 +95,7 @@ export const Line = styled(animated.span)`
   height: 0.25rem;
   width: 100%;
   left: 0;
-  background-color: ${(props) => props.theme.forground};
+  background-color: ${(props) => props.theme.forgroundHighlight};
   border-radius: 5px;
 
   &:nth-child(1) {
@@ -229,5 +229,5 @@ export const Container = styled.div`
 export const Footer = styled.footer`
   position: relative;
   width: auto;
-  height: fit-content;
+  height: 100vh;
 `;
