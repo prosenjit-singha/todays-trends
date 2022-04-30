@@ -1,10 +1,8 @@
 import React from "react";
-import ThemeSwitch from "../NavBar/ThemeSwitch/ThemeSwitch";
-
-import "./style.css";
+import Button from "../Button/Button";
 
 const Dev = () => {
-  return <ThemeSwitch />;
+  return <Button fontSize={2}>CLICK</Button>;
 };
 
 export default Dev;

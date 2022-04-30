@@ -1,4 +1,11 @@
-import { neutral } from "../../Utiles/Colors";
+import {
+  neutral,
+  blue,
+  cayan,
+  lightGreen,
+  red,
+  yellow,
+} from "../../Utiles/Colors";
 
 export const dark = {
   name: "dark",
@@ -10,6 +17,12 @@ export const dark = {
   forgroundHighlight: neutral[700],
   forground: neutral[800],
   forgroundShadow: neutral[900],
+  primary: blue[400],
+  secondery: neutral[500],
+  success: lightGreen[800],
+  danger: red[500],
+  warning: yellow[400],
+  info: cayan[400],
 };
 
 export const light = {
@@ -22,4 +35,10 @@ export const light = {
   forgroundHighlight: "#FFFFFF",
   forground: "#F1F1F1",
   forgroundShadow: "#E3E3E3",
+  primary: blue[400],
+  secondery: neutral[500],
+  success: lightGreen[800],
+  danger: red[500],
+  warning: yellow[400],
+  info: cayan[400],
 };
