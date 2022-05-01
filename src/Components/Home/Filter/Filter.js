@@ -10,7 +10,7 @@ import {
 } from "./filterStyle";
 import Dropdown from "../../Dropdown/Dropdown";
 import { useRippleEffect } from "../../RippleEffect";
-import { lightGreen, blue, pink } from "../../../Utiles/Colors";
+import { lightGreen, blue, red } from "../../../Utiles/Colors";
 
 //const smDevice = `(max-width: 790px)`;
 
@@ -69,7 +69,7 @@ const Filter = ({
           <Dropdown
             data={tempSource}
             handleData={setTempSource}
-            background={pink[300]}
+            background={red[300]}
           />
         </Block>
         {/* sources */}

@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "../Button/Button";
+import Colors from "../Colors/Colors";
 
 const Dev = () => {
-  return <Button fontSize={2}>CLICK</Button>;
+  return <Colors />;
 };
 
 export default Dev;

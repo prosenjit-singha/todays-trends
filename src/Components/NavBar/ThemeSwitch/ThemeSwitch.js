@@ -5,12 +5,13 @@ import { LIGHT, DARK } from "../../Redux/Theme/types";
 import { BsSunFill } from "react-icons/bs";
 import { IoMdMoon } from "react-icons/io";
 import { Container, Image } from "./styles";
+import { neutral } from "../../../Utiles/Colors";
 
 const Icon = ({ mode }) => {
   const styles = {
     width: "25",
     height: "25",
-    color: "white",
+    color: mode === DARK ? neutral[200] : neutral[700],
   };
 
   return (

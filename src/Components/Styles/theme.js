@@ -1,7 +1,7 @@
 import {
   neutral,
   blue,
-  cayan,
+  cyan,
   lightGreen,
   red,
   yellow,
@@ -22,7 +22,7 @@ export const dark = {
   success: lightGreen[800],
   danger: red[500],
   warning: yellow[400],
-  info: cayan[400],
+  info: cyan[400],
 };
 
 export const light = {
@@ -40,5 +40,5 @@ export const light = {
   success: lightGreen[800],
   danger: red[500],
   warning: yellow[400],
-  info: cayan[400],
+  info: cyan[400],
 };

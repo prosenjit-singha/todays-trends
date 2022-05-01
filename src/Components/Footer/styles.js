@@ -4,6 +4,12 @@ import { lightGreen } from "../../Utiles/Colors";
 
 const smDevice = "791px";
 
+export const Footer = styled.footer`
+  position: relative;
+  width: auto;
+  //height: 100vh;
+`;
+
 export const Container = styled.div`
   display: grid;
   grid-template-columns: auto;
@@ -63,6 +69,9 @@ export const FLink = styled(NavLink)`
   //font-weight: lighter;
   text-decoration: none;
   transition: color 300ms ease;
+  &.${(props) => props.active_class_name} {
+    color: white;
+  }
   &:hover {
     color: white;
   }

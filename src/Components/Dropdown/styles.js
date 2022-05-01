@@ -59,7 +59,7 @@ export const SelectWrapper = styled.div`
   cursor: pointer;
 `;
 export const Select = styled.div`
-  color: ${neutral[800]};
+  color: ${(props) => props.theme.text};
   text-transform: capitalize;
 `;
 export const Title = styled.div`

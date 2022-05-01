@@ -1,9 +1,9 @@
 import React from "react";
 import Logo from "../NavBar/Logo";
 import SocialIcons from "./SocialIcons";
-import { Footer as FT } from "../Styles/Containers";
 import { neutral } from "../../Utiles/Colors";
 import {
+  Footer as FT,
   Container,
   BriefAbout,
   TextBox,
@@ -32,11 +32,21 @@ const Footer = () => {
         </BriefAbout>
         <UsefulLinks>
           <Title>Useful Links</Title>
-          <FLink to="/">Home</FLink>
-          <FLink to="/command-list">Command List</FLink>
-          <FLink to="/about">About</FLink>
-          <FLink to="/terms&conditions">Terms & Conditions</FLink>
-          <FLink to="/developers">Meet Developers</FLink>
+          <FLink active_class_name="active" to="/">
+            Home
+          </FLink>
+          <FLink active_class_name="active" to="/command-list">
+            Command List
+          </FLink>
+          <FLink active_class_name="active" to="/about">
+            About
+          </FLink>
+          <FLink active_class_name="active" to="/terms&conditions">
+            Terms & Conditions
+          </FLink>
+          <FLink active_class_name="active" to="/developers">
+            Meet Developers
+          </FLink>
           <Hr />
         </UsefulLinks>
         <FollowUs>

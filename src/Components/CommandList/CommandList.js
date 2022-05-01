@@ -70,10 +70,14 @@ const CommandLists = () => {
     },
   ];
   return (
-    <div id="commandList">
-      <h2 data-aos="fade-left">Normal Commands</h2>
+    <div id="commandList" style={{ width: "auto", overflow: "hidden" }}>
+      <h2 data-aos="fade-left" style={{ width: "auto" }}>
+        Normal Commands
+      </h2>
       <BlockCard commandList={normalCommands} />
-      <h2 data-aos="fade-left">Additional Commands</h2>
+      <h2 data-aos="fade-left" style={{ width: "auto" }}>
+        Additional Commands
+      </h2>
       <BlockCard commandList={additionalCommands} />
     </div>
   );
