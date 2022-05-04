@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { animated } from "react-spring";
 import { red } from "../../Utiles/Colors";
 import { device } from "../../Utiles/Device";
+import { boxShadow } from "../../Utiles/functions";
 
 const convertInRem = (value) => {
   return `${value}rem`;
@@ -20,7 +21,8 @@ const Container = styled(animated.button)`
   padding: 0.25em 0.5em;
   background-color: ${red[400]};
   border: 2px solid ${red[400]};
-  border-radius: ${(props) => convertInRem(props.borderRadius)};
+  border-radius: ${(props) => convertInRem(props.border_radius)};
+  box-shadow: ${boxShadow.default()};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +35,7 @@ const Container = styled(animated.button)`
   }
   @media ${device.tabletM} {
     color: ${red[400]};
-    background-color: transparent;
+    background-color: ${(props) => props.theme.forground};
     transition: color 400ms ease;
     &::before {
       content: "";
@@ -43,7 +45,12 @@ const Container = styled(animated.button)`
       top: 0;
       left: 0;
       background-color: ${red[400]};
-      z-index: -1;
+      z-index: 0;
+      transition: width 400ms ease;
+    }
+    &::after {
+      content: attr(text);
+      position: absolute;
       transition: width 400ms ease;
     }
     &:hover:before {
@@ -58,7 +65,7 @@ const Container = styled(animated.button)`
 const Button = ({ fontSize = 1, borderRadius = 0.5, children, width }) => {
   useEffect(() => {}, []);
   return (
-    <Container borderRadius={borderRadius} width={width}>
+    <Container border_radius={borderRadius} width={width} text={children}>
       {children}
     </Container>
   );
