@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import {
   FilterDiv,
   Label,
@@ -10,9 +11,7 @@ import {
 } from "./filterStyle";
 import Dropdown from "../../Dropdown/Dropdown";
 import { useRippleEffect } from "../../RippleEffect";
-import { lightGreen, blue, red } from "../../../Utiles/Colors";
-
-//const smDevice = `(max-width: 790px)`;
+import { red } from "../../../Utiles/Colors";
 
 const Filter = ({
   country,
@@ -24,7 +23,8 @@ const Filter = ({
   keyword,
   setKeyword,
 }) => {
-  console.log("Filter Rendered!");
+  const themeStyle = useSelector((state) => state.theme);
+  const background = red[400];
   const searchRef = useRippleEffect();
   const searchBoxRef = useRef();
   const [tempCountry, setTempCountry] = useState(country);
@@ -33,9 +33,6 @@ const Filter = ({
 
   //functions
   const handleSearch = () => {
-    // console.log("Country: ", tempCountry.selected);
-    // console.log("Category: ", tempCategory.selected);
-    // console.log("Source: ", tempSource.selected);
     setCountry({ ...country, selected: tempCountry.selected });
     setCategory({ ...category, selected: tempCategory.selected });
     setSource({ ...source, selected: tempSource.selected });
@@ -50,7 +47,7 @@ const Filter = ({
           <Dropdown
             data={tempCountry}
             handleData={setTempCountry}
-            background={blue[500]}
+            background={background}
           />
         </Block>
 
@@ -60,7 +57,7 @@ const Filter = ({
           <Dropdown
             data={tempCategory}
             handleData={setTempCategory}
-            background={lightGreen[700]}
+            background={background}
           />
         </Block>
 
@@ -69,7 +66,7 @@ const Filter = ({
           <Dropdown
             data={tempSource}
             handleData={setTempSource}
-            background={red[300]}
+            background={background}
           />
         </Block>
         {/* sources */}
@@ -78,7 +75,12 @@ const Filter = ({
       <SearchBlock>
         {/* searchbox */}
         <TextField ref={searchBoxRef} placeholder="keyword/phrase" />
-        <Button ref={searchRef} type="button" onClick={handleSearch}>
+        <Button
+          ref={searchRef}
+          type="button"
+          onClick={handleSearch}
+          background={background}
+        >
           Search
         </Button>
       </SearchBlock>

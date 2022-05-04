@@ -42,11 +42,12 @@ export const TextField = styled.input`
 `;
 export const Button = styled.button`
   width: 5rem;
+  color: ${(props) => props.theme.text};
   margin-left: 0.5rem;
   border: none;
   border-radius: 0.5rem;
   padding: 0.25rem;
-  background-color: ${yellow[500]};
+  background-color: ${(props) => props.background};
 `;
 
 export const BlockContainer = styled.div`

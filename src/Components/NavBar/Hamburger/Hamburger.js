@@ -5,7 +5,6 @@ import { HamburgerContainer, Hamburger as HB, Line } from "./Style";
 const Hamburger = ({ openMenu, toggleMenu }) => {
   const [menuIconHover, setMenuIconHover] = useState(false);
   const firstLine = useSpring({
-    //boxShadow: `0px 0px ${menuIconHover ? 5 : 0}px 0px rgba(255,255,255,0.2)`,
     transform: openMenu
       ? "rotate(45deg) translateY(0px)"
       : "rotate(0deg) translateY(-8px)",

@@ -6,6 +6,15 @@
 /* font-family: 'Fjalla One', sans-serif; */
 @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 /* font-family: 'Anton', sans-serif; */
+
+@font-face {
+  font-family: Staatliches;
+  src: url("./fonts/Staatliches-Regular.ttf");
+}
+@font-face {
+  font-family: JosefinSans;
+  src: url("./fonts/JosefinSans-VariableFont.ttf");
+}
 @keyframes ripple {
   100% {
     transform: translate(-50%, -50%) scale(100);

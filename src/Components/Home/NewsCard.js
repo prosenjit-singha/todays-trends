@@ -13,7 +13,6 @@ import {
   ReadMore,
 } from "../Styles/CardStyles";
 import { useSpring } from "react-spring";
-import { colors } from "../Styles/Variables";
 
 const NewsCard = ({
   article: { description, publishedAt, source, title, url, urlToImage },

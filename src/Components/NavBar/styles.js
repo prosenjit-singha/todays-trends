@@ -82,8 +82,9 @@ export const MenuListItem = styled.li`
 
 export const MenuLink = styled(animated(NavLink))`
   will-change: text-shadow, color;
-  font-family: "Comfortaa", cursive;
-  font-size: 1rem;
+  font-family: "JosefinSans";
+  font-size: 1.1rem;
+  font-weight: 900;
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
@@ -99,10 +100,6 @@ export const MenuLink = styled(animated(NavLink))`
   transition: color, text-shadow 300ms ease;
   &:hover {
     color: ${(props) => (props.theme.name === "dark" ? red[500] : red[600])};
-  }
-  &.${(props) => props.activeClassName} {
-    border-left: 5px solid
-      ${(props) => (props.theme.name === "dark" ? red[400] : red[500])};
   }
   @media ${device.tabletM} {
     width: fit-content;
@@ -120,10 +117,13 @@ export const ActiveLinkEffect = styled(animated.span)`
   position: absolute;
   left: 0;
   border-radius: 2px;
-  bottom: 2px;
+  bottom: 0px;
   width: 20px;
   height: 5px;
   background-color: ${(props) =>
     props.theme.name === "dark" ? red[400] : red[500]};
   z-index: 1;
+  @media ${device.tabletM} {
+    bottom: 7px;
+  }
 `;

@@ -1,6 +1,7 @@
 //Hamburger Styles
 import styled from "styled-components";
 import { animated } from "react-spring";
+import { red } from "../../../Utiles/Colors";
 
 export const HamburgerContainer = styled.div`
   grid-column: 2/-1;
@@ -17,7 +18,7 @@ export const Line = styled(animated.span)`
   height: 0.25rem;
   width: 100%;
   left: 0;
-  background-color: ${(props) => props.theme.primary};
+  background-color: ${red[400]};
   border-radius: 5px;
   transition: background-color 500ms ease;
   &:nth-child(1) {
@@ -39,6 +40,6 @@ export const Hamburger = styled.div`
   margin-left: 1rem;
   cursor: pointer;
   &:hover ${Line} {
-    background-color: ${(props) => props.theme.success};
+    background-color: ${red[500]};
   }
 `;

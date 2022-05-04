@@ -16,19 +16,13 @@ export const GlobalStyle = createGlobalStyle`
       }
     &::-webkit-scrollbar-track{
       margin-block: -0.35em;
-      background-color: ${(props) => props.theme.background};
+      background-color: ${(props) => props.theme.backgroundShadow};
       border-radius: 10px;
-      box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.3),
-    -4px -4px 5px 0px rgba(255, 255, 255, 0.1),
-    inset 4px 4px 5px 0px rgba(0, 0, 0, 0.3),
-    inset -4px -4px 5px 0px rgba(255, 255, 255, 0.1);
     }
     &::-webkit-scrollbar-thumb{
       margin: 2px;
-      background-color: ${(props) => props.theme.forground};
+      background-color: ${(props) => props.theme.forgroundShadow};
       border-radius: 5px;
-      box-shadow: inset 4px 4px 3px 0px rgba(255, 255, 255, 0.1),
-      inset -4px -4px 3px 0px  rgba(0, 0, 0, 0.3);
       &:hover{
         background-color: ${(props) => props.theme.forgroundHighlight};
       }

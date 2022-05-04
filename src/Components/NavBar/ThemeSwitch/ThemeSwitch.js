@@ -17,9 +17,9 @@ const Icon = ({ mode }) => {
   return (
     <Image>
       {mode === DARK ? (
-        <IoMdMoon style={styles} />
-      ) : (
         <BsSunFill style={styles} />
+      ) : (
+        <IoMdMoon style={styles} />
       )}
     </Image>
   );

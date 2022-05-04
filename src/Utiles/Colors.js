@@ -1,5 +1,5 @@
 //   Example
-//   100: "hsl(230, 10%, 95%)",
+//   100: "hsl(240, 5%, 40%)",
 //   200: "hsl(230, 10%, 90%)",
 //   300: "hsl(230, 10%, 80%)",
 //   400: "hsl(230, 10%, 70%)",
@@ -29,7 +29,7 @@ const generateColorTones = (h, s) => {
   };
 };
 
-export const neutral = generateColorTones(230, 10);
+export const neutral = generateColorTones(180, 10);
 
 export const blue = generateColorTones(240, 100);
 

@@ -1,7 +1,7 @@
 import { useSpring, useSprings, config } from "react-spring";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
-import { useBreakpoint, useComponentSize, useWindowSize } from "react-use-size";
+import { useBreakpoint, useWindowSize } from "react-use-size";
 import { useMeasure } from "../../Helpers";
 import Hamburger from "./Hamburger/Hamburger";
 import Logo from "./Logo";
@@ -15,16 +15,22 @@ import {
   MenuLink,
 } from "./styles";
 import ThemeSwitch from "./ThemeSwitch/ThemeSwitch";
+import { useSelector } from "react-redux";
+import { red } from "../../Utiles/Colors";
 
 const NavBar = () => {
+  const themeStyle = useSelector((state) => state.theme);
   const activeRef = useRef();
   const menuRefs = useRef([]);
   const { pathname } = useLocation();
   const [menuRef, { height: menuHeight }] = useMeasure();
   const [hoverLocation, setHoverLocation] = useState({
     active: {},
+    top: 0,
     left: 0,
+    bgColor: themeStyle.name === "dark" ? red[500] : red[600],
     width: 0,
+    height: 0,
   });
   const [openMenu, toggleMenu] = useState(false);
   const smDevice = useBreakpoint(789);
@@ -65,9 +71,17 @@ const NavBar = () => {
   );
 
   const activeEffect = useSpring({
-    opacity: hoverLocation.left === 0 ? 0 : 1,
+    background: hoverLocation.bgColor,
     left: hoverLocation.left,
     width: hoverLocation.width,
+    config: config.wobbly,
+  });
+  const mobileActiveEffect = useSpring({
+    background: hoverLocation.bgColor,
+    left: 10,
+    top: hoverLocation.top,
+    width: 5,
+    height: hoverLocation.height,
     config: config.wobbly,
   });
   const activeThisLink = (i) => {
@@ -76,19 +90,32 @@ const NavBar = () => {
   };
   //styling-end
   const handleMouseEnter = (e) => {
-    const { offsetLeft, offsetWidth } = e.target.parentElement;
+    const { offsetTop, offsetLeft, offsetHeight, offsetWidth } =
+      e.target.parentElement;
     setHoverLocation({
       ...hoverLocation,
+      height: offsetHeight,
       width: offsetWidth,
       left: offsetLeft,
+      top: offsetTop,
+      bgColor: themeStyle.name === "dark" ? red[500] : red[600],
     });
   };
   const handleMouseLeave = () => {
-    const { left: offsetLeft, width: offsetWidth } = hoverLocation.active;
+    const {
+      left: offsetLeft,
+      width: offsetWidth,
+      top: offsetTop,
+      height: offsetHeight,
+    } = hoverLocation.active;
     setHoverLocation({
       ...hoverLocation,
-      width: offsetWidth,
+
+      top: offsetTop,
       left: offsetLeft,
+      height: offsetHeight,
+      width: offsetWidth,
+      bgColor: themeStyle.name === "dark" ? red[400] : red[500],
     });
   };
   useEffect(() => {
@@ -97,16 +124,23 @@ const NavBar = () => {
     else if (pathname === "/command-list") i = 1;
     else if (pathname === "/about") i = 2;
     applyLinkStyle(i);
-    const currentActive = menuRefs.current[i].parentElement;
-    const { offsetLeft, offsetWidth } = menuRefs.current[i].parentElement;
+    //const currentActive = menuRefs.current[i].parentElement;
+
+    const { offsetTop, offsetLeft, offsetWidth, offsetHeight } =
+      menuRefs.current[i].parentElement;
+    console.log(offsetHeight);
     setHoverLocation({
       ...hoverLocation,
       active: {
-        left: currentActive.offsetLeft,
-        width: currentActive.offsetWidth,
+        top: offsetTop,
+        left: offsetLeft,
+        width: offsetWidth,
+        height: offsetHeight,
       },
+      top: offsetTop,
       left: offsetLeft,
       width: offsetWidth,
+      height: offsetHeight,
     });
   }, [pathname, applyLinkStyle, windowWidth]);
   return (
@@ -134,8 +168,6 @@ const NavBar = () => {
                 <MenuLink
                   ref={(r) => (menuRefs.current[i] = r)}
                   id={id}
-                  activeClassName="active"
-                  //style={{ color, textShadow, boxShadow }}
                   to={path}
                   onClick={() => activeThisLink(i)}
                 >
@@ -144,10 +176,10 @@ const NavBar = () => {
               </MenuListItem>
             )
           )}
-
-          {!smDevice && (
-            <ActiveLinkEffect ref={activeRef} style={activeEffect} />
-          )}
+          <ActiveLinkEffect
+            ref={activeRef}
+            style={smDevice ? mobileActiveEffect : activeEffect}
+          />
           {!smDevice && <ThemeSwitch />}
         </MenuList>
       </MenuWrapper>

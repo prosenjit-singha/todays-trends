@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { animated } from "react-spring";
+import { red } from "../../Utiles/Colors";
 import { colors } from "../Styles/Variables";
-import { boxShadow } from "../../Utiles/functions";
+import { device } from "../../Utiles/Device";
 
 //const tbrl = "10px";
 
@@ -122,28 +123,60 @@ export const Desc = styled.div`
 
 export const ReadMore = styled(animated.a)`
   will-change: box-shadow, font-weight;
-  border-radius: 0.4rem;
-  padding: 0.1rem 0.5rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  border-radius: 0.4em;
+  padding: 0.1em 0.5em;
   height: auto;
   width: auto;
-  //padding: 0.9rem 0;
-  background-color: rgba(255, 196, 0, 1);
+  border: 2px solid ${red[400]};
+  background-color: ${red[400]};
+  color: white;
   text-align: center;
   text-decoration: none;
-  color: ${colors.neutral[900]};
   z-index: 5;
   bottom: 0rem;
-  &:hover {
-    color: black;
+  //overflow: hidden;
+  position: relative;
+  transition: color 400ms ease;
+  &:visited {
+    color: white;
+  }
+  @media ${device.tabletM} {
+    color: ${red[400]};
+    background-color: transparent;
+    &:visited {
+      color: ${red[400]};
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      left: 0;
+      top: 0;
+      //border-radius: 0;
+      background-color: ${red[400]};
+      z-index: -1;
+      transition: width 400ms ease;
+    }
+    &:hover {
+      color: white;
+    }
+    &:hover:before {
+      width: 100%;
+    }
   }
 `;
 export const BottomBlock = styled.div`
+  padding: 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  border-bottom-left-radius: 0.65rem;
-  border-bottom-right-radius: 0.65rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
   height: 2.8rem;
   width: 100%;
   //padding: 0.9rem 0;
