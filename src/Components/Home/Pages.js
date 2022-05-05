@@ -4,6 +4,7 @@ import { boxShadow } from "../../Utiles/functions";
 import Button from "../Button/Button";
 
 const Container = styled.div`
+  margin-top: 1.8rem;
   display: flex;
   justify-content: center;
 `;

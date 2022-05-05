@@ -12,6 +12,7 @@ import {
   BottomBlock,
   ReadMore,
 } from "../Styles/CardStyles";
+import wave from "../../img/animatedWave.svg";
 import { useSpring } from "react-spring";
 
 const NewsCard = ({
@@ -41,21 +42,12 @@ const NewsCard = ({
   //end of auto scrolling
   const isTheArticleActive = activeArticle === index ? true : false;
   const [hovered, setHovered] = useState(false);
-  const active = useSpring({
-    transform:
-      isTheArticleActive || hovered
-        ? "translateY(-1%) scale(1)"
-        : "translateY(0%) scale(1)",
-    boxShadow:
-      isTheArticleActive || hovered
-        ? "10px 15px 6px rgba(0, 0, 0, 0.35)"
-        : "0px 0px 0px rgba(0, 0, 0, 0.0)",
-    config: {
-      mass: 1,
-      tension: 200,
-      friction: 14,
-    },
-  });
+  const waveStyle = {
+    position: "absolute",
+    width: "100%",
+    left: 0,
+    verticalAlign: "middle",
+  };
 
   return (
     <CardContainer ref={elementRefs[index]}>
@@ -77,6 +69,7 @@ const NewsCard = ({
           {/* <GlowEffect href={url} target="_blank" style={glowEffect} /> */}
         </ContentWrapper>
         <BottomBlock>
+          {isTheArticleActive ? <img src={wave} style={waveStyle} /> : ""}
           <ReadMore href={url} target="_blank">
             {/* <Shine style={shineEffect} /> */}
             Read More

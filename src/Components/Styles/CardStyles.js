@@ -39,9 +39,6 @@ export const ContentWrapper = styled(animated.div)`
   border-radius: 0.5rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  //background-color: blue;
-  //background-color: ${(props) => props.theme.forground};
-  //border: 1px solid ${(props) => props.theme.background};
   z-index: 6;
 `;
 export const GlowEffect = styled(animated.a)`
@@ -145,7 +142,7 @@ export const ReadMore = styled(animated.a)`
   }
   @media ${device.tabletM} {
     color: ${red[400]};
-    background-color: transparent;
+    background-color: ${(props) => props.theme.forground};
     &:visited {
       color: ${red[400]};
     }
@@ -170,6 +167,7 @@ export const ReadMore = styled(animated.a)`
   }
 `;
 export const BottomBlock = styled.div`
+  position: relative;
   padding: 1em;
   display: flex;
   justify-content: space-between;

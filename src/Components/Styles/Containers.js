@@ -45,5 +45,5 @@ export const Container = styled.div`
   width: 100%;
   height: fit-content;
   min-height: 95vh;
-  padding: 1.5rem;
+  padding: 1.8rem;
 `;
