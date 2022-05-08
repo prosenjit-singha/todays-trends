@@ -11,9 +11,8 @@ import {
   Content,
   BottomBlock,
   ReadMore,
-} from "../Styles/CardStyles";
+} from "../../styles/CardStyles";
 import wave from "../../img/animatedWave.svg";
-import { useSpring } from "react-spring";
 
 const NewsCard = ({
   article: { description, publishedAt, source, title, url, urlToImage },

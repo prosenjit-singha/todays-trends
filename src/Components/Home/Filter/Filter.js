@@ -11,7 +11,7 @@ import {
 } from "./filterStyle";
 import Dropdown from "../../Dropdown/Dropdown";
 import { useRippleEffect } from "../../RippleEffect";
-import { red } from "../../../Utiles/Colors";
+import { red } from "../../../utiles/Colors";
 
 const Filter = ({
   country,

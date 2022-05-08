@@ -5,7 +5,7 @@ import { LIGHT, DARK } from "../../Redux/Theme/types";
 import { BsSunFill } from "react-icons/bs";
 import { IoMdMoon } from "react-icons/io";
 import { Container, Image } from "./styles";
-import { neutral } from "../../../Utiles/Colors";
+import { neutral } from "../../../utiles/Colors";
 
 const Icon = ({ mode }) => {
   const styles = {

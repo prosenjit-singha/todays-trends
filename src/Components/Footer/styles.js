@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { lightGreen } from "../../Utiles/Colors";
+import { lightGreen } from "../../utiles/Colors";
 
 const smDevice = "791px";
 

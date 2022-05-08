@@ -2,9 +2,9 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { animated } from "react-spring";
-import { colors } from "../Styles/Variables";
-import { device } from "../../Utiles/Device";
-import { red } from "../../Utiles/Colors";
+import { colors } from "../../styles/Variables";
+import { device } from "../../utiles/Device";
+import { red } from "../../utiles/Colors";
 
 export const Nav = styled.nav`
   display: grid;

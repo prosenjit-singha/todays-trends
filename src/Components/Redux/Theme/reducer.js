@@ -1,7 +1,7 @@
 import { TOGGLE_THEME } from "./types";
 import { LIGHT } from "./types";
 import { createReducer } from "@reduxjs/toolkit";
-import { dark, light } from "../../Styles/theme";
+import { dark, light } from "../../../styles/theme";
 
 const initialState = {
   theme: dark,

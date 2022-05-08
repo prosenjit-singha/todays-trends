@@ -1,11 +1,4 @@
-import {
-  neutral,
-  blue,
-  cyan,
-  lightGreen,
-  red,
-  yellow,
-} from "../../Utiles/Colors";
+import { neutral, blue, cyan, lightGreen, red, yellow } from "../utiles/Colors";
 
 export const dark = {
   name: "dark",

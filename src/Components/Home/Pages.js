@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { boxShadow } from "../../Utiles/functions";
+import { boxShadow } from "../../utiles/functions";
 import Button from "../Button/Button";
 
 const Container = styled.div`

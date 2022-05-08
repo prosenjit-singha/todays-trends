@@ -1,4 +1,4 @@
-import { neutral, green, blue, yellow } from "../../Utiles/Colors";
+import { neutral, green, blue, yellow } from "../../utiles/Colors";
 
 const blurAmount = [25, 20, 10];
 const shadow = neutral[900];

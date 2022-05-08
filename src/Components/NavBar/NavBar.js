@@ -16,7 +16,7 @@ import {
 } from "./styles";
 import ThemeSwitch from "./ThemeSwitch/ThemeSwitch";
 import { useSelector } from "react-redux";
-import { red } from "../../Utiles/Colors";
+import { red } from "../../utiles/Colors";
 
 const NavBar = () => {
   const themeStyle = useSelector((state) => state.theme);

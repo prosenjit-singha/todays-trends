@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { yellow } from "../../../Utiles/Colors";
-import { boxShadow } from "../../../Utiles/functions";
+import { yellow } from "../../../utiles/Colors";
+import { boxShadow } from "../../../utiles/functions";
 
 const smDevice = `(max-width: 1035px)`;
 // const giveOuterShadow = (positive, color) => {

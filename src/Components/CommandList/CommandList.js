@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "../Styles/Containers";
+import { Container } from "../../styles/Containers";
 
 function BlockCard({ commandList }) {
   return (

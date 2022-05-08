@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import NewsCards from "./NewsCards";
-import { Container } from "../Styles/Containers";
+import { Container } from "../../styles/Containers";
 import Filter from "./Filter/Filter";
 import Pages from "./Pages";
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { animated } from "react-spring";
 import styled from "styled-components";
-import { red } from "../../Utiles/Colors";
+import { red } from "../../utiles/Colors";
 
 export const Hero = styled(animated(Link))`
   font-family: Staatliches;

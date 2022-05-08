@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { animated } from "react-spring";
-import { red } from "../../Utiles/Colors";
-import { colors } from "../Styles/Variables";
-import { device } from "../../Utiles/Device";
+import { red } from "../utiles/Colors";
+import { colors } from "./Variables";
+import { device } from "../utiles/Device";
 
 //const tbrl = "10px";
 

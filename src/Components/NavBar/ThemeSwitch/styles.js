@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { animated } from "react-spring";
-import { red } from "../../../Utiles/Colors";
+import { red } from "../../../utiles/Colors";
 
 export const Container = styled.div`
   height: auto;
