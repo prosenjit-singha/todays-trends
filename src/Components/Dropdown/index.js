@@ -8,7 +8,7 @@ import {
   useSpringRef,
 } from "react-spring";
 import { IoIosArrowDown as Icon } from "react-icons/io";
-import { useMeasure } from "../../Helpers";
+import { useMeasure } from "../../utils/helpers";
 import {
   Container,
   SelectWrapper,
@@ -19,7 +19,7 @@ import {
   Radio,
   Label,
 } from "./styles";
-import { useRippleEffect } from "../RippleEffect";
+import { useRippleEffect } from "../ripple-effect";
 
 //data
 

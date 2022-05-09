@@ -1,6 +1,7 @@
+// filter styles
 import styled from "styled-components";
-import { yellow } from "../../../utiles/Colors";
-import { boxShadow } from "../../../utiles/functions";
+import { yellow } from "../../../utils/colors";
+import { boxShadow } from "../../../utils/functions";
 
 const smDevice = `(max-width: 1035px)`;
 // const giveOuterShadow = (positive, color) => {

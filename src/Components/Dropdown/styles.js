@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { animated } from "react-spring";
-import { neutral } from "../../utiles/Colors";
+import { neutral } from "../../utils/colors";
 const borderRadius = "0.4rem";
 
 export const Label = styled.label`

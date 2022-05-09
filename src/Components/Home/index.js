@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import NewsCards from "./NewsCards";
-import { Container } from "../../styles/Containers";
-import Filter from "./Filter/Filter";
-import Pages from "./Pages";
+import NewsCards from "./news-cards";
+import { Container } from "../../styles/containers";
+import Filter from "./filter";
+import Pages from "./pages";
 
 const Home = ({ articles, activeArticle }) => {
   const [category, setCategory] = useState({

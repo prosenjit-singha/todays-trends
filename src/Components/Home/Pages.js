@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { boxShadow } from "../../utiles/functions";
-import Button from "../Button/Button";
+import { boxShadow } from "../../utils/functions";
+import Button from "../button/Button";
 
 const Container = styled.div`
   margin-top: 1.8rem;

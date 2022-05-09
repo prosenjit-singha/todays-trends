@@ -11,8 +11,8 @@ import {
   Content,
   BottomBlock,
   ReadMore,
-} from "../../styles/CardStyles";
-import wave from "../../img/animatedWave.svg";
+} from "../../styles/card-styles";
+import wave from "../../img/animated-wave.svg";
 
 const NewsCard = ({
   article: { description, publishedAt, source, title, url, urlToImage },

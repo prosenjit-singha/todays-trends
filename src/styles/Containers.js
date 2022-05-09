@@ -1,4 +1,4 @@
-import { colors } from "./Variables";
+import { colors } from "./variables";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 

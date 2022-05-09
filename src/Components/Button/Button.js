@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { animated } from "react-spring";
-import { red } from "../../utiles/Colors";
-import { device } from "../../utiles/Device";
-import { boxShadow } from "../../utiles/functions";
+import { red } from "../../utils/colors";
+import { device } from "../../utils/device";
+import { boxShadow } from "../../utils/functions";
 
 const convertInRem = (value) => {
   return `${value}rem`;

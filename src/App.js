@@ -4,29 +4,27 @@ import alanBtn from "@alan-ai/alan-sdk-web";
 import wordsToNumbers from "words-to-numbers";
 import AOS from "aos";
 import "../node_modules/aos/dist/aos.css";
-import NavBar from "./components/NavBar/NavBar";
-import Footer from "./components/Footer/Footer";
-import { NavBarSpace } from "./styles/Containers";
-import Home from "./components/Home/Home";
-import About from "./components/About/About";
-import CommandList from "./components/CommandList/CommandList";
-import Developers from "./components/Dev/Dev";
-import Error from "./components/Error/Error";
-import { GlobalStyle } from "./styles/Containers";
+import NavBar from "./components/navBar";
+import Footer from "./components/footer";
+import { NavBarSpace } from "./styles/containers";
+import Home from "./components/home";
+import About from "./components/about";
+import CommandList from "./components/command-list";
+import Developers from "./components/dev";
+import Error from "./components/error";
+import { GlobalStyle } from "./styles/containers";
 import axios from "axios";
-import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/scroll-to-top";
 import { ThemeProvider } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { DARK, LIGHT } from "./components/Redux/Theme/types";
-import { toggleTheme } from "./components/Redux/Theme/action";
+import { toggleTheme } from "./redux/features/theme/theme-slice";
 
 const alanKey =
   "9d1324a30a0a78d5a51fdfa0d05b9c372e956eca572e1d8b807a3e2338fdd0dc/stage";
 
 const App = () => {
-  const themeStyle = useSelector((state) => state.theme);
-  const localTheme = localStorage.getItem("theme");
-  const mode = localTheme === LIGHT ? LIGHT : DARK;
+  const themeStyle = useSelector((state) => state.theme.props);
+  const mode = localStorage.getItem("theme");
   const dispatch = useDispatch();
 
   const [activeArticle, setActiveArticle] = useState(null); //set null

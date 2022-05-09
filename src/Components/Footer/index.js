@@ -1,7 +1,7 @@
 import React from "react";
-import Logo from "../NavBar/Logo";
-import SocialIcons from "./SocialIcons";
-import { neutral } from "../../utiles/Colors";
+import Logo from "../navBar/logo";
+import SocialIcons from "./social-icons";
+import { neutral } from "../../utils/colors";
 import {
   Footer as FT,
   Container,

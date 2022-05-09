@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "../../styles/Containers";
+import { Container } from "../../styles/containers";
 import {
   neutral,
   red,
@@ -10,7 +10,7 @@ import {
   lightGreen,
   magenta,
   orange,
-} from "../../utiles/Colors";
+} from "../../utils/colors";
 import styled from "styled-components";
 
 const Box = styled.div`

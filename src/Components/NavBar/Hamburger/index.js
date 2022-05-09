@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { config, useSpring } from "react-spring";
-import ThemeSwitch from "../ThemeSwitch/ThemeSwitch";
-import { HamburgerContainer, Hamburger as HB, Line } from "./Style";
+import ThemeSwitch from "../theme-switch";
+import { HamburgerContainer, Hamburger as HB, Line } from "./style";
 const Hamburger = ({ openMenu, toggleMenu }) => {
   const [menuIconHover, setMenuIconHover] = useState(false);
   const firstLine = useSpring({

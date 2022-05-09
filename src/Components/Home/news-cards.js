@@ -1,6 +1,6 @@
 import React from "react";
-import NewsCard from "./NewsCard";
-import { Grid } from "./Styles";
+import NewsCard from "./news-card";
+import { Grid } from "./styles";
 
 const NewsCards = ({ articles, activeArticle }) => {
   return (

@@ -8,10 +8,10 @@ import {
   BlockContainer,
   Block,
   SearchBlock,
-} from "./filterStyle";
-import Dropdown from "../../Dropdown/Dropdown";
-import { useRippleEffect } from "../../RippleEffect";
-import { red } from "../../../utiles/Colors";
+} from "./style";
+import Dropdown from "../../dropdown";
+import { useRippleEffect } from "../../ripple-effect";
+import { red } from "../../../utils/colors";
 
 const Filter = ({
   country,

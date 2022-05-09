@@ -1,7 +1,7 @@
 //Hamburger Styles
 import styled from "styled-components";
 import { animated } from "react-spring";
-import { red } from "../../../utiles/Colors";
+import { red } from "../../../utils/colors";
 
 export const HamburgerContainer = styled.div`
   grid-column: 2/-1;

@@ -2,10 +2,10 @@ import { useSpring, useSprings, config } from "react-spring";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import { useBreakpoint, useWindowSize } from "react-use-size";
-import { useMeasure } from "../../Helpers";
-import Hamburger from "./Hamburger/Hamburger";
-import Logo from "./Logo";
-import { menuItems as mi } from "./MenuItems";
+import { useMeasure } from "../../utils/helpers";
+import Hamburger from "./hamburger";
+import Logo from "./logo";
+import { menuItems as mi } from "./menu-items";
 import {
   ActiveLinkEffect,
   Nav,
@@ -14,12 +14,12 @@ import {
   MenuListItem,
   MenuLink,
 } from "./styles";
-import ThemeSwitch from "./ThemeSwitch/ThemeSwitch";
+import ThemeSwitch from "./theme-switch";
 import { useSelector } from "react-redux";
-import { red } from "../../utiles/Colors";
+import { red } from "../../utils/colors";
 
 const NavBar = () => {
-  const themeStyle = useSelector((state) => state.theme);
+  const themeStyle = useSelector((state) => state.theme.props);
   const activeRef = useRef();
   const menuRefs = useRef([]);
   const { pathname } = useLocation();
