@@ -1,3 +1,20 @@
+const logic = (keyword, selected, source) => {
+  if (source === "" && keyword === "top-headlines?" && selected === "")
+    return "&country=us";
+  else return selected;
+};
+
+export const getAPI = (params) => {
+  const { country, source, keyword, category } = params;
+  const API_KEY = `https://newsapi.org/v2/${keyword}apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12${logic(
+    keyword,
+    country,
+    source
+  )}${category}${source}`;
+
+  return API_KEY;
+};
+
 export const boxShadow = {
   blur: 10,
   color: "rgba(0,0,0,0.5)",

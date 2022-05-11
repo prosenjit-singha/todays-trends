@@ -15,7 +15,8 @@ export const Hero = styled(animated(Link))`
   color: ${(props) => (props.theme.name === "dark" ? red[400] : red[500])};
   //padding: 0px 15px;
   //padding-bottom: 5px;
-  padding: 0.05em 1em;
+  padding-block: 0.05em;
+  padding-left: 1em;
   //padding-bottom: 0.05em;
   position: relative;
   overflow: hidden;

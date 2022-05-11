@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
 const initialState = {
-  api: "https://newsapi.org/v2/top-headlines?apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12",
+  api: "https://newsapi.org/v2/top-headlines?apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12&country=us",
   articles: [],
+  page: 1,
   totalResults: 0,
   activeArticle: null,
   loading: false,
@@ -13,9 +13,7 @@ const initialState = {
 //generate pending, fulfilled and rejected //life cycle hook
 export const fetchArticles = createAsyncThunk(
   "news/fetchArticles",
-  async (params, { rejectWithValue }) => {
-    const { country, source, keyword, category } = params;
-    const API_KEY = `https://newsapi.org/v2/${keyword}apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12${country}${category}${source}`;
+  async (API_KEY, { rejectWithValue }) => {
     console.log(API_KEY);
     try {
       const { data } = await axios.get(API_KEY);
@@ -45,6 +43,12 @@ const newsSlice = createSlice({
     setArticles: (state, action) => {
       state.articles = action.payload;
     },
+    setPage: (state, action) => {
+      state.page = action.payload;
+    },
+    setAPI_KEY: (state, action) => {
+      state.api = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchArticles.pending, (state) => {
@@ -68,3 +72,5 @@ const newsSlice = createSlice({
 });
 
 export default newsSlice.reducer;
+export const { setPage, setActiveArticle, setArticles, setAPI_KEY } =
+  newsSlice.actions;

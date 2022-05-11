@@ -52,7 +52,9 @@ export const OptionContainer = styled(animated.div)`
 `;
 export const SelectWrapper = styled.div`
   position: relative;
+  height: 30px;
   display: flex;
+  align-items: center;
   background-color: ${(props) => props.bg};
   border-radius: ${borderRadius};
   padding: 0.2rem 0.75rem;

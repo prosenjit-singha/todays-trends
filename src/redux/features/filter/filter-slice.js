@@ -92,6 +92,7 @@ const initialState = {
     text: "",
     getString: "",
   },
+  page: 1,
 };
 
 const filterSlice = createSlice({
@@ -125,9 +126,12 @@ const filterSlice = createSlice({
         state.keyword.getString = "&q=" + action.payload.split(" ").join("-");
       }
     },
+    setPage: (state, action) => {
+      state.page = action.payload;
+    },
   },
 });
 
 export default filterSlice.reducer;
-export const { setCountry, setCategory, setSource, setKeyword } =
+export const { setCountry, setCategory, setSource, setKeyword, setPage } =
   filterSlice.actions;

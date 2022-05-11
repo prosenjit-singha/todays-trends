@@ -16,6 +16,9 @@ export const FilterDiv = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  //display: grid;
+  //grid-template-columns: 1fr;
+  //grid-template-rows: repeat(2, auto);
   margin-bottom: 1.5rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
@@ -24,6 +27,26 @@ export const FilterDiv = styled.div`
   box-shadow: ${boxShadow.default()};
   @media ${device.tabletM} {
     flex-direction: row;
+  }
+`;
+export const BlockContainer = styled(animated.div)`
+  //overflow: hidden;
+  width: fit-content;
+`;
+export const Blocks = styled.div`
+  //min-width: 700px;
+  //outline: 2px solid white;
+  width: fit-content;
+  //position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  //justify-content: space-between;
+
+  //flex-wrap: wrap;
+  @media ${device.tabletM} {
+    flex-direction: row;
+    align-items: center;
   }
 `;
 export const Label = styled.label`
@@ -53,23 +76,6 @@ export const Button = styled.button`
   padding: 0.25rem;
   background-color: ${(props) => props.background};
 `;
-
-export const Blocks = styled.div`
-  //min-width: 700px;
-  outline: 2px solid white;
-  width: fit-content;
-  //position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  //justify-content: space-between;
-
-  //flex-wrap: wrap;
-  @media ${device.tabletM} {
-    flex-direction: row;
-    align-items: center;
-  }
-`;
 export const Block = styled.div`
   width: 100%;
   //background-color: blue;
@@ -81,10 +87,7 @@ export const Block = styled.div`
     border-bottom: 2px solid ${(props) => props.theme.forgroundShadow};
   }
 `;
-export const BlockContainer = styled(animated.div)`
-  //overflow: hidden;
-  width: fit-content;
-`;
+
 export const SearchBlock = styled(Block)`
   justify-content: end;
   @media ${smDevice} {
