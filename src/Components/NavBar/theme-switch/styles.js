@@ -15,6 +15,5 @@ export const Container = styled.div`
 `;
 
 export const Image = styled(animated.div)`
-  height: auto;
-  //filter: drop-shadow(0 0 5px white);
+  display: flex;
 `;

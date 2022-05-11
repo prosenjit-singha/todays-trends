@@ -128,7 +128,6 @@ const NavBar = () => {
 
     const { offsetTop, offsetLeft, offsetWidth, offsetHeight } =
       menuRefs.current[i].parentElement;
-    console.log(offsetHeight);
     setHoverLocation({
       ...hoverLocation,
       active: {
@@ -149,33 +148,22 @@ const NavBar = () => {
       {smDevice && <Hamburger openMenu={openMenu} toggleMenu={toggleMenu} />}
       <MenuWrapper style={smDevice ? menuStyles : { maxHeight: "3.2rem" }}>
         <MenuList {...menuRef}>
-          {menuItems.map(
-            ({ id, name, path, color, textShadow, boxShadow }, i) => (
-              <MenuListItem
-                key={i}
-                onMouseEnter={(e) => handleMouseEnter(e)}
-                onMouseLeave={handleMouseLeave}
+          {menuItems.map(({ id, name, path }, i) => (
+            <MenuListItem
+              key={i}
+              onMouseEnter={(e) => handleMouseEnter(e)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <MenuLink
+                ref={(r) => (menuRefs.current[i] = r)}
+                id={id}
+                to={path}
+                onClick={() => activeThisLink(i)}
               >
-                {/* <MenuLink
-                  ref={(r) => (menuRefs.current[i] = r)}
-                  id={id}
-                  style={{ color, textShadow, boxShadow }}
-                  to={path}
-                  onClick={() => activeThisLink(i)}
-                >
-                  {name}
-                </MenuLink> */}
-                <MenuLink
-                  ref={(r) => (menuRefs.current[i] = r)}
-                  id={id}
-                  to={path}
-                  onClick={() => activeThisLink(i)}
-                >
-                  {name}
-                </MenuLink>
-              </MenuListItem>
-            )
-          )}
+                {name}
+              </MenuLink>
+            </MenuListItem>
+          ))}
           <ActiveLinkEffect
             ref={activeRef}
             style={smDevice ? mobileActiveEffect : activeEffect}

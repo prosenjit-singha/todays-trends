@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { animated } from "react-spring";
-import { neutral } from "../../utils/colors";
 const borderRadius = "0.4rem";
 
 export const Label = styled.label`
@@ -17,6 +16,7 @@ export const Radio = styled.input`
   display: none;
 `;
 export const Option = styled(animated.div)`
+  display: flex;
   border-bottom: 1px solid ${(props) => props.theme.background};
 `;
 export const Options = styled(animated.div)`

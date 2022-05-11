@@ -21,27 +21,20 @@ import {
 } from "./styles";
 import { useRippleEffect } from "../ripple-effect";
 
-//data
-
-// const data = {
-//   id: "catagory",
-//   default: "sport",
-//   list: ["sport", "business", "politics", "movies"],
-// };
-
-const Dropdown = ({ background, data, handleData }) => {
+const Dropdown = ({ background, data, handleData, reset }) => {
   let list;
   if (data !== undefined) list = Object.keys(data.list);
   const rippleRef = useRippleEffect();
-  const [selected, setSelected] = useState(`All`);
+  //const [selected, setSelected] = useState(`All`);
   const [isOpen, setOpen] = useState(false);
   const [wrapperRef, { height: wrapperHeight }] = useMeasure();
   const selectedRef = useRef();
   //functions
   const handleClick = (e) => {
     setOpen(!isOpen);
-    setSelected(e.target.value);
+    //setSelected(e.target.value);
     handleData({ ...data, selected: e.target.value });
+    reset();
   };
   //animations
   const arrowStyle = useSpring({
@@ -75,7 +68,7 @@ const Dropdown = ({ background, data, handleData }) => {
           onClick={() => setOpen(!isOpen)}
           bg={background}
         >
-          <Select ref={selectedRef}>{selected}</Select>
+          <Select ref={selectedRef}>{data.selected}</Select>
           <animated.div
             style={{ ...arrowStyle, width: "fit-content", marginLeft: "auto" }}
           >

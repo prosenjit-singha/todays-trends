@@ -24,6 +24,7 @@ const alanKey =
 
 const App = () => {
   const themeStyle = useSelector((state) => state.theme.props);
+  const filterData = useSelector((state) => state.filter);
   const mode = localStorage.getItem("theme");
   const dispatch = useDispatch();
 
@@ -31,9 +32,11 @@ const App = () => {
   const [newsArticles, setNewsArticles] = useState([]);
 
   useEffect(() => {
+    console.log(filterData);
     dispatch(toggleTheme(mode));
     let NEWS_API =
-      "https://newsapi.org/v2/top-headlines?country=us&apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12";
+      "https://newsapi.org/v2/top-headlines?apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12" +
+      filterData.country.getString;
     AOS.init(); //for scroll animation
     alanBtn({
       key: alanKey,

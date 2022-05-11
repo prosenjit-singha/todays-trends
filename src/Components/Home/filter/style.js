@@ -1,6 +1,7 @@
 // filter styles
+import { animated } from "react-spring";
 import styled from "styled-components";
-import { yellow } from "../../../utils/colors";
+import { device } from "../../../utils/device";
 import { boxShadow } from "../../../utils/functions";
 
 const smDevice = `(max-width: 1035px)`;
@@ -10,17 +11,19 @@ const smDevice = `(max-width: 1035px)`;
 // };
 
 export const FilterDiv = styled.div`
+  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 1.5rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
-  align-items: center;
   border: 1px solid ${(props) => props.theme.forground};
   background-color: ${(props) => props.theme.forgroundShadow};
   box-shadow: ${boxShadow.default()};
-  @media ${smDevice} {
-    flex-direction: column;
+  @media ${device.tabletM} {
+    flex-direction: row;
   }
 `;
 export const Label = styled.label`
@@ -51,16 +54,20 @@ export const Button = styled.button`
   background-color: ${(props) => props.background};
 `;
 
-export const BlockContainer = styled.div`
+export const Blocks = styled.div`
   //min-width: 700px;
+  outline: 2px solid white;
+  width: fit-content;
+  //position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  //justify-content: space-between;
+
   //flex-wrap: wrap;
-  @media ${smDevice} {
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
+  @media ${device.tabletM} {
+    flex-direction: row;
+    align-items: center;
   }
 `;
 export const Block = styled.div`
@@ -73,6 +80,10 @@ export const Block = styled.div`
     margin-bottom: 0.25rem;
     border-bottom: 2px solid ${(props) => props.theme.forgroundShadow};
   }
+`;
+export const BlockContainer = styled(animated.div)`
+  //overflow: hidden;
+  width: fit-content;
 `;
 export const SearchBlock = styled(Block)`
   justify-content: end;
