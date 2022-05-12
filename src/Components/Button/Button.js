@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { animated } from "react-spring";
-import { red } from "../../utils/colors";
+import { red, neutral } from "../../utils/colors";
 import { device } from "../../utils/device";
 import { boxShadow } from "../../utils/functions";
 
@@ -11,7 +11,7 @@ const convertInRem = (value) => {
 
 const Container = styled(animated.button)`
   position: relative;
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   font-weight: 500;
   font-size: ${(props) => convertInRem(props.fontSize)};
   letter-spacing: 1px;
@@ -21,8 +21,8 @@ const Container = styled(animated.button)`
   height: fit-content;
   margin: 0.5rem;
   padding: 0.25em 0.5em;
-  background-color: ${(props) => (props.active ? red[500] : red[400])};
-  border: 2px solid ${red[400]};
+  //background-color: ${(props) => (props.isactive ? red[500] : red[400])};
+  border: 2px solid ${(props) => (props.disabled ? neutral[900] : red[400])};
   border-radius: ${(props) => convertInRem(props.border_radius)};
   box-shadow: ${boxShadow.default()};
   display: flex;
@@ -33,20 +33,24 @@ const Container = styled(animated.button)`
     background-color: ${red[500]};
   }
   &:hover {
-    color: white;
+    color: ${(props) => (props.disabled ? "gray" : "white")};
   }
   @media ${device.tabletM} {
-    color: ${(props) => (props.active ? "white" : red[400])};
+    color: ${(props) =>
+      props.isactive ? "white" : props.disabled ? "gray" : red[400]};
     background-color: ${(props) => props.theme.forground};
     transition: color 400ms ease;
     &::before {
       content: "";
       position: absolute;
       height: 100%;
-      width: ${(props) => (props.active ? "100%" : 0)};
+      width: ${(props) =>
+        props.isactive ? "100%" : props.disabled ? "100%" : "0%"};
       top: 0;
       left: 0;
-      background-color: ${red[400]};
+      border-radius: ${(props) => convertInRem(props.border_radius - 0.2)};
+      background-color: ${(props) =>
+        props.disabled ? neutral[1000] : red[400]};
       z-index: 0;
       transition: width 400ms ease;
     }
@@ -59,27 +63,29 @@ const Container = styled(animated.button)`
       width: 100%;
     }
     &:hover {
-      color: white;
+      color: ${(props) => (props.disabled ? "gray" : "white")};
     }
   }
 `;
 
 const Button = ({
-  active,
+  isactive,
   fontSize = 1,
   borderRadius = 0.5,
   children,
+  disabled = false,
   width,
   handleClick,
 }) => {
   useEffect(() => {}, []);
   return (
     <Container
-      active={active}
+      isactive={isactive}
       border_radius={borderRadius}
       width={width}
       text={children}
       fontSize={fontSize}
+      disabled={disabled}
       onClick={() => handleClick(children)}
     >
       {children}

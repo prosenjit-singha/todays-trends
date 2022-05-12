@@ -8,7 +8,7 @@ import {
   setKeyword,
   setPage,
 } from "../../../redux/features/filter/filter-slice";
-import { setAPI_KEY } from "../../../redux/features/news/news-slice";
+import { setAPI, setAPI_KEY } from "../../../redux/features/news/news-slice";
 import {
   FilterDiv,
   Label,
@@ -41,7 +41,6 @@ const Filter = () => {
   const background = red[400];
   const searchRef = useRippleEffect();
   const searchBoxRef = useRef();
-  const [pageNo, setPageNo] = useState(data.page);
   const [tempCountry, setTempCountry] = useState(data.country);
   const [tempCategory, setTempCategory] = useState(data.category);
   const [tempSource, setTempSource] = useState(data.source);
@@ -75,20 +74,23 @@ const Filter = () => {
   //   document.addEventListener("click", handleListener);
   // };
   const handleSearch = () => {
-    setPageNo(1);
     dispatch(setCountry(tempCountry.selected));
     dispatch(setCategory(tempCategory.selected));
     dispatch(setSource(tempSource.selected));
     dispatch(setKeyword(searchBoxRef.current.value));
     dispatch(setPage(1));
+
     const params = {
       country: getString(tempCountry),
       category: getString(tempCategory),
       source: getString(tempSource),
       keyword: getString(searchBoxRef.current.value),
     };
+    dispatch(setAPI(getAPI(params)));
     dispatch(setAPI_KEY(getAPI(params)));
-    dispatch(fetchArticles(getAPI(params)));
+    localStorage.setItem("API", getAPI(params));
+    localStorage.setItem("API_KEY", getAPI(params));
+    //dispatch(fetchArticles(getAPI(params)));
     //handleAPI();
   };
 

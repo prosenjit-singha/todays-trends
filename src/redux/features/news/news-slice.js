@@ -2,6 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const initialState = {
   api: "https://newsapi.org/v2/top-headlines?apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12&country=us",
+  api_key:
+    "https://newsapi.org/v2/top-headlines?apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12&country=us",
   articles: [],
   page: 1,
   totalResults: 0,
@@ -14,7 +16,7 @@ const initialState = {
 export const fetchArticles = createAsyncThunk(
   "news/fetchArticles",
   async (API_KEY, { rejectWithValue }) => {
-    console.log(API_KEY);
+    console.log("fetching request from api");
     try {
       const { data } = await axios.get(API_KEY);
       console.log(data);
@@ -46,8 +48,11 @@ const newsSlice = createSlice({
     setPage: (state, action) => {
       state.page = action.payload;
     },
-    setAPI_KEY: (state, action) => {
+    setAPI: (state, action) => {
       state.api = action.payload;
+    },
+    setAPI_KEY: (state, action) => {
+      state.api_key = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -72,5 +77,5 @@ const newsSlice = createSlice({
 });
 
 export default newsSlice.reducer;
-export const { setPage, setActiveArticle, setArticles, setAPI_KEY } =
+export const { setPage, setActiveArticle, setArticles, setAPI_KEY, setAPI } =
   newsSlice.actions;

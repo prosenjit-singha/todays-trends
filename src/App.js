@@ -18,28 +18,37 @@ import ScrollToTop from "./components/scroll-to-top";
 import { ThemeProvider } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "./redux/features/theme/theme-slice";
+import {
+  setAPI,
+  setAPI_KEY,
+  fetchArticles,
+} from "./redux/features/news/news-slice";
 
-const alanKey =
+const ALAN_KEY =
   "9d1324a30a0a78d5a51fdfa0d05b9c372e956eca572e1d8b807a3e2338fdd0dc/stage";
 
 const App = () => {
   const themeStyle = useSelector((state) => state.theme.props);
   const filterData = useSelector((state) => state.filter);
+  const newsData = useSelector((state) => state.news);
   const mode = localStorage.getItem("theme");
   const dispatch = useDispatch();
-
   const [activeArticle, setActiveArticle] = useState(null); //set null
   const [newsArticles, setNewsArticles] = useState([]);
 
   useEffect(() => {
+    console.log("API: ", newsData.api);
+    console.log("API_KEY: ", newsData.api_key);
+  }, [newsData.api, newsData.api_key]);
+
+  useEffect(() => {
     console.log(filterData);
     dispatch(toggleTheme(mode));
-    let NEWS_API =
-      "https://newsapi.org/v2/top-headlines?apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12" +
-      filterData.country.getString;
+    //dispatch(fetchArticles(newsData.api_key));
+
     AOS.init(); //for scroll animation
     alanBtn({
-      key: alanKey,
+      key: ALAN_KEY,
       onCommand: ({ command, articles, number }) => {
         if (command === "newHeadlines") {
           setNewsArticles(articles);
@@ -64,9 +73,9 @@ const App = () => {
         }
       },
     });
-    axios.get(NEWS_API).then((res) => {
-      setNewsArticles(res.data.articles);
-    });
+    // axios.get(NEWS_API).then((res) => {
+    //   setNewsArticles(res.data.articles);
+    // });
   }, []);
   return (
     <React.Fragment>
@@ -84,13 +93,11 @@ const App = () => {
               <Home articles={newsArticles} activeArticle={activeArticle} />
             }
           />
-          {/* <Route path="/news-by/:option1/:option2" element={<NewsBy />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="/command-list" element={<CommandList />} />
           <Route path="/developers" element={<Developers />} />
           <Route path="/*" element={<Error />} />
         </Routes>
-        {/* <NewsCards articles={newsArticles} activeArticle={activeArticle} /> */}
         <Footer />
       </ThemeProvider>
     </React.Fragment>
