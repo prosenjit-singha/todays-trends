@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createRef } from "react";
+import { useSelector } from "react-redux";
 import {
   CardContainer,
   Card,
@@ -22,7 +23,7 @@ const NewsCard = ({
   //auto scrolling effect for
   const [elementRefs, setElRefs] = useState([]);
   const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 85);
-
+  const page = useSelector((state) => state.filter.page);
   useEffect(() => {
     window.scroll(0, 0);
 
@@ -48,6 +49,9 @@ const NewsCard = ({
     verticalAlign: "middle",
   };
 
+  const getIndex = (index) => {
+    return index + 1 + (page - 1) * 12;
+  };
   return (
     <CardContainer ref={elementRefs[index]}>
       <Card
@@ -58,7 +62,7 @@ const NewsCard = ({
         <ContentWrapper
         // style={contentAnimation}
         >
-          <Image image={urlToImage} index={index} />
+          <Image image={urlToImage} index={getIndex(index)} />
           <Content>
             <Source>{source.name} </Source>
             <Date>{publishedAt} </Date>

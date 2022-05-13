@@ -1,8 +1,12 @@
 import React from "react";
 import NewsCard from "./news-card";
 import { Grid } from "./styles";
+import { useSelector } from "react-redux";
 
-const NewsCards = ({ articles, activeArticle }) => {
+const NewsCards = ({ activeArticle }) => {
+  const data = useSelector((state) => state.news);
+  const articles = data.articles;
+
   return (
     <Grid>
       {articles.map((article, i) => (

@@ -44,18 +44,23 @@ const Filter = () => {
   const [tempCountry, setTempCountry] = useState(data.country);
   const [tempCategory, setTempCategory] = useState(data.category);
   const [tempSource, setTempSource] = useState(data.source);
+  const [tempKeyword, setTempKeyword] = useState(data.keyword.text);
 
   //functions
   const resetCC = () => {
     setTempCountry({ ...tempCountry, selected: "All" });
     setTempCategory({ ...tempCategory, selected: "All" });
     searchRef.current.value = "";
+    //setTempKeyword("");
   };
   const resetS = () => {
     setTempSource({ ...tempSource, selected: "All" });
     searchRef.current.value = "";
+    //setTempKeyword("");
+    //console.log(searchRef.current.value);
   };
   const handleOnChange = (e) => {
+    setTempKeyword(e.target.value);
     if (e.target.value !== "") {
       resetCC();
       resetS();
@@ -84,7 +89,7 @@ const Filter = () => {
       country: getString(tempCountry),
       category: getString(tempCategory),
       source: getString(tempSource),
-      keyword: getString(searchBoxRef.current.value),
+      keyword: getString(tempKeyword),
     };
     dispatch(setAPI(getAPI(params)));
     dispatch(setAPI_KEY(getAPI(params)));
@@ -103,7 +108,10 @@ const Filter = () => {
           <Dropdown
             data={tempCountry}
             handleData={setTempCountry}
-            reset={resetS}
+            reset={() => {
+              resetS();
+              setTempKeyword("");
+            }}
             background={background}
           />
         </Block>
@@ -115,7 +123,10 @@ const Filter = () => {
           <Dropdown
             data={tempCategory}
             handleData={setTempCategory}
-            reset={resetS}
+            reset={() => {
+              resetS();
+              setTempKeyword("");
+            }}
             background={background}
           />
         </Block>
@@ -127,7 +138,10 @@ const Filter = () => {
           <Dropdown
             data={tempSource}
             handleData={setTempSource}
-            reset={resetCC}
+            reset={() => {
+              resetCC();
+              setTempKeyword("");
+            }}
             background={background}
           />
         </Block>
@@ -136,6 +150,7 @@ const Filter = () => {
       {/* searchbox */}
       <TextField
         ref={searchBoxRef}
+        value={tempKeyword}
         placeholder="keyword/phrase"
         //onClick={handleClick}
         onChange={handleOnChange}

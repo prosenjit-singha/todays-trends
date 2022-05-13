@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { animated } from "react-spring";
 import styled from "styled-components";
@@ -13,11 +13,8 @@ export const Hero = styled(animated(Link))`
   text-decoration: none;
   font-size: 2rem;
   color: ${(props) => (props.theme.name === "dark" ? red[400] : red[500])};
-  //padding: 0px 15px;
-  //padding-bottom: 5px;
-  padding-block: 0.05em;
+  padding-block: 0.17em;
   padding-left: 1em;
-  //padding-bottom: 0.05em;
   position: relative;
   overflow: hidden;
   transition: all 500ms ease;

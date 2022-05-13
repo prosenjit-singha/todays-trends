@@ -65,7 +65,7 @@ export const Image = styled(animated.div)`
   /* filter: blur(5px); */
   &::after {
     position: absolute;
-    content: "${(props) => ("0" + (props.index + 1)).slice(-2)}";
+    content: "${(props) => ("0" + props.index).slice(-2)}";
     width: 100%;
     height: 100%;
     color: rgba(255, 255, 255, 0.6);

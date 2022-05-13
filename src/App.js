@@ -39,6 +39,7 @@ const App = () => {
   useEffect(() => {
     console.log("API: ", newsData.api);
     console.log("API_KEY: ", newsData.api_key);
+    dispatch(fetchArticles(newsData.api_key));
   }, [newsData.api, newsData.api_key]);
 
   useEffect(() => {
