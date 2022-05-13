@@ -16,10 +16,8 @@ const initialState = {
 export const fetchArticles = createAsyncThunk(
   "news/fetchArticles",
   async (API_KEY, { rejectWithValue }) => {
-    console.log("fetching request from api");
     try {
       const { data } = await axios.get(API_KEY);
-      console.log(data);
       return data;
     } catch (err) {
       // Use `err.response.data` as `action.payload` for a `rejected` action,

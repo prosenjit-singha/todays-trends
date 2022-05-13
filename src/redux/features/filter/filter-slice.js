@@ -84,7 +84,8 @@ const initialState = {
     getString: "",
     list: {
       All: "all",
-      "BBC News": "bbc-news",
+      "BBC NEWS": "bbc-news",
+      CNN: "cnn",
     },
   },
   keyword: {

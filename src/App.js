@@ -13,7 +13,6 @@ import CommandList from "./components/command-list";
 import Developers from "./components/dev";
 import Error from "./components/error";
 import { GlobalStyle } from "./styles/containers";
-import axios from "axios";
 import ScrollToTop from "./components/scroll-to-top";
 import { ThemeProvider } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,6 +22,14 @@ import {
   setAPI_KEY,
   fetchArticles,
 } from "./redux/features/news/news-slice";
+import {
+  setSource,
+  setCategory,
+  setKey,
+  setKeyword,
+  setPage,
+} from "./redux/features/filter/filter-slice";
+import { toTitle } from "./utils/functions";
 
 const ALAN_KEY =
   "9d1324a30a0a78d5a51fdfa0d05b9c372e956eca572e1d8b807a3e2338fdd0dc/stage";
@@ -50,8 +57,24 @@ const App = () => {
     AOS.init(); //for scroll animation
     alanBtn({
       key: ALAN_KEY,
-      onCommand: ({ command, articles, number }) => {
-        if (command === "newHeadlines") {
+      onCommand: ({ command, articles, number, params }) => {
+        console.log(params);
+        if (command === "by source") {
+          dispatch(setAPI(params.API));
+          dispatch(setAPI_KEY(params.API));
+          dispatch(setPage(1));
+          dispatch(setSource(params.source.toUpperCase()));
+        } else if (command === "by terms") {
+          dispatch(setAPI(params.API));
+          dispatch(setAPI_KEY(params.API));
+          dispatch(setPage(1));
+          dispatch(setKeyword(params.keyword));
+        } else if (command === "by categories") {
+          dispatch(setAPI(params.API));
+          dispatch(setAPI_KEY(params.API));
+          dispatch(setPage(1));
+          dispatch(setCategory(params.keyword));
+        } else if (command === "newHeadlines") {
           setNewsArticles(articles);
           setActiveArticle(-1);
         } else if (command === "highlight") {

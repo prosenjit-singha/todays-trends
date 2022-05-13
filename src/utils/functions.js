@@ -27,3 +27,7 @@ export const boxShadow = {
     0px 0px ${blur - 10}px 0px ${color}`;
   },
 };
+
+export const toTitle = (text) => {
+  return text[0].toUpperCase + text.substring(1);
+};
