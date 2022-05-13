@@ -28,6 +28,7 @@ import {
   setKey,
   setKeyword,
   setPage,
+  setCountry,
 } from "./redux/features/filter/filter-slice";
 import { toTitle } from "./utils/functions";
 
@@ -52,31 +53,38 @@ const App = () => {
   useEffect(() => {
     console.log(filterData);
     dispatch(toggleTheme(mode));
-    //dispatch(fetchArticles(newsData.api_key));
 
     AOS.init(); //for scroll animation
     alanBtn({
       key: ALAN_KEY,
       onCommand: ({ command, articles, number, params }) => {
-        console.log(params);
         if (command === "by source") {
+          dispatch(setCategory("All"));
+          dispatch(setCountry("All"));
+          dispatch(setKeyword(""));
           dispatch(setAPI(params.API));
           dispatch(setAPI_KEY(params.API));
           dispatch(setPage(1));
+          setActiveArticle(0);
           dispatch(setSource(params.source.toUpperCase()));
         } else if (command === "by terms") {
+          dispatch(setCategory("All"));
+          dispatch(setCountry("All"));
+          dispatch(setSource("All"));
           dispatch(setAPI(params.API));
           dispatch(setAPI_KEY(params.API));
           dispatch(setPage(1));
+          setActiveArticle(0);
           dispatch(setKeyword(params.keyword));
         } else if (command === "by categories") {
+          dispatch(setSource("All"));
+          dispatch(setCountry("All"));
+          dispatch(setKeyword(""));
           dispatch(setAPI(params.API));
           dispatch(setAPI_KEY(params.API));
+          setActiveArticle(0);
           dispatch(setPage(1));
-          dispatch(setCategory(params.keyword));
-        } else if (command === "newHeadlines") {
-          setNewsArticles(articles);
-          setActiveArticle(-1);
+          dispatch(setCategory(toTitle(params.category)));
         } else if (command === "highlight") {
           setActiveArticle((prevActiveArticle) => prevActiveArticle + 1);
         } else if (command === "open") {

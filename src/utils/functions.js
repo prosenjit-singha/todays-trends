@@ -29,5 +29,5 @@ export const boxShadow = {
 };
 
 export const toTitle = (text) => {
-  return text[0].toUpperCase + text.substring(1);
+  return text.charAt(0).toUpperCase() + text.slice(1);
 };
