@@ -2,9 +2,9 @@ import React from "react";
 import NewsPaperPic from "../../img/newspaper-1.svg";
 
 const About = () => {
-  const aosStyle = "fade-left";
+  const aosStyle = "fade-up";
   return (
-    <div id="about" style={{ overflowX: "hidden" }}>
+    <div id="about" style={{ overflowX: "hidden", minHeight: "100vh" }}>
       <div className="context">
         <h2 data-aos={aosStyle}>What does this page do?</h2>
         <p data-aos={aosStyle}>
@@ -50,7 +50,7 @@ const About = () => {
         </p>
       </div>
       <div className="photo">
-        <img src={NewsPaperPic} width="500px" alt="paper" />
+        {/* <img src={NewsPaperPic} width="500px" alt="paper" /> */}
       </div>
     </div>
   );

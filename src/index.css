@@ -9,11 +9,16 @@
 
 @font-face {
   font-family: Staatliches;
-  src: url("./fonts/Staatliches-Regular.ttf");
+  src: url("./fonts/staatliches-regular.ttf");
 }
 @font-face {
   font-family: JosefinSans;
-  src: url("./fonts/JosefinSans-VariableFont.ttf");
+  src: url("./fonts/josefin-sans.ttf");
+}
+@font-face {
+  font-family: Roboto;
+  src: url("./fonts//roboto/roboto-regular.ttf");
+  font-weight: 400;
 }
 @keyframes ripple {
   100% {
@@ -23,6 +28,10 @@
 }
 
 html {
+  font-family: Roboto;
   font-size: 1em;
   scroll-behavior: smooth;
+}
+body {
+  overflow: auto;
 }

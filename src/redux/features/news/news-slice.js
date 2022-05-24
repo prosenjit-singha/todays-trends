@@ -7,7 +7,7 @@ const initialState = {
   articles: [],
   page: 1,
   totalResults: 0,
-  activeArticle: null,
+  activeArticle: 0,
   loading: false,
   error: "",
 };
@@ -47,6 +47,7 @@ const newsSlice = createSlice({
       state.page = action.payload;
     },
     setAPI: (state, action) => {
+      //console.log("calling api new console:");
       state.api = action.payload;
     },
     setAPI_KEY: (state, action) => {

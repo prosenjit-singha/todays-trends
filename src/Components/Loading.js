@@ -1,7 +1,7 @@
 import React from "react";
-import { Container } from "./Styles/Containers";
+import { Container } from "../styles/containers";
 import styled from "styled-components";
-import { colors } from "./Styles/Variables";
+import { colors } from "../styles/variables";
 import { animated, useSpring } from "react-spring";
 
 const Text = styled(animated.div)`

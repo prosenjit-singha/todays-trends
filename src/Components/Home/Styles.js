@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { animated } from "react-spring";
 
 //mobile first approch
 export const Grid = styled.div`

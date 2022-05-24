@@ -1,23 +1,20 @@
 import React from "react";
 import { Container } from "../../styles/containers";
+import { Blocks, Blocks2, Block, Headline, Body, Text, Title } from "./styles";
 
 function BlockCard({ commandList }) {
-  return (
-    <Container style={{ minHeight: "fit-content" }}>
-      {commandList.map((block, i) => (
-        <div className="blockContainer" key={i}>
-          <h3 data-aos="fade-left">{block.title}</h3>
-          <ul>
-            {block.commands.map((command, i) => (
-              <li key={i} data-aos="fade-left">
-                {command}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </Container>
-  );
+  return commandList.map((block, i) => (
+    <Block className="blockContainer" data-aos="fade-left" key={i}>
+      <Headline>{block.title}</Headline>
+      <Body>
+        {block.commands.map((command, i) => (
+          <Text key={i}>
+            <span style={{ display: "inline-block" }}>{command}</span>
+          </Text>
+        ))}
+      </Body>
+    </Block>
+  ));
 }
 const CommandLists = () => {
   const normalCommands = [
@@ -70,16 +67,16 @@ const CommandLists = () => {
     },
   ];
   return (
-    <div id="commandList" style={{ width: "auto", overflow: "hidden" }}>
-      <h2 data-aos="fade-left" style={{ width: "auto" }}>
-        Normal Commands
-      </h2>
-      <BlockCard commandList={normalCommands} />
-      <h2 data-aos="fade-left" style={{ width: "auto" }}>
-        Additional Commands
-      </h2>
-      <BlockCard commandList={additionalCommands} />
-    </div>
+    <Container style={{ overflowX: "hidden" }}>
+      <Blocks>
+        <Title data-aos="fade-right">Normal Commands</Title>
+        <BlockCard commandList={normalCommands} />
+      </Blocks>
+      <Blocks2>
+        <Title data-aos="fade-right">Additional Commands</Title>
+        <BlockCard commandList={additionalCommands} />
+      </Blocks2>
+    </Container>
   );
 };
 

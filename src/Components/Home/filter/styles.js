@@ -93,6 +93,7 @@ export const Button = styled.button`
   color: ${(props) => props.theme.text};
   font-size: 1rem;
   margin-left: 0.5rem;
+  justify-self: center;
   border: none;
   border-radius: 0.5rem;
   padding: 0.25rem;

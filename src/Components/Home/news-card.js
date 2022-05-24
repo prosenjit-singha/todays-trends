@@ -18,12 +18,12 @@ import wave from "../../img/animated-wave.svg";
 const NewsCard = ({
   article: { description, publishedAt, source, title, url, urlToImage },
   index,
-  activeArticle,
 }) => {
   //auto scrolling effect for
   const [elementRefs, setElRefs] = useState([]);
   const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 85);
-  const page = useSelector((state) => state.filter.page);
+  const activeArticle = useSelector((state) => state.news.activeArticle);
+  const page = useSelector((state) => state.news.page);
   useEffect(() => {
     window.scroll(0, 0);
 

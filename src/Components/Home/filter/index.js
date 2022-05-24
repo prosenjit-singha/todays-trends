@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useBreakpoint } from "react-use-size";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -6,8 +6,9 @@ import {
   setCategory,
   setSource,
   setKeyword,
-  setPage,
+  //setPage,
 } from "../../../redux/features/filter/filter-slice";
+import { setPage } from "../../../redux/features/news/news-slice";
 import { setAPI, setAPI_KEY } from "../../../redux/features/news/news-slice";
 import {
   FilterDiv,
@@ -22,12 +23,12 @@ import {
 import Dropdown from "../../dropdown";
 import { useRippleEffect } from "../../ripple-effect";
 import { red } from "../../../utils/colors";
-import { fetchArticles } from "../../../redux/features/news/news-slice";
 import { getAPI } from "../../../utils/functions";
 
 const getString = (data) => {
   if (typeof data === "string")
-    if (data !== "") return "everything?q=" + data.split(" ").join("-") + "&";
+    if (data !== "")
+      return "everything?q=" + data.toLowerCase().split(" ").join("-") + "&";
     else return "top-headlines?";
   if (data.selected === "All") return "";
   else {
@@ -66,18 +67,23 @@ const Filter = () => {
       resetS();
     }
   };
-  // const handleClick = (e) => {
-  //   //console.log("addEventListener");
-  //   //setIsOpenSB(true);
-  //   const handleListener = (e) => {
-  //     if (e.target !== searchBoxRef.current) {
-  //       //console.log("removeEventListener");
-  //       //setIsOpenSB(false);
-  //       document.removeEventListener("click", handleListener);
-  //     }
-  //   };
-  //   document.addEventListener("click", handleListener);
-  // };
+  //source
+  useEffect(() => {
+    setTempSource(data.source);
+  }, [data.source]);
+  //country
+  useEffect(() => {
+    setTempCountry(data.country);
+  }, [data.country]);
+  //category
+  useEffect(() => {
+    setTempCategory(data.category);
+  }, [data.category]);
+  //keyword
+  useEffect(() => {
+    setTempKeyword(data.keyword.text);
+  }, [data.keyword]);
+
   const handleSearch = () => {
     dispatch(setCountry(tempCountry.selected));
     dispatch(setCategory(tempCategory.selected));
