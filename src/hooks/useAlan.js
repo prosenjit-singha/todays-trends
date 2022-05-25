@@ -49,8 +49,8 @@ const useAlan = () => {
           : detail.number;
       // converting string to integer
       const formatedNumber = parseInt(parsedNumber);
-
-      if (isValid(formatedNumber)) {
+      const index = getIndex(formatedNumber);
+      if (isValid(formatedNumber) && index <= newsData.articles.length) {
         const article = newsData.articles[getIndex(formatedNumber)];
         console.log(article);
         window.open(article.url, "_blank");
