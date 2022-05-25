@@ -32,8 +32,6 @@ const useAlan = () => {
   //articles, page, index
   const openArticle = useCallback(
     ({ detail }) => {
-      //console.log("Detail: ", detail.articles);
-      //console.log("newsData: ", newsData.articles);
       const page = newsData.page;
       function getIndex(number) {
         return number - 1 - (page - 1) * 12;
@@ -60,7 +58,6 @@ const useAlan = () => {
       } else {
         alan.playText("invalid number!");
       }
-      //alan.playText("opening");
     },
     [newsData.articles, newsData.page, alan]
   );

@@ -28,7 +28,7 @@ const App = () => {
   const themeStyle = useSelector((state) => state.theme.props);
   const newsData = useSelector((state) => state.news);
   console.log("total results: ", newsData.totalResults);
-  // //hooks
+  //hooks
   const alan = useAlan();
   //autometically call fetchApi when api key is updated
   const updateData = useCallback(() => {
@@ -83,7 +83,7 @@ const App = () => {
         <NavBarSpace />
         <Routes>
           <Route path="/home" element={<Navigate to="/" />} />
-          <Route path="/" element={<Home updateData={updateData} />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/command-list" element={<CommandList />} />
           <Route path="/developers" element={<Developers />} />
