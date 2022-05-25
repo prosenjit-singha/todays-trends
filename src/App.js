@@ -19,14 +19,20 @@ import { toggleTheme } from "./redux/features/theme/theme-slice";
 import { fetchArticles } from "./redux/features/news/news-slice";
 
 const App = () => {
-  console.log("APP rendered!");
+  console.log("<--APP rendered-->");
+  const dispatch = useDispatch();
+  // const {
+  //   theme: { props: themeStyle },
+  //   news: newsData,
+  // } = useSelector((state) => state);
   const themeStyle = useSelector((state) => state.theme.props);
   const newsData = useSelector((state) => state.news);
-  const dispatch = useDispatch();
-  //hooks
+  console.log("total results: ", newsData.totalResults);
+  // //hooks
   const alan = useAlan();
   //autometically call fetchApi when api key is updated
   const updateData = useCallback(() => {
+    console.log("updating data to alan api...");
     if (alan !== undefined) {
       const { articles, activeArticle, page, totalResults } = newsData;
       console.log("articles: ", articles);
@@ -39,7 +45,7 @@ const App = () => {
           page,
           totalResults,
         });
-        //alan.deactivate();
+        alan.deactivate();
       } else {
         alan.callProjectApi("updateData", {
           articles,
@@ -62,8 +68,9 @@ const App = () => {
   }, [newsData.api, newsData.api_key]);
 
   useEffect(() => {
+    //this will cause rerender....
     const mode = localStorage.getItem("theme");
-    dispatch(toggleTheme(mode));
+    if (mode !== themeStyle.name) dispatch(toggleTheme(mode));
     AOS.init(); //for scroll animation
   }, []);
 
@@ -76,7 +83,7 @@ const App = () => {
         <NavBarSpace />
         <Routes>
           <Route path="/home" element={<Navigate to="/" />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home updateData={updateData} />} />
           <Route path="/about" element={<About />} />
           <Route path="/command-list" element={<CommandList />} />
           <Route path="/developers" element={<Developers />} />
@@ -88,4 +95,4 @@ const App = () => {
   );
 };
 
-export default React.memo(App);
+export default App;
