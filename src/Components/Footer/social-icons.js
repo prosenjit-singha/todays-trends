@@ -6,25 +6,16 @@ import {
   FaInstagram as Insta,
   FaLinkedinIn as Linkedin,
 } from "react-icons/fa";
+import { device } from "../../utils/device";
 
-const smDevice = "791px";
-
-// const Shine = styled.div`
-//   display: flex;
-//   width: 100%;
-//   height: 100%;
-//   color: blue;
-// `;
 const Container = styled.div`
   display: flex;
   width: 180px;
   height: auto;
   justify-content: space-evenly;
-  margin-bottom: 8px;
-  @media (min-width: ${smDevice}) {
+  margin-block: 8px;
+  @media ${device.tabletM} {
     height: auto;
-    margin-left: 0.5rem;
-    margin-bottom: 0.5rem;
   }
 `;
 const SocialIcons = ({ size, color }) => {

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { lightGreen } from "../../utils/colors";
+import { lightGreen, orange } from "../../utils/colors";
+import { device } from "../../utils/device";
 
 const smDevice = "791px";
 
@@ -19,11 +20,11 @@ export const Container = styled.div`
   min-height: 100px;
   max-height: fit-content;
   background-color: ${(props) =>
-    props.theme.name === "dark" ? lightGreen[1000] : lightGreen[800]};
+    props.theme.name === "dark" ? lightGreen[1000] : orange[400]};
   padding-top: 0.8rem;
   z-index: 10;
   overflow: hidden;
-  @media (min-width: ${smDevice}) {
+  @media ${device.tabletM} {
     display: grid;
     grid-template-columns: 4fr 1fr;
     grid-template-rows: repeat(3, auto);
@@ -35,7 +36,7 @@ export const BriefAbout = styled.div`
   align-items: center;
   flex-direction: column;
   grid-row: 1/2;
-  @media (min-width: ${smDevice}) {
+  @media ${device.tabletM} {
     grid-row: 1/2;
     grid-column: 1/2;
   }
@@ -53,7 +54,7 @@ export const UsefulLinks = styled.div`
   align-items: center;
   flex-direction: column;
   grid-row: 2/3;
-  @media (min-width: ${smDevice}) {
+  @media ${device.tabletM} {
     align-items: start;
     grid-row: 1/3;
     grid-column: 2/3;
@@ -64,7 +65,7 @@ export const UsefulLinks = styled.div`
 
 export const FLink = styled(NavLink)`
   color: ${(props) => props.theme.link};
-  //font-weight: lighter;
+  font-weight: 500;
   text-decoration: none;
   transition: color 300ms ease;
   &.${(props) => props.active_class_name} {
@@ -79,7 +80,7 @@ export const FollowUs = styled.div`
   flex-direction: column;
   align-items: center;
   grid-row: 3/4;
-  @media (min-width: ${smDevice}) {
+  @media ${device.tabletM} {
     flex-direction: row;
     justify-content: center;
     grid-row: 2/3;
@@ -96,7 +97,7 @@ export const Rights = styled.span`
   padding-bottom: 1rem;
   font-weight: lighter;
   color: ${(props) => props.theme.text};
-  @media (min-width: ${smDevice}) {
+  @media ${device.tabletM} {
     grid-row: 3/-1;
     grid-column: 1/-1;
   }
@@ -109,10 +110,10 @@ export const Hr = styled.div`
   height: 3px;
   width: 90%;
   margin: 8px 0rem;
-  @media (min-width: ${smDevice}) {
+  @media ${device.tabletM} {
     display: none;
   }
 `;
-export const Title = styled.h5`
+export const Title = styled.h3`
   color: ${(props) => props.theme.text};
 `;

@@ -29,6 +29,10 @@ const Color = styled.div`
   text-align: center;
 `;
 
+const Title = styled.h2`
+  text-align: center;
+`;
+
 const ColorBox = ({ color }) => {
   const colors = Object.values(color);
   return (
@@ -44,14 +48,23 @@ const ColorBox = ({ color }) => {
 const Colors = () => {
   return (
     <Container>
+      <Title>neutral</Title>
       <ColorBox color={neutral} />
+      <Title>red</Title>
       <ColorBox color={red} />
+      <Title>blue</Title>
       <ColorBox color={blue} />
+      <Title>cyan</Title>
       <ColorBox color={cyan} />
+      <Title>yellow</Title>
       <ColorBox color={yellow} />
+      <Title>lightGreen</Title>
       <ColorBox color={lightGreen} />
+      <Title>green</Title>
       <ColorBox color={green} />
+      <Title>magenta</Title>
       <ColorBox color={magenta} />
+      <Title>orange</Title>
       <ColorBox color={orange} />
     </Container>
   );

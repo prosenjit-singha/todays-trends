@@ -18,9 +18,8 @@ const Pages = ({ totalResults }) => {
   const api = useSelector((state) => state.news.api);
   const dispatch = useDispatch();
   const currentPage = useSelector((state) => state.news.page);
-  console.log(currentPage);
   const fontSize = 1;
-  const limit = parseInt(totalResults / 12);
+  const limit = parseInt(totalResults / 12) + 1;
 
   //functions
   const callAPI = () => {
@@ -30,8 +29,9 @@ const Pages = ({ totalResults }) => {
   };
 
   useEffect(() => {
+    //will cause a rerender
     callAPI();
-  }, []);
+  }, [currentPage]);
 
   const handleClick = (page) => {
     dispatch(setPage(page));

@@ -41,7 +41,6 @@ const NewsCard = ({
   }, [index, activeArticle, elementRefs]);
   //end of auto scrolling
   const isTheArticleActive = activeArticle === index ? true : false;
-  const [hovered, setHovered] = useState(false);
   const waveStyle = {
     position: "absolute",
     width: "100%",
@@ -54,14 +53,8 @@ const NewsCard = ({
   };
   return (
     <CardContainer ref={elementRefs[index]}>
-      <Card
-        // style={active}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      >
-        <ContentWrapper
-        // style={contentAnimation}
-        >
+      <Card>
+        <ContentWrapper>
           <Image image={urlToImage} index={getIndex(index)} />
           <Content>
             <Source>{source.name} </Source>
@@ -69,12 +62,10 @@ const NewsCard = ({
             <Title>{title}</Title>
             <Desc>{description}</Desc>
           </Content>
-          {/* <GlowEffect href={url} target="_blank" style={glowEffect} /> */}
         </ContentWrapper>
         <BottomBlock>
           {isTheArticleActive ? <img src={wave} style={waveStyle} /> : ""}
           <ReadMore href={url} target="_blank">
-            {/* <Shine style={shineEffect} /> */}
             Read More
           </ReadMore>
         </BottomBlock>

@@ -10,6 +10,7 @@ const Home = () => {
   console.log("Home Rendered!");
   const data = useSelector((state) => state.news);
   const totalResults = data.totalResults;
+
   return (
     <>
       <Container>
@@ -21,4 +22,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default React.memo(Home);
