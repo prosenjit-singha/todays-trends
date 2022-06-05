@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Business",
+    "path": "/news-by/category/business"
+  },
+  {
+    "name": "Entertainment",
+    "path": "/news-by/category/entertainment"
+  },
+  {
+    "name": "General",
+    "path": "/news-by/category/general"
+  },
+  {
+    "name": "Science",
+    "path": "/news-by/category/science"
+  },
+  {
+    "name": "Sports",
+    "path": "/news-by/category/sports"
+  },
+  {
+    "name": "Technology",
+    "path": "/news-by/category/technology"
+  }
+]

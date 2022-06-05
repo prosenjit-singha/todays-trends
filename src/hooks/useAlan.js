@@ -23,6 +23,7 @@ const COMMANDS = {
   NEWS_BY_TERMS: "news-by-terms",
   OPEN_PAGE: "open-page",
 };
+// hello world
 
 const useAlan = () => {
   console.log("useAlan newsData: ");
@@ -77,6 +78,7 @@ const useAlan = () => {
           key: process.env.REACT_APP_ALAN_KEY,
           onCommand: ({ command, param }) => {
             if (command === COMMANDS.NEWS_BY_SOURCE) {
+              console.log("<--source-->");
               console.log("Console: ", param);
               dispatch(setCategory("All"));
               dispatch(setCountry("All"));
@@ -104,24 +106,6 @@ const useAlan = () => {
             } else if (command === "highlight") {
               dispatch(setActiveArticle(param.activeIndex));
             } else if (command === COMMANDS.OPEN_ARTICLE) {
-              // const parsedNumber =
-              //   number.length > 2
-              //     ? wordsToNumbers(number, { fuzzy: true })
-              //     : number;
-
-              // const parsedNumber = number;
-              // console.log("opening article no - ", parsedNumber);
-              // const article = articles[parsedNumber];
-
-              // if (parsedNumber > articles.length) {
-              //   //alanBtn().playText("Please try that again...");
-              // } else if (article) {
-              //   //window.open(article.url, "_blank");
-              //   //alanBtn().playText("Opening...");
-              // } else {
-              //   //alanBtn().playText("Please try that again...");
-              // }
-              //openArticle(param)
               window.dispatchEvent(new CustomEvent(command, { detail: param }));
             } else if (command === COMMANDS.OPEN_PAGE) {
               const page = wordsToNumbers(param.page);
