@@ -2,6 +2,9 @@ import styled from "styled-components";
 import { animated } from "react-spring";
 const borderRadius = "0.4rem";
 
+const dark = "hsla(265, 5%, 15%, 0.7)";
+const light = "hsla(0, 5%, 90%, 0.8)";
+
 export const Label = styled.label`
   text-transform: capitalize;
   user-select: none;
@@ -22,7 +25,8 @@ export const Option = styled(animated.div)`
 export const Options = styled(animated.div)`
   //overflow: hidden;
   max-height: 250px;
-  background-color: ${(props) => props.theme.forground};
+  background-color: ${(props) => (props.theme.name === "dark" ? dark : light)};
+  backdrop-filter: blur(20px);
   overflow-y: auto;
   overflow-x: hidden;
   &::-webkit-scrollbar {

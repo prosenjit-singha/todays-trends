@@ -45,16 +45,19 @@ const Footer = () => {
             Terms & Conditions
           </FLink>
           <FLink active_class_name="active" to="/developers">
-            Meet Developers
+            Developers
           </FLink>
           <Hr />
         </UsefulLinks>
         <FollowUs>
           <Title>Folow Us</Title>
-          <SocialIcons size={"2rem"} color={neutral[100]} />
+          <SocialIcons size={"25px"} color={neutral[100]} />
           <Hr />
         </FollowUs>
-        <Rights>All rights reserved by &copy;today's trends 2022</Rights>
+        <Rights>
+          COPYRIGHT &copy;Todays's Trends 2022. The Today's Trends is not
+          responsible for the content of external sites.
+        </Rights>
       </Container>
     </FT>
   );

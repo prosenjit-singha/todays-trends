@@ -10,6 +10,7 @@ import {
   lightGreen,
   magenta,
   orange,
+  purple,
 } from "../../utils/colors";
 import styled from "styled-components";
 
@@ -66,6 +67,8 @@ const Colors = () => {
       <ColorBox color={magenta} />
       <Title>orange</Title>
       <ColorBox color={orange} />
+      <Title>purple</Title>
+      <ColorBox color={purple} />
     </Container>
   );
 };

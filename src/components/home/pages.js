@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Button from "../button/Button";
 import { useSelector, useDispatch } from "react-redux";
-//import { setPage } from "../../redux/features/filter/filter-slice";
 import { setPage } from "../../redux/features/news/news-slice";
 import { setAPI_KEY } from "../../redux/features/news/news-slice";
 
@@ -19,8 +18,9 @@ const Pages = ({ totalResults }) => {
   const dispatch = useDispatch();
   const currentPage = useSelector((state) => state.news.page);
   const fontSize = 1;
-  const limit = parseInt(totalResults / 12) + 1;
-
+  const totalPages = parseInt(totalResults / 12) + 1;
+  const [pageNo, setPageNo] = useState(0);
+  console.log("<== Total Pages:", totalPages);
   //functions
   const callAPI = () => {
     const api_key = api + "&page=" + currentPage;
@@ -31,6 +31,7 @@ const Pages = ({ totalResults }) => {
   useEffect(() => {
     //will cause a rerender
     callAPI();
+    setPageNo(5 * parseInt((currentPage - 1) / 5));
   }, [currentPage]);
 
   const handleClick = (page) => {
@@ -55,21 +56,63 @@ const Pages = ({ totalResults }) => {
       >
         Previous
       </Button>
-      {[...Array(limit)].map((element, index) => (
+      <Button
+        styles={{
+          display: pageNo !== 0 ? "flex" : "none",
+        }}
+        handleClick={() => setPageNo((prev) => prev - 5)}
+      >
+        ...
+      </Button>
+      {[
+        ...Array(
+          totalPages > 5
+            ? totalPages - pageNo < 5
+              ? totalPages - pageNo
+              : 5
+            : totalPages
+        ),
+      ].map((element, index) => (
         <Button
           key={index}
           fontSize={fontSize}
           width={3}
           handleClick={handleClick}
-          isactive={index + 1 === currentPage}
+          isactive={index + pageNo + 1 === currentPage}
         >
-          {index + 1}
+          {index + pageNo + 1}
         </Button>
       ))}
       <Button
+        styles={{
+          display:
+            totalPages > 5
+              ? pageNo + 5 < totalPages
+                ? "flex"
+                : "none"
+              : "none",
+        }}
+        handleClick={() => setPageNo((prev) => prev + 5)}
+      >
+        ...
+      </Button>
+      <Button
+        styles={{
+          display:
+            totalPages > 5
+              ? pageNo + 5 < totalPages
+                ? "flex"
+                : "none"
+              : "none",
+        }}
+        handleClick={() => dispatch(setPage(6))}
+      >
+        Last Page
+      </Button>
+      <Button
         fontSize={fontSize}
         handleClick={handleNext}
-        disabled={currentPage === limit}
+        disabled={currentPage === totalPages}
       >
         Next
       </Button>

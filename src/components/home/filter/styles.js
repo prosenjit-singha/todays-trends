@@ -13,7 +13,8 @@ export const FilterDiv = styled.div`
   padding: 0.25rem;
   border-radius: 0.5rem;
   box-shadow: ${boxShadow.default()};
-  background-color: ${(props) => props.theme.forgroundShadow};
+  background-color: ${(props) => props.theme.forground};
+  //backdrop-filter: blur(5px);
   border: 1px solid ${(props) => props.theme.forgroundShadow};
   @media ${device.tablet} {
     grid-template-columns: repeat(3, 1fr);

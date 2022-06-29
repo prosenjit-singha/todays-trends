@@ -23,14 +23,15 @@ const Container = styled(animated.button)`
   padding: 0.25em 0.5em;
   background-color: ${(props) =>
     props.isactive === "true"
-      ? red[500]
+      ? props.theme.accent
       : props.disabled
       ? neutral[900]
-      : red[400]};
+      : props.theme.accent};
   border: 2px solid
-    ${(props) => (props.disabled ? props.theme.forgroundShadow : red[400])};
+    ${(props) =>
+      props.disabled ? props.theme.forgroundShadow : props.theme.accent};
   border-radius: ${(props) => convertInRem(props.border_radius)};
-  box-shadow: ${boxShadow.default()};
+  box-shadow: ${(props) => (props.disabled ? "none" : boxShadow.default())};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,7 +61,7 @@ const Container = styled(animated.button)`
       left: 0;
       border-radius: ${(props) => convertInRem(props.border_radius - 0.2)};
       background-color: ${(props) =>
-        props.disabled ? props.theme.background : red[400]};
+        props.disabled ? props.theme.background : props.theme.accent};
       z-index: 0;
       transition: width 400ms ease;
     }
@@ -87,10 +88,12 @@ const Button = ({
   disabled = false,
   width,
   handleClick,
+  styles,
 }) => {
   useEffect(() => {}, []);
   return (
     <Container
+      style={styles}
       isactive={isactive ? "true" : "false"}
       border_radius={borderRadius}
       width={width}

@@ -7,7 +7,7 @@ const initialState = {
   articles: [],
   page: 1,
   totalResults: 0,
-  activeArticle: 0,
+  activeArticle: null,
   loading: false,
   error: "",
 };

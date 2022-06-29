@@ -31,3 +31,11 @@ export const boxShadow = {
 export const toTitle = (text) => {
   return text.charAt(0).toUpperCase() + text.slice(1);
 };
+
+export const getPath = (Name) => {
+  if (Name === "home") return "./";
+  if (Name === "about") return "./about";
+  if (Name === "command-list") return "./command-list";
+  if (Name === "developers") return "./developers";
+  if (Name === "terms and conditions") return "./terms&conditions";
+};

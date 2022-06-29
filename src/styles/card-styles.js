@@ -27,7 +27,9 @@ export const Card = styled(animated.div)`
   max-height: 100%;
   width: 100%;
   border-radius: 0.5rem;
-  background-color: ${(props) => props.theme.forgroundShadow};
+  background-color: ${(props) => props.theme.forground};
+  border: 1px solid ${(props) => props.theme.forgroundShadow};
+  backdrop-filter: blur(15px);
   overflow: hidden;
 `;
 export const ContentWrapper = styled(animated.div)`
@@ -39,16 +41,7 @@ export const ContentWrapper = styled(animated.div)`
   border-radius: 0.5rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  z-index: 6;
-`;
-export const GlowEffect = styled(animated.a)`
-  will-change: box-shadow, background-image;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  border-radius: 0.5rem;
-  z-index: 7;
+  //z-index: 6;
 `;
 
 export const Image = styled(animated.div)`
@@ -70,7 +63,7 @@ export const Image = styled(animated.div)`
     height: 100%;
     color: rgba(255, 255, 255, 0.6);
     font-size: 10rem;
-    font-family: "Anton", sans-serif;
+    font-family: Staatliches;
     //background-color: red;
     text-align: end;
     letter-spacing: 0;
@@ -95,7 +88,7 @@ export const Content = styled(animated.div)`
   overflow: hidden;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
-  z-index: 6;
+  //z-index: 6;
 `;
 
 export const Source = styled.span`
@@ -113,9 +106,8 @@ export const Title = styled.h3`
 `;
 export const Desc = styled.div`
   font-size: 0.9rem;
-  font-weight: lighter;
+  font-weight: normal;
   text-align: justify;
-  z-index: 3;
 `;
 
 export const ReadMore = styled(animated.a)`
@@ -127,8 +119,8 @@ export const ReadMore = styled(animated.a)`
   padding: 0.1em 0.5em;
   height: auto;
   width: auto;
-  border: 2px solid ${red[400]};
-  background-color: ${red[400]};
+  border: 2px solid ${(props) => props.theme.accent};
+  background-color: ${(props) => props.theme.accent};
   color: white;
   text-align: center;
   text-decoration: none;
@@ -141,10 +133,10 @@ export const ReadMore = styled(animated.a)`
     color: white;
   }
   @media ${device.tabletM} {
-    color: ${red[400]};
+    color: ${(props) => props.theme.accent};
     background-color: ${(props) => props.theme.forground};
     &:visited {
-      color: ${red[400]};
+      color: ${(props) => props.theme.accent};
     }
     &::before {
       content: "";
@@ -154,7 +146,7 @@ export const ReadMore = styled(animated.a)`
       left: 0;
       top: 0;
       //border-radius: 0;
-      background-color: ${red[400]};
+      background-color: ${(props) => props.theme.accent};
       z-index: -1;
       transition: width 400ms ease;
     }
@@ -170,26 +162,36 @@ export const BottomBlock = styled.div`
   position: relative;
   padding: 1em;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  position: absolute;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   height: 2.8rem;
   width: 100%;
-  //padding: 0.9rem 0;
+  border-top: 1px solid ${(props) => props.theme.forgroundShadow};
   background-color: ${(props) => props.theme.forground};
-  z-index: 5;
   bottom: 0rem;
 `;
-export const Shine = styled(animated.div)`
+
+export const Accuracy = styled.span`
   position: absolute;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  height: 2.8rem;
-  width: 100%;
-  padding-top: 1rem;
+  right: 17%;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: right;
+  padding-left: 1rem;
+  cursor: help;
+  //background-color: aqua;
+`;
+
+export const Tooltip = styled.div`
+  //float: left;
   z-index: 5;
-  bottom: 0rem;
-  //opacity: 0.5;
+  position: absolute;
+  padding: 0.5rem;
+  right: 3%;
+  bottom: 90%;
+  color: white;
+  background-color: hsla(0, 2%, 5%, 0.8);
+  backdrop-filter: blur(6px);
+  border-radius: 0.5rem;
 `;

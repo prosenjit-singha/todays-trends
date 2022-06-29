@@ -3,6 +3,7 @@ import { Navigate, Routes, Route } from "react-router-dom";
 import useAlan from "./hooks/useAlan";
 import AOS from "aos";
 import "../node_modules/aos/dist/aos.css";
+import Terms from "./components/terms&conditions";
 import NavBar from "./components/navBar";
 import Footer from "./components/footer";
 import { NavBarSpace } from "./styles/containers";
@@ -11,7 +12,8 @@ import About from "./components/about";
 import CommandList from "./components/command-list";
 import Developers from "./components/dev";
 import Error from "./components/error";
-import { GlobalStyle } from "./styles/containers";
+import GlobalStyle from "./styles/global-styles";
+//import { GlobalStyle } from "./styles/containers";
 import ScrollToTop from "./components/scroll-to-top";
 import { ThemeProvider } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
@@ -35,7 +37,6 @@ const App = () => {
     console.log("updating data to alan api...");
     if (alan !== undefined) {
       const { articles, activeArticle, page, totalResults } = newsData;
-      console.log("articles: ", articles);
       const isActive = alan.isActive();
       if (!isActive) {
         alan.activate();
@@ -58,13 +59,13 @@ const App = () => {
   }, [newsData.articles]);
 
   useEffect(() => {
-    updateData();
+    //updateData();
   }, [newsData.articles]);
 
   useEffect(() => {
     console.log("API: ", newsData.api);
     console.log("API_KEY: ", newsData.api_key);
-    dispatch(fetchArticles(newsData.api_key));
+    //dispatch(fetchArticles(newsData.api_key));
   }, [newsData.api, newsData.api_key]);
 
   useEffect(() => {
@@ -87,6 +88,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/command-list" element={<CommandList />} />
           <Route path="/developers" element={<Developers />} />
+          <Route path="/terms&conditions" element={<Terms />} />
           <Route path="/*" element={<Error />} />
         </Routes>
         <Footer />

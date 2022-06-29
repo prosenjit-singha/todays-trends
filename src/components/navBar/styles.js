@@ -6,14 +6,23 @@ import { colors } from "../../styles/variables";
 import { device } from "../../utils/device";
 import { red } from "../../utils/colors";
 
+const setColor = (mode) => {
+  const LIGHT = `hsla(255, 100%, 98%, 0.85)`;
+  const DARK = `hsla(270, 15%, 10%, 0.85)`;
+  if (mode === "dark") return DARK;
+  if (mode === "light") return LIGHT;
+};
+
 export const Nav = styled.nav`
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(2, auto);
   width: 100vw;
   height: auto;
-  background-color: ${(props) => props.theme.forground};
-  //backdrop-filter: blur(10px);
+  //background-color: ${(props) => props.theme.forground};
+  background-color: ${(props) => setColor(props.theme.name)};
+  //opacity: 0.2;
+  backdrop-filter: blur(15px);
   box-shadow: 0px 4px 5px 0px ${(props) => props.theme.backgroundShadow};
   position: fixed;
   z-index: 30;
@@ -93,7 +102,7 @@ export const MenuLink = styled(animated(NavLink))`
   padding-top: 0.25em;
   padding-left: 2em;
   overflow: visible;
-  color: ${(props) => (props.theme.name === "dark" ? red[400] : red[500])};
+  color: ${(props) => props.theme.accent};
   font-weight: bolder;
   text-shadow: none;
   cursor: pointer;
@@ -120,8 +129,7 @@ export const ActiveLinkEffect = styled(animated.span)`
   bottom: 0px;
   width: 20px;
   height: 5px;
-  background-color: ${(props) =>
-    props.theme.name === "dark" ? red[400] : red[500]};
+  background-color: ${(props) => props.theme.accent};
   z-index: 1;
   @media ${device.tabletM} {
     bottom: 7px;

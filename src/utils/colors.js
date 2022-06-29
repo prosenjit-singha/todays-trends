@@ -47,4 +47,4 @@ export const green = generateColorTones(140, 100);
 
 export const magenta = generateColorTones(300, 100);
 
-export const pink = calColor(350, 100, 88);
+export const purple = generateColorTones(275, 80);

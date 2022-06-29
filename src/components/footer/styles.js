@@ -1,13 +1,20 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { lightGreen, orange } from "../../utils/colors";
+import { neutral } from "../../utils/colors";
 import { device } from "../../utils/device";
+import { red } from "../../utils/colors";
 
-const smDevice = "791px";
+const setColor = (mode) => {
+  const LIGHT = `hsla(255, 100%, 98%, 0.85)`;
+  const DARK = `hsla(270, 15%, 10%, 0.85)`;
+  if (mode === "dark") return DARK;
+  if (mode === "light") return LIGHT;
+};
 
 export const Footer = styled.footer`
   position: relative;
   width: auto;
+  border-top: 1px solid ${(props) => props.theme.forground};
   //height: 100vh;
 `;
 
@@ -19,8 +26,8 @@ export const Container = styled.div`
   justify-content: center;
   min-height: 100px;
   max-height: fit-content;
-  background-color: ${(props) =>
-    props.theme.name === "dark" ? lightGreen[1000] : orange[400]};
+  background-color: ${(props) => setColor(props.theme.name)};
+  backdrop-filter: blur(10px);
   padding-top: 0.8rem;
   z-index: 10;
   overflow: hidden;
@@ -64,15 +71,16 @@ export const UsefulLinks = styled.div`
 `;
 
 export const FLink = styled(NavLink)`
-  color: ${(props) => props.theme.link};
+  color: ${(props) => props.theme.inactiveLink};
   font-weight: 500;
   text-decoration: none;
   transition: color 300ms ease;
   &.${(props) => props.active_class_name} {
-    color: white;
+    color: ${(props) => props.theme.activeLink};
+    font-weight: 600;
   }
   &:hover {
-    color: white;
+    color: ${(props) => props.theme.activeLink};
   }
 `;
 export const FollowUs = styled.div`
@@ -93,7 +101,7 @@ export const Rights = styled.span`
   justify-content: center;
   grid-row: 4/5;
   text-align: center;
-  padding: 0.5rem 0rem;
+  padding: 0.5rem 1rem;
   padding-bottom: 1rem;
   font-weight: lighter;
   color: ${(props) => props.theme.text};
@@ -103,9 +111,7 @@ export const Rights = styled.span`
   }
 `;
 export const Hr = styled.div`
-  background-color: rgb(6 36 40);
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6),
-    -2px -2px 2px rgba(255, 255, 255, 0.2);
+  background-color: ${red[500]};
   border-radius: 2px;
   height: 3px;
   width: 90%;

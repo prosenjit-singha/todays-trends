@@ -18,22 +18,34 @@ const Container = styled.div`
     height: auto;
   }
 `;
-const SocialIcons = ({ size, color }) => {
-  const styles = {
-    cursor: "pointer",
-    padding: "5px",
-    borderRadius: "5px",
-    boxShadow: `3px 3px 4px rgba(0,0,0, 0.6), 
-      -2px -2px 4px rgba(255,255,255, 0.2)`,
-  };
+const Icon = styled.div`
+  height: 33px;
+  width: 33px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+  background-color: ${(props) => props.theme.accent};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
+const SocialIcons = ({ size, color }) => {
   return (
     <React.Fragment>
       <Container>
-        <Fb id="fb" size={size} color={color} style={styles} />
-        <Insta size={size} color={color} style={styles} />
-        <Twitter size={size} color={color} style={styles} />
-        <Linkedin size={size} color={color} style={styles} />
+        <Icon>
+          <Fb size={size} color={color} />
+        </Icon>
+        <Icon>
+          <Insta size={size} color={color} />
+        </Icon>
+        <Icon>
+          <Twitter size={size} color={color} />
+        </Icon>
+        <Icon>
+          <Linkedin size={size} color={color} />
+        </Icon>
       </Container>
     </React.Fragment>
   );

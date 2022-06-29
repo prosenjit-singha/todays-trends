@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: auto;
   padding: 5px;
   border-radius: 50%;
-  background-color: ${red[400]};
+  background-color: ${(props) => props.theme.accent};
   cursor: pointer;
   display: flex;
   align-items: center;

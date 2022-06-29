@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createRef } from "react";
 import { useSelector } from "react-redux";
+
 import {
   CardContainer,
   Card,
@@ -12,13 +13,18 @@ import {
   Content,
   BottomBlock,
   ReadMore,
+  Accuracy,
+  Tooltip,
 } from "../../styles/card-styles";
 import wave from "../../img/animated-wave.svg";
+import Progress from "./progress";
 
 const NewsCard = ({
   article: { description, publishedAt, source, title, url, urlToImage },
   index,
+  random,
 }) => {
+  const [showTip, setShowTip] = useState(false);
   //auto scrolling effect for
   const [elementRefs, setElRefs] = useState([]);
   const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 85);
@@ -51,6 +57,7 @@ const NewsCard = ({
   const getIndex = (index) => {
     return index + 1 + (page - 1) * 12;
   };
+
   return (
     <CardContainer ref={elementRefs[index]}>
       <Card>
@@ -68,6 +75,18 @@ const NewsCard = ({
           <ReadMore href={url} target="_blank">
             Read More
           </ReadMore>
+          <Tooltip style={{ display: showTip ? "block" : "none" }}>
+            This is the message
+          </Tooltip>
+          <Accuracy
+            data-tip
+            data-for="tooltip"
+            onMouseEnter={() => setShowTip(true)}
+            onMouseLeave={() => setShowTip(false)}
+          >
+            Accuracy
+          </Accuracy>
+          <Progress value={random} />
         </BottomBlock>
       </Card>
     </CardContainer>

@@ -105,6 +105,12 @@ const Filter = () => {
     //handleAPI();
   };
 
+  const handleEnterKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    } else return;
+  };
+
   return (
     <FilterDiv>
       <CountryContainer>
@@ -155,10 +161,11 @@ const Filter = () => {
 
       {/* searchbox */}
       <TextField
+        type="search"
         ref={searchBoxRef}
         value={tempKeyword}
         placeholder="keyword/phrase"
-        //onClick={handleClick}
+        onKeyDown={handleEnterKeyPress}
         onChange={handleOnChange}
       />
       <Button

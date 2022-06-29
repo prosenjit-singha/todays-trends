@@ -1,11 +1,12 @@
 import React from "react";
-import NewsPaperPic from "../../img/newspaper-1.svg";
+import { Container } from "../../styles/containers";
+import { Block } from "./styles";
 
 const About = () => {
   const aosStyle = "fade-up";
   return (
-    <div id="about" style={{ overflowX: "hidden", minHeight: "100vh" }}>
-      <div className="context">
+    <Container>
+      <Block>
         <h2 data-aos={aosStyle}>What does this page do?</h2>
         <p data-aos={aosStyle}>
           Proident consectetur nulla reprehenderit fugiat exercitation culpa.
@@ -13,7 +14,8 @@ const About = () => {
           adipisicing deserunt id sint amet do labore voluptate esse.
           Consectetur aliquip dolor nisi proident in cillum esse.
         </p>
-
+      </Block>
+      <Block>
         <h2 data-aos={aosStyle}>
           Proident adipisicing ullamco aliquip reprehenderit laboris in dolore
           cillum anim.
@@ -24,7 +26,8 @@ const About = () => {
           Lorem consequat officia cillum laborum. Cillum occaecat veniam sunt
           voluptate.
         </p>
-
+      </Block>
+      <Block>
         <h2 data-aos={aosStyle}>
           Quis exercitation minim quis pariatur eiusmod mollit non et ullamco
           ullamco pariatur proident eiusmod veniam.
@@ -36,7 +39,8 @@ const About = () => {
           minim do id id tempor velit consectetur ullamco sit. Mollit in veniam
           id exercitation anim anim in nisi eu Lorem sint aliqua irure non.
         </p>
-
+      </Block>
+      <Block>
         <h2 data-aos={aosStyle}>
           Consectetur ut irure proident voluptate officia incididunt aute esse
           et ullamco non nostrud aliquip proident.
@@ -48,11 +52,8 @@ const About = () => {
           esse. Ullamco ea qui voluptate sit voluptate non. Ea do in irure sit
           pariatur ullamco mollit. Esse culpa mollit labore nisi.
         </p>
-      </div>
-      <div className="photo">
-        {/* <img src={NewsPaperPic} width="500px" alt="paper" /> */}
-      </div>
-    </div>
+      </Block>
+    </Container>
   );
 };
 
