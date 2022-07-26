@@ -20,7 +20,6 @@ const Pages = ({ totalResults }) => {
   const fontSize = 1;
   const totalPages = parseInt(totalResults / 12) + 1;
   const [pageNo, setPageNo] = useState(0);
-  console.log("<== Total Pages:", totalPages);
   //functions
   const callAPI = () => {
     const api_key = api + "&page=" + currentPage;

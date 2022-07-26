@@ -6,7 +6,6 @@ import "../node_modules/aos/dist/aos.css";
 import Terms from "./components/terms&conditions";
 import NavBar from "./components/navBar";
 import Footer from "./components/footer";
-import { NavBarSpace } from "./styles/containers";
 import Home from "./components/home";
 import About from "./components/about";
 import CommandList from "./components/command-list";
@@ -14,7 +13,7 @@ import Developers from "./components/dev";
 import Error from "./components/error";
 import GlobalStyle from "./styles/global-styles";
 //import { GlobalStyle } from "./styles/containers";
-import ScrollToTop from "./components/scroll-to-top";
+import ScrollToTop from "./hooks/scroll-to-top";
 import { ThemeProvider } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "./redux/features/theme/theme-slice";
@@ -81,7 +80,6 @@ const App = () => {
         <ScrollToTop />
         <GlobalStyle />
         <NavBar />
-        <NavBarSpace />
         <Routes>
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/" element={<Home />} />

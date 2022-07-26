@@ -12,14 +12,16 @@ const convertInRem = (value) => {
 const Container = styled(animated.button)`
   position: relative;
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
-  font-weight: 500;
+  font-weight: 600;
+  font-family: Inter;
+  text-transform: capitalize;
   font-size: ${(props) => convertInRem(props.fontSize)};
   letter-spacing: 1px;
   color: ${(props) => (props.disabled ? neutral[800] : neutral[100])};
   width: ${(props) =>
     props.width ? convertInRem(props.width) : "fit-content"};
   height: fit-content;
-  margin: 0.5rem;
+  margin-block: 0.5rem;
   padding: 0.25em 0.5em;
   background-color: ${(props) =>
     props.isactive === "true"
@@ -31,7 +33,7 @@ const Container = styled(animated.button)`
     ${(props) =>
       props.disabled ? props.theme.forgroundShadow : props.theme.accent};
   border-radius: ${(props) => convertInRem(props.border_radius)};
-  box-shadow: ${(props) => (props.disabled ? "none" : boxShadow.default())};
+  // box-shadow: ${(props) => (props.disabled ? "none" : boxShadow.default())};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,6 +89,7 @@ const Button = ({
   children,
   disabled = false,
   width,
+  margin,
   handleClick,
   styles,
 }) => {
@@ -101,6 +104,7 @@ const Button = ({
       fontSize={fontSize}
       disabled={disabled}
       onClick={() => handleClick(children)}
+      margin={margin}
     >
       {children}
     </Container>

@@ -25,9 +25,10 @@ export const dark = {
   name: "dark",
   primary: blue[400],
   secondaryAccent: purple[400],
-  secondery: neutral[500],
+  secondary: neutral[500],
   success: lightGreen[800],
   text: neutral[100],
+  secondaryText: neutral[300],
   warning: yellow[400],
 };
 
@@ -48,9 +49,10 @@ export const light = {
   link: neutral[1000],
   name: "light",
   primary: blue[400],
-  secondaryAccent: purple[300],
-  secondery: neutral[500],
+  secondaryAccent: purple[400],
+  secondary: neutral[500],
   success: lightGreen[800],
   text: neutral[1100],
+  secondaryText: neutral[900],
   warning: yellow[400],
 };

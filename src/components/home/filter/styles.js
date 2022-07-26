@@ -3,14 +3,16 @@ import { animated } from "react-spring";
 import styled from "styled-components";
 import { device } from "../../../utils/device";
 import { boxShadow } from "../../../utils/functions";
+import { margin } from "../../../styles/global-constants";
 
-export const FilterDiv = styled.div`
+export const FilterDiv = styled.section`
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 4fr;
-  margin-bottom: 1.5rem;
   padding: 0.25rem;
+  margin-block: 1.5rem;
+  margin-inline: ${margin};
   border-radius: 0.5rem;
   box-shadow: ${boxShadow.default()};
   background-color: ${(props) => props.theme.forground};
@@ -63,13 +65,14 @@ export const TextField = styled.input`
   color: ${(props) => props.theme.text};
   background-color: ${(props) => props.theme.background};
   border: none;
-  border-radius: 0.5rem;
+  outline: none;
+  border-radius: 0.3rem;
   padding-left: 0.5rem;
   justify-self: center;
   grid-column: 1/2;
   grid-row: 4/5;
-  &:focus-visible {
-    outline: none;
+  &:focus {
+    border: 1px solid ${(props) => props.theme.secondaryAccent};
   }
   @media ${device.tabletS} {
     width: 95%;
@@ -92,11 +95,12 @@ export const Button = styled.button`
   width: 5rem;
   height: 30px;
   color: ${(props) => props.theme.text};
+  font-family: Inter;
   font-size: 1rem;
   margin-left: 0.5rem;
   justify-self: center;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   padding: 0.25rem;
   background-color: ${(props) => props.background};
   grid-column: 2/-1;
@@ -152,4 +156,15 @@ export const SearchBlock = styled(Block)`
   @media ${device.tabletM} {
     justify-content: end;
   }
+`;
+
+export const Blur = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  z-index: -1;
+  backdrop-filter: blur(10px);
 `;

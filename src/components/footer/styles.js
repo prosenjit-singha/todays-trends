@@ -81,6 +81,7 @@ export const FLink = styled(NavLink)`
   }
   &:hover {
     color: ${(props) => props.theme.activeLink};
+    text-decoration: underline;
   }
 `;
 export const FollowUs = styled.div`
@@ -102,6 +103,7 @@ export const Rights = styled.span`
   grid-row: 4/5;
   text-align: center;
   padding: 0.5rem 1rem;
+  background-color: ${(props) => props.theme.forground};
   padding-bottom: 1rem;
   font-weight: lighter;
   color: ${(props) => props.theme.text};

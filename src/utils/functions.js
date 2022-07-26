@@ -39,3 +39,8 @@ export const getPath = (Name) => {
   if (Name === "developers") return "./developers";
   if (Name === "terms and conditions") return "./terms&conditions";
 };
+
+// checks if the device is touch screen or not
+export const isTouchDevice = () => {
+  return window.matchMedia("(pointer: coarse)").matches;
+};

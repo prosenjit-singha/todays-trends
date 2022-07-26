@@ -1,9 +1,19 @@
 import React from "react";
 import NewsCard from "./news-card";
-import { Grid } from "./styles";
+import styled from "styled-components";
+import { margin } from "../../styles/global-constants";
 import { useSelector } from "react-redux";
 
 import articles from "../../data/articles.json"; //used in useCommands and here
+
+export const Grid = styled.section`
+  //margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-gap: 1.5rem;
+  margin-inline: ${margin};
+`;
 
 const NewsCards = () => {
   console.log("NewsCards Rendered!");

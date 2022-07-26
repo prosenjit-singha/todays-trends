@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import { animated } from "react-spring";
 import { colors } from "../../styles/variables";
 import { device } from "../../utils/device";
-import { red } from "../../utils/colors";
 
 const setColor = (mode) => {
   const LIGHT = `hsla(255, 100%, 98%, 0.85)`;
@@ -13,18 +12,18 @@ const setColor = (mode) => {
   if (mode === "light") return LIGHT;
 };
 
-export const Nav = styled.nav`
+export const Header = styled.header`
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(2, auto);
-  width: 100vw;
   height: auto;
   //background-color: ${(props) => props.theme.forground};
   background-color: ${(props) => setColor(props.theme.name)};
   //opacity: 0.2;
   backdrop-filter: blur(15px);
   box-shadow: 0px 4px 5px 0px ${(props) => props.theme.backgroundShadow};
-  position: fixed;
+  position: sticky;
+  top: 0;
   z-index: 30;
   overflow: hidden;
   @media ${device.tabletM} {
@@ -33,7 +32,7 @@ export const Nav = styled.nav`
   }
 `;
 
-export const MenuWrapper = styled(animated.div)`
+export const Nav = styled(animated.nav)`
   will-change: max-height;
   grid-column: 1/-1;
   grid-row: 2/-1;
@@ -107,9 +106,7 @@ export const MenuLink = styled(animated(NavLink))`
   text-shadow: none;
   cursor: pointer;
   transition: color, text-shadow 300ms ease;
-  &:hover {
-    color: ${(props) => (props.theme.name === "dark" ? red[500] : red[600])};
-  }
+
   @media ${device.tabletM} {
     width: fit-content;
     display: flex;

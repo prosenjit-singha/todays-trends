@@ -19,9 +19,10 @@ import {
   CategoryContainer,
   SourceContainer,
   Block,
+  Blur,
 } from "./styles";
 import Dropdown from "../../dropdown";
-import { useRippleEffect } from "../../ripple-effect";
+import { useRippleEffect } from "../../../hooks/ripple-effect";
 import { red } from "../../../utils/colors";
 import { getAPI } from "../../../utils/functions";
 
@@ -176,6 +177,7 @@ const Filter = () => {
       >
         Search
       </Button>
+      <Blur></Blur>
     </FilterDiv>
   );
 };

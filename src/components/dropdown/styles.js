@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { animated } from "react-spring";
-const borderRadius = "0.4rem";
+const borderRadius = "0.3rem";
 
 const dark = "hsla(265, 5%, 15%, 0.7)";
 const light = "hsla(0, 5%, 90%, 0.8)";
@@ -66,6 +66,7 @@ export const SelectWrapper = styled.div`
 `;
 export const Select = styled.div`
   color: ${(props) => props.theme.text};
+  font-family: Inter;
   text-transform: capitalize;
 `;
 export const Title = styled.div`

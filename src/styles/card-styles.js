@@ -6,7 +6,7 @@ import { device } from "../utils/device";
 
 //const tbrl = "10px";
 
-export const CardContainer = styled.div`
+export const CardContainer = styled(animated.div)`
   position: relative;
   //padding: 0.5rem;
   display: flex;
@@ -63,7 +63,7 @@ export const Image = styled(animated.div)`
     height: 100%;
     color: rgba(255, 255, 255, 0.6);
     font-size: 10rem;
-    font-family: Staatliches;
+    font-family: Anton;
     //background-color: red;
     text-align: end;
     letter-spacing: 0;
@@ -115,7 +115,7 @@ export const ReadMore = styled(animated.a)`
   font-size: 1rem;
   letter-spacing: 1px;
   font-weight: bold;
-  border-radius: 0.4em;
+  border-radius: 0.25em;
   padding: 0.1em 0.5em;
   height: auto;
   width: auto;

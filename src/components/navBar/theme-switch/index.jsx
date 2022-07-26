@@ -27,7 +27,7 @@ const Icon = ({ mode }) => {
 
 const ThemeSwitch = () => {
   const dispatch = useDispatch();
-  const theme = useSelector((state) => state.theme);
+  const theme = useSelector((state) => state.theme.props);
   const handleClick = () => {
     const localTheme = localStorage.getItem("theme");
     const mode = localTheme === "light" ? "dark" : "light";

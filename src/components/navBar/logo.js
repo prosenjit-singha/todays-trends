@@ -27,12 +27,12 @@ export const Hero = styled(animated(Link))`
     transition: width 500ms ease;
   }
   &:hover:before {
-    width: 100%;
+    width: ${(props) => (props.theme.name === "dark" ? "100%" : "0%")};
   }
   &:hover {
     color: ${(props) => (props.theme.name === "dark" ? red[400] : red[500])};
     //font-size: 2.1rem;
-    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.8));
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.8));
   }
 `;
 

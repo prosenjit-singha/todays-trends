@@ -2,14 +2,14 @@ import { useSpring, useSprings, config } from "react-spring";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import { useBreakpoint, useWindowSize } from "react-use-size";
-import { useMeasure } from "../../utils/helpers";
+import { useMeasure } from "../../hooks/helpers";
 import Hamburger from "./hamburger";
 import Logo from "./logo";
 import { menuItems as mi } from "./menu-items";
 import {
   ActiveLinkEffect,
+  Header,
   Nav,
-  MenuWrapper,
   MenuList,
   MenuListItem,
   MenuLink,
@@ -28,7 +28,7 @@ const NavBar = () => {
     active: {},
     top: 0,
     left: 0,
-    bgColor: themeStyle.name === "dark" ? red[500] : red[600],
+    bgColor: red[400],
     width: 0,
     height: 0,
   });
@@ -98,7 +98,6 @@ const NavBar = () => {
       width: offsetWidth,
       left: offsetLeft,
       top: offsetTop,
-      bgColor: themeStyle.name === "dark" ? red[500] : red[600],
     });
   };
   const handleMouseLeave = () => {
@@ -115,7 +114,6 @@ const NavBar = () => {
       left: offsetLeft,
       height: offsetHeight,
       width: offsetWidth,
-      bgColor: themeStyle.name === "dark" ? red[400] : red[500],
     });
   };
   useEffect(() => {
@@ -143,10 +141,10 @@ const NavBar = () => {
     });
   }, [pathname, applyLinkStyle, windowWidth]);
   return (
-    <Nav>
+    <Header>
       <Logo activeThisLink={activeThisLink} />
       {smDevice && <Hamburger openMenu={openMenu} toggleMenu={toggleMenu} />}
-      <MenuWrapper style={smDevice ? menuStyles : { maxHeight: "3.2rem" }}>
+      <Nav style={smDevice ? menuStyles : { maxHeight: "3.2rem" }}>
         <MenuList {...menuRef}>
           {menuItems.map(({ id, name, path }, i) => (
             <MenuListItem
@@ -164,14 +162,19 @@ const NavBar = () => {
               </MenuLink>
             </MenuListItem>
           ))}
+          {smDevice && openMenu ? (
+            <ActiveLinkEffect ref={activeRef} style={mobileActiveEffect} />
+          ) : (
+            ""
+          )}
           <ActiveLinkEffect
             ref={activeRef}
             style={smDevice ? mobileActiveEffect : activeEffect}
           />
           {!smDevice && <ThemeSwitch />}
         </MenuList>
-      </MenuWrapper>
-    </Nav>
+      </Nav>
+    </Header>
   );
 };
 
