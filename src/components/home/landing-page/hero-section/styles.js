@@ -60,6 +60,7 @@ export const Button = styled.button`
   border: none;
   border-radius: 0.2em;
   margin-block: 1rem;
+  cursor: pointer;
 `;
 
 export const Indicator = styled.div`

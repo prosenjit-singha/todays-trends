@@ -78,11 +78,11 @@ const GlobalStyle = createGlobalStyle`
         position:relative;
         color: ${(props) => props.theme.text};
         background-color: ${(props) => props.theme.background};
-        background-image: url(${(props) =>
+        /* background-image: url(${(props) =>
           props.theme.name === "dark" ? dark : light});
         background-repeat: no-repeat;
         background-position: center;
-        background-attachment: fixed;
+        background-attachment: fixed; */
         overflow: auto;
     }
     button {

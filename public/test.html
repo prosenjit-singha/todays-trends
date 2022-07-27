@@ -2,108 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Before Semicolon</title>
-    <link rel="stylesheet" href="./setup.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <style>
-      button {
-        margin: 25px;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        cursor: pointer;
-        padding: 8px 15px;
-        text-transform: uppercase;
-        border-radius: 3px;
-        outline: none;
-        position: relative;
+      body {
+        background-color: gray;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         overflow: hidden;
-        box-sizing: border-box;
-        height: 35px;
-        width: 85px;
       }
-
-      #btn-1 {
-        border: 0;
-        background: #ddd;
-        color: #222;
+      .container {
+        width: 80vw;
+        min-height: 80vh;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        gap: 5px;
       }
-
-      #btn-2 {
-        background: #222;
-        color: #ddd;
+      .item {
+        height: 100%;
+        width: 100%;
       }
-
-      @keyframes ripple {
-        100% {
-          transform: translate(-50%, -50%) scale(100);
-          opacity: 0;
-        }
+      #item-1 {
+        background-color: blue;
+        grid-column: 1/2;
+        grid-row: 1/2;
+      }
+      #item-2 {
+        background-color: red;
+        grid-column: 2/-1;
+        grid-row: 1/2;
+      }
+      #item-3 {
+        height: 50%;
+        background-color: aqua;
+        grid-column: 2/-1;
+        grid-row: 1/2;
       }
     </style>
   </head>
   <body>
-    <div class="wrapper">
-      <button type="button" id="btn-1" class="ripple">button</button>
-      <button type="button" id="btn-2" class="ripple" data-ripple-color="#888">
-        button
-      </button>
-      <div
-        class="ripple"
-        style="width: 300px; height: 100px; background: #ddd"
-      ></div>
-      <div
-        class="ripple"
-        style="width: 100px; height: 300px; background: #ddd"
-      ></div>
+    <div class="container">
+      <div class="item" id="item-1"></div>
+      <div class="item" id="item-2"></div>
+      <div class="item" id="item-3"></div>
+      <div class="item" id="item-4"></div>
+      <div class="item" id="item-5"></div>
+      <div class="item" id="item-6"></div>
     </div>
-
-    <script>
-      (function () {
-        document.querySelectorAll(".ripple").forEach(setRippleElement);
-      })();
-
-      function setRippleElement(el) {
-        console.log(el);
-        const dot = document.createElement("SPAN");
-        const largestSide = Math.sqrt(
-          Math.pow(el.offsetWidth, 2) + Math.pow(el.offsetHeight, 2)
-        );
-        const dotSize = Math.ceil((largestSide * 2) / 100);
-        const rippleColor = el.dataset.rippleColor || "#768b8c";
-
-        dot.style = `
-		        position: absolute;
-		        left: 0;
-		        top: 0;
-		        width: ${dotSize}px;
-		        height: ${dotSize}px;
-		        z-index: 3;
-		        border-radius: 50%;
-		        background: ${rippleColor};
-		        transform: translate(-50%, -50%) scale(1);
-		        opacity: 0.5;
-		        animation: ripple 1s ease-out forwards;
-		    `;
-
-        el.style.position = "relative";
-        el.style.overflow = "hidden";
-
-        el.addEventListener("click", ({ pageX, pageY, currentTarget }) => {
-          // x and y in percentages
-          console.log(event.target);
-          const x =
-            ((pageX - currentTarget.offsetLeft) * 100) /
-            currentTarget.offsetWidth;
-          const y =
-            ((pageY - currentTarget.offsetTop) * 100) /
-            currentTarget.offsetHeight;
-
-          el.appendChild(dot);
-
-          dot.style.left = x + "%";
-          dot.style.top = y + "%";
-        });
-      }
-    </script>
   </body>
 </html>
