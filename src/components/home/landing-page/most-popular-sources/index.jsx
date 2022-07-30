@@ -1,63 +1,100 @@
-import React, { useState } from "react";
-import { useSpring } from "react-spring";
-import { red } from "../../../../utils/colors";
+import React from "react";
+import { CgCalendarDates as CalIcon } from "react-icons/cg";
 import {
   Container,
   Body,
   Side,
-  Title,
-  Buttons,
-  Button,
+  SideContent,
   Header,
-  TitleContainer,
-  DoubleLine,
+  Main,
+  Item,
+  HeaderImage,
+  Image,
+  Title,
+  SubTitle,
+  Writter,
+  Icon,
+  Date,
+  Text,
+  News,
 } from "./styles";
+import HeadingTitle from "../heading-title";
 
-const Source = ({ children, id = null, handleClick, activeSource }) => {
-  const isActive = activeSource === children.toLowerCase();
-  const props = useSpring({
-    background: isActive ? red[400] : " rgba(255, 102, 102, 0.5)",
-    boxShadow: isActive
-      ? "0 3px 10px  rgba(255, 102, 102, 0.5)"
-      : "0 0px 0px  rgba(255, 102, 102, 0)",
-  });
+//icons
+import {
+  BsPencilSquare as Pencil,
+  BsFillCalendarDateFill as Calendar,
+} from "react-icons/bs";
+
+const Source = ({ articles }) => {
   return (
-    <Button
-      data_btn_id={id}
-      active={isActive}
-      onClick={handleClick}
-      style={props}
-    >
-      {children}
-    </Button>
-  );
-};
-
-const Sources = () => {
-  const [activeSource, setActiveSource] = useState("technology");
-
-  function handleClick(e) {
-    const innerText = e.target.innerText.toLowerCase();
-    if (innerText !== activeSource) {
-      setActiveSource(innerText);
-    }
-  }
-
-  return (
-    <Buttons>
-      <Source id="first" handleClick={handleClick} activeSource={activeSource}>
-        Technology
-      </Source>
-      <Source handleClick={handleClick} activeSource={activeSource}>
-        Business
-      </Source>
-      <Source handleClick={handleClick} activeSource={activeSource}>
-        Science
-      </Source>
-      <Source id="last" handleClick={handleClick} activeSource={activeSource}>
-        Health
-      </Source>
-    </Buttons>
+    <Item>
+      {/* heading news  */}
+      <News>
+        <HeaderImage>
+          <Image src="https://source.unsplash.com/random/300×300" />
+        </HeaderImage>
+        <Title>Hello world</Title>
+        <SubTitle>
+          <Icon>
+            <Pencil fontSize="0.9rem" />
+          </Icon>
+          <Writter>BY PJ</Writter>
+          <Icon>
+            <Calendar fontSize="0.9rem" />
+          </Icon>
+          <Date>December 21, 2021</Date>
+        </SubTitle>
+        <Text>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          Consequuntur, ipsam. Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Eos corrupti consequatur vero quia nulla
+          necessitatibus odit sequi, voluptatibus sint at in sapiente magni
+          doloribus. Sed ullam provident quia est nam.
+        </Text>
+      </News>
+      {/* footer news  */}
+      <News>
+        <Title>Hello world</Title>
+        <SubTitle>
+          <Icon>
+            <Pencil fontSize="0.9rem" />
+          </Icon>
+          <Writter>BY PJ</Writter>
+          <Icon>
+            <Calendar fontSize="0.9rem" />
+          </Icon>
+          <Date>December 21, 2021</Date>
+        </SubTitle>
+        <Text>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          Consequuntur, ipsam. Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Eos corrupti consequatur vero quia nulla
+          necessitatibus odit sequi, voluptatibus sint at in sapiente magni
+          doloribus. Sed ullam provident quia est nam.
+        </Text>
+      </News>
+      <News>
+        <Title>Hello world</Title>
+        <SubTitle>
+          <Icon>
+            <Pencil fontSize="0.9rem" />
+          </Icon>
+          <Writter>BY PJ</Writter>
+          <Icon>
+            <Calendar fontSize="0.9rem" />
+          </Icon>
+          <Date>December 21, 2021</Date>
+        </SubTitle>
+        <Text>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          Consequuntur, ipsam. Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Eos corrupti consequatur vero quia nulla
+          necessitatibus odit sequi, voluptatibus sint at in sapiente magni
+          doloribus. Sed ullam provident quia est nam.
+        </Text>
+      </News>
+    </Item>
   );
 };
 
@@ -66,14 +103,17 @@ const MostPopularSources = () => {
     <Container>
       <Body>
         <Header>
-          <TitleContainer>
-            <Title>Most Popular Sources</Title>
-            <DoubleLine />
-          </TitleContainer>
-          <Sources />
+          <HeadingTitle>Most Popular Sources</HeadingTitle>
         </Header>
+        <Main>
+          <Source />
+          <Source />
+          <Source />
+        </Main>
       </Body>
-      <Side></Side>
+      <Side>
+        <SideContent></SideContent>
+      </Side>
     </Container>
   );
 };

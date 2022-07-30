@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "../../styles/containers";
 import Person from "./person";
-//import Colors from "../colors/Colors";
+import Colors from "../colors/Colors";
 //import Wave from "../../img/animated-wave.svg";
 
 const Dev = () => {
@@ -25,6 +25,7 @@ const Dev = () => {
     <Container>
       <Person data={pj} />
       <Person data={samy} />
+      <Colors />
     </Container>
   );
 };

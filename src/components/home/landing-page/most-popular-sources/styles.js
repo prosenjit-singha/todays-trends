@@ -3,37 +3,37 @@ import { device } from "../../../../utils/device";
 import { margin } from "../../../../styles/global-constants";
 import { animated } from "react-spring";
 
-export const Title = styled.h1`
-  margin-right: 0.5rem;
-  min-width: fit-content;
-  font-weight: bold;
-  color: ${(props) => props.theme.text};
-`;
 export const Container = styled.div`
   width: 100%;
-  height: fit-content;
+  height: auto;
+  display: flex;
+  flex-direction: column;
   @media ${device.tablet} {
-    display: flex;
+    flex-direction: row;
   }
 `;
 export const Body = styled.div`
   width: 100%;
-  min-height: 100vh;
   /* background-color: blue; */
   padding: ${margin};
   @media ${device.tablet} {
     width: auto;
-    flex-basis: 80%;
+    flex-basis: 75%;
   }
 `;
 export const Side = styled.div`
-  background-color: red;
   width: 100%;
-  min-height: 100vh;
+  padding: 1.5rem;
   @media ${device.tablet} {
     width: auto;
-    flex-basis: 20%;
+    flex-basis: 25%;
   }
+`;
+
+export const SideContent = styled.div`
+  position: sticky;
+  top: 2rem;
+  padding-top: 2rem;
 `;
 
 export const Header = styled.div`
@@ -41,36 +41,79 @@ export const Header = styled.div`
   flex-direction: column;
 `;
 
-export const Buttons = styled.div`
-  display: flex;
-  width: fit-content;
+export const Main = styled.div`
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: 1fr;
+  grid-gap: 1rem;
+  margin-top: 1rem;
+  @media ${device.tablet} {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
-export const Button = styled(animated.button)`
-  padding: 0.5rem 1rem;
-  height: fit-content;
-  cursor: pointer;
-  color: white;
-  font-weight: bold;
-  border-top-left-radius: ${(props) =>
-    props.data_btn_id === "first" ? "0.2rem" : "0rem"};
-  border-bottom-left-radius: ${(props) =>
-    props.data_btn_id === "first" ? "0.2rem" : "0rem"};
-  border-top-right-radius: ${(props) =>
-    props.data_btn_id === "last" ? "0.2rem" : "0rem"};
-  border-bottom-right-radius: ${(props) =>
-    props.data_btn_id === "last" ? "0.2rem" : "0rem"};
-  border: 1px solid red;
-  border-right: ${(props) => (props.data_btn_id === "last" ? "" : "none")};
+export const HeaderImage = styled.div`
+  border-radius: 0.25rem;
+  overflow: hidden;
+  height: 10rem;
+  margin-bottom: 0.5rem;
 `;
-export const TitleContainer = styled.div`
+export const Image = styled.img`
   width: 100%;
-  padding-block: 1rem;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+`;
+export const Title = styled.h3`
+  cursor: pointer;
+  text-transform: capitalize;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const SubTitle = styled.div`
   display: flex;
   align-items: center;
+  color: hsla(0, 0%, 50%, 0.5);
+  margin-bottom: 0.5rem;
 `;
-export const DoubleLine = styled.div`
-  width: 100%;
-  height: 0.5rem;
-  border-block: 2px solid gray; //dont forget to adjust the color
+
+export const Writter = styled.h5`
+  margin-right: 1.5rem;
+  text-transform: uppercase;
+`;
+
+export const Icon = styled.div`
+  display: flex;
+  margin-right: 0.5rem;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Date = styled.h5`
+  text-transform: uppercase;
+`;
+export const Text = styled.p`
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+export const News = styled.div`
+  padding: 1rem 0;
+  &:is(:first-child) {
+    padding-top: 0;
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid hsla(0, 0%, 50%, 0.25);
+  }
+`;
+
+export const Item = styled.div`
+  &:hover ${Image} {
+    transform: scale(1.05);
+  }
 `;
