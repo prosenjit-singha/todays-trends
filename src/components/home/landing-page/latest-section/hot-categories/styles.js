@@ -27,6 +27,7 @@ export const Content = styled.div`
 
 export const Title = styled.h3`
   letter-spacing: 1px;
+  color: hsla(0, 0%, 95%, 1);
   text-transform: capitalize;
 `;
 

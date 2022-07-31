@@ -19,6 +19,7 @@ import {
   News,
 } from "./styles";
 import HeadingTitle from "../heading-title";
+import PopularNews from "./popular-news";
 
 //icons
 import {
@@ -112,7 +113,9 @@ const MostPopularSources = () => {
         </Main>
       </Body>
       <Side>
-        <SideContent></SideContent>
+        <SideContent>
+          <PopularNews />
+        </SideContent>
       </Side>
     </Container>
   );

@@ -24,7 +24,7 @@ const Button = styled.button`
   }
 `;
 
-const GradientButton = ({ color = "red", children, handleClick }) => {
+const GradientButton = ({ color = "red", children, handleClick, style }) => {
   const red = `linear-gradient(to right, hsl(10, 100%, 59%) 0%, hsl(333, 73%, 50%) 51%, hsl(10, 100%, 59%) 100%
       )`;
   const blue = `linear-gradient(to right, hsl(230, 68%, 60%) 0%, hsl(260, 82%, 62%) 51%, hsl(230, 68%, 60%) 100%
@@ -49,7 +49,7 @@ const GradientButton = ({ color = "red", children, handleClick }) => {
   }
 
   return (
-    <Button color={bgColor} onClick={handleClick}>
+    <Button color={bgColor} onClick={handleClick} style={style}>
       {children}
     </Button>
   );

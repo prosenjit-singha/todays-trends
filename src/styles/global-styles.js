@@ -92,12 +92,13 @@ const GlobalStyle = createGlobalStyle`
         background-position: center;
         background-attachment: fixed; */
         overflow: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
     button {
         font-family: Inter;
+    }
+
+    #root {
+        max-width: 2560px;
     }
 
     @keyframes ripple {
