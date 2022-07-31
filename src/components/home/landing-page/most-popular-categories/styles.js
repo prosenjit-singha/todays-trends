@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { device } from "../../../../utils/device";
 import { margin } from "../../../../styles/global-constants";
 import { animated } from "react-spring";
+import { red } from "@mui/material/colors";
 
 export const Container = styled.div`
   width: 100%;
@@ -50,6 +51,12 @@ export const Header = styled.div`
 export const Buttons = styled.div`
   display: flex;
   width: fit-content;
+  flex-wrap: wrap;
+  gap: 5px;
+  @media ${device.tablet} {
+    gap: 0;
+    flex-wrap: nowrap;
+  }
 `;
 
 export const Button = styled(animated.button)`
@@ -58,19 +65,21 @@ export const Button = styled(animated.button)`
   cursor: pointer;
   color: ${(props) => props.theme.text};
   font-weight: bold;
-  border-top-left-radius: ${(props) =>
-    props.data_btn_id === "first" ? "0.2rem" : "0rem"};
-  border-bottom-left-radius: ${(props) =>
-    props.data_btn_id === "first" ? "0.2rem" : "0rem"};
-  border-top-right-radius: ${(props) =>
-    props.data_btn_id === "last" ? "0.2rem" : "0rem"};
-  border-bottom-right-radius: ${(props) =>
-    props.data_btn_id === "last" ? "0.2rem" : "0rem"};
-  border: 1px solid hsla(0, 25%, 50%, 0.25);
-  border-right: ${(props) => (props.data_btn_id === "last" ? "" : "none")};
-
-  @media ${device.tabletM} {
+  border: 1px solid ${red[400]};
+  background: hsla(1, 83%, 63%, 0.15);
+  border-radius: 2rem;
+  @media ${device.tablet} {
     font-size: 1.2rem;
+    border-top-left-radius: ${(props) =>
+      props.data_btn_id === "first" ? "0.2rem" : "0rem"};
+    border-bottom-left-radius: ${(props) =>
+      props.data_btn_id === "first" ? "0.2rem" : "0rem"};
+    border-top-right-radius: ${(props) =>
+      props.data_btn_id === "last" ? "0.2rem" : "0rem"};
+    border-bottom-right-radius: ${(props) =>
+      props.data_btn_id === "last" ? "0.2rem" : "0rem"};
+    border: 1px solid hsla(0, 25%, 50%, 0.25);
+    border-right: ${(props) => (props.data_btn_id === "last" ? "" : "none")};
   }
 `;
 export const Main = styled.div`

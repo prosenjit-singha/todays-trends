@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CgCalendarDates as CalIcon } from "react-icons/cg";
 import { useSpring } from "react-spring";
-import { red } from "../../../../utils/colors";
+import { red } from "@mui/material/colors";
 import {
   Container,
   Body,
@@ -23,14 +23,18 @@ import {
 import SocialLinks from "../social-links";
 import HeadingTitle from "../heading-title";
 import AlanAI from "../alan-ai";
+import { useTheme } from "styled-components";
 
 const Source = ({ children, id = null, handleClick, activeSource }) => {
+  const theme = useTheme();
   const isActive = activeSource === children.toLowerCase();
   const props = useSpring({
-    background: isActive ? red[400] : " rgba(255, 102, 102, 0)",
-    boxShadow: isActive
-      ? "0 3px 10px  rgba(255, 102, 102, 0.8)"
-      : "0 0px 0px  rgba(255, 102, 102, 0)",
+    background: isActive ? red[500] : "hsla(1, 83%, 63%, 0.15)",
+    color: isActive
+      ? "rgba(255, 255, 255, 1)"
+      : theme.isDark
+      ? "#f8f8f8"
+      : "rgba(0, 0, 0, 0.8)",
   });
   return (
     <Button

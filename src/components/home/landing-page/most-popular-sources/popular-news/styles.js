@@ -53,7 +53,7 @@ export const Date = styled.p`
 export const Item = styled.div`
   padding-block: 1rem;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: auto 1fr;
   grid-auto-flow: column;
   grid-template-rows: 1fr;
   justify-content: center;
