@@ -5,7 +5,7 @@ import { blue } from "../../../../../utils/colors";
 const Container = styled.form`
   width: 100%;
   height: fit-content;
-  padding: 1rem;
+  margin-bottom: 3rem;
   border-radius: 0.25rem;
   background-color: rgba(255, 255, 255, 0.025);
 `;

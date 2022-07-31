@@ -23,7 +23,8 @@ export const Body = styled.div`
 `;
 export const Side = styled.div`
   width: 100%;
-  padding: 1.5rem;
+  padding: ${margin};
+  padding-bottom: 3rem;
   @media ${device.tablet} {
     width: auto;
     flex-basis: 25%;

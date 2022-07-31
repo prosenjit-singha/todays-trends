@@ -40,6 +40,14 @@ const GlobalStyle = createGlobalStyle`
         src: url(${Inter}) format('truetype');
     }
 
+    :root{
+       --sm-inline-padding: 1.8rem;
+       --md-inline-padding: 2rem;
+       --lg-inline-padding: 3rem;
+       --sm-padding: 1rem;
+       --md-padding: 1.5rem; 
+    }
+
     *{
         padding: 0;
         margin: 0;
@@ -84,10 +92,14 @@ const GlobalStyle = createGlobalStyle`
         background-position: center;
         background-attachment: fixed; */
         overflow: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     button {
         font-family: Inter;
     }
+
     @keyframes ripple {
         100% {
             transform: translate(-50%, -50%) scale(100);

@@ -25,7 +25,7 @@ export const Body = styled.div`
 export const Side = styled.div`
   width: 100%;
   min-height: fit-content;
-  padding: 1.5rem;
+  padding: 1.8rem;
   @media ${device.tablet} {
     width: auto;
     flex-basis: 25%;
@@ -41,7 +41,7 @@ export const SideContent = styled.div`
 export const Header = styled.div`
   display: flex;
   flex-direction: column;
-  @media ${device.tablet} {
+  @media ${device.laptopM} {
     flex-direction: row;
     align-items: center;
   }
