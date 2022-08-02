@@ -101,6 +101,11 @@ export const Item = styled.div`
   }
 `;
 
+export const Date = styled.p`
+  color: ${(props) => props.theme.text.secondary};
+  margin: 0;
+`;
+
 export const HeaderImage = styled.div`
   grid-row: 1 / span 2;
   position: relative;
@@ -127,7 +132,7 @@ export const Content = styled.div`
 export const Badge = styled.button`
   padding: 0.24rem 0.5rem;
   margin-bottom: 0.5rem;
-  color: ${(props) => props.theme.text};
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 1px;
@@ -140,12 +145,17 @@ export const Badge = styled.button`
     font-weight: 600;
   }
 `;
-export const ItemTitle = styled.h3`
+export const ItemTitle = styled.h4`
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   cursor: pointer;
 `;
 export const SubTitle = styled.div`
   margin-top: 0.5rem;
   display: flex;
   align-items: center;
-  color: ${(props) => props.theme.secondaryText};
+  color: ${(props) => props.theme.text.secondary};
 `;

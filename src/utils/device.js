@@ -5,7 +5,7 @@ const size = {
   tabletS: 576,
   tablet: 768,
   tabletM: 790,
-  laptop: 1024,
+  laptop: 992,
   laptopM: 1060,
   laptopL: 1440,
   desktop: 2560,

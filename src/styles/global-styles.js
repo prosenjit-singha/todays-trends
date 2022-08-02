@@ -84,14 +84,15 @@ const GlobalStyle = createGlobalStyle`
     }
     body{
         position:relative;
-        color: ${(props) => props.theme.text};
-        background-color: ${(props) => props.theme.background};
+        color: ${(props) => props.theme.text.primary};
+        background-color: ${(props) => props.theme.background.primary};
         /* background-image: url(${(props) =>
           props.theme.name === "dark" ? dark : light});
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed; */
         overflow: auto;
+        transition: background-color 300ms ease, color 300ms ease;
     }
     button {
         font-family: Inter;

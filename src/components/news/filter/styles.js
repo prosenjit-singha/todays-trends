@@ -63,10 +63,12 @@ export const TextField = styled.input`
   width: 180px;
   height: 30px;
   color: ${(props) => props.theme.text};
-  background-color: ${(props) => props.theme.background};
+  background-color: ${(props) =>
+    props.theme.darkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)"};
   border: none;
   outline: none;
-  border-radius: 0.3rem;
+  margin-left: 1rem;
+  border-radius: 0.25rem;
   padding-left: 0.5rem;
   justify-self: center;
   grid-column: 1/2;
@@ -75,6 +77,7 @@ export const TextField = styled.input`
     border: 1px solid ${(props) => props.theme.secondaryAccent};
   }
   @media ${device.tabletS} {
+    margin-left: 0;
     width: 95%;
     grid-column: 2/-1;
     grid-row: 2/3;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { purple } from "../../utils/colors";
+import { purple } from "@mui/material/colors";
 import { margin } from "../../styles/global-constants";
+import { device } from "../../utils/device";
 
 export const Container = styled.section`
   background-color: ${(props) => props.theme.forground};
@@ -25,7 +26,7 @@ export const Text = styled.p`
   color: ${(props) => props.theme.secondaryText};
 `;
 export const TextBox = styled.input`
-  width: 50%;
+  width: 60%;
   height: 3rem;
   border-radius: 5px;
   border: 2px solid ${(props) => props.theme.accent};
@@ -37,9 +38,15 @@ export const TextBox = styled.input`
   text-align: center;
   outline: none;
   transition: width 200ms ease-out;
-  &:focus {
+  &:focus-visible {
     border: 2px solid ${(props) => props.theme.secondaryAccent};
-    width: 60%;
+    width: 70%;
+  }
+  @media ${device.tablet} {
+    width: 50%;
+    &:focus-visible {
+      width: 60%;
+    }
   }
 `;
 export const Button = styled.button`

@@ -9,16 +9,17 @@ const Container = styled.form`
   padding: 2rem 1rem;
   margin-bottom: 3rem;
   border-radius: 0.25rem;
-  background-color: rgba(255, 255, 255, 0.025);
+  background-color: ${(props) => props.theme.background.paper};
 `;
-const Title = styled.h3`
+const Title = styled.h4`
+  font-weight: 500;
   font-size: 1.5rem;
   text-align: center;
   text-transform: capitalize;
   margin-bottom: 1rem;
 `;
 const SubTitle = styled.p`
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
   margin-bottom: 1rem;
 `;
@@ -26,7 +27,7 @@ const Input = styled.input`
   border: none;
   outline: none;
   width: 100%;
-  color: ${(props) => props.theme.text};
+  color: ${(props) => props.theme.text.primary};
   background-color: ${(props) =>
     props.theme.isDark ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.15)"};
   text-align: center;
@@ -43,19 +44,6 @@ const Input = styled.input`
     outline-offset: 2px;
   }
 `;
-// const Button = styled.button`
-//   border: none;
-//   outline: none;
-//   color: white;
-//   background-color: ${blue[400]};
-//   font-size: 1.25rem;
-//   font-weight: 600;
-//   padding: 0.4rem 0.5rem;
-//   border-radius: 0.25rem;
-//   cursor: pointer;
-//   width: 100%;
-//   text-transform: uppercase;
-// `;
 
 const Newsletter = () => {
   const btnStyle = {

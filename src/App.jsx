@@ -3,10 +3,12 @@ import { Navigate, Routes, Route } from "react-router-dom";
 import useAlan from "./hooks/useAlan";
 import AOS from "aos";
 import "../node_modules/aos/dist/aos.css";
+//<<<<<<<<< importing components >>>>>>>>>>>>>>>
 import Terms from "./components/terms&conditions";
 import NavBar from "./components/navBar";
 import Footer from "./components/footer";
 import Home from "./components/home";
+import News from "./components/news";
 import About from "./components/about";
 import CommandList from "./components/command-list";
 import Developers from "./components/dev";
@@ -83,6 +85,7 @@ const App = () => {
         <Routes>
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/" element={<Home />} />
+          <Route path="/news" element={<News />} />
           <Route path="/about" element={<About />} />
           <Route path="/command-list" element={<CommandList />} />
           <Route path="/developers" element={<Developers />} />

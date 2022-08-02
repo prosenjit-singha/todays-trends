@@ -14,6 +14,7 @@ import {
   Badge,
   ItemTitle,
   SubTitle,
+  Date,
 } from "./styles";
 import HeadingTitle from "../heading-title";
 import HotCategories from "./hot-categories";
@@ -38,7 +39,7 @@ const LatestNews = () => {
               </ItemTitle>
               <SubTitle>
                 <CalIcon style={{ marginRight: "5px" }} />{" "}
-                <h4>December 9, 2021</h4>
+                <Date>December 9, 2021</Date>
               </SubTitle>
             </Content>
           </Item>
@@ -53,7 +54,7 @@ const LatestNews = () => {
               </ItemTitle>
               <SubTitle>
                 <CalIcon style={{ marginRight: "5px" }} />{" "}
-                <h4>December 9, 2021</h4>
+                <Date>December 9, 2021</Date>
               </SubTitle>
             </Content>
           </Item>
@@ -68,7 +69,7 @@ const LatestNews = () => {
               </ItemTitle>
               <SubTitle>
                 <CalIcon style={{ marginRight: "5px" }} />{" "}
-                <h4>December 9, 2021</h4>
+                <Date>December 9, 2021</Date>
               </SubTitle>
             </Content>
           </Item>
@@ -83,7 +84,7 @@ const LatestNews = () => {
               </ItemTitle>
               <SubTitle>
                 <CalIcon style={{ marginRight: "5px" }} />{" "}
-                <h4>December 9, 2021</h4>
+                <Date>December 9, 2021</Date>
               </SubTitle>
             </Content>
           </Item>

@@ -14,11 +14,11 @@ export const Container = styled.div`
   width: 100%;
   min-height: 20rem;
   padding: 1.8rem;
-  background-color: hsla(0, 0%, 50%, 0.05);
+  background-color: ${(props) => props.theme.background.paper};
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     flex-direction: row;
     align-items: center;
   }
@@ -26,6 +26,9 @@ export const Container = styled.div`
 export const ImageContainer = styled.div`
   width: 100%;
   @media ${device.tablet} {
+    height: 20rem;
+  }
+  @media ${device.laptop} {
     width: 50%;
   }
 `;
@@ -37,14 +40,14 @@ export const Image = styled.img`
 `;
 export const Content = styled.div`
   margin-top: 1rem;
-  @media ${device.laptop} {
+  @media ${device.laptopM} {
     padding-left: var(--lg-inline-padding);
   }
 `;
 export const Title = styled.h1`
   text-transform: capitalize;
   color: ${(props) => props.theme.text};
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     font-size: 3rem;
   }
 `;
@@ -54,7 +57,7 @@ export const Form = styled.form`
   grid-template-rows: repeat(2, 1fr);
   grid-auto-flow: row;
   gap: 0.5rem;
-  @media ${device.laptop} {
+  @media ${device.laptopM} {
     grid-template-rows: 1fr;
     grid-template-columns: 3fr 1fr;
     grid-auto-flow: column;

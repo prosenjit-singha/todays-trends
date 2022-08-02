@@ -2,14 +2,13 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { animated } from "react-spring";
-import { colors } from "../../styles/variables";
 import { device } from "../../utils/device";
+import { red } from "@mui/material/colors";
 
-const setColor = (mode) => {
+const setColor = (darkMode) => {
   const LIGHT = `hsla(255, 100%, 98%, 0.85)`;
   const DARK = `hsla(270, 15%, 10%, 0.85)`;
-  if (mode === "dark") return DARK;
-  if (mode === "light") return LIGHT;
+  return darkMode ? DARK : LIGHT;
 };
 
 export const Header = styled.header`
@@ -18,7 +17,7 @@ export const Header = styled.header`
   grid-template-rows: repeat(2, auto);
   height: auto;
   //background-color: ${(props) => props.theme.forground};
-  background-color: ${(props) => setColor(props.theme.name)};
+  background-color: ${(props) => setColor(props.theme.darkMode)};
   //opacity: 0.2;
   backdrop-filter: blur(15px);
   box-shadow: 0px 4px 5px 0px ${(props) => props.theme.backgroundShadow};
@@ -26,7 +25,7 @@ export const Header = styled.header`
   top: 0;
   z-index: 30;
   overflow: hidden;
-  @media ${device.tabletM} {
+  @media ${device.laptop} {
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto;
   }
@@ -38,7 +37,7 @@ export const Nav = styled(animated.nav)`
   grid-row: 2/-1;
   width: 100%;
   height: 100%;
-  @media ${device.tabletM} {
+  @media ${device.laptop} {
     position: relative;
     display: flex;
     align-items: center;
@@ -49,8 +48,6 @@ export const Nav = styled(animated.nav)`
 `;
 
 export const MenuList = styled.ul`
-  /* background-color: ${colors.neutral[900]}; */
-  //outline: 1px solid red;
   width: 100%;
   height: fit-content;
   list-style: none;
@@ -60,7 +57,7 @@ export const MenuList = styled.ul`
   overflow: visible;
   flex-direction: column;
   align-content: center;
-  @media ${device.tabletM} {
+  @media ${device.laptop} {
     flex-direction: row;
     justify-content: end;
     padding-right: 2rem;
@@ -80,7 +77,7 @@ export const MenuListItem = styled.li`
   &:last-child {
     margin-bottom: 0.5rem;
   }
-  @media ${device.tabletM} {
+  @media ${device.laptop} {
     width: fit-content;
     &:last-child {
       margin-bottom: 0rem;
@@ -106,8 +103,11 @@ export const MenuLink = styled(animated(NavLink))`
   text-shadow: none;
   cursor: pointer;
   transition: color, text-shadow 300ms ease;
+  &:hover {
+    color: ${red[500]};
+  }
 
-  @media ${device.tabletM} {
+  @media ${device.laptop} {
     width: fit-content;
     display: flex;
     align-items: center;
@@ -128,7 +128,7 @@ export const ActiveLinkEffect = styled(animated.span)`
   height: 5px;
   background-color: ${(props) => props.theme.accent};
   z-index: 1;
-  @media ${device.tabletM} {
+  @media ${device.laptop} {
     bottom: 7px;
   }
 `;

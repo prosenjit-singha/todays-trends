@@ -14,6 +14,7 @@ const Image = styled.img`
   transition: transform 300ms ease;
 `;
 const Title = styled.h3`
+  color: rgba(255, 255, 255, 0.9);
   text-align: center;
   text-transform: capitalize;
   margin-bottom: 0.8rem;

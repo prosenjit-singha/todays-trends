@@ -20,6 +20,10 @@ const Pages = ({ totalResults }) => {
   const fontSize = 1;
   const totalPages = parseInt(totalResults / 12) + 1;
   const [pageNo, setPageNo] = useState(0);
+  const buttonStyles = {
+    marginInline: "0.5rem",
+  };
+
   //functions
   const callAPI = () => {
     const api_key = api + "&page=" + currentPage;
@@ -52,12 +56,14 @@ const Pages = ({ totalResults }) => {
         fontSize={fontSize}
         handleClick={handlePrev}
         disabled={currentPage === 1}
+        styles={buttonStyles}
       >
         Previous
       </Button>
       <Button
         styles={{
           display: pageNo !== 0 ? "flex" : "none",
+          marginInline: "0.5rem",
         }}
         handleClick={() => setPageNo((prev) => prev - 5)}
       >
@@ -78,12 +84,14 @@ const Pages = ({ totalResults }) => {
           width={3}
           handleClick={handleClick}
           isactive={index + pageNo + 1 === currentPage}
+          styles={buttonStyles}
         >
           {index + pageNo + 1}
         </Button>
       ))}
       <Button
         styles={{
+          marginInline: "0.5rem",
           display:
             totalPages > 5
               ? pageNo + 5 < totalPages
@@ -97,6 +105,7 @@ const Pages = ({ totalResults }) => {
       </Button>
       <Button
         styles={{
+          marginInline: "0.5rem",
           display:
             totalPages > 5
               ? pageNo + 5 < totalPages
@@ -112,6 +121,7 @@ const Pages = ({ totalResults }) => {
         fontSize={fontSize}
         handleClick={handleNext}
         disabled={currentPage === totalPages}
+        styles={buttonStyles}
       >
         Next
       </Button>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Name, Intro, Image, SocialsWrapper, Icon } from "./styles";
-import { red } from "../../utils/colors";
+import { red } from "@mui/material/colors";
 import {
   FaFacebookF as Fb,
   FaInstagram as Insta,
@@ -8,7 +8,7 @@ import {
   FaGithub as Github,
 } from "react-icons/fa";
 
-const person = ({ data }) => {
+const Person = ({ data }) => {
   const size = "25px";
   const color = red[400];
   return (
@@ -34,4 +34,4 @@ const person = ({ data }) => {
   );
 };
 
-export default person;
+export default Person;

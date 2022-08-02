@@ -15,11 +15,9 @@ import {
   MenuLink,
 } from "./styles";
 import ThemeSwitch from "./theme-switch";
-import { useSelector } from "react-redux";
-import { red } from "../../utils/colors";
+import { red } from "@mui/material/colors";
 
 const NavBar = () => {
-  const themeStyle = useSelector((state) => state.theme.props);
   const activeRef = useRef();
   const menuRefs = useRef([]);
   const { pathname } = useLocation();
@@ -33,42 +31,13 @@ const NavBar = () => {
     height: 0,
   });
   const [openMenu, toggleMenu] = useState(false);
-  const smDevice = useBreakpoint(789);
+  const tabletM = useBreakpoint(991);
   const { width: windowWidth } = useWindowSize();
 
   //styling-start
   const menuStyles = useSpring({
     maxHeight: openMenu ? menuHeight : 0,
   });
-
-  const [menuItems, setMenuItems] = useSprings(mi.length, (index) => ({
-    ...mi[index],
-    textShadow:
-      mi[index].path === pathname
-        ? mi[index].textShadowTo
-        : mi[index].textShadowFrom,
-    config: {
-      duration: 100,
-    },
-  }));
-  const applyLinkStyle = useCallback(
-    (i) => {
-      setMenuItems.start((index) => {
-        if (index === i)
-          return {
-            ...mi[index],
-            textShadow: mi[index].textShadowTo,
-            color: "white",
-          };
-        else
-          return {
-            ...mi[index],
-            textShadow: mi[index].textShadowFrom,
-          };
-      });
-    },
-    [setMenuItems]
-  );
 
   const activeEffect = useSpring({
     background: hoverLocation.bgColor,
@@ -86,12 +55,15 @@ const NavBar = () => {
   });
   const activeThisLink = (i) => {
     toggleMenu(!openMenu);
-    applyLinkStyle(i);
   };
   //styling-end
   const handleMouseEnter = (e) => {
-    const { offsetTop, offsetLeft, offsetHeight, offsetWidth } =
-      e.target.parentElement;
+    const {
+      offsetTop,
+      offsetLeft,
+      offsetHeight,
+      offsetWidth,
+    } = e.target.parentElement;
     setHoverLocation({
       ...hoverLocation,
       height: offsetHeight,
@@ -119,13 +91,17 @@ const NavBar = () => {
   useEffect(() => {
     let i = 0;
     if (pathname === "/") i = 0;
-    else if (pathname === "/command-list") i = 1;
-    else if (pathname === "/about") i = 2;
-    applyLinkStyle(i);
+    else if (pathname === "/news") i = 1;
+    else if (pathname === "/command-list") i = 2;
+    else if (pathname === "/about") i = 3;
     //const currentActive = menuRefs.current[i].parentElement;
 
-    const { offsetTop, offsetLeft, offsetWidth, offsetHeight } =
-      menuRefs.current[i].parentElement;
+    const {
+      offsetTop,
+      offsetLeft,
+      offsetWidth,
+      offsetHeight,
+    } = menuRefs.current[i].parentElement;
     setHoverLocation({
       ...hoverLocation,
       active: {
@@ -139,14 +115,15 @@ const NavBar = () => {
       width: offsetWidth,
       height: offsetHeight,
     });
-  }, [pathname, applyLinkStyle, windowWidth]);
+  }, [pathname, windowWidth]);
+
   return (
     <Header>
       <Logo activeThisLink={activeThisLink} />
-      {smDevice && <Hamburger openMenu={openMenu} toggleMenu={toggleMenu} />}
-      <Nav style={smDevice ? menuStyles : { maxHeight: "3.2rem" }}>
+      {tabletM && <Hamburger openMenu={openMenu} toggleMenu={toggleMenu} />}
+      <Nav style={tabletM ? menuStyles : { maxHeight: "3.2rem" }}>
         <MenuList {...menuRef}>
-          {menuItems.map(({ id, name, path }, i) => (
+          {mi.map(({ id, name, path }, i) => (
             <MenuListItem
               key={i}
               onMouseEnter={(e) => handleMouseEnter(e)}
@@ -162,16 +139,16 @@ const NavBar = () => {
               </MenuLink>
             </MenuListItem>
           ))}
-          {smDevice && openMenu ? (
+          {tabletM && openMenu ? (
             <ActiveLinkEffect ref={activeRef} style={mobileActiveEffect} />
           ) : (
             ""
           )}
           <ActiveLinkEffect
             ref={activeRef}
-            style={smDevice ? mobileActiveEffect : activeEffect}
+            style={tabletM ? mobileActiveEffect : activeEffect}
           />
-          {!smDevice && <ThemeSwitch />}
+          {!tabletM && <ThemeSwitch />}
         </MenuList>
       </Nav>
     </Header>

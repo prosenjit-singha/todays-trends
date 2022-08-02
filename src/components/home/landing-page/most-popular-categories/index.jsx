@@ -19,6 +19,7 @@ import {
   Badge,
   ItemTitle,
   SubTitle,
+  Date,
 } from "./styles";
 import SocialLinks from "../social-links";
 import HeadingTitle from "../heading-title";
@@ -32,7 +33,7 @@ const Source = ({ children, id = null, handleClick, activeSource }) => {
     background: isActive ? red[500] : "hsla(1, 83%, 63%, 0.15)",
     color: isActive
       ? "rgba(255, 255, 255, 1)"
-      : theme.isDark
+      : theme.darkMode
       ? "#f8f8f8"
       : "rgba(0, 0, 0, 0.8)",
   });
@@ -102,7 +103,7 @@ const MostPopularCategories = () => {
               </ItemTitle>
               <SubTitle>
                 <CalIcon style={{ marginRight: "5px" }} />{" "}
-                <h4>December 9, 2021</h4>
+                <Date>December 9, 2021</Date>
               </SubTitle>
             </Content>
           </HeaderImage>
@@ -117,7 +118,7 @@ const MostPopularCategories = () => {
               </ItemTitle>
               <SubTitle>
                 <CalIcon style={{ marginRight: "5px" }} />{" "}
-                <h4>December 9, 2021</h4>
+                <Date>December 9, 2021</Date>
               </SubTitle>
             </Content>
           </Item>
@@ -132,7 +133,7 @@ const MostPopularCategories = () => {
               </ItemTitle>
               <SubTitle>
                 <CalIcon style={{ marginRight: "5px" }} />{" "}
-                <h4>December 9, 2021</h4>
+                <Date>December 9, 2021</Date>
               </SubTitle>
             </Content>
           </Item>
@@ -147,7 +148,7 @@ const MostPopularCategories = () => {
               </ItemTitle>
               <SubTitle>
                 <CalIcon style={{ marginRight: "5px" }} />{" "}
-                <h4>December 9, 2021</h4>
+                <Date>December 9, 2021</Date>
               </SubTitle>
             </Content>
           </Item>
@@ -162,7 +163,7 @@ const MostPopularCategories = () => {
               </ItemTitle>
               <SubTitle>
                 <CalIcon style={{ marginRight: "5px" }} />{" "}
-                <h4>December 9, 2021</h4>
+                <Date>December 9, 2021</Date>
               </SubTitle>
             </Content>
           </Item>

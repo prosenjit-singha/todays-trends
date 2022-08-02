@@ -70,6 +70,11 @@ export const Image = styled.img`
   transition: transform 300ms ease;
 `;
 export const Title = styled.h3`
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   cursor: pointer;
   text-transform: capitalize;
   &:hover {
@@ -84,8 +89,11 @@ export const SubTitle = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-export const Writter = styled.h5`
+export const Writter = styled.h6`
+  font-size: 0.9rem;
+  font-weight: 500;
   margin-right: 1.5rem;
+  margin-bottom: 0;
   text-transform: uppercase;
 `;
 
@@ -96,8 +104,11 @@ export const Icon = styled.div`
   align-items: center;
 `;
 
-export const Date = styled.h5`
+export const Date = styled.h6`
+  font-size: 0.9rem;
+  font-weight: 500;
   text-transform: uppercase;
+  margin-bottom: 0;
 `;
 export const Text = styled.p`
   display: -webkit-box;

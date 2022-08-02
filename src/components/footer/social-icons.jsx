@@ -21,13 +21,17 @@ const Container = styled.div`
 const Icon = styled.div`
   height: 33px;
   width: 33px;
-  border-radius: 5px;
+  border-radius: 50%;
   cursor: pointer;
-  padding: 5px;
+  padding: 8px;
   background-color: ${(props) => props.theme.accent};
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: border-radius 300ms ease;
+  &:hover {
+    border-radius: 5px;
+  }
 `;
 
 const SocialIcons = ({ size, color }) => {
