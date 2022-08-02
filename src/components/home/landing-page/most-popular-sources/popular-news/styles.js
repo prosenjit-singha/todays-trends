@@ -11,6 +11,9 @@ export const ImageContainer = styled.div`
   overflow: hidden;
   border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 export const Image = styled.img`
   width: 100%;

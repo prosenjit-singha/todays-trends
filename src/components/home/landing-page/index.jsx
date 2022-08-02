@@ -9,9 +9,9 @@ const LandingPage = () => {
   return (
     <>
       <Carousel />
-      <MostPopularSources />
       <MostPopularCategories />
       <LatestNews />
+      <MostPopularSources />
       <Newsletter />
     </>
   );

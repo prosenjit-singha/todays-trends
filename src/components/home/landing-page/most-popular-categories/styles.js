@@ -9,7 +9,7 @@ export const Container = styled.div`
   height: fit-content;
   display: flex;
   flex-direction: column;
-  @media ${device.tablet} {
+  @media ${device.tabletM} {
     flex-direction: row;
   }
 `;
@@ -18,18 +18,23 @@ export const Body = styled.div`
   min-height: 100vh;
   /* background-color: blue; */
   padding: ${margin};
-  @media ${device.tablet} {
-    width: auto;
-    flex-basis: 75%;
+  @media ${device.tabletM} {
+    width: 65%;
+  }
+  @media ${device.laptop} {
+    width: 75%;
   }
 `;
 export const Side = styled.div`
   width: 100%;
   min-height: fit-content;
   padding: 1.8rem;
-  @media ${device.tablet} {
+  @media ${device.tabletM} {
     width: auto;
-    flex-basis: 25%;
+    width: 35%;
+  }
+  @media ${device.laptop} {
+    width: 25%;
   }
 `;
 
@@ -53,7 +58,7 @@ export const Buttons = styled.div`
   width: fit-content;
   flex-wrap: wrap;
   gap: 5px;
-  @media ${device.tablet} {
+  @media ${device.tabletM} {
     gap: 0;
     flex-wrap: nowrap;
   }

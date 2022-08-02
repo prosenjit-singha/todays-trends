@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
+  user-select: none;
 `;
 export const IconContainer = styled.div`
   /* width: 50px;
@@ -17,7 +18,7 @@ export const IconContainer = styled.div`
 `;
 export const Item = styled.a`
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(240, 240, 240, 1);
   text-decoration: none;
   user-select: none;
   width: 100%;
@@ -27,13 +28,17 @@ export const Item = styled.a`
   align-items: center;
   border-radius: 0.3rem;
   background-image: ${(props) => props.bgColor};
+  &:hover {
+    color: rgba(250, 250, 250, 1);
+  }
   &:hover > ${IconContainer} {
     border-radius: 0.25rem;
     background-color: rgba(255, 255, 255, 0.5);
   }
 `;
 
-export const Text = styled.div`
+export const Text = styled.p`
+  display: block;
   padding: 0.5rem 1rem;
   font-weight: 600;
   letter-spacing: 1px;

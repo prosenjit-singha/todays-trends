@@ -8,7 +8,7 @@ export const Container = styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
-  @media ${device.tablet} {
+  @media ${device.tabletM} {
     flex-direction: row;
   }
 `;
@@ -17,8 +17,10 @@ export const Body = styled.div`
   /* background-color: blue; */
   padding: ${margin};
   @media ${device.tablet} {
-    width: auto;
-    flex-basis: 75%;
+    width: 65%;
+  }
+  @media ${device.laptop} {
+    width: 75%;
   }
 `;
 export const Side = styled.div`
@@ -26,7 +28,10 @@ export const Side = styled.div`
   padding: 1.5rem;
   @media ${device.tablet} {
     width: auto;
-    flex-basis: 25%;
+    width: 35%;
+  }
+  @media ${device.laptop} {
+    width: 25%;
   }
 `;
 
@@ -47,7 +52,7 @@ export const Main = styled.div`
   grid-auto-rows: 1fr;
   grid-gap: 1rem;
   margin-top: 1rem;
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     grid-template-columns: repeat(3, 1fr);
   }
 `;

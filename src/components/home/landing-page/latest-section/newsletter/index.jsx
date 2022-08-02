@@ -27,13 +27,18 @@ const Input = styled.input`
   outline: none;
   width: 100%;
   color: ${(props) => props.theme.text};
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: ${(props) =>
+    props.theme.isDark ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.15)"};
   text-align: center;
   font-size: 1.2rem;
   padding: 0.5rem 0.5rem;
   border-radius: 0.2rem;
   margin-bottom: 1rem;
+  transition: background-color 300ms ease;
   &:focus-visible {
+    background-color: ${(props) =>
+      props.theme.isDark ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)"};
+    text-align: center;
     outline: 2px solid ${blue[400]};
     outline-offset: 2px;
   }

@@ -17,8 +17,10 @@ export const Body = styled.div`
   /* background-color: blue; */
   padding: ${margin};
   @media ${device.tablet} {
-    width: auto;
-    flex-basis: 75%;
+    width: 65%;
+  }
+  @media ${device.laptop} {
+    width: 75%;
   }
 `;
 export const Side = styled.div`
@@ -27,7 +29,10 @@ export const Side = styled.div`
   padding-bottom: 3rem;
   @media ${device.tablet} {
     width: auto;
-    flex-basis: 25%;
+    width: 35%;
+  }
+  @media ${device.laptop} {
+    width: 25%;
   }
 `;
 
