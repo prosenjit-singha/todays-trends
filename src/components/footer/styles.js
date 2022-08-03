@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { neutral } from "../../utils/colors";
 import { device } from "../../utils/device";
-import { red } from "../../utils/colors";
+import { red, blueGrey } from "@mui/material/colors";
 
 const setColor = (mode) => {
   const LIGHT = `hsla(255, 100%, 98%, 0.85)`;
@@ -26,7 +26,8 @@ export const Container = styled.div`
   justify-content: center;
   min-height: 100px;
   max-height: fit-content;
-  background-color: ${(props) => setColor(props.theme.name)};
+  background-color: ${(props) =>
+    props.theme.darkMode ? blueGrey[900] : blueGrey[300]};
   backdrop-filter: blur(10px);
   padding-top: 0.8rem;
   z-index: 10;
