@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { config, useSpring } from "react-spring";
 import ThemeSwitch from "../theme-switch";
 import { HamburgerContainer, Hamburger as HB, Line } from "./style";
 const Hamburger = ({ openMenu, toggleMenu }) => {
-  const [menuIconHover, setMenuIconHover] = useState(false);
   const firstLine = useSpring({
     transform: openMenu
       ? "rotate(45deg) translateY(0px)"
@@ -24,11 +23,7 @@ const Hamburger = ({ openMenu, toggleMenu }) => {
   return (
     <HamburgerContainer>
       <ThemeSwitch />
-      <HB
-        onClick={() => toggleMenu(!openMenu)}
-        onMouseEnter={() => setMenuIconHover(true)}
-        onMouseLeave={() => setMenuIconHover(false)}
-      >
+      <HB onClick={() => toggleMenu(!openMenu)}>
         <Line style={firstLine} />
         <Line style={secondLine} />
         <Line style={thirdLine} />
@@ -37,4 +32,4 @@ const Hamburger = ({ openMenu, toggleMenu }) => {
   );
 };
 
-export default Hamburger;
+export default React.memo(Hamburger);

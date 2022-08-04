@@ -1,7 +1,6 @@
 import React from "react";
 import { Container } from "../../styles/containers";
 import Person from "./person";
-import Colors from "../colors/Colors";
 import styled from "styled-components";
 import { device } from "../../utils/device";
 //import Wave from "../../img/animated-wave.svg";

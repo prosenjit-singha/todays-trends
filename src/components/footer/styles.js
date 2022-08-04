@@ -1,15 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { neutral } from "../../utils/colors";
 import { device } from "../../utils/device";
 import { red, blueGrey } from "@mui/material/colors";
-
-const setColor = (mode) => {
-  const LIGHT = `hsla(255, 100%, 98%, 0.85)`;
-  const DARK = `hsla(270, 15%, 10%, 0.85)`;
-  if (mode === "dark") return DARK;
-  if (mode === "light") return LIGHT;
-};
 
 export const Footer = styled.footer`
   position: relative;

@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { IoIosArrowForward as Arrow } from "react-icons/io";
 import BgImage from "../../../../img/hero/hero-5.jpg";
 import GradientButton from "../../../button/gradient-button";
-import { blue } from "../../../../utils/colors";
 import { useComponentSize } from "react-use-size";
 
 const Image = styled.img`
@@ -25,25 +24,7 @@ const SubTitle = styled.p`
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 1.2rem;
 `;
-const Button = styled.button`
-  border: none;
-  border-radius: 0.25rem;
-  background: ${blue[400]};
-  outline: none;
-  margin-inline: auto;
-  margin-top: 1.5rem;
-  color: white;
-  font-weight: 500;
-  font-size: 1.2rem;
-  padding: 0.3em 0.5em;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  transition: box-shadow 300ms ease;
-  &:hover {
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-  }
-`;
+
 const Content = styled.div`
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
@@ -74,7 +55,7 @@ const Container = styled.div`
 `;
 
 const AlanAI = () => {
-  const { ref, width, height } = useComponentSize();
+  const { ref, width } = useComponentSize();
   const buttonStyle = {
     fontSize: "1rem",
     display: "flex",

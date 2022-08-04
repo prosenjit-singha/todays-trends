@@ -29,10 +29,7 @@ export default function ControlledCarousel() {
   const itemStyle = {
     height: "100%",
   };
-  const imageStyle = {
-    height: "100%",
-    objectFit: "cover",
-  };
+
   return (
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item interval={intervalTime} style={itemStyle}>

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { device } from "../../../../utils/device";
 import { margin } from "../../../../styles/global-constants";
-import { animated } from "react-spring";
 
 export const Container = styled.div`
   width: 100%;

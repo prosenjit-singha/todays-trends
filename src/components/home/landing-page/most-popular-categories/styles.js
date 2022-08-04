@@ -58,7 +58,7 @@ export const Buttons = styled.div`
   width: fit-content;
   flex-wrap: wrap;
   gap: 5px;
-  @media ${device.tabletM} {
+  @media ${device.tablet} {
     gap: 0;
     flex-wrap: nowrap;
   }

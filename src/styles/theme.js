@@ -1,4 +1,4 @@
-import { cyan, lightGreen, neutral } from "../utils/colors";
+import { neutral } from "../utils/colors";
 
 //colors from material ui
 import {
@@ -103,7 +103,6 @@ export const light = {
     dark: lightBlue[700],
   },
   inactiveLink: neutral[1000],
-  link: neutral[1000],
   link: neutral[1000],
   name: "light",
   primary: {

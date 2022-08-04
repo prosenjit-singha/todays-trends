@@ -71,7 +71,11 @@ const NewsCard = ({
           </Content>
         </ContentWrapper>
         <BottomBlock>
-          {isTheArticleActive ? <img src={wave} style={waveStyle} /> : ""}
+          {isTheArticleActive ? (
+            <img src={wave} style={waveStyle} alt="wave" />
+          ) : (
+            ""
+          )}
           <ReadMore href={url} target="_blank">
             Read More
           </ReadMore>

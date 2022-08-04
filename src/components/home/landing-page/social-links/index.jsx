@@ -5,16 +5,8 @@ import {
   FaInstagram as Insta,
   FaLinkedinIn as Linkedin,
 } from "react-icons/fa";
-import {
-  Container,
-  Item,
-  IconContainer,
-  Text,
-  TitleContainer,
-  Title,
-  DoubleLine,
-} from "./style";
-import { red, cyan, blue, purple, magenta } from "../../../../utils/colors";
+import { Container, Item, IconContainer, Text } from "./style";
+import { red, cyan, blue } from "@mui/material/colors";
 import HeadingTitle from "../heading-title";
 
 const SocialLinks = () => {

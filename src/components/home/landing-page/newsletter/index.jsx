@@ -8,7 +8,6 @@ import {
   Title,
   Form,
   Input,
-  Button,
 } from "./styles";
 import GradientButton from "../../../button/gradient-button";
 

@@ -30,7 +30,6 @@ const App = () => {
   // } = useSelector((state) => state);
   const themeStyle = useSelector((state) => state.theme.props);
   const newsData = useSelector((state) => state.news);
-  console.log("total results: ", newsData.totalResults);
   //hooks
   const alan = useAlan();
   //autometically call fetchApi when api key is updated

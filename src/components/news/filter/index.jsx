@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useBreakpoint } from "react-use-size";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setCountry,
@@ -29,7 +28,14 @@ import { getAPI } from "../../../utils/functions";
 const getString = (data) => {
   if (typeof data === "string")
     if (data !== "")
-      return "everything?q=" + data.toLowerCase().split(" ").join("-") + "&";
+      return (
+        "everything?q=" +
+        data
+          .toLowerCase()
+          .split(" ")
+          .join("-") +
+        "&"
+      );
     else return "top-headlines?";
   if (data.selected === "All") return "";
   else {

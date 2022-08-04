@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "../../../redux/features/theme/theme-slice";
-import { setCountry } from "../../../redux/features/filter/filter-slice";
 import { BsSunFill } from "react-icons/bs";
 import { IoMdMoon } from "react-icons/io";
 import { Container, Image } from "./styles";

@@ -1,5 +1,5 @@
-import { useSpring, useSprings, config } from "react-spring";
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useSpring, config } from "react-spring";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { useBreakpoint, useWindowSize } from "react-use-size";
 import { useMeasure } from "../../hooks/helpers";

@@ -1,13 +1,8 @@
 import styled from "styled-components";
 import { boxShadow } from "../../utils/functions";
-import { red } from "../../utils/colors";
+import { red } from "@mui/material/colors";
 import { device } from "../../utils/device";
 import { margin } from "../../styles/global-constants";
-
-const calGrid = (string) => {
-  if (string === "nc") return `1fr 1fr`;
-  if (string === "ac") return `1fr`;
-};
 
 export const Blocks = styled.section`
   //outline: 1px solid red;

@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const initialState = {
-  api: "https://newsapi.org/v2/top-headlines?apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12&country=us",
+  api:
+    "https://newsapi.org/v2/top-headlines?apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12&country=us",
   api_key:
     "https://newsapi.org/v2/top-headlines?apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12&country=us",
   articles: [],
@@ -35,7 +36,6 @@ export const fetchArticles = createAsyncThunk(
 const newsSlice = createSlice({
   name: "news",
   initialState,
-  reducers: {},
   reducers: {
     setActiveArticle: (state, action) => {
       state.activeArticle = action.payload;
@@ -76,5 +76,10 @@ const newsSlice = createSlice({
 });
 
 export default newsSlice.reducer;
-export const { setPage, setActiveArticle, setArticles, setAPI_KEY, setAPI } =
-  newsSlice.actions;
+export const {
+  setPage,
+  setActiveArticle,
+  setArticles,
+  setAPI_KEY,
+  setAPI,
+} = newsSlice.actions;

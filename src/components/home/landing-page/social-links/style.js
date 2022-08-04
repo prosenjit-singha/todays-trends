@@ -44,21 +44,3 @@ export const Text = styled.p`
   letter-spacing: 1px;
   border-left: 2px solid rgba(255, 255, 255, 0.5);
 `;
-
-export const TitleContainer = styled.div`
-  width: 100%;
-  padding-block: 1rem;
-  display: flex;
-  align-items: center;
-`;
-export const DoubleLine = styled.div`
-  width: 100%;
-  height: 0.5rem;
-  border-block: 2px solid gray; //dont forget to adjust the color
-`;
-export const Title = styled.h1`
-  margin-right: 0.5rem;
-  min-width: fit-content;
-  font-weight: bold;
-  color: ${(props) => props.theme.text};
-`;

@@ -9,7 +9,6 @@ import ReadingNewspaper from "../../img/reading-newspaper.jpg";
 import Newspapers from "../../img/newspapers.jpg";
 
 const About = () => {
-  const aosStyle = "fade-up";
   return (
     <Container>
       <Section>

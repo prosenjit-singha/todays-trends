@@ -1,5 +1,4 @@
 import React from "react";
-import { CgCalendarDates as CalIcon } from "react-icons/cg";
 import {
   Container,
   Body,

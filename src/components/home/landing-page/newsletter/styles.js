@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
 import { device } from "../../../../utils/device";
-import { red, blue } from "../../../../utils/colors";
 
 const zoom = keyframes`
   from {
@@ -83,19 +82,4 @@ export const Input = styled.input`
     outline: 3px solid hsla(250, 70%, 60%, 0.4);
     outline-offset: 3px;
   }
-`;
-export const Button = styled.button`
-  width: 100%;
-  height: 100%;
-  color: rgba(255, 255, 255, 0.9);
-  text-align: center;
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  padding: 0.5rem 1rem;
-  border-radius: 0.2rem;
-  border: none;
-  padding: none;
-  background-image: linear-gradient(135deg, ${blue[600]}, ${blue[400]});
-  text-transform: uppercase;
 `;

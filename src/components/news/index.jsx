@@ -15,6 +15,7 @@ import { Container } from "../../styles/containers";
 
 const News = () => {
   const data = useSelector((state) => state.news);
+  console.log("Loading: ", data.loading);
   const totalResults = data.totalResults;
   return (
     <Container>

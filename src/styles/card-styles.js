@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { animated } from "react-spring";
-import { red } from "../utils/colors";
 import { colors } from "./variables";
 import { device } from "../utils/device";
 
@@ -132,6 +131,10 @@ export const ReadMore = styled(animated.a)`
   &:visited {
     color: white;
   }
+  &:hover {
+    color: white;
+  }
+
   @media ${device.tabletM} {
     color: ${(props) => props.theme.accent};
     background-color: ${(props) => props.theme.forground};
@@ -150,9 +153,7 @@ export const ReadMore = styled(animated.a)`
       z-index: -1;
       transition: width 400ms ease;
     }
-    &:hover {
-      color: white;
-    }
+
     &:hover:before {
       width: 100%;
     }
