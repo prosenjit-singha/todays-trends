@@ -17,7 +17,7 @@ import {
 import ThemeSwitch from "./theme-switch";
 import { red } from "@mui/material/colors";
 
-const NavBar = () => {
+const NavBar = ({ darkMode, setDarkMode }) => {
   const activeRef = useRef();
   const menuRefs = useRef([]);
   const { pathname } = useLocation();
@@ -120,7 +120,14 @@ const NavBar = () => {
   return (
     <Header>
       <Logo activeThisLink={activeThisLink} />
-      {tabletM && <Hamburger openMenu={openMenu} toggleMenu={toggleMenu} />}
+      {tabletM && (
+        <Hamburger
+          openMenu={openMenu}
+          toggleMenu={toggleMenu}
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+        />
+      )}
       <Nav style={tabletM ? menuStyles : { maxHeight: "3.2rem" }}>
         <MenuList {...menuRef}>
           {mi.map(({ id, name, path }, i) => (
@@ -148,7 +155,9 @@ const NavBar = () => {
             ref={activeRef}
             style={tabletM ? mobileActiveEffect : activeEffect}
           />
-          {!tabletM && <ThemeSwitch />}
+          {!tabletM && (
+            <ThemeSwitch darkMode={darkMode} setDarkMode={setDarkMode} />
+          )}
         </MenuList>
       </Nav>
     </Header>

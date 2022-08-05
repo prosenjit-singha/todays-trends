@@ -3,6 +3,7 @@ import { device } from "../../../../utils/device";
 import { margin } from "../../../../styles/global-constants";
 import { animated } from "react-spring";
 import { red } from "@mui/material/colors";
+import { redG } from "../../../../utils/gradient-colors";
 
 export const Container = styled.div`
   width: 100%;
@@ -138,7 +139,7 @@ export const Badge = styled.button`
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 1px;
-  background-color: ${(props) => props.theme.accent};
+  background-image: ${redG};
   border: 0;
   border-radius: 0.25rem;
   cursor: pointer;

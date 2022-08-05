@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Navigate, Routes, Route } from "react-router-dom";
 import useAlan from "./hooks/useAlan";
 import AOS from "aos";
@@ -15,20 +15,25 @@ import Developers from "./components/dev";
 import Error from "./components/error";
 import GlobalStyle from "./styles/global-styles";
 //import { GlobalStyle } from "./styles/containers";
+
+//<<<<<<<<<<<< importing hooks >>>>>>>>>>>>>>>>>>//
+import useUserColorScheme from "./hooks/useUserColorScheme";
 import ScrollToTop from "./hooks/scroll-to-top";
 import { ThemeProvider } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleTheme } from "./redux/features/theme/theme-slice";
 import { fetchArticles } from "./redux/features/news/news-slice";
+import { dark, light } from "./styles/theme";
 
 const App = () => {
   console.log("<--APP rendered-->");
+  //<<<<<<<<<<<<<< Const >>>>>>>>>>>>>>>
+  // const [darkMode, setDarkMode] = useState(false);
   const dispatch = useDispatch();
+  const { darkMode, setDarkMode } = useUserColorScheme();
   // const {
   //   theme: { props: themeStyle },
   //   news: newsData,
   // } = useSelector((state) => state);
-  const themeStyle = useSelector((state) => state.theme.props);
   const newsData = useSelector((state) => state.news);
   //hooks
   const alan = useAlan();
@@ -68,19 +73,14 @@ const App = () => {
     //dispatch(fetchArticles(newsData.api_key));
   }, [newsData.api, newsData.api_key]);
 
-  useEffect(() => {
-    //this will cause rerender....
-    const mode = localStorage.getItem("theme");
-    if (mode !== themeStyle.name) dispatch(toggleTheme(mode));
-    AOS.init(); //for scroll animation
-  }, []);
+  // handeling theme props
 
   return (
     <React.Fragment>
-      <ThemeProvider theme={themeStyle}>
+      <ThemeProvider theme={darkMode ? dark : light}>
         <ScrollToTop />
         <GlobalStyle />
-        <NavBar />
+        <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
         <Routes>
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/" element={<Home />} />

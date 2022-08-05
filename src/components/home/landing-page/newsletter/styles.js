@@ -76,10 +76,11 @@ export const Input = styled.input`
   text-align: center;
   border-radius: 0.2rem;
   background-color: hsla(0, 0%, 50%, 0.15);
+  transition: background 300ms ease;
   &:focus {
     background-color: ${(props) =>
       props.theme.isDark ? "hsla(0, 0%, 50%, 0.2)" : "hsla(0, 0%, 0%, 0.2)"};
-    outline: 3px solid hsla(250, 70%, 60%, 0.4);
+    outline: 2px solid hsla(250, 70%, 60%, 0.4);
     outline-offset: 3px;
   }
 `;

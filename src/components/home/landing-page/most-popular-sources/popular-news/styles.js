@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { blueG } from "../../../../../utils/gradient-colors";
 
 export const Container = styled.div`
   width: 100%;
@@ -7,9 +8,10 @@ export const Container = styled.div`
 export const ImageContainer = styled.div`
   height: 5rem;
   width: 5rem;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
   overflow: hidden;
   border-radius: 50%;
+  background: linear-gradient(#fff, #fff) padding-box, ${blueG} border-box;
+  border: 3px solid transparent;
   cursor: pointer;
   display: flex;
   align-items: center;

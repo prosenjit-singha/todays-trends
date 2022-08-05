@@ -116,5 +116,7 @@ export const Hr = styled.div`
   }
 `;
 export const Title = styled.h3`
+  margin: 0;
+  margin-right: 0.5rem;
   color: ${(props) => props.theme.text};
 `;

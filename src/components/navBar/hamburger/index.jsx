@@ -2,7 +2,7 @@ import React from "react";
 import { config, useSpring } from "react-spring";
 import ThemeSwitch from "../theme-switch";
 import { HamburgerContainer, Hamburger as HB, Line } from "./style";
-const Hamburger = ({ openMenu, toggleMenu }) => {
+const Hamburger = ({ openMenu, toggleMenu, darkMode, setDarkMode }) => {
   const firstLine = useSpring({
     transform: openMenu
       ? "rotate(45deg) translateY(0px)"
@@ -22,7 +22,7 @@ const Hamburger = ({ openMenu, toggleMenu }) => {
 
   return (
     <HamburgerContainer>
-      <ThemeSwitch />
+      <ThemeSwitch darkMode={darkMode} setDarkMode={setDarkMode} />
       <HB onClick={() => toggleMenu(!openMenu)}>
         <Line style={firstLine} />
         <Line style={secondLine} />

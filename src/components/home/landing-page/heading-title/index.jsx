@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { redG } from "../../../../utils/gradient-colors";
 
 const TitleContainer = styled.div`
   width: 100%;
@@ -13,11 +14,16 @@ const DoubleLine = styled.div`
   border-block: 2px solid gray; //dont forget to adjust the color
 `;
 const Title = styled.h1`
+  margin: 0;
   margin-right: 0.5rem;
   min-width: fit-content;
   font-size: ${(props) => props.fontSize || "2rem"};
   font-weight: bold;
   color: ${(props) => props.theme.text};
+  //background: -webkit-linear-gradient(#eee, #333);
+  background-image: ${redG};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-transform: capitalize;
 `;
 const HeadingTitle = ({ children, fontSize }) => {

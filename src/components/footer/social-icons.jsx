@@ -7,6 +7,7 @@ import {
   FaLinkedinIn as Linkedin,
 } from "react-icons/fa";
 import { device } from "../../utils/device";
+import { redG } from "../../utils/gradient-colors";
 
 const Container = styled.div`
   display: flex;
@@ -19,12 +20,10 @@ const Container = styled.div`
   }
 `;
 const Icon = styled.div`
-  height: 33px;
-  width: 33px;
   border-radius: 50%;
   cursor: pointer;
   padding: 8px;
-  background-color: ${(props) => props.theme.accent};
+  background-image: ${redG};
   display: flex;
   justify-content: center;
   align-items: center;

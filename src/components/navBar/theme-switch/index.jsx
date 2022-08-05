@@ -1,6 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleTheme } from "../../../redux/features/theme/theme-slice";
+import { useTheme } from "styled-components";
 import { BsSunFill } from "react-icons/bs";
 import { IoMdMoon } from "react-icons/io";
 import { Container, Image } from "./styles";
@@ -24,14 +23,15 @@ const Icon = ({ mode }) => {
   );
 };
 
-const ThemeSwitch = () => {
-  const dispatch = useDispatch();
-  const theme = useSelector((state) => state.theme.props);
+const ThemeSwitch = ({ darkMode, setDarkMode }) => {
+  const theme = useTheme();
   const handleClick = () => {
     const localTheme = localStorage.getItem("theme");
+    console.log(localTheme);
     const mode = localTheme === "light" ? "dark" : "light";
-    dispatch(toggleTheme(mode));
     localStorage.setItem("theme", mode);
+    if (mode === "dark") setDarkMode(true);
+    else setDarkMode(false);
   };
   return (
     <Container onClick={handleClick}>
