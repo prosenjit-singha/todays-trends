@@ -9,6 +9,7 @@ import Roboto from "../fonts/roboto/roboto-regular.ttf";
 import Anton from "../fonts/anton-regular.ttf";
 import Poppins from "../fonts/poppins-regular.ttf";
 import Inter from "../fonts/inter.ttf";
+import NexaRegular from "../fonts/nexa/NexaRegular.otf";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -38,6 +39,10 @@ const GlobalStyle = createGlobalStyle`
     @font-face {
         font-family: Inter;
         src: url(${Inter}) format('truetype');
+    }
+    @font-face {
+        font-family: Nexa;
+        src: url(${NexaRegular}) format("opentype");
     }
 
     :root{
@@ -75,7 +80,7 @@ const GlobalStyle = createGlobalStyle`
     }
     }
     h1,h2, h3, h4, h5, h6{
-        font-family: Inter;
+        
     }
     html {
         font-family: Poppins;
@@ -86,13 +91,12 @@ const GlobalStyle = createGlobalStyle`
         position:relative;
         color: ${(props) => props.theme.text.primary};
         background-color: ${(props) => props.theme.background.primary};
-        /* background-image: url(${(props) =>
-          props.theme.name === "dark" ? dark : light});
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed; */
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
         overflow: auto;
         transition: background-color 300ms ease, color 300ms ease;
+        
     }
     button {
         font-family: Inter;
@@ -101,7 +105,21 @@ const GlobalStyle = createGlobalStyle`
     #root {
         max-width: 2560px;
     }
+    /* responsive padding  */
+    .px-res {
+        padding-inline: 2.5rem;
+    }
 
+    @media (min-width: 768px){
+        .px-res {
+            padding-inline: 5rem;
+        }
+    }
+    @media (min-width: 992px){
+        .px-res {
+            padding-inline: 8rem;
+        }
+    }    
     @keyframes ripple {
         100% {
             transform: translate(-50%, -50%) scale(100);

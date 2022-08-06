@@ -23,7 +23,7 @@ const Person = ({ data }) => {
   return (
     <Container>
       <ImageContainer>
-        <Image src="https://picsum.photos/200" alt="PJ" />
+        <Image src={data.imageURL} alt="PJ" />
       </ImageContainer>
       <Content>
         <Name>{data.name}</Name>

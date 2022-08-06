@@ -4,16 +4,15 @@ import Person from "./person";
 import styled from "styled-components";
 import { device } from "../../utils/device";
 //import Wave from "../../img/animated-wave.svg";
+import PJ from "../../img/developers/pj.jpg";
+import { Section } from "../../styles/containers";
 
-const Wrapper = styled.div`
-  width: 100%;
-  padding: 1.8rem;
+const Wrapper = styled(Section)`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5rem;
   @media ${device.tablet} {
-    padding-inline: 5rem;
     flex-direction: row;
     justify-content: center;
   }
@@ -22,6 +21,7 @@ const Wrapper = styled.div`
 const Dev = () => {
   const pj = {
     name: "Prosenjit Singha",
+    imageURL: PJ,
     intro: "Web developer",
     fb: "https://www.facebook.com/aheibampj",
     linkedin: "https://www.linkedin.com/in/prosenjit052",
@@ -29,7 +29,8 @@ const Dev = () => {
     github: "https://github.com/PJaheibam",
   };
   const samy = {
-    name: "Mahmudur Rahman Samy",
+    name: "Mahmudur Samy",
+    imageURL: "https://picsum.photos/200",
     intro: "UI designer",
     fb: "https://www.facebook.com/aheibampj",
     linkedin: "https://www.linkedin.com/in/prosenjit052",

@@ -1,77 +1,126 @@
 import React from "react";
-import { Container } from "../../styles/containers";
-import { Section, Block, Title, Text, Image } from "./styles";
+import NewsPaper from "../../img/reading-newspaper.jpg";
+import { Container, Section } from "../../styles/containers";
+import {
+  Header,
+  Title,
+  Text,
+  HeaderContent,
+  IconContainer,
+  Icon,
+  Grid,
+  Item,
+  ItemTitle,
+  Content,
+  FooterSection,
+  Image,
+  Flex,
+  FooterTitle,
+  FooterText,
+} from "./styles";
 
-//images
-import NewsWithCup from "../../img/cup-with-newspaper.jpg";
-import NewsWithCup2 from "../../img/cup-with-newspaper-2.jpg";
-import ReadingNewspaper from "../../img/reading-newspaper.jpg";
-import Newspapers from "../../img/newspapers.jpg";
+//icons
+import network from "../../img/icons/network.png";
+import client from "../../img/icons/client.png";
+import growth from "../../img/icons/growth.png";
+import community from "../../img/icons/community.png";
 
 const About = () => {
   return (
     <Container>
-      <Section>
-        <Image src={NewsWithCup2} position={"on-left"} />
-        <Block position={"on-right"}>
-          <Title>What does this page do?</Title>
-          <Text>
-            Proident consectetur nulla reprehenderit fugiat exercitation culpa.
-            Fugiat reprehenderit proident deserunt cillum commodo non. Ex
-            adipisicing deserunt id sint amet do labore voluptate esse.
-            Consectetur aliquip dolor nisi proident in cillum esse.
-          </Text>
-        </Block>
-      </Section>
-      <Section>
-        <Image src={ReadingNewspaper} position={"on-right"} />
-        <Block position={"on-left"}>
-          <Title>
-            Proident adipisicing ullamco aliquip reprehenderit laboris in dolore
-            cillum anim.
+      <Header>
+        <HeaderContent>
+          <Title style={{ color: "white", textAlign: "left" }}>
+            What you will get with Today's Trands
           </Title>
-          <Text>
-            Aliqua cupidatat commodo velit culpa reprehenderit occaecat sunt do
-            est ullamco tempor aute. Cillum ex eu incididunt consectetur irure
-            ut Lorem consequat officia cillum laborum. Cillum occaecat veniam
-            sunt voluptate.
+          <Text
+            style={{ color: "white", fontSize: "1.5rem", textAlign: "left" }}
+          >
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id autem
+            enim soluta eveniet magni eius nulla ducimus amet ipsum quasi!
           </Text>
-        </Block>
+        </HeaderContent>
+      </Header>
+      <Section>
+        <Title>The Today's Trends Advantages</Title>
+        <Text>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore
+          repudiandae beatae eligendi reprehenderit? Cum laudantium rem quaerat
+          porro, eaque, impedit sequi provident tempore assumenda nobis dolores
+          fugiat necessitatibus fuga consectetur neque voluptate consequuntur
+          dignissimos laborum totam, distinctio vero corporis aperiam ea? Autem
+          nemo dolorum ipsum dignissimos fugit saepe provident.
+        </Text>
+        <Text>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
+          labore veniam aliquid voluptatibus beatae quo aperiam a incidunt
+          placeat deleniti dignissimos vitae sint facilis quas optio rerum modi
+          repellendus? Adipisci?
+        </Text>
       </Section>
       <Section>
-        <Image src={Newspapers} position={"on-left"} />
-        <Block position={"on-right"}>
-          <Title>
-            Quis exercitation minim quis pariatur eiusmod mollit non et ullamco
-            ullamco pariatur proident eiusmod veniam.
-          </Title>
-          <Text>
-            Est dolor adipisicing enim nisi aute ut excepteur duis occaecat
-            nulla laborum veniam. Ut aliquip proident cillum quis nisi in minim
-            ex pariatur officia cillum qui incididunt aliqua. Consectetur
-            commodo minim do id id tempor velit consectetur ullamco sit. Mollit
-            in veniam id exercitation anim anim in nisi eu Lorem sint aliqua
-            irure non.
-          </Text>
-        </Block>
+        <Grid>
+          <Item>
+            <IconContainer>
+              <Icon src={community} alt="community" />
+            </IconContainer>
+            <ItemTitle>WE ARE A TRUSTED MEMBER OF THE COMMUNITY</ItemTitle>
+            <Text>
+              We are an established member of the community, and a trusted
+              channel for local businesses.
+            </Text>
+          </Item>
+          <Item>
+            <IconContainer>
+              <Icon src={growth} alt="growth" />
+            </IconContainer>
+            <ItemTitle>WE HELP LOCAL BUSINESSES SUCCEED</ItemTitle>
+            <Text>
+              We have the solutions and the people to take your business to the
+              next level
+            </Text>
+          </Item>
+          <Item>
+            <IconContainer>
+              <Icon src={network} alt="network data" />
+            </IconContainer>
+            <ItemTitle>
+              WE ARE A MASSIVE AUDIENCE NETWORK & POWERFUL DATA
+            </ItemTitle>
+            <Text>
+              We have exclusive access to the Postmedia Network and powerful
+              data insights for better performance.
+            </Text>
+          </Item>
+          <Item>
+            <IconContainer>
+              <Icon src={client} alt="hand shake" />
+            </IconContainer>
+            <ItemTitle>WE PROVIDE A BETTER CLIENT EXPERIENCE</ItemTitle>
+            <Text>
+              We offer dedicated account management & unparalleled performance
+              transparency.
+            </Text>
+          </Item>
+        </Grid>
       </Section>
-      <Section>
-        <Image src={NewsWithCup} position={"on-right"} />
-        <Block position={"on-left"}>
-          <Title>
-            Consectetur ut irure proident voluptate officia incididunt aute esse
-            et ullamco non nostrud aliquip proident.
-          </Title>
-          <Text>
-            Aliqua deserunt voluTexttate veniam voluptate magna nostrud laboris
-            ut ipsum. Lorem reprehenderit ipsum commodo ullamco officia. Culpa
-            dolor sunt occaecat cupidatat est et excepteur. Do dolor enim
-            proident magna esse. Ullamco ea qui voluptate sit voluptate non. Ea
-            do in irure sit pariatur ullamco mollit. Esse culpa mollit labore
-            nisi.
-          </Text>
-        </Block>
-      </Section>
+      <FooterSection>
+        <Flex>
+          <Image src={NewsPaper} alt="reading newspaper" />
+          <Content style={{ margin: 0 }}>
+            <FooterTitle>Talented Experts</FooterTitle>
+            <FooterText>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et culpa
+              incidunt repellat natus dolorum maiores accusantium. Fugiat nobis
+              repellat sunt cupiditate aliquam. Maxime magnam eius quis vel
+              ipsam et non a, modi harum porro odit culpa, nihil iure deserunt
+              nam. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Eius commodi veritatis inventore quisquam voluptas eveniet
+              accusantium, veniam suscipit dolore. Dolorum!
+            </FooterText>
+          </Content>
+        </Flex>
+      </FooterSection>
     </Container>
   );
 };

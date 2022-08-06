@@ -4,7 +4,7 @@ import { Blocks, Blocks2, Block, Headline, Body, Text, Title } from "./styles";
 
 function BlockCard({ commandList }) {
   return commandList.map((block, i) => (
-    <Block className="blockContainer" data-aos="fade-left" key={i}>
+    <Block className="blockContainer" key={i}>
       <Headline>{block.title}</Headline>
       <Body>
         {block.commands.map((command, i) => (
@@ -69,11 +69,11 @@ const CommandLists = () => {
   return (
     <Container style={{ overflowX: "hidden" }}>
       <Blocks>
-        <Title data-aos="fade-right">Normal Commands</Title>
+        <Title>Normal Commands</Title>
         <BlockCard commandList={normalCommands} />
       </Blocks>
       <Blocks2>
-        <Title data-aos="fade-right">Additional Commands</Title>
+        <Title>Additional Commands</Title>
         <BlockCard commandList={additionalCommands} />
       </Blocks2>
     </Container>
