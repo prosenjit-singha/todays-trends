@@ -121,13 +121,14 @@ export const ImageContainer = styled.div`
   width: 100%;
   overflow: hidden;
   border-radius: 0.3rem;
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     width: 50%;
   }
 `;
 
 export const Content = styled.div`
   padding: 1rem;
+  width: 100%;
 `;
 
 export const Badge = styled.button`

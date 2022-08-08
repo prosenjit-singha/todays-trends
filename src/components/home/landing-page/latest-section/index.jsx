@@ -16,79 +16,87 @@ import {
   SubTitle,
   Date,
 } from "./styles";
+
+// importing components
 import HeadingTitle from "../heading-title";
 import HotCategories from "./hot-categories";
 import Newsletter from "./newsletter";
+import Skeleton from "./skeleton";
 
 const LatestNews = () => {
+  const articles = [];
   return (
     <Container>
       <Body>
         <Header>
           <HeadingTitle>Latest News</HeadingTitle>
         </Header>
-        <Main>
-          <Item>
-            <ImageContainer>
-              <Image src="https://source.unsplash.com/sports/300x300" />
-            </ImageContainer>
-            <Content>
-              <Badge>Sports</Badge>
-              <ItemTitle>
-                Vinales will be as tough for Rossi as Lorenzo
-              </ItemTitle>
-              <SubTitle>
-                <CalIcon style={{ marginRight: "5px" }} />{" "}
-                <Date>December 9, 2021</Date>
-              </SubTitle>
-            </Content>
-          </Item>
-          <Item>
-            <ImageContainer>
-              <Image src="https://source.unsplash.com/random/300x300" />
-            </ImageContainer>
-            <Content>
-              <Badge>Sports</Badge>
-              <ItemTitle>
-                Vinales will be as tough for Rossi as Lorenzo
-              </ItemTitle>
-              <SubTitle>
-                <CalIcon style={{ marginRight: "5px" }} />{" "}
-                <Date>December 9, 2021</Date>
-              </SubTitle>
-            </Content>
-          </Item>
-          <Item>
-            <ImageContainer>
-              <Image src="https://source.unsplash.com/random/300x300" />
-            </ImageContainer>
-            <Content>
-              <Badge>Sports</Badge>
-              <ItemTitle>
-                Vinales will be as tough for Rossi as Lorenzo
-              </ItemTitle>
-              <SubTitle>
-                <CalIcon style={{ marginRight: "5px" }} />{" "}
-                <Date>December 9, 2021</Date>
-              </SubTitle>
-            </Content>
-          </Item>
-          <Item>
-            <ImageContainer>
-              <Image src="https://source.unsplash.com/random/300x300" />
-            </ImageContainer>
-            <Content>
-              <Badge>Sports</Badge>
-              <ItemTitle>
-                Vinales will be as tough for Rossi as Lorenzo
-              </ItemTitle>
-              <SubTitle>
-                <CalIcon style={{ marginRight: "5px" }} />{" "}
-                <Date>December 9, 2021</Date>
-              </SubTitle>
-            </Content>
-          </Item>
-        </Main>
+        {articles.length !== 0 ? (
+          <Main>
+            <Item>
+              <ImageContainer>
+                <Image src="https://source.unsplash.com/sports/300x300" />
+              </ImageContainer>
+              <Content>
+                <Badge>Sports</Badge>
+                <ItemTitle>
+                  Vinales will be as tough for Rossi as Lorenzo
+                </ItemTitle>
+                <SubTitle>
+                  <CalIcon style={{ marginRight: "5px" }} />{" "}
+                  <Date>December 9, 2021</Date>
+                </SubTitle>
+              </Content>
+            </Item>
+            <Item>
+              <ImageContainer>
+                <Image src="https://source.unsplash.com/random/300x300" />
+              </ImageContainer>
+              <Content>
+                <Badge>Sports</Badge>
+                <ItemTitle>
+                  Vinales will be as tough for Rossi as Lorenzo
+                </ItemTitle>
+                <SubTitle>
+                  <CalIcon style={{ marginRight: "5px" }} />{" "}
+                  <Date>December 9, 2021</Date>
+                </SubTitle>
+              </Content>
+            </Item>
+            <Item>
+              <ImageContainer>
+                <Image src="https://source.unsplash.com/random/300x300" />
+              </ImageContainer>
+              <Content>
+                <Badge>Sports</Badge>
+                <ItemTitle>
+                  Vinales will be as tough for Rossi as Lorenzo
+                </ItemTitle>
+                <SubTitle>
+                  <CalIcon style={{ marginRight: "5px" }} />{" "}
+                  <Date>December 9, 2021</Date>
+                </SubTitle>
+              </Content>
+            </Item>
+            <Item>
+              <ImageContainer>
+                <Image src="https://source.unsplash.com/random/300x300" />
+              </ImageContainer>
+              <Content>
+                <Badge>Sports</Badge>
+                <ItemTitle>
+                  Vinales will be as tough for Rossi as Lorenzo
+                </ItemTitle>
+                <SubTitle>
+                  <CalIcon style={{ marginRight: "5px" }} />{" "}
+                  <Date>December 9, 2021</Date>
+                </SubTitle>
+              </Content>
+            </Item>
+          </Main>
+        ) : (
+          <Skeleton />
+        )}
       </Body>
       <Side>
         <SideContent>
