@@ -25,7 +25,7 @@ import { fetchArticles } from "./redux/features/news/news-slice";
 import { dark, light } from "./styles/theme";
 
 const App = () => {
-  console.log("<--APP rendered-->");
+  console.log("<-------APP rendered------->");
   //<<<<<<<<<<<<<< Const >>>>>>>>>>>>>>>
   // const [darkMode, setDarkMode] = useState(false);
   const dispatch = useDispatch();
@@ -72,8 +72,6 @@ const App = () => {
     console.log("API_KEY: ", newsData.api_key);
     //dispatch(fetchArticles(newsData.api_key));
   }, [newsData.api, newsData.api_key]);
-
-  // handeling theme props
 
   return (
     <React.Fragment>

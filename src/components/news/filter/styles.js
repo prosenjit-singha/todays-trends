@@ -97,7 +97,7 @@ export const TextField = styled.input`
 export const Button = styled.button`
   width: 5rem;
   height: 30px;
-  color: ${(props) => props.theme.text};
+  color: ${(props) => props.theme.text.primary};
   font-family: Inter;
   font-size: 1rem;
   margin-left: 0.5rem;

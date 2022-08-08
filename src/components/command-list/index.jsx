@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "../../styles/containers";
+import { Container, Section } from "../../styles/containers";
 import { Blocks, Blocks2, Block, Headline, Body, Text, Title } from "./styles";
 
 function BlockCard({ commandList }) {
@@ -68,14 +68,14 @@ const CommandLists = () => {
   ];
   return (
     <Container style={{ overflowX: "hidden" }}>
-      <Blocks>
+      <Section>
         <Title>Normal Commands</Title>
         <BlockCard commandList={normalCommands} />
-      </Blocks>
-      <Blocks2>
+      </Section>
+      <Section>
         <Title>Additional Commands</Title>
         <BlockCard commandList={additionalCommands} />
-      </Blocks2>
+      </Section>
     </Container>
   );
 };

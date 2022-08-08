@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { boxShadow } from "../../utils/functions";
 import { red } from "@mui/material/colors";
+import { redG } from "../../utils/gradient-colors";
 import { device } from "../../utils/device";
 import { margin } from "../../styles/global-constants";
 
@@ -29,34 +29,27 @@ export const Blocks2 = styled(Blocks)`
 `;
 
 export const Block = styled.div`
-  border-radius: 0.25rem;
-  padding: 0.5rem;
-  background-color: ${(props) => props.theme.forground};
-  border: 1px solid ${(props) => props.theme.forground};
-  backdrop-filter: blur(10px);
-  box-shadow: ${boxShadow.default()};
-  //margin-bottom: 0.5rem;
+  margin-block: 0.5rem;
 `;
 
 export const Title = styled.h1`
-  display: inline-block;
-  grid-column: 1/-1;
-  grid-row: 1/2;
   color: ${red[400]};
-  text-align: center;
-  padding-bottom: 0.15em;
-  background-color: ${(props) => props.theme.forground};
-  border-radius: 0.5rem;
-  border: 1px solid ${(props) => props.theme.forgroundShadow};
-  backdrop-filter: blur(10px);
+  text-align: Left;
+  margin-bottom: 0.15em;
+  background-image: ${redG};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: capitalize;
 `;
 
 export const Headline = styled.h3`
-  padding-block: 0.15em;
+  margin-block: 0.15em;
 `;
 
 export const Body = styled.ul`
   list-style: inside;
 `;
 
-export const Text = styled.li``;
+export const Text = styled.li`
+  font-size: 1.2rem;
+`;

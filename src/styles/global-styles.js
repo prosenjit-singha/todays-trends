@@ -87,6 +87,9 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1em;
         scroll-behavior: smooth;
     }
+    p{
+        font-size: 1.2rem;
+    }
     body{
         position:relative;
         color: ${(props) => props.theme.text.primary};

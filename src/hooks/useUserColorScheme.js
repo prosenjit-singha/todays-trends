@@ -20,7 +20,9 @@ export default function useUserColorScheme() {
       .matches;
 
     if (localStorage.getItem("theme") === null) {
+      console.log("No color scheme set to the browser!");
       const mode = isDarkModeEnabled ? "dark" : "light";
+      isDarkModeEnabled && setDarkMode(true);
       localStorage.setItem("theme", mode);
     } else {
       const mode = localStorage.getItem("theme");
@@ -30,15 +32,15 @@ export default function useUserColorScheme() {
         setDarkMode(false);
       }
     }
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", handleChange);
+    // window
+    //   .matchMedia("(prefers-color-scheme: dark)")
+    //   .addEventListener("change", handleChange);
 
-    return () => {
-      window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .removeEventListener("change", handleChange);
-    };
+    // return () => {
+    //   window
+    //     .matchMedia("(prefers-color-scheme: dark)")
+    //     .removeEventListener("change", handleChange);
+    // };
   }, []);
   return { darkMode, setDarkMode };
 }
