@@ -21,8 +21,17 @@ import useUserColorScheme from "./hooks/useUserColorScheme";
 import ScrollToTop from "./hooks/scroll-to-top";
 import { ThemeProvider } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchArticles } from "./redux/features/news/news-slice";
 import { dark, light } from "./styles/theme";
+
+// <<<<<<<< importing redux actions >>>>>>>>>>>>
+import { fetchArticles } from "./redux/features/news/news-slice";
+import { fetchTechArticles } from "./redux/features/news/tech-slice";
+import { fetchBusinessArticles } from "./redux/features/news/business-slice";
+import { fetchScienceArticles } from "./redux/features/news/science-slice";
+import { fetchHealthArticles } from "./redux/features/news/health-slice";
+import { fetchABCNews } from "./redux/features/news/abc-slice";
+import { fetchBBCNews } from "./redux/features/news/bbc-slice";
+import { fetchCNNNews } from "./redux/features/news/cnn-slice";
 
 const App = () => {
   console.log("<-------APP rendered------->");
@@ -72,6 +81,17 @@ const App = () => {
     console.log("API_KEY: ", newsData.api_key);
     //dispatch(fetchArticles(newsData.api_key));
   }, [newsData.api, newsData.api_key]);
+
+  // landing page required fetch api calls
+  useEffect(() => {
+    // dispatch(fetchTechArticles());
+    // dispatch(fetchBusinessArticles());
+    // dispatch(fetchScienceArticles());
+    // dispatch(fetchHealthArticles());
+    // dispatch(fetchABCNews());
+    // dispatch(fetchBBCNews());
+    // dispatch(fetchCNNNews());
+  }, []);
 
   return (
     <React.Fragment>

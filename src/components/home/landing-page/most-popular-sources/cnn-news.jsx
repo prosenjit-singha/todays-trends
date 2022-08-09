@@ -45,8 +45,7 @@ const CNN = () => {
     }
     // getNews();
   }, []);
-  console.log(loading);
-  console.log(articles);
+
   return articles.length !== 0 ? (
     <Item>
       {/* heading news  */}

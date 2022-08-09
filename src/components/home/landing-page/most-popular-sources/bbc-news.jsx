@@ -42,7 +42,7 @@ const BBC = () => {
 
     // getNews();
   }, []);
-  console.log(articles);
+
   return articles.length !== 0 ? (
     <Item>
       {/* heading news  */}

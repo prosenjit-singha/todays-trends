@@ -5,8 +5,8 @@ import { Main, Item, ImageContainer, Content, SubTitle } from "./styles";
 const SKT = () => {
   return (
     <Main>
-      {[1, 2, 3, 4].map(() => (
-        <Item>
+      {[1, 2, 3, 4].map((_, index) => (
+        <Item key={index}>
           <ImageContainer>
             <Skeleton
               style={{

@@ -130,6 +130,7 @@ export const ImageContainer = styled.div`
 
 export const Content = styled.div`
   padding: 1rem;
+  width: 100%;
 `;
 
 export const Badge = styled.button`

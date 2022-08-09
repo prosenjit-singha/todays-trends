@@ -131,8 +131,10 @@ export const Content = styled.div`
   width: 100%;
 `;
 
-export const Badge = styled.button`
+export const Badge = styled.div`
+  width: fit-content;
   padding: 0.24rem 0.5rem;
+  text-transform: uppercase;
   margin-bottom: 0.5rem;
   color: rgba(255, 255, 255, 0.9);
   font-size: 1rem;
@@ -149,7 +151,7 @@ export const Badge = styled.button`
 `;
 export const ItemTitle = styled.h4`
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

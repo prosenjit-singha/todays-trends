@@ -8,8 +8,8 @@ import Carousel from "./carousel";
 const LandingPage = () => {
   return (
     <>
-      <Carousel />
       <MostPopularCategories />
+      <Carousel />
       <LatestNews />
       <MostPopularSources />
       <Newsletter />
