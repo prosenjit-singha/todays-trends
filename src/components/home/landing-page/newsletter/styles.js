@@ -70,7 +70,7 @@ export const Input = styled.input`
   border: none;
   outline: none;
   cursor: text;
-  color: ${(props) => props.theme.text};
+  color: ${(props) => props.theme.text.primary};
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
   text-align: center;

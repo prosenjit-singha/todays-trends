@@ -21,14 +21,14 @@ export const SocialsWrapper = styled.div`
   height: auto;
   width: auto;
   display: flex;
-  gap: 5px;
+  gap: 0.5rem;
 `;
 export const Icon = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  padding: 5px;
+  padding: 0.5rem;
   background: ${(props) =>
     props.theme.darkMode ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.15)"};
   transition: border-radius 300ms ease;

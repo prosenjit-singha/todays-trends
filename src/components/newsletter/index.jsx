@@ -3,8 +3,12 @@ import { Container, Header, Text, TextBox, Span } from "./styles.js";
 import Button from "../button/Button.js";
 
 const Newsletter = () => {
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("Successfully subscribed!");
+  }
   return (
-    <Container>
+    <Container onSubmit={handleSubmit}>
       <Header>
         Subscribe to our <Span>newsletter</Span>
       </Header>

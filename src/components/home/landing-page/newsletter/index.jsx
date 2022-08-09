@@ -12,6 +12,11 @@ import {
 import GradientButton from "../../../button/gradient-button";
 
 const Newsletter = () => {
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("Successfully subscribed!");
+  }
+
   return (
     <Container>
       <ImageContainer>
@@ -19,9 +24,11 @@ const Newsletter = () => {
       </ImageContainer>
       <Content>
         <Title>Get The Best Blog Stories into Your inbox!</Title>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Input type="email" placeholder="...@example.com" required />
-          <GradientButton color="blue">Subscribe</GradientButton>
+          <GradientButton color="blue" type="submit">
+            Subscribe
+          </GradientButton>
         </Form>
       </Content>
     </Container>

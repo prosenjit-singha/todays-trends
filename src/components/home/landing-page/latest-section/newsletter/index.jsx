@@ -52,14 +52,21 @@ const Newsletter = () => {
     width: "100%",
   };
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("Successfully subscribed!");
+  }
+
   return (
-    <Container>
+    <Container onSubmit={handleSubmit}>
       <Title>Subscribe to our newsletter</Title>
       <SubTitle>
         No spam, notifications only about latest news & updates.
       </SubTitle>
       <Input type="email" required placeholder="...@exampl.com" />
-      <GradientButton style={btnStyle}>Subscribe Now</GradientButton>
+      <GradientButton style={btnStyle} type="submit">
+        Subscribe Now
+      </GradientButton>
     </Container>
   );
 };
