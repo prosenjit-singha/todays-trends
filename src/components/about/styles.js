@@ -4,8 +4,9 @@ import Hero from "../../img/hero/hero-9.jpg";
 import { Section } from "../../styles/containers";
 
 export const Header = styled(Section)`
+  margin-top: 0;
   width: 100%;
-  min-height: 70vh;
+  height: max(70vh, 500px);
   display: flex;
   justify-content: flex-start;
   background-image: url(${Hero});

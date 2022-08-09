@@ -138,9 +138,7 @@ export const ReadMore = styled(animated.a)`
   @media ${device.tabletM} {
     color: ${(props) => props.theme.accent};
     background-color: ${(props) => props.theme.forground};
-    &:visited {
-      color: ${(props) => props.theme.accent};
-    }
+
     &::before {
       content: "";
       position: absolute;

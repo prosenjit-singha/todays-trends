@@ -72,13 +72,18 @@ const AlanAI = () => {
     borderRadius: "50%",
   };
 
+  const data = {
+    to: "a",
+    url: "https://alan.app/",
+    target: "_blank",
+  };
   return (
     <Container ref={ref}>
       <Image src={BgImage} alt="alan-background" />
       <Content>
         <Title>Meet With Alan</Title>
         <SubTitle>The most powerful open-source voice recognizer.</SubTitle>
-        <GradientButton style={buttonStyle} color="blue">
+        <GradientButton data={data} style={buttonStyle} color="blue">
           <div>Visit</div> <div>Alan</div>{" "}
           <Arrow style={width < 185 ? iconStyle : ""} />
         </GradientButton>

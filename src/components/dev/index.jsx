@@ -32,10 +32,10 @@ const Dev = () => {
     name: "Mahmudur Samy",
     imageURL: "https://picsum.photos/200",
     intro: "UI designer",
-    fb: "https://www.facebook.com/aheibampj",
+    fb: "https://www.facebook.com/mrahmansamy",
     linkedin: "https://www.linkedin.com/in/prosenjit052",
-    insta: "https://www.instagram.com/pj_aheibam",
-    github: "https://github.com/PJaheibam",
+    insta: "https://www.instagram.com/sammydgoodfella",
+    github: "https://github.com/mahmudur-samy",
   };
 
   const styles = {

@@ -44,7 +44,7 @@ const Container = styled(animated.button)`
   &:hover {
     color: ${(props) => (props.disabled ? neutral[800] : neutral[100])};
   }
-  @media ${device.tabletM} {
+  @media ${device.laptop} {
     color: ${(props) =>
       props.isactive === "true"
         ? "white"

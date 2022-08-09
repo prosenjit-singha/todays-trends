@@ -66,7 +66,8 @@ export const SelectWrapper = styled.div`
 `;
 export const Select = styled.div`
   color: ${(props) => props.theme.text};
-  font-family: Inter;
+  font-family: Poppins;
+  font-weight: bold;
   text-transform: capitalize;
 `;
 export const Title = styled.div`

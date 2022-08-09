@@ -17,25 +17,44 @@ const SocialLinks = () => {
   return (
     <Container>
       <HeadingTitle fontSize="1.5rem"> stay connected </HeadingTitle>
-      <Item bgColor={fb_bg}>
+      {/* facebook  */}
+      <Item
+        href="https://www.facebook.com/react"
+        target="_blank"
+        bgColor={fb_bg}
+      >
         <IconContainer>
           <Fb size={20} />
         </IconContainer>
-        <Text>5.5K Followers</Text>
+        <Text>122.5K Followers</Text>
       </Item>
-      <Item bgColor={twt_bg}>
+
+      {/* twitter  */}
+      <Item href="https://twitter.com/react" target="_blank" bgColor={twt_bg}>
         <IconContainer>
           <Twitter size={20} />
         </IconContainer>
-        <Text>2K Followers</Text>
+        <Text>761.3K Followers</Text>
       </Item>
-      <Item bgColor={insta_bg}>
+
+      {/* instagram  */}
+      <Item
+        href="https://www.instagram.com/reactjsofficial/"
+        target="_blank"
+        bgColor={insta_bg}
+      >
         <IconContainer>
           <Insta size={20} />
         </IconContainer>
-        <Text>5K Followers</Text>
+        <Text>102.2K Followers</Text>
       </Item>
-      <Item bgColor={link_bg}>
+
+      {/* linkedin  */}
+      <Item
+        href="https://www.linkedin.com/company/reactjs-nj/"
+        target="_blank"
+        bgColor={link_bg}
+      >
         <IconContainer>
           <Linkedin size={20} />
         </IconContainer>

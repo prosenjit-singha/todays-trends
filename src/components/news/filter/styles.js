@@ -98,7 +98,8 @@ export const Button = styled.button`
   width: 5rem;
   height: 30px;
   color: ${(props) => props.theme.text.primary};
-  font-family: Inter;
+  font-family: Poppins;
+  font-weight: 600;
   font-size: 1rem;
   margin-left: 0.5rem;
   justify-self: center;
@@ -134,7 +135,9 @@ export const Blocks = styled.div`
   }
 `;
 export const Label = styled.label`
-  color: ${(props) => props.theme.text};
+  font-family: Inter;
+  font-weight: bold;
+  color: ${(props) => props.theme.text.primary};
   padding: 0 0.5rem;
   padding-top: 0.2rem;
   margin: 0;

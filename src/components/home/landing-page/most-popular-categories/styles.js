@@ -71,7 +71,7 @@ export const Button = styled(animated.button)`
   cursor: pointer;
   color: ${(props) => props.theme.text.primary};
   font-weight: bold;
-  border: 1px solid ${red[400]};
+  border: 2px solid ${red[400]};
   background: hsla(1, 83%, 63%, 0.15);
   border-radius: 2rem;
   @media ${device.tablet} {
