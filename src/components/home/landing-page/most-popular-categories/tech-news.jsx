@@ -16,6 +16,7 @@ import {
 import Skeleton from "./skeleton";
 
 const TechNews = () => {
+  console.log("<------ Tech News ----->");
   const { articles, loading } = useSelector((state) => state.techNews);
 
   function formateDate(string) {

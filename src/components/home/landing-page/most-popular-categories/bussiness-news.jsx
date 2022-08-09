@@ -15,17 +15,9 @@ import {
 } from "./styles";
 import Skeleton from "./skeleton";
 
-const NewsTemplate = ({ activeSource }) => {
-  console.log("<------ Template Rendered ----->");
-
-  function getNews(state) {
-    if (activeSource === "technology") return state.techNews;
-    if (activeSource === "business") return state.businessNews;
-    if (activeSource === "science") return state.scienceNews;
-    if (activeSource === "health") return state.healthNews;
-  }
-
-  const { articles, loading } = useSelector((state) => getNews(state));
+const BusinessNews = () => {
+  console.log("<----- Business News ----->");
+  const { articles, loading } = useSelector((state) => state.businessNews);
 
   function formateDate(string) {
     const date = string.slice(0, string.indexOf("T"));
@@ -84,4 +76,4 @@ const NewsTemplate = ({ activeSource }) => {
   }
 };
 
-export default NewsTemplate;
+export default BusinessNews;

@@ -10,24 +10,12 @@ import {
   Buttons,
   Button,
   Header,
-  Main,
-  Item,
-  ImageContainer,
-  Image,
-  Content,
-  HeaderImage,
-  Badge,
-  ItemTitle,
-  SubTitle,
-  Date,
 } from "./styles";
 // components
 import SocialLinks from "../social-links";
 import HeadingTitle from "../heading-title";
 import AlanAI from "../alan-ai";
-import Skeleton from "./skeleton";
-import axios from "axios";
-import TechNews from "./tech-news";
+import NewsTemplate from "./template";
 
 const Source = ({ children, id = null, handleClick, activeSource }) => {
   const theme = useTheme();
@@ -47,67 +35,11 @@ const Source = ({ children, id = null, handleClick, activeSource }) => {
   );
 };
 
-const Sources = ({ setArticles }) => {
-  const [activeSource, setActiveSource] = useState("technology");
-  const [techArticles, setTechArticles] = useState([]);
-  const [businessArticles, setBusinessArticles] = useState([]);
-  const [scienceArticles, setScienceArticles] = useState([]);
-  const [healthArticles, setHealthArticles] = useState([]);
-
-  async function getArticles() {
-    // FETHING TECHNOLOGY RELATED ARTICLES
-    try {
-      const response = await axios.get();
-      setTechArticles(response.data.articles);
-    } catch (error) {
-      console.log(error);
-    }
-
-    //FETCHING BUSINESS RELATED ARTICLES
-    try {
-      const response = await axios.get();
-      setTechArticles(response.data.articles);
-    } catch (error) {
-      console.log(error);
-    }
-
-    // FETCHING SCIENCE RELATED ARTICLES
-    try {
-      const response = await axios.get();
-      setTechArticles(response.data.articles);
-    } catch (error) {
-      console.log(error);
-    }
-    // FETCHING HEALTH RELATED ARTICLES
-    try {
-      const response = await axios.get();
-      setTechArticles(response.data.articles);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
+const Sources = ({ activeSource, setActiveSource }) => {
   function handleClick(e) {
     const innerText = e.target.innerText.toLowerCase();
     if (innerText !== activeSource) {
       setActiveSource(innerText);
-      switch (innerText) {
-        case "technology":
-          setArticles(techArticles);
-          break;
-        case "business":
-          setArticles(businessArticles);
-          break;
-        case "science":
-          setArticles(scienceArticles);
-          break;
-        case "health":
-          setArticles(healthArticles);
-          break;
-        default:
-          setArticles([]);
-          break;
-      }
     }
   }
 
@@ -130,15 +62,19 @@ const Sources = ({ setArticles }) => {
 };
 
 const MostPopularCategories = () => {
-  const [articles, setArticles] = useState([]);
+  const [activeSource, setActiveSource] = useState("technology");
+
   return (
     <Container>
       <Body>
         <Header>
           <HeadingTitle>Most Popular Category</HeadingTitle>
-          <Sources setArticles={setArticles} />
+          <Sources
+            activeSource={activeSource}
+            setActiveSource={setActiveSource}
+          />
         </Header>
-        <TechNews />
+        <NewsTemplate activeSource={activeSource} />
       </Body>
       <Side>
         <SideContent>
