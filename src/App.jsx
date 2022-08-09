@@ -73,24 +73,24 @@ const App = () => {
   }, [newsData.articles]);
 
   useEffect(() => {
-    updateData();
+    // updateData();
   }, [newsData.articles]);
 
   useEffect(() => {
     console.log("API: ", newsData.api);
     console.log("API_KEY: ", newsData.api_key);
-    dispatch(fetchArticles(newsData.api_key));
+    // dispatch(fetchArticles(newsData.api_key));
   }, [newsData.api, newsData.api_key]);
 
   // landing page required fetch api calls
   useEffect(() => {
-    dispatch(fetchTechArticles());
-    dispatch(fetchBusinessArticles());
-    dispatch(fetchScienceArticles());
-    dispatch(fetchHealthArticles());
-    dispatch(fetchABCNews());
-    dispatch(fetchBBCNews());
-    dispatch(fetchCNNNews());
+    // dispatch(fetchTechArticles());
+    // dispatch(fetchBusinessArticles());
+    // dispatch(fetchScienceArticles());
+    // dispatch(fetchHealthArticles());
+    // dispatch(fetchABCNews());
+    // dispatch(fetchBBCNews());
+    // dispatch(fetchCNNNews());
   }, []);
 
   return (

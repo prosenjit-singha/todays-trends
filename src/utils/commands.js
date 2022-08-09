@@ -7,4 +7,5 @@ export const COMMANDS = {
   OPEN_PAGE: "open-page",
   READ_HEADLINES: "read-headlines",
   NAVIGATE: "navigate",
+  STOP_ACTIVE_ARTICLE_EFFECT: "stop-active-article-effect",
 };

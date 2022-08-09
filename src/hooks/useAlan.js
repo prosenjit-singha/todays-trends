@@ -79,6 +79,8 @@ const useAlan = () => {
               const path = getPath(payload.pathName);
               console.log(path);
               navigate(path);
+            } else if (command === COMMANDS.STOP_ACTIVE_ARTICLE_EFFECT) {
+              dispatch(setActiveArticle(null));
             }
           },
         })
