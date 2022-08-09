@@ -89,6 +89,8 @@ const GlobalStyle = createGlobalStyle`
     }
     p{
         font-size: 1.2rem;
+        padding: 0;
+        margin: 0;
     }
     a{
         color: ${(props) => props.theme.text.primary};

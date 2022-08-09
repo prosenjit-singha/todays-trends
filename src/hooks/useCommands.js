@@ -2,12 +2,14 @@ import { useEffect, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { COMMANDS } from "../utils/commands";
 import wordsToNumbers from "words-to-numbers";
+import { useLocation } from "react-router-dom";
 //not important
-import articles from "../data/articles.json";
+// import articles from "../data/articles.json";
 
 const useCommands = (alan) => {
   const newsData = useSelector((state) => state.news);
-  //const {articles} = newsData;
+  const location = useLocation();
+  const { articles } = newsData;
 
   const openArticle = useCallback(
     ({ detail }) => {
@@ -29,15 +31,18 @@ const useCommands = (alan) => {
       // converting string to integer
       const formatedNumber = parseInt(parsedNumber);
       const index = getIndex(formatedNumber);
-      if (isValid(formatedNumber) && index <= articles.length) {
-        //important line
-        const article = articles[getIndex(formatedNumber)];
+      if (location.pathname === "./news") {
+        if (isValid(formatedNumber) && index <= articles.length) {
+          //important line
+          const article = articles[getIndex(formatedNumber)];
 
-        console.log(article);
-        window.open(article.url, "_blank");
-        alan.playText("opening...");
+          window.open(article.url, "_blank");
+          alan.playText("opening...");
+        } else {
+          alan.playText("invalid number!");
+        }
       } else {
-        alan.playText("invalid number!");
+        alan.playText("Go to the news page first.");
       }
     },
     [newsData.articles, newsData.page, alan]
@@ -46,14 +51,20 @@ const useCommands = (alan) => {
   const readHeadlines = useCallback(() => {
     if (alan !== undefined) {
       //use for api
-      //const { articles } = newsData;
+      const { articles } = newsData;
       const isActive = alan.isActive();
-      if (!isActive) {
-        alan.activate();
-        alan.callProjectApi("readHeadlines", { articles });
-        alan.deactivate();
+      if (location.pathname === "./news") {
+        if (!isActive) {
+          console.log(location.pathname);
+          alan.activate();
+          alan.callProjectApi("readHeadlines", { articles });
+          alan.deactivate();
+        } else {
+          alan.callProjectApi("readHeadlines", { articles });
+          alan.deactivate();
+        }
       } else {
-        alan.callProjectApi("readHeadlines", { articles });
+        alan.playText("Go to the news page first.");
       }
     }
   }, [alan, newsData.articles]);

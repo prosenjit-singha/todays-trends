@@ -34,6 +34,7 @@ export const toTitle = (text) => {
 
 export const getPath = (Name) => {
   if (Name === "home") return "./";
+  if (Name === "news") return "./news";
   if (Name === "about") return "./about";
   if (Name === "command-list") return "./command-list";
   if (Name === "developers") return "./developers";

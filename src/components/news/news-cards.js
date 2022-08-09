@@ -4,7 +4,8 @@ import styled from "styled-components";
 import { margin } from "../../styles/global-constants";
 import { useSelector } from "react-redux";
 
-import articles from "../../data/articles.json"; //used in useCommands and here
+//used in useCommands and here
+// import articles from "../../data/articles.json";
 
 export const Grid = styled.section`
   //margin-top: 2rem;
@@ -17,7 +18,7 @@ export const Grid = styled.section`
 
 const NewsCards = () => {
   console.log("NewsCards Rendered!");
-  //const articles = useSelector((state) => state.news.articles);
+  const articles = useSelector((state) => state.news.articles);
   return (
     <Grid>
       {articles.map((article, i) => (
