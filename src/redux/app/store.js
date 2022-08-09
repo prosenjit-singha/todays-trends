@@ -19,7 +19,7 @@ const store = configureStore({
     healthNews: healthReducer,
     abcNews: abcReducer,
     bbcNews: bbcReducer,
-    nccNews: cnnReducer,
+    cnnNews: cnnReducer,
   },
 });
 

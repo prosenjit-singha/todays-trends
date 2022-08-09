@@ -8,21 +8,37 @@ import {
   Image,
   Content,
   HeaderImage,
+  Title,
   Badge,
   ItemTitle,
   SubTitle,
   Date,
 } from "./styles";
 import Skeleton from "./skeleton";
+import articles from "../../../../data/articles.json";
 
-const ScienceNews = () => {
-  console.log("<----- Science News ---->");
-  const { articles, loading } = useSelector((state) => state.scienceNews);
+const NewsTemplate = ({ activeSource }) => {
+  console.log("<------ Template Rendered ----->");
+
+  function getNews(state) {
+    if (activeSource === "technology") return state.techNews;
+    if (activeSource === "business") return state.businessNews;
+    if (activeSource === "science") return state.scienceNews;
+    if (activeSource === "health") return state.healthNews;
+  }
+
+  // const { articles, loading } = useSelector((state) => getNews(state));
+  const loading = false;
 
   function formateDate(string) {
     const date = string.slice(0, string.indexOf("T"));
     const yymmdd = date.split("-");
     return yymmdd[2] + "-" + yymmdd[1] + "-" + yymmdd[0];
+  }
+
+  function validateImage(url) {
+    if (url !== null) return url;
+    else return "https://source.unsplash.com/300x300";
   }
 
   if (!loading && articles !== 0) {
@@ -32,7 +48,7 @@ const ScienceNews = () => {
           if (index === 0) {
             return (
               <HeaderImage key={index}>
-                <Image src={article.urlToImage} />
+                <Image src={validateImage(article.urlToImage)} />
                 <Content
                   style={{
                     position: "absolute",
@@ -43,7 +59,9 @@ const ScienceNews = () => {
                   }}
                 >
                   <Badge>{article.source.name}</Badge>
-                  <ItemTitle>{article.title}</ItemTitle>
+                  <Title href={article.url} target="_blank">
+                    {article.title}
+                  </Title>
                   <SubTitle>
                     <CalIcon style={{ marginRight: "5px" }} size="1.25rem" />
                     <Date>{formateDate(article.publishedAt)}</Date>
@@ -55,11 +73,13 @@ const ScienceNews = () => {
             return (
               <Item key={index}>
                 <ImageContainer>
-                  <Image src={article.urlToImage} />
+                  <Image src={validateImage(article.urlToImage)} />
                 </ImageContainer>
                 <Content>
                   <Badge>{article.source.name}</Badge>
-                  <ItemTitle>{article.title}</ItemTitle>
+                  <ItemTitle href={article.url} target="_blank">
+                    {article.title}
+                  </ItemTitle>
                   <SubTitle>
                     <CalIcon style={{ marginRight: "5px" }} />{" "}
                     <Date>{formateDate(article.publishedAt)}</Date>
@@ -76,4 +96,4 @@ const ScienceNews = () => {
   }
 };
 
-export default ScienceNews;
+export default NewsTemplate;

@@ -15,7 +15,7 @@ import {
 import SocialLinks from "../social-links";
 import HeadingTitle from "../heading-title";
 import AlanAI from "../alan-ai";
-import NewsTemplate from "./template";
+import NewsTemplate from "./news-template";
 
 const Source = ({ children, id = null, handleClick, activeSource }) => {
   const theme = useTheme();

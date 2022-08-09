@@ -138,7 +138,7 @@ export const Badge = styled.button`
   margin-bottom: 0.5rem;
   color: rgba(255, 255, 255, 0.9);
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 1px;
   background-image: ${redG};
   border: 0;
@@ -149,13 +149,21 @@ export const Badge = styled.button`
     font-weight: 600;
   }
 `;
-export const ItemTitle = styled.h4`
+export const ItemTitle = styled.a`
+  font-size: 1.5rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
+`;
+
+export const Title = styled(ItemTitle)`
+  color: rgba(255, 255, 255, 0.9);
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+  }
 `;
 export const SubTitle = styled.div`
   margin-top: 0.5rem;

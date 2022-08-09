@@ -6,8 +6,8 @@ export const Container = styled.div`
   border-radius: 0.25rem;
 `;
 export const ImageContainer = styled.div`
-  height: 5rem;
-  width: 5rem;
+  height: 6rem;
+  width: 6rem;
   overflow: hidden;
   border-radius: 50%;
   background: linear-gradient(#fff, #fff) padding-box, ${blueG} border-box;
@@ -34,7 +34,8 @@ export const Label = styled.label`
   text-transform: uppercase;
   color: ${(props) => props.theme.secondaryText};
 `;
-export const Title = styled.h4`
+export const Title = styled.a`
+  font-size: 1.25rem;
   text-transform: capitalize;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -50,6 +51,8 @@ export const Footer = styled.div`
 `;
 export const Date = styled.p`
   font-size: 0.9rem;
+  margin: 0;
+  margin-left: 0.5rem;
   text-transform: uppercase;
   user-select: none;
   pointer-events: none;
@@ -65,9 +68,6 @@ export const Item = styled.div`
   align-items: center;
   &:hover ${Image} {
     transform: scale(1.075);
-  }
-  &:hover ${Title} {
-    text-decoration: underline;
   }
   &:not(:last-child) {
     border-bottom: 1px solid hsla(0, 0%, 50%, 0.25);

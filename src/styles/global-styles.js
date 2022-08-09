@@ -90,6 +90,13 @@ const GlobalStyle = createGlobalStyle`
     p{
         font-size: 1.2rem;
     }
+    a{
+        color: ${(props) => props.theme.text.primary};
+        text-decoration: none;
+        &:hover {
+            color: ${(props) => props.theme.text.hover};
+        }
+    }
     body{
         position:relative;
         color: ${(props) => props.theme.text.primary};

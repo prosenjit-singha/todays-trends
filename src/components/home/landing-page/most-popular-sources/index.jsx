@@ -2,11 +2,9 @@ import React from "react";
 import { Container, Body, Side, SideContent, Header, Main } from "./styles";
 
 // components
-import CNN from "./cnn-news";
-import BBC from "./bbc-news";
-import ABC from "./abc-news";
 import HeadingTitle from "../heading-title";
 import PopularNews from "./popular-news";
+import NewsTemplate from "./news-template";
 
 const MostPopularSources = () => {
   console.log("<--- News Api --->");
@@ -18,9 +16,9 @@ const MostPopularSources = () => {
           <HeadingTitle>Most Popular Sources</HeadingTitle>
         </Header>
         <Main>
-          <CNN />
-          <BBC />
-          <ABC />
+          <NewsTemplate source="abc" />
+          <NewsTemplate source="bbc" />
+          <NewsTemplate source="cnn" />
         </Main>
       </Body>
       <Side>

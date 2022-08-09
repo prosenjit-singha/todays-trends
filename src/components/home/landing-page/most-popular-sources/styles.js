@@ -100,12 +100,13 @@ export const Image = styled.img`
   object-fit: cover;
   transition: transform 300ms ease;
 `;
-export const Title = styled.h3`
+export const Title = styled.a`
+  font-size: 1.5rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  overflow: hidden;
   text-overflow: ellipsis;
+  overflow: hidden;
   cursor: pointer;
   text-transform: capitalize;
   &:hover {
@@ -116,6 +117,8 @@ export const Title = styled.h3`
 export const SubTitle = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   color: hsla(0, 0%, 50%, 0.5);
   margin-bottom: 0.5rem;
   justify-content: space-between;
@@ -127,6 +130,11 @@ export const Writter = styled.h6`
   margin-right: 1.5rem;
   margin-bottom: 0;
   text-transform: uppercase;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
 
 export const Icon = styled.div`

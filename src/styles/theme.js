@@ -64,6 +64,7 @@ export const dark = {
     primary: "rgba(255, 255, 255, 0.9)",
     secondary: "rgba(255, 255, 255, 0.7)",
     disabled: "rgba(255, 255, 255, 0.5)",
+    hover: "rgba(255, 255, 255, 1)",
   },
   secondaryText: neutral[300],
   warning: {
@@ -128,6 +129,7 @@ export const light = {
     primary: "rgba(0, 0, 0, 0.87)",
     secondary: "rgba(0, 0, 0, 0.6)",
     disabled: "rgba(0, 0, 0, 0.38)",
+    hover: "rgba(0, 0, 0, 0.95)",
   },
   secondaryText: neutral[900],
   warning: {
