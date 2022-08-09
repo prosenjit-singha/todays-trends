@@ -15,7 +15,7 @@ import {
   Date,
 } from "./styles";
 import Skeleton from "./skeleton";
-import articles from "../../../../data/articles.json";
+// import articles from "../../../../data/articles.json";
 
 const NewsTemplate = ({ activeSource }) => {
   console.log("<------ Template Rendered ----->");
@@ -27,8 +27,8 @@ const NewsTemplate = ({ activeSource }) => {
     if (activeSource === "health") return state.healthNews;
   }
 
-  // const { articles, loading } = useSelector((state) => getNews(state));
-  const loading = false;
+  const { articles, loading } = useSelector((state) => getNews(state));
+  // const loading = false;
 
   function formateDate(string) {
     const date = string.slice(0, string.indexOf("T"));

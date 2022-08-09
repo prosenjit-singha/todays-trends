@@ -44,6 +44,7 @@ export const IconContainer = styled.div`
   transition: border-radius 300ms ease;
 `;
 export const Item = styled.div`
+  user-select: none;
   position: relative;
   margin-bottom: 0.5rem;
   height: 4rem;

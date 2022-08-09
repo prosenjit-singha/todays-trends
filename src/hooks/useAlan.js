@@ -16,8 +16,8 @@ import {
   setAPI,
   setAPI_KEY,
   setActiveArticle,
+  setPage,
 } from "../redux/features/news/news-slice";
-import { setPage } from "../redux/features/news/news-slice";
 import useCommands from "./useCommands";
 
 const useAlan = () => {
