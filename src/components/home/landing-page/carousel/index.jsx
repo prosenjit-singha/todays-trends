@@ -1,21 +1,7 @@
 import React, { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
-import styled from "styled-components";
-
-const ImageContainer = styled.div`
-  width: 100%;
-  height: max(80vh, 680px);
-  overflow: hidden;
-  background-color: hsla(170, 5%, 10%, 1);
-`;
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0.5;
-`;
+import { ImageContainer, Image, Title, Subtitle, Caption } from "./styles";
 
 export default function ControlledCarousel() {
   const [index, setIndex] = useState(0);
@@ -35,38 +21,44 @@ export default function ControlledCarousel() {
       <Carousel.Item interval={intervalTime} style={itemStyle}>
         <ImageContainer>
           <Image
-            src="https://source.unsplash.com/random/300×200/?entertainment"
+            src="https://source.unsplash.com/random/300×200/?reliable"
             alt="First slide"
           />
         </ImageContainer>
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
+        <Caption>
+          <Title>Reliablity</Title>
+          <Subtitle>
+            Original reporting and analysis directly from your reliable source.
+          </Subtitle>
+        </Caption>
       </Carousel.Item>
       <Carousel.Item interval={intervalTime} style={itemStyle}>
         <ImageContainer>
           <Image
-            src="https://source.unsplash.com/random/300×200/?entertainment"
+            src="https://source.unsplash.com/random/300×200/?trust"
             alt="First slide"
           />
         </ImageContainer>
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
+        <Caption>
+          <Title>Trust</Title>
+          <Subtitle>
+            Nulla vitae elit libero, a pharetra augue mollis interdum.
+          </Subtitle>
+        </Caption>
       </Carousel.Item>
       <Carousel.Item interval={intervalTime} style={itemStyle}>
         <ImageContainer>
           <Image
-            src="https://source.unsplash.com/random/300×200/?entertainment"
+            src="https://source.unsplash.com/random/300×200/?technology"
             alt="First slide"
           />
         </ImageContainer>
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
+        <Caption>
+          <Title>Functionality</Title>
+          <Subtitle>
+            Nulla vitae elit libero, a pharetra augue mollis interdum.
+          </Subtitle>
+        </Caption>
       </Carousel.Item>
     </Carousel>
   );
