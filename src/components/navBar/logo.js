@@ -1,47 +1,43 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { animated } from "react-spring";
 import styled from "styled-components";
-import { red } from "../../utils/colors";
+// import { redG } from "../../utils/gradient-colors";
 
-export const Hero = styled(animated(Link))`
+export const Hero = styled(Link)`
   font-family: Staatliches;
   letter-spacing: 2px;
   grid-column: 1/2;
   justify-self: start;
   align-items: center;
+  text-transform: uppercase;
   text-decoration: none;
   font-size: 2rem;
-  color: ${(props) => (props.theme.name === "dark" ? red[400] : red[500])};
+  color: ${(props) => props.theme.accent};
   padding-block: 0.17em;
   padding-left: 1em;
   position: relative;
   overflow: hidden;
-  transition: all 500ms ease;
-  &:before {
-    content: attr(text);
-    position: absolute;
-    color: ${red[200]};
-    overflow: hidden;
-    width: 0%;
-    transition: width 500ms ease;
-  }
-  &:hover:before {
-    width: ${(props) => (props.theme.name === "dark" ? "100%" : "0%")};
-  }
+  transition: color 500ms ease;
+  background-image: linear-gradient(
+    to right,
+    hsl(345, 95%, 50%) 0%,
+    hsl(333, 73%, 50%) 51%,
+    hsl(350, 80%, 50%) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   &:hover {
-    color: ${(props) => (props.theme.name === "dark" ? red[400] : red[500])};
-    //font-size: 2.1rem;
-    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.8));
+    color: ${(props) => props.theme.accent};
   }
 `;
 
-const Logo = ({ activeThisLink }) => {
+const Logo = ({ toggleMenu }) => {
   return (
     <Hero
       id="logo"
       to="/"
-      onClick={() => activeThisLink(0)}
+      onClick={() => toggleMenu(false)}
       text={"Today's Trends"}
     >
       Today's Trends

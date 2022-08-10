@@ -2,7 +2,6 @@
 import { animated } from "react-spring";
 import styled from "styled-components";
 import { device } from "../../../utils/device";
-import { boxShadow } from "../../../utils/functions";
 import { margin } from "../../../styles/global-constants";
 
 export const FilterDiv = styled.section`
@@ -94,7 +93,7 @@ export const TextField = styled.input`
 export const Button = styled.button`
   width: 5rem;
   height: 30px;
-  color: ${(props) => props.theme.text.primary};
+  color: rgba(255, 255, 255, 0.9);
   font-family: Poppins;
   font-weight: 600;
   font-size: 1rem;

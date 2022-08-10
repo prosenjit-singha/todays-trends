@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   animated,
   useSpring,
@@ -29,6 +29,7 @@ const Dropdown = ({ background, data, handleData, reset }) => {
   const [isOpen, setOpen] = useState(false);
   const [wrapperRef, { height: wrapperHeight }] = useMeasure();
   const selectedRef = useRef();
+  const containerRef = useRef();
   //functions
   const handleClick = (e) => {
     setOpen(!isOpen);
@@ -58,14 +59,29 @@ const Dropdown = ({ background, data, handleData, reset }) => {
     0,
     isOpen ? 0.1 : 0.2,
   ]);
+
+  // handling click outside event
+  useEffect(() => {
+    function clickOutside(event) {
+      // console.log("mouse down event");
+      if (!containerRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", clickOutside);
+    return () => {
+      document.removeEventListener("mousedown", clickOutside);
+    };
+  }, []);
+
   return (
     <>
-      <Container>
-        {/* <Title>{data.id}</Title> */}
+      <Container ref={containerRef}>
+        {/* Button  */}
         <SelectWrapper
           ref={rippleRef}
           type="button"
-          onClick={() => setOpen(!isOpen)}
+          onClick={() => setOpen((prev) => !prev)}
           bg={background}
         >
           <Select ref={selectedRef}>{data.selected}</Select>
@@ -75,6 +91,8 @@ const Dropdown = ({ background, data, handleData, reset }) => {
             <Icon />
           </animated.div>
         </SelectWrapper>
+
+        {/* Dropdown options  */}
         <OptionContainer style={wrapperStyle}>
           <Options {...wrapperRef}>
             {items((style, item) => (

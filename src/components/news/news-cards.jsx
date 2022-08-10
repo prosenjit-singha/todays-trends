@@ -10,7 +10,6 @@ import CardSkeleton from "./card-skeleton";
 // import articles from "../../data/articles.json";
 
 export const Grid = styled.section`
-  //margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-auto-rows: 1fr;

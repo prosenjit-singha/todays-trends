@@ -45,7 +45,9 @@ const NavBar = ({ darkMode, setDarkMode }) => {
     width: hoverLocation.width,
     config: config.wobbly,
   });
+
   const mobileActiveEffect = useSpring({
+    opacity: openMenu ? 1 : 0,
     background: hoverLocation.bgColor,
     left: 10,
     top: hoverLocation.top,
@@ -53,9 +55,7 @@ const NavBar = ({ darkMode, setDarkMode }) => {
     height: hoverLocation.height,
     config: config.wobbly,
   });
-  const activeThisLink = (i) => {
-    toggleMenu(!openMenu);
-  };
+
   //styling-end
   const handleMouseEnter = (e) => {
     const {
@@ -119,7 +119,7 @@ const NavBar = ({ darkMode, setDarkMode }) => {
 
   return (
     <Header>
-      <Logo activeThisLink={activeThisLink} />
+      <Logo toggleMenu={toggleMenu} />
       {tabletM && (
         <Hamburger
           openMenu={openMenu}
@@ -140,17 +140,13 @@ const NavBar = ({ darkMode, setDarkMode }) => {
                 ref={(r) => (menuRefs.current[i] = r)}
                 id={id}
                 to={path}
-                onClick={() => activeThisLink(i)}
+                onClick={() => toggleMenu(false)}
               >
                 {name}
               </MenuLink>
             </MenuListItem>
           ))}
-          {tabletM && openMenu ? (
-            <ActiveLinkEffect ref={activeRef} style={mobileActiveEffect} />
-          ) : (
-            ""
-          )}
+
           <ActiveLinkEffect
             ref={activeRef}
             style={tabletM ? mobileActiveEffect : activeEffect}

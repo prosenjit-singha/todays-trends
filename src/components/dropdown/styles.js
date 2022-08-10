@@ -33,15 +33,13 @@ export const Options = styled(animated.div)`
     width: 5px;
   }
   &::-webkit-scrollbar-track {
-    background-color: ${(props) => props.theme.forgroundHighlight};
+    background-color: rgba(0, 0, 0, 0.25);
     border-radius: 2px;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: ${(props) => props.theme.backgroundShadow};
+    background-color: ${(props) =>
+      props.theme.darkMode ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.25)"};
     border-radius: 2px;
-    &:hover {
-      background-color: ${(props) => props.theme.background};
-    }
   }
 `;
 export const OptionContainer = styled(animated.div)`
@@ -59,13 +57,14 @@ export const SelectWrapper = styled.div`
   height: 30px;
   display: flex;
   align-items: center;
+  color: rgba(255, 255, 255, 0.9);
   background-color: ${(props) => props.bg};
   border-radius: ${borderRadius};
   padding: 0.2rem 0.75rem;
   cursor: pointer;
 `;
 export const Select = styled.div`
-  color: ${(props) => props.theme.text};
+  color: inherit;
   font-family: Poppins;
   font-weight: bold;
   text-transform: capitalize;

@@ -4,16 +4,9 @@ import { Skeleton } from "@mui/material";
 import {
   CardContainer,
   Card,
-  Source,
-  Date,
-  Title,
-  Desc,
-  Image,
   ContentWrapper,
   Content,
   BottomBlock,
-  ReadMore,
-  Accuracy,
 } from "../../styles/card-styles";
 
 const CardSkeleton = () => {
@@ -21,7 +14,7 @@ const CardSkeleton = () => {
     <CardContainer>
       <Card>
         <ContentWrapper>
-          {/* <Image image={urlToImage} index={getIndex(index)} /> */}
+          {/* Image  */}
           <Skeleton
             style={{ height: "100%", width: "100%" }}
             animation="wave"

@@ -9,7 +9,7 @@ const Icon = ({ mode }) => {
   const styles = {
     width: "25",
     height: "25",
-    color: mode === "dark" ? neutral[200] : neutral[700],
+    color: mode === "dark" ? neutral[200] : neutral[100],
   };
 
   return (

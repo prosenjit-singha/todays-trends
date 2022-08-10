@@ -71,9 +71,6 @@ const GlobalStyle = createGlobalStyle`
         margin: 2px;
         background-color: ${red[400]};
         border-radius: 5px;
-        &:hover{
-        background-color: ${(props) => props.theme.forgroundHighlight};
-        }
     }
     &::-webkit-scrollbar-corner{
         background-color: transparent;
