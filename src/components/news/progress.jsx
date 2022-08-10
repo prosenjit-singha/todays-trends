@@ -3,14 +3,15 @@ import styled from "styled-components";
 import { useSpring, animated, config } from "react-spring";
 
 const Container = styled.div`
-  position: absolute;
+  position: relative;
   height: 44px;
   width: 44px;
-  right: 2%;
   //outline: 1px solid red;
 `;
 
 const SVG = styled.svg`
+  padding: 0;
+  margin: 0;
   height: 44px;
   width: 44px;
   position: relative;

@@ -9,7 +9,7 @@ const initialState = {
   page: 1,
   totalResults: 0,
   activeArticle: null,
-  loading: false,
+  loading: true,
   error: "",
 };
 

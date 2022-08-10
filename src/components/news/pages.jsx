@@ -52,6 +52,7 @@ const Pages = ({ totalResults }) => {
 
   return (
     <Container>
+      {/* Previous Button  */}
       <Button
         fontSize={fontSize}
         handleClick={handlePrev}
@@ -60,6 +61,8 @@ const Pages = ({ totalResults }) => {
       >
         Previous
       </Button>
+
+      {/* ...Button  */}
       <Button
         styles={{
           display: pageNo !== 0 ? "flex" : "none",
@@ -89,6 +92,8 @@ const Pages = ({ totalResults }) => {
           {index + pageNo + 1}
         </Button>
       ))}
+
+      {/* ... button  */}
       <Button
         styles={{
           marginInline: "0.5rem",
@@ -117,6 +122,8 @@ const Pages = ({ totalResults }) => {
       >
         Last Page
       </Button>
+
+      {/* Next Button  */}
       <Button
         fontSize={fontSize}
         handleClick={handleNext}

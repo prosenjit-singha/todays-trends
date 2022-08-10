@@ -10,14 +10,11 @@ export const FilterDiv = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 4fr;
-  padding: 0.25rem;
+  padding: 0.5rem;
   margin-block: 1.5rem;
   margin-inline: ${margin};
-  border-radius: 0.5rem;
-  box-shadow: ${boxShadow.default()};
-  background-color: ${(props) => props.theme.forground};
-  //backdrop-filter: blur(5px);
-  border: 1px solid ${(props) => props.theme.forgroundShadow};
+  border-radius: 0.25rem;
+  background-color: ${(props) => props.theme.background.paper};
   @media ${device.tablet} {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 2fr;
@@ -62,7 +59,7 @@ export const SourceContainer = styled(animated.div)`
 export const TextField = styled.input`
   width: 180px;
   height: 30px;
-  color: ${(props) => props.theme.text};
+  color: ${(props) => props.theme.text.primary};
   background-color: ${(props) =>
     props.theme.darkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)"};
   border: none;

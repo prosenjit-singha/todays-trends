@@ -9,19 +9,20 @@ import Filter from "./filter";
 import Pages from "./pages";
 import Loading from "../loading";
 import Newsletter from "../newsletter";
+import PagesSkeleton from "./pages-skeleton";
 
 // importing styles
 import { Container } from "../../styles/containers";
 
 const News = () => {
-  const data = useSelector((state) => state.news);
-  console.log("Loading: ", data.loading);
-  const totalResults = data.totalResults;
+  const { loading, totalResults } = useSelector((state) => state.news);
+  console.log("Loading: ", loading);
+
   return (
     <Container>
       <Filter />
-      {data.Loading ? <Loading /> : <NewsCards />}
-      <Pages totalResults={totalResults} />
+      <NewsCards />
+      {loading ? <PagesSkeleton /> : <Pages totalResults={totalResults} />}
       <Newsletter />
     </Container>
   );

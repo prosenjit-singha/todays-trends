@@ -62,8 +62,14 @@ const CommandLists = () => {
       ],
     },
     {
-      title: "If you want Alan to go back to home, try telling him:",
-      commands: ["Go back", "Can you go back?", "Back"],
+      title: "Navigate page by just saying:",
+      commands: [
+        "Go to the (home | news | command-list | about) page",
+        "Can you go back",
+        "Back",
+        "Forword",
+        "Go forword",
+      ],
     },
   ];
   return (

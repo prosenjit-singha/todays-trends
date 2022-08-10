@@ -1,19 +1,16 @@
 import styled from "styled-components";
 import { animated } from "react-spring";
-import { colors } from "./variables";
 import { device } from "../utils/device";
 
 //const tbrl = "10px";
 
 export const CardContainer = styled(animated.div)`
   position: relative;
-  //padding: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  //border: 1px solid ${colors.neutral[900]};
-  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.5);
-  border-radius: 0.5rem;
+  /* box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.5); */
+  border-radius: 0.25rem;
   height: fit-content;
   z-index: 1;
 `;
@@ -25,10 +22,8 @@ export const Card = styled(animated.div)`
   position: relative;
   max-height: 100%;
   width: 100%;
-  border-radius: 0.5rem;
-  background-color: ${(props) => props.theme.forground};
-  border: 1px solid ${(props) => props.theme.forgroundShadow};
-  backdrop-filter: blur(15px);
+  border-radius: 0.25rem;
+  background-color: ${(props) => props.theme.background.paper};
   overflow: hidden;
 `;
 export const ContentWrapper = styled(animated.div)`
@@ -49,8 +44,6 @@ export const Image = styled(animated.div)`
   flex-basis: 450px;
   background-image: url("${(props) => props.image}");
   display: block;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -79,10 +72,11 @@ export const Content = styled(animated.div)`
   //flex-wrap: wrap;
   flex-direction: column;
   //width: 100%;
+  /* gap: 0.5rem; */
   height: 50%;
   flex-basis: 100%;
   padding: 1rem 1rem;
-  margin-bottom: 0.8rem;
+  /* margin-bottom: 0.8rem; */
   max-height: auto;
   overflow: hidden;
   border-bottom-left-radius: 0.5rem;
@@ -100,13 +94,23 @@ export const Date = styled.span`
 `;
 export const Title = styled.h3`
   font-size: 1rem;
-  padding-top: 0.5rem;
+  margin-block: 0.5rem;
   bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 export const Desc = styled.div`
   font-size: 0.9rem;
   font-weight: normal;
   text-align: justify;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const ReadMore = styled(animated.a)`
@@ -139,6 +143,12 @@ export const ReadMore = styled(animated.a)`
     color: ${(props) => props.theme.accent};
     background-color: ${(props) => props.theme.forground};
 
+    &:visited {
+      color: ${(props) => props.theme.accent};
+    }
+    &:hover {
+      color: white;
+    }
     &::before {
       content: "";
       position: absolute;
@@ -162,8 +172,6 @@ export const BottomBlock = styled.div`
   padding: 1em;
   display: flex;
   align-items: center;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
   height: 2.8rem;
   width: 100%;
   border-top: 1px solid ${(props) => props.theme.forgroundShadow};
@@ -172,12 +180,10 @@ export const BottomBlock = styled.div`
 `;
 
 export const Accuracy = styled.span`
-  position: absolute;
-  right: 17%;
+  margin-left: auto;
   font-size: 1rem;
   font-weight: bold;
   text-align: right;
-  padding-left: 1rem;
   cursor: help;
   //background-color: aqua;
 `;

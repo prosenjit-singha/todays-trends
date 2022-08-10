@@ -8,4 +8,6 @@ export const COMMANDS = {
   READ_HEADLINES: "read-headlines",
   NAVIGATE: "navigate",
   STOP_ACTIVE_ARTICLE_EFFECT: "stop-active-article-effect",
+  GO_BACKWARD: "go-backward",
+  GO_FORWARD: "go-forward",
 };
