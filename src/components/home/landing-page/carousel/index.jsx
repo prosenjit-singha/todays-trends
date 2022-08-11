@@ -28,7 +28,7 @@ export default function ControlledCarousel() {
         <Caption>
           <Title>Reliablity</Title>
           <Subtitle>
-            Original Reporting and Analysis Directly From Your Reliable Sources.
+            Original Reporting and Analysis Directly from Your Reliable Sources.
           </Subtitle>
         </Caption>
       </Carousel.Item>
@@ -40,9 +40,9 @@ export default function ControlledCarousel() {
           />
         </ImageContainer>
         <Caption>
-          <Title>Trust</Title>
+          <Title>Raise Your Voice</Title>
           <Subtitle>
-            Nulla vitae elit libero, a pharetra augue mollis interdum.
+            Use Your Voice to Roam Around the World.
           </Subtitle>
         </Caption>
       </Carousel.Item>
@@ -54,9 +54,9 @@ export default function ControlledCarousel() {
           />
         </ImageContainer>
         <Caption>
-          <Title>Functionality</Title>
+          <Title>Uniqueness</Title>
           <Subtitle>
-            Nulla vitae elit libero, a pharetra augue mollis interdum.
+            Have a New Experience with a News Website.
           </Subtitle>
         </Caption>
       </Carousel.Item>

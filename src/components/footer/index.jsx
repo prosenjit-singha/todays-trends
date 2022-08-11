@@ -22,11 +22,10 @@ const Footer = () => {
         <BriefAbout>
           <Logo />
           <TextBox>
-            fQuis dolor veniam dolore ipsum sunt ad exercitation laboris. Sint
-            irure amet sint anim do incididunt ea excepteur ipsum deserunt
-            occaecat do. Anim adipisicing exercitation sit officia tempor est
-            mollit qui pariatur duis ullamco consequat enim qui. In Lorem aliqua
-            dolor ad ex culpa voluptate
+            Today's Trends was built for people to follow everyday's trends. To make it 
+            more interesting, the voice search was added as some of us get bored easily 
+            when reading anything. So, Today's Trends is for everyone who want to know 
+            what's happening around the world.
           </TextBox>
           <Hr />
         </BriefAbout>

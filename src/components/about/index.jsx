@@ -31,31 +31,31 @@ const About = () => {
       <Header>
         <HeaderContent>
           <Title style={{ color: "white", textAlign: "left" }}>
-            What you will get with Today's Trands
+            What You Will Get from Today's Trends
           </Title>
           <Text
             style={{ color: "white", fontSize: "1.5rem", textAlign: "left" }}
           >
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id autem
-            enim soluta eveniet magni eius nulla ducimus amet ipsum quasi!
+            Today's Trends provides you with the most up-to-date news so that you can
+            follow the trends everyday.
           </Text>
         </HeaderContent>
       </Header>
       <Section>
         <Title>The Today's Trends Advantages</Title>
         <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore
-          repudiandae beatae eligendi reprehenderit? Cum laudantium rem quaerat
-          porro, eaque, impedit sequi provident tempore assumenda nobis dolores
-          fugiat necessitatibus fuga consectetur neque voluptate consequuntur
-          dignissimos laborum totam, distinctio vero corporis aperiam ea? Autem
-          nemo dolorum ipsum dignissimos fugit saepe provident.
+          Today's Trends can introduce you with the current trend whenever
+          you want, you can be in a restaurant, or in your office room, tired.
         </Text>
         <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-          labore veniam aliquid voluptatibus beatae quo aperiam a incidunt
-          placeat deleniti dignissimos vitae sint facilis quas optio rerum modi
-          repellendus? Adipisci?
+          The interesting part about Today's Trends is that you can use your voice in 
+          order to know the latest news on anything as we have the Voice Recognition 
+          feature as well as the analog line by line reading.
+        </Text>
+        <Text>
+          You can get news from any place, even from any source. We provide you with the
+          authentic news from reliable sources. Also, you can check the accuracy of any
+          news as we have the feature of rating any article.
         </Text>
       </Section>
       <Section>

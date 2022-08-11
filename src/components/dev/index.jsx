@@ -33,7 +33,7 @@ const Dev = () => {
     imageURL: "https://picsum.photos/200",
     intro: "UI designer",
     fb: "https://www.facebook.com/mrahmansamy",
-    linkedin: "https://www.linkedin.com/in/prosenjit052",
+    linkedin: "https://www.linkedin.com/in/mahmudursamy/",
     insta: "https://www.instagram.com/sammydgoodfella",
     github: "https://github.com/mahmudur-samy",
   };
