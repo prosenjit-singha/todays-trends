@@ -26,7 +26,7 @@ const NewsTemplate = ({ source }) => {
     if (source === "cnn") return state.cnnNews;
   }
   const { articles, loading } = useSelector((state) => getNews(state));
-  //   const loading = false;
+  // const loading = false;
 
   function formateDate(string) {
     const date = string.slice(0, string.indexOf("T"));

@@ -16,7 +16,7 @@ const SKT = () => {
         {/* badge */}
         <Skeleton
           style={{
-            width: "8rem",
+            width: "30%",
             height: "1.8rem",
             borderRadius: "0.25rem",
             marginBottom: "0.5rem",
@@ -47,7 +47,7 @@ const SKT = () => {
           {/* date  */}
           <Skeleton
             style={{
-              width: "2rem",
+              width: "20%",
               borderRadius: "0.15rem",
               marginBottom: "0.5rem",
               marginRight: "1rem",
@@ -57,7 +57,7 @@ const SKT = () => {
           />
           <Skeleton
             style={{
-              width: "8rem",
+              width: "50%",
               borderRadius: "0.15rem",
               marginBottom: "0.5rem",
             }}

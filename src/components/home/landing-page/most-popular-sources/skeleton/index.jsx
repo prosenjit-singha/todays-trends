@@ -8,61 +8,83 @@ const SKT = () => {
       {/* heading news  */}
       <News>
         {/* heading skeleton */}
+        {/* image section  */}
         <Skeleton
-          style={{ borderRadius: "0.15rem", marginBottom: "16px" }}
+          style={{ borderRadius: "0.15rem", marginBottom: "1rem" }}
           animation="wave"
           variant="rectangular"
           height={160}
         />
+        {/* title  */}
         <Skeleton
-          style={{ borderRadius: "0.15rem", marginBottom: "16px" }}
+          style={{ borderRadius: "0.15rem", marginBottom: "0.5rem" }}
           variant="h3"
           animation="wave"
         />
-        <SubTitle>
-          <Skeleton variant="rectangular" animation="wave" width={150} />
-          <Skeleton variant="rectangular" animation="wave" width={150} />
-        </SubTitle>
+        {/* date and author  */}
         <Skeleton
-          style={{ borderRadius: "0.15rem", marginBottom: "10px" }}
+          style={{ borderRadius: "0.15rem", marginBottom: "0.5rem" }}
+          variant="h3"
+          animation="wave"
+        />
+        {/* description  */}
+        <Skeleton
+          style={{
+            borderRadius: "0.25rem",
+            marginBottom: "10px",
+            height: "2rem",
+          }}
           variant="rectangular"
           animation="wave"
-          height={60}
         />
       </News>
       {/* footer news  */}
       <News>
+        {/* title  */}
         <Skeleton
-          style={{ borderRadius: "0.15rem", marginBottom: "16px" }}
+          style={{ borderRadius: "0.15rem", marginBottom: "0.5rem" }}
           variant="h3"
           animation="wave"
         />
-        <SubTitle>
-          <Skeleton variant="rectangular" animation="wave" width={150} />
-          <Skeleton variant="rectangular" animation="wave" width={150} />
-        </SubTitle>
+        {/* date and author  */}
         <Skeleton
-          style={{ borderRadius: "0.15rem", marginBottom: "10px" }}
+          style={{ borderRadius: "0.15rem", marginBottom: "0.5rem" }}
+          variant="h3"
+          animation="wave"
+        />
+        {/* description  */}
+        <Skeleton
+          style={{
+            borderRadius: "0.25rem",
+            marginBottom: "10px",
+            height: "2rem",
+          }}
           variant="rectangular"
           animation="wave"
-          height={60}
         />
       </News>
       <News>
+        {/* title  */}
         <Skeleton
-          style={{ borderRadius: "0.15rem", marginBottom: "16px" }}
+          style={{ borderRadius: "0.15rem", marginBottom: "0.5rem" }}
           variant="h3"
           animation="wave"
         />
-        <SubTitle>
-          <Skeleton variant="rectangular" animation="wave" width={150} />
-          <Skeleton variant="rectangular" animation="wave" width={150} />
-        </SubTitle>
+        {/* date and author  */}
         <Skeleton
-          style={{ borderRadius: "0.15rem", marginBottom: "10px" }}
+          style={{ borderRadius: "0.15rem", marginBottom: "0.5rem" }}
+          variant="h3"
+          animation="wave"
+        />
+        {/* description  */}
+        <Skeleton
+          style={{
+            borderRadius: "0.25rem",
+            marginBottom: "10px",
+            height: "2rem",
+          }}
           variant="rectangular"
           animation="wave"
-          height={60}
         />
       </News>
     </Item>

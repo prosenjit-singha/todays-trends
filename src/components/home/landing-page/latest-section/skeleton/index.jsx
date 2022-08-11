@@ -49,12 +49,17 @@ const SKT = () => {
             {/* Title Ends */}
             <SubTitle>
               <Skeleton
-                style={{ marginRight: "1rem" }}
+                variant="h1"
+                style={{ marginRight: "1rem", height: "1.2rem" }}
                 animation="wave"
                 width={20}
-                height={20}
               />
-              <Skeleton animation="wave" width={120} height={20} />
+              <Skeleton
+                variant="h1"
+                style={{ height: "1.2rem" }}
+                animation="wave"
+                width={120}
+              />
             </SubTitle>
           </Content>
         </Item>

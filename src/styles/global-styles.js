@@ -114,6 +114,7 @@ const GlobalStyle = createGlobalStyle`
 
     #root {
         max-width: 2560px;
+        width: calc(100vw - 6px);
     }
     /* responsive padding  */
     .px-res {
