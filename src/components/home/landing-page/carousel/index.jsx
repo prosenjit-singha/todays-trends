@@ -28,7 +28,7 @@ export default function ControlledCarousel() {
         <Caption>
           <Title>Reliablity</Title>
           <Subtitle>
-            Original reporting and analysis directly from your reliable source.
+            Original Reporting and Analysis Directly From Your Reliable Sources.
           </Subtitle>
         </Caption>
       </Carousel.Item>

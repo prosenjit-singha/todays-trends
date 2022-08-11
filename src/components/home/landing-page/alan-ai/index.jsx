@@ -81,8 +81,8 @@ const AlanAI = () => {
     <Container ref={ref}>
       <Image src={BgImage} alt="alan-background" />
       <Content>
-        <Title>Meet With Alan</Title>
-        <SubTitle>The most powerful open-source voice recognizer.</SubTitle>
+        <Title>Meet Alan</Title>
+        <SubTitle>The Most Powerful Open-Source Voice Recognizer.</SubTitle>
         <GradientButton data={data} style={buttonStyle} color="blue">
           <div>Visit</div> <div>Alan</div>{" "}
           <Arrow style={width < 185 ? iconStyle : ""} />
