@@ -81,6 +81,10 @@ const useAlan = () => {
               navigate(path);
             } else if (command === COMMANDS.STOP_ACTIVE_ARTICLE_EFFECT) {
               dispatch(setActiveArticle(null));
+            } else if (command === COMMANDS.GO_BACKWARD) {
+              navigate(-1);
+            } else if (command === COMMANDS.GO_FORWARD) {
+              navigate(1);
             }
           },
         })
