@@ -64,7 +64,7 @@ const News = ({ alan }) => {
   return (
     <Container>
       <Filter />
-      <Pages totalResults={totalResults} />
+      {/* <Pages totalResults={totalResults} /> */}
       <NewsCards articles={articles} loading={loading} />
       {loading ? <PagesSkeleton /> : <Pages totalResults={totalResults} />}
       <Newsletter />

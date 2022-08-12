@@ -11,10 +11,9 @@ import { redG } from "../../utils/gradient-colors";
 
 const Container = styled.div`
   display: flex;
-  width: 180px;
   height: auto;
+  gap: 0.5rem;
   justify-content: space-evenly;
-  margin-block: 8px;
   @media ${device.tabletM} {
     height: auto;
   }

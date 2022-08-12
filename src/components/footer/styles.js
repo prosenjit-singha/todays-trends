@@ -82,6 +82,7 @@ export const FollowUs = styled.div`
   flex-direction: column;
   align-items: center;
   grid-row: 3/4;
+  gap: 0.5rem;
   @media ${device.tabletM} {
     flex-direction: row;
     justify-content: center;
@@ -116,7 +117,9 @@ export const Hr = styled.div`
   }
 `;
 export const Title = styled.h3`
+  font-family: Inter;
+  font-weight: bold;
   margin: 0;
-  margin-right: 0.5rem;
-  color: ${(props) => props.theme.text};
+  /* margin-right: 0.5rem; */
+  color: ${(props) => props.theme.text.primary};
 `;
