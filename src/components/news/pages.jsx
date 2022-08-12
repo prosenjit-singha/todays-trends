@@ -12,7 +12,9 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Pages = ({ totalResults }) => {
+// const Pages = ({ totalResults }) => {
+const Pages = () => {
+  const totalResults = 100;
   //consts
   const api = useSelector((state) => state.news.api);
   const dispatch = useDispatch();
@@ -118,7 +120,7 @@ const Pages = ({ totalResults }) => {
                 : "none"
               : "none",
         }}
-        handleClick={() => dispatch(setPage(6))}
+        handleClick={() => dispatch(setPage(totalPages))}
       >
         Last Page
       </Button>

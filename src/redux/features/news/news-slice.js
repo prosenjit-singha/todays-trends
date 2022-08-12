@@ -52,7 +52,6 @@ const newsSlice = createSlice({
       state.api = action.payload;
     },
     setAPI_KEY: (state, action) => {
-      console.log("set api key called");
       state.api_key = action.payload;
     },
     setCommand: (state, action) => {

@@ -19,17 +19,9 @@ import { fetchArticles } from "../../redux/features/news/news-slice";
 const News = ({ alan }) => {
   // console.log("<======== News rendered ==========>");
   const dispatch = useDispatch();
-  const {
-    articles,
-    activeArticle,
-    page,
-    command,
-    error,
-    api,
-    api_key,
-    loading,
-    totalResults,
-  } = useSelector((state) => state.news);
+  const { articles, api, api_key, loading, totalResults } = useSelector(
+    (state) => state.news
+  );
 
   // const updateData = useCallback(() => {
   //   console.log("<=============== Updating Data To Alan Api ==========>");
@@ -66,12 +58,13 @@ const News = ({ alan }) => {
   useEffect(() => {
     console.log("API: ", api);
     console.log("API_KEY: ", api_key);
-    dispatch(fetchArticles(api_key));
+    // dispatch(fetchArticles(api_key));
   }, [api_key]);
 
   return (
     <Container>
       <Filter />
+      <Pages totalResults={totalResults} />
       <NewsCards articles={articles} loading={loading} />
       {loading ? <PagesSkeleton /> : <Pages totalResults={totalResults} />}
       <Newsletter />
