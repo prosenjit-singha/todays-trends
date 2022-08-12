@@ -29,7 +29,12 @@ const Source = ({ children, id = null, handleClick, activeSource }) => {
       : "rgba(0, 0, 0, 0.8)",
   });
   return (
-    <Button data_btn_id={id} onClick={handleClick} style={props}>
+    <Button
+      data_btn_id={id}
+      onClick={handleClick}
+      // style={props}
+      isactive={isActive.toString()}
+    >
       {children}
     </Button>
   );

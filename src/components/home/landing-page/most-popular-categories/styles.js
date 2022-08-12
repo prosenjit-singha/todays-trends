@@ -4,6 +4,7 @@ import { margin } from "../../../../styles/global-constants";
 import { animated } from "react-spring";
 import { red } from "@mui/material/colors";
 import { redG } from "../../../../utils/gradient-colors";
+import { Button as BTN } from "../../../../styles/button";
 
 export const Container = styled.div`
   width: 100%;
@@ -65,15 +66,14 @@ export const Buttons = styled.div`
   }
 `;
 
-export const Button = styled(animated.button)`
+export const Button = styled(BTN)`
   padding: 0.5rem 1rem;
   height: fit-content;
   cursor: pointer;
-  color: ${(props) => props.theme.text.primary};
   font-weight: bold;
-  border: 2px solid ${red[400]};
-  background: hsla(1, 83%, 63%, 0.15);
-  border-radius: 2rem;
+  border-radius: 0.25rem;
+  margin-block: 0;
+  transition: color 300ms ease, background 300ms ease, border 300ms ease;
   @media ${device.tablet} {
     font-size: 1.2rem;
     border-top-left-radius: ${(props) =>
@@ -84,8 +84,25 @@ export const Button = styled(animated.button)`
       props.data_btn_id === "last" ? "0.2rem" : "0rem"};
     border-bottom-right-radius: ${(props) =>
       props.data_btn_id === "last" ? "0.2rem" : "0rem"};
-    border: 1px solid hsla(0, 25%, 50%, 0.25);
+    border: 1px solid hsla(1, 83%, 63%, 0.2);
     border-right: ${(props) => (props.data_btn_id === "last" ? "" : "none")};
+
+    &:hover {
+      color: ${(props) =>
+        props.isactive === "true" ? props.theme.light : props.theme.accent};
+      background: ${(props) =>
+        props.isactive === "true"
+          ? "hsla(1, 83%, 60%,1)"
+          : "hsla(1, 83%, 63%,0.15)"};
+      border: 1px solid hsla(1, 83%, 63%, 0.25);
+      border-right: ${(props) => (props.data_btn_id === "last" ? "" : "none")};
+    }
+  }
+  @media ${device.laptop} {
+    &::before,
+    &::after {
+      display: none;
+    }
   }
 `;
 export const Main = styled.div`
