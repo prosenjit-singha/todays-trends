@@ -18,8 +18,6 @@ import Skeleton from "./skeleton";
 // import articles from "../../../../data/articles.json";
 
 const NewsTemplate = ({ activeSource }) => {
-  console.log("<------ Template Rendered ----->");
-
   function getNews(state) {
     if (activeSource === "technology") return state.techNews;
     if (activeSource === "business") return state.businessNews;

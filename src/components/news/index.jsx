@@ -1,31 +1,82 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
 
 // importing react hooks
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 // importing components
 import NewsCards from "./news-cards";
 import Filter from "./filter";
 import Pages from "./pages";
-import Loading from "../loading";
 import Newsletter from "../newsletter";
 import PagesSkeleton from "./pages-skeleton";
 
 // importing styles
 import { Container } from "../../styles/containers";
 
-const News = () => {
-  const { loading, totalResults } = useSelector((state) => state.news);
-  console.log("Loading: ", loading);
+// actions
+import { fetchArticles } from "../../redux/features/news/news-slice";
+
+const News = ({ alan }) => {
+  // console.log("<======== News rendered ==========>");
+  const dispatch = useDispatch();
+  const {
+    articles,
+    activeArticle,
+    page,
+    command,
+    error,
+    api,
+    api_key,
+    loading,
+    totalResults,
+  } = useSelector((state) => state.news);
+
+  // const updateData = useCallback(() => {
+  //   console.log("<=============== Updating Data To Alan Api ==========>");
+  //   if (alan !== undefined) {
+  //     const isActive = alan.isActive();
+  //     if (!isActive) {
+  //       alan.activate();
+  //       alan.callProjectApi("updateData", {
+  //         articles,
+  //         activeArticle,
+  //         page,
+  //         totalResults,
+  //         command,
+  //         error,
+  //       });
+  //       alan.deactivate();
+  //     } else {
+  //       alan.callProjectApi("updateData", {
+  //         articles,
+  //         activeArticle,
+  //         page,
+  //         totalResults,
+  //         command,
+  //         error,
+  //       });
+  //     }
+  //   }
+  // }, [articles]);
+
+  // useEffect(() => {
+  //   updateData();
+  // }, [articles]);
+
+  useEffect(() => {
+    console.log("API: ", api);
+    console.log("API_KEY: ", api_key);
+    dispatch(fetchArticles(api_key));
+  }, [api_key]);
 
   return (
     <Container>
       <Filter />
-      <NewsCards />
+      <NewsCards articles={articles} loading={loading} />
       {loading ? <PagesSkeleton /> : <Pages totalResults={totalResults} />}
       <Newsletter />
     </Container>
   );
 };
 
-export default News;
+export default React.memo(News);

@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Navigate, Routes, Route } from "react-router-dom";
 import useAlan from "./hooks/useAlan";
-import AOS from "aos";
 import "../node_modules/aos/dist/aos.css";
 //<<<<<<<<< importing components >>>>>>>>>>>>>>>
 import Terms from "./components/terms&conditions";
@@ -39,48 +38,8 @@ const App = () => {
   // const [darkMode, setDarkMode] = useState(false);
   const dispatch = useDispatch();
   const { darkMode, setDarkMode } = useUserColorScheme();
-  // const {
-  //   theme: { props: themeStyle },
-  //   news: newsData,
-  // } = useSelector((state) => state);
-  const newsData = useSelector((state) => state.news);
   //hooks
   const alan = useAlan();
-  //autometically call fetchApi when api key is updated
-  const updateData = useCallback(() => {
-    console.log("updating data to alan api...");
-    if (alan !== undefined) {
-      const { articles, activeArticle, page, totalResults } = newsData;
-      const isActive = alan.isActive();
-      if (!isActive) {
-        alan.activate();
-        alan.callProjectApi("updateData", {
-          articles,
-          activeArticle,
-          page,
-          totalResults,
-        });
-        alan.deactivate();
-      } else {
-        alan.callProjectApi("updateData", {
-          articles,
-          activeArticle,
-          page,
-          totalResults,
-        });
-      }
-    }
-  }, [newsData.articles]);
-
-  useEffect(() => {
-    // updateData();
-  }, [newsData.articles]);
-
-  useEffect(() => {
-    console.log("API: ", newsData.api);
-    console.log("API_KEY: ", newsData.api_key);
-    // dispatch(fetchArticles(newsData.api_key));
-  }, [newsData.api, newsData.api_key]);
 
   // landing page required fetch api calls
   useEffect(() => {
@@ -115,4 +74,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default React.memo(App);

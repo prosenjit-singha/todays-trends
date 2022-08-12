@@ -1,16 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const initialState = {
-  api:
-    "https://newsapi.org/v2/top-headlines?apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12&country=us",
-  api_key:
-    "https://newsapi.org/v2/top-headlines?apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12&country=us",
+  api: `https://newsapi.org/v2/top-headlines?apiKey=${process.env.REACT_APP_NEWS_API}&pageSize=12&country=us`,
+  api_key: `https://newsapi.org/v2/top-headlines?apiKey=${process.env.REACT_APP_NEWS_API}&pageSize=12&country=us&page=1`,
   articles: [],
   page: 1,
   totalResults: 0,
   activeArticle: null,
   loading: true,
   error: "",
+  command: "",
 };
 
 //generate pending, fulfilled and rejected //life cycle hook
@@ -18,6 +17,9 @@ export const fetchArticles = createAsyncThunk(
   "news/fetchArticles",
   async (API_KEY, { rejectWithValue }) => {
     try {
+      console.log(
+        "<-------------- FETCHING DATA FROM API ------------------->"
+      );
       const { data } = await axios.get(API_KEY);
       return data;
     } catch (err) {
@@ -47,11 +49,20 @@ const newsSlice = createSlice({
       state.page = action.payload;
     },
     setAPI: (state, action) => {
-      //console.log("calling api new console:");
       state.api = action.payload;
     },
     setAPI_KEY: (state, action) => {
+      console.log("set api key called");
       state.api_key = action.payload;
+    },
+    setCommand: (state, action) => {
+      state.command = action.payload;
+    },
+    setTotalResults: (state, action) => {
+      state.totalResults = action.payload;
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -82,4 +93,7 @@ export const {
   setArticles,
   setAPI_KEY,
   setAPI,
+  setCommand,
+  setTotalResults,
+  setLoading,
 } = newsSlice.actions;

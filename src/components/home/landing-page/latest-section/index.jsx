@@ -26,7 +26,6 @@ import Newsletter from "./newsletter";
 import Skeleton from "./skeleton";
 
 const LatestNews = () => {
-  console.log("<----- Latest News ----->");
   const [articles, setArticles] = useState([]);
   function formateDate(string) {
     const date = string.slice(0, string.indexOf("T"));
@@ -34,21 +33,21 @@ const LatestNews = () => {
     return yymmdd[2] + "-" + yymmdd[1] + "-" + yymmdd[0];
   }
 
-  async function getArticles() {
-    try {
-      const response = await axios.get(
-        `https://newsapi.org/v2/top-headlines?apiKey=${process.env.REACT_APP_NEWS_API}&pageSize=12&country=us`
-      );
-      setArticles(response.data.articles);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // async function getArticles() {
+  //   try {
+  //     const response = await axios.get(
+  //       `https://newsapi.org/v2/top-headlines?apiKey=${process.env.REACT_APP_NEWS_API}&pageSize=12&country=us`
+  //     );
+  //     setArticles(response.data.articles);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  useEffect(() => {
-    // getArticles();
-    return () => {};
-  }, []);
+  // useEffect(() => {
+  //   // getArticles();
+  //   return () => {};
+  // }, []);
 
   return (
     <Container>
