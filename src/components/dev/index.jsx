@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { device } from "../../utils/device";
 //import Wave from "../../img/animated-wave.svg";
 import PJ from "../../img/developers/pj.jpg";
+import Samy from "../../img/developers/Samy.jpeg";
 import { Section } from "../../styles/containers";
 
 const Wrapper = styled(Section)`
@@ -29,8 +30,8 @@ const Dev = () => {
     github: "https://github.com/PJaheibam",
   };
   const samy = {
-    name: "Mahmudur Samy",
-    imageURL: "https://picsum.photos/200",
+    name: "Mahmudur Rahman Samy",
+    imageURL: Samy,
     intro: "UI designer",
     fb: "https://www.facebook.com/mrahmansamy",
     linkedin: "https://www.linkedin.com/in/mahmudursamy/",
