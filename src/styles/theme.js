@@ -13,11 +13,20 @@ import {
 export const dark = {
   accent: red[400],
   activeLink: neutral[300],
+  action: {
+    active: "#fff",
+    hover: "rgba(255, 255, 255, 0.08)",
+    selected: "rgba(255, 255, 255, 0.16)",
+    disabled: "rgba(255, 255, 255, 0.3)",
+    disabledBackground: "rgba(255, 255, 255, 0.12)",
+  },
   backgroundHighlight: neutral[900],
   background: {
     primary: "	hsl(0, 0%, 7%)",
     paper: "	hsl(0, 0%, 10%)",
   },
+  dark: "hsl(0, 0%, 7%)",
+  light: "hsl(0, 0%, 98%)",
   backgroundShadow: neutral[1100],
   danger: red[500],
   darkMode: true,
@@ -77,6 +86,13 @@ export const dark = {
 
 export const light = {
   accent: red[400],
+  action: {
+    active: "rgba(0, 0, 0, 0.54)",
+    hover: "rgba(0, 0, 0, 0.04)",
+    selected: "rgba(0, 0, 0, 0.08)",
+    disabled: "rgba(0, 0, 0, 0.26)",
+    disabledBackground: "rgba(0, 0, 0, 0.12)",
+  },
   activeLink: neutral[1100],
   backgroundHighlight: "rgba(255,255,255,1)",
   background: {
@@ -86,6 +102,8 @@ export const light = {
   backgroundShadow: "rgba(0,0,0,0.3)",
   danger: red[500],
   darkMode: false,
+  dark: "hsl(0, 0%, 7%)",
+  light: "hsl(0, 0%, 98%)",
   divider: "rgba(0, 0, 0, 0.12)",
   error: {
     default: red[300],

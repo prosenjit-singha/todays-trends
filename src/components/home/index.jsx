@@ -4,7 +4,7 @@ import { Container } from "../../styles/containers";
 import LandingPage from "./landing-page";
 
 const Home = () => {
-  console.log("Home Rendered!");
+  console.log("<--- Home Rendered --->");
   return (
     <>
       <Container>

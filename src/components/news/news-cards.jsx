@@ -17,9 +17,8 @@ export const Grid = styled.section`
   margin-inline: ${margin};
 `;
 
-const NewsCards = () => {
-  console.log("NewsCards Rendered!");
-  const { articles, loading } = useSelector((state) => state.news);
+const NewsCards = ({ articles, loading }) => {
+  // console.log("<========== NewsCards Rendered ========>");
   // const loading = false;
 
   // [...Array(12).keys()] will return [0, 1,2,3,4,5,6,7,8,9,10,11]

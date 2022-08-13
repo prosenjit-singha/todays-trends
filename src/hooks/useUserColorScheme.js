@@ -13,8 +13,7 @@ export default function useUserColorScheme() {
     }
   }
   useEffect(() => {
-    console.log("<--- User Color Shceme --->");
-
+    // console.log("<--- User Color Shceme --->");
     //  initial color scheme
     const isDarkModeEnabled = window.matchMedia("(prefers-color-scheme: dark)")
       .matches;

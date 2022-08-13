@@ -7,8 +7,6 @@ import PopularNews from "./popular-news";
 import NewsTemplate from "./news-template";
 
 const MostPopularSources = () => {
-  console.log("<--- News Api --->");
-
   return (
     <Container>
       <Body>

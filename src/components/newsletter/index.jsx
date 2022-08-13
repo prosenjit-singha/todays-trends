@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Header, Text, TextBox, Span } from "./styles.js";
-import Button from "../button/Button.js";
+import { Button } from "../../styles/button";
 
 const Newsletter = () => {
   function handleSubmit(e) {
@@ -14,7 +14,7 @@ const Newsletter = () => {
       </Header>
       <Text>No spam, notifications only about new products, updates.</Text>
       <TextBox type="email" placeholder="Enter Your Email Here" required />
-      <Button fontSize={1.5} borderRadius={0.4}>
+      <Button fontSize={1.5} border-radius={0.25}>
         Subscribe
       </Button>
     </Container>

@@ -17,11 +17,14 @@ import {
   setAPI_KEY,
   setActiveArticle,
   setPage,
+  setCommand,
+  setArticles,
+  setTotalResults,
+  setLoading,
 } from "../redux/features/news/news-slice";
 import useCommands from "./useCommands";
 
 const useAlan = () => {
-  console.log("useAlan newsData: ");
   const navigate = useNavigate();
   const [alan, setAlan] = useState();
   const dispatch = useDispatch();
@@ -35,21 +38,24 @@ const useAlan = () => {
           key: process.env.REACT_APP_ALAN_KEY,
           onCommand: ({ command, payload }) => {
             if (command === COMMANDS.NEWS_BY_SOURCE) {
-              console.log("<--source-->");
-              console.log("Console: ", payload);
               dispatch(setCategory("All"));
               dispatch(setCountry("All"));
               dispatch(setKeyword(""));
               dispatch(setAPI(payload.API));
-              dispatch(setAPI_KEY(payload.API));
+              dispatch(setArticles(payload.articles));
+              dispatch(setTotalResults(payload.totalResults));
+              if (payload.articles.length) dispatch(setLoading(false));
               dispatch(setPage(1));
               dispatch(setSource(payload.source.toUpperCase()));
             } else if (command === COMMANDS.NEWS_BY_TERMS) {
+              console.log(payload.articles.length);
               dispatch(setCategory("All"));
               dispatch(setCountry("All"));
               dispatch(setSource("All"));
               dispatch(setAPI(payload.API));
-              dispatch(setAPI_KEY(payload.API));
+              dispatch(setArticles(payload.articles));
+              dispatch(setTotalResults(payload.totalResults));
+              if (payload.articles.length) dispatch(setLoading(false));
               dispatch(setPage(1));
               dispatch(setKeyword(payload.keyword));
             } else if (command === COMMANDS.NEWS_BY_CATEGORY) {
@@ -57,7 +63,9 @@ const useAlan = () => {
               dispatch(setCountry("All"));
               dispatch(setKeyword(""));
               dispatch(setAPI(payload.API));
-              dispatch(setAPI_KEY(payload.API));
+              dispatch(setArticles(payload.articles));
+              dispatch(setTotalResults(payload.totalResults));
+              if (payload.articles.length) dispatch(setLoading(false));
               dispatch(setPage(1));
               dispatch(setCategory(toTitle(payload.category)));
             } else if (command === COMMANDS.HIGHLIGHT) {

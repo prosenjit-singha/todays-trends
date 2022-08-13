@@ -1,19 +1,32 @@
 import { useEffect, useCallback } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { COMMANDS } from "../utils/commands";
 import wordsToNumbers from "words-to-numbers";
 import { useLocation } from "react-router-dom";
+import {
+  setSource,
+  setCategory,
+  setKeyword,
+  setCountry,
+} from "../redux/features/filter/filter-slice";
+import {
+  setAPI,
+  setAPI_KEY,
+  setActiveArticle,
+  setPage,
+  setCommand,
+} from "../redux/features/news/news-slice";
 //not important
 // import articles from "../data/articles.json";
 
 const useCommands = (alan) => {
-  const newsData = useSelector((state) => state.news);
+  const dispatch = useDispatch();
+  const { articles, page } = useSelector((state) => state.news);
   const location = useLocation();
-  const { articles } = newsData;
 
   const openArticle = useCallback(
     ({ detail }) => {
-      const page = newsData.page;
+      const page = page;
       function getIndex(number) {
         return number - 1 - (page - 1) * 12;
       }
@@ -31,7 +44,7 @@ const useCommands = (alan) => {
       // converting string to integer
       const formatedNumber = parseInt(parsedNumber);
       const index = getIndex(formatedNumber);
-      if (location.pathname === "./news") {
+      if (location.pathname === "/news") {
         if (isValid(formatedNumber) && index <= articles.length) {
           //important line
           const article = articles[getIndex(formatedNumber)];
@@ -45,30 +58,22 @@ const useCommands = (alan) => {
         alan.playText("Go to the news page first.");
       }
     },
-    [newsData.articles, newsData.page, alan]
+    [articles, page, alan]
   );
 
   const readHeadlines = useCallback(() => {
     if (alan !== undefined) {
       //use for api
-      const { articles } = newsData;
-      const isActive = alan.isActive();
-      if (location.pathname === "./news") {
-        if (!isActive) {
-          console.log(location.pathname);
-          alan.activate();
-          alan.callProjectApi("readHeadlines", { articles });
-          alan.deactivate();
-        } else {
-          alan.callProjectApi("readHeadlines", { articles });
-          alan.deactivate();
-        }
+      if (location.pathname === "/news") {
+        console.log("Reading headlines");
+        alan.callProjectApi("readHeadlines", { articles });
       } else {
         alan.playText("Go to the news page first.");
       }
     }
-  }, [alan, newsData.articles]);
+  }, [alan, articles]);
 
+  // Hooks
   useEffect(() => {
     window.addEventListener(COMMANDS.OPEN_ARTICLE, openArticle);
     window.addEventListener(COMMANDS.READ_HEADLINES, readHeadlines);
