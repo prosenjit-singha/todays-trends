@@ -65,10 +65,10 @@ const CommandLists = () => {
       title: "Navigate page by just saying:",
       commands: [
         "Go to the (home | news | command-list | about) page",
-        "Can you go back",
+        "Go back",
         "Back",
-        "Forword",
-        "Go forword",
+        "Go forward",
+        "Go backward",
       ],
     },
   ];

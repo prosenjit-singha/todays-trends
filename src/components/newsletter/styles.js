@@ -4,7 +4,7 @@ import { margin } from "../../styles/global-constants";
 import { device } from "../../utils/device";
 
 export const Container = styled.form`
-  background-color: ${(props) => props.theme.forground};
+  background-color: ${(props) => props.theme.background.paper};
   backdrop-filter: blur(15px);
   border-radius: 0.5rem;
   padding: 1rem;
@@ -16,6 +16,7 @@ export const Container = styled.form`
 export const Header = styled.h1`
   display: inline-block;
   font-family: Inter;
+  font-weight: bold;
   font-size: 1.8rem;
   padding-block: 0.5em;
   text-transform: capitalize;
@@ -29,9 +30,9 @@ export const TextBox = styled.input`
   width: 60%;
   height: 3rem;
   border-radius: 5px;
+  color: ${(props) => props.theme.text.primary};
   border: 2px solid ${(props) => props.theme.accent};
   background-color: ${(props) => props.theme.forground};
-
   font-size: 1.3rem;
   padding: 0.25em 0.5em;
   margin-bottom: 0.8rem;

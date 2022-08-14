@@ -35,6 +35,7 @@ export const Title = styled.h2`
   text-transform: uppercase;
   font-family: Nexa;
   font-weight: bolder;
+  margin-bottom: 0.75rem;
 `;
 
 export const Text = styled.p`

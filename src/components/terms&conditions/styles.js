@@ -9,6 +9,7 @@ export const Heading = styled.h1`
 export const Title = styled.h2`
   text-align: left;
   text-transform: uppercase;
+  margin-bottom: 0.75rem;
 `;
 export const Text = styled.p`
   text-align: justify;

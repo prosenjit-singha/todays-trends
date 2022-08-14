@@ -35,6 +35,8 @@ export const Block = styled.div`
 export const Title = styled.h1`
   color: ${red[400]};
   text-align: Left;
+  font-family: Inter;
+  font-weight: bold;
   margin-bottom: 0.15em;
   background-image: ${redG};
   -webkit-background-clip: text;
@@ -42,7 +44,7 @@ export const Title = styled.h1`
   text-transform: capitalize;
 `;
 
-export const Headline = styled.h3`
+export const Headline = styled.h4`
   margin-block: 0.15em;
 `;
 

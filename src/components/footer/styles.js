@@ -91,15 +91,15 @@ export const FollowUs = styled.div`
   }
 `;
 
-export const Rights = styled.span`
-  display: flex;
-  justify-content: center;
+export const Rights = styled.p`
   grid-row: 4/5;
+  font-family: Poppins;
   text-align: center;
-  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  padding: 0 1rem;
+  margin-top: 1rem;
   background-color: ${(props) => props.theme.forground};
-  padding-bottom: 1rem;
-  font-weight: lighter;
+  font-weight: 400;
   color: ${(props) => props.theme.text};
   @media ${device.tabletM} {
     grid-row: 3/-1;
