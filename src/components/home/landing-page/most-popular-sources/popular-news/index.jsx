@@ -1,6 +1,7 @@
 import React from "react";
 import { CgCalendarDates as CalIcon } from "react-icons/cg";
 import { useSelector } from "react-redux";
+import { formatDate } from "../../../../../utils/functions";
 import {
   Container,
   ImageContainer,
@@ -22,11 +23,6 @@ const Articles = ({ articles, loading }) => {
     else return "https://source.unsplash.com/300x300";
   }
 
-  function formatDate(string) {
-    const date = string.slice(0, string.indexOf("T"));
-    const yymmdd = date.split("-");
-    return yymmdd[2] + "-" + yymmdd[1] + "-" + yymmdd[0];
-  }
   if (!loading && articles.length !== 0) {
     return articles.slice(0, 4).map((article, i) => (
       <Item key={i}>
@@ -50,7 +46,7 @@ const Articles = ({ articles, loading }) => {
   }
 };
 const PopularNews = () => {
-  const { articles, loading } = useSelector((state) => state.news);
+  const { articles, loading } = useSelector((state) => state.popularNews);
   // const loading = false;
   return (
     <Container>

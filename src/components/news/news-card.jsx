@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createRef } from "react";
 import { useSelector } from "react-redux";
-import { formateDate } from "../../utils/functions";
+import { formatDate } from "../../utils/functions";
 
 import {
   CardContainer,
@@ -66,7 +66,7 @@ const NewsCard = ({
           <Image image={urlToImage} index={getIndex(index)} />
           <Content>
             <Source>{source.name} </Source>
-            <Date>{formateDate(publishedAt)} </Date>
+            <Date>{formatDate(publishedAt)} </Date>
             <Title>{title}</Title>
             <Desc>{description}</Desc>
           </Content>

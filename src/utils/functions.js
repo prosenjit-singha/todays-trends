@@ -46,7 +46,7 @@ export const isTouchDevice = () => {
   return window.matchMedia("(pointer: coarse)").matches;
 };
 
-export function formateDate(string) {
+export function formatDate(string) {
   const date = string.slice(0, string.indexOf("T"));
   const yymmdd = date.split("-");
   return yymmdd[2] + "-" + yymmdd[1] + "-" + yymmdd[0];

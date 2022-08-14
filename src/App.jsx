@@ -31,6 +31,8 @@ import { fetchHealthArticles } from "./redux/features/news/health-slice";
 import { fetchABCNews } from "./redux/features/news/abc-slice";
 import { fetchBBCNews } from "./redux/features/news/bbc-slice";
 import { fetchCNNNews } from "./redux/features/news/cnn-slice";
+import { fetchLatestNews } from "./redux/features/news/latest-news-slice";
+import { fetchPopularNews } from "./redux/features/news/popular-news";
 
 const App = () => {
   console.log("<-------APP rendered------->");
@@ -43,6 +45,7 @@ const App = () => {
 
   // landing page required fetch api calls
   useEffect(() => {
+    console.log("<============ News Fetching ============>");
     // dispatch(fetchTechArticles());
     // dispatch(fetchBusinessArticles());
     // dispatch(fetchScienceArticles());
@@ -50,6 +53,8 @@ const App = () => {
     // dispatch(fetchABCNews());
     // dispatch(fetchBBCNews());
     // dispatch(fetchCNNNews());
+    // dispatch(fetchLatestNews());
+    // dispatch(fetchPopularNews());
   }, []);
 
   return (

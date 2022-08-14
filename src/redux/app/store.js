@@ -8,6 +8,8 @@ import healthReducer from "../features/news/health-slice";
 import abcReducer from "../features/news/abc-slice";
 import bbcReducer from "../features/news/bbc-slice";
 import cnnReducer from "../features/news/cnn-slice";
+import latestNewsReducer from "../features/news/latest-news-slice";
+import popularNewsReducer from "../features/news/popular-news";
 
 const store = configureStore({
   reducer: {
@@ -20,6 +22,8 @@ const store = configureStore({
     abcNews: abcReducer,
     bbcNews: bbcReducer,
     cnnNews: cnnReducer,
+    latestNews: latestNewsReducer,
+    popularNews: popularNewsReducer,
   },
 });
 

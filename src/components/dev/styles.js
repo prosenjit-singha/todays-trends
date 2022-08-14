@@ -51,7 +51,7 @@ export const Content = styled.div`
   bottom: 8%;
   width: 100%;
   padding-inline: 1rem;
-  height: 67px;
+  height: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
