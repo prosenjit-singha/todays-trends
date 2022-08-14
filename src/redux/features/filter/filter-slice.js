@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   country: {
     id: "country",
-    selected: "All",
+    selected: "United States",
     getString: "&country=us",
     list: {
       All: "all",
@@ -134,5 +134,10 @@ const filterSlice = createSlice({
 });
 
 export default filterSlice.reducer;
-export const { setCountry, setCategory, setSource, setKeyword, setPage } =
-  filterSlice.actions;
+export const {
+  setCountry,
+  setCategory,
+  setSource,
+  setKeyword,
+  setPage,
+} = filterSlice.actions;
