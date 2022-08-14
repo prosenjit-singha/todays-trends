@@ -16,8 +16,11 @@ import {
 } from "./styles";
 import ThemeSwitch from "./theme-switch";
 import { red } from "@mui/material/colors";
+import { set } from "lodash";
 
 const NavBar = ({ darkMode, setDarkMode }) => {
+  // checks if the current location is nav link item or not
+  console.log("<--------------- Navbar Rendered --------------->");
   const activeRef = useRef();
   const menuRefs = useRef([]);
   const { pathname } = useLocation();
@@ -34,12 +37,19 @@ const NavBar = ({ darkMode, setDarkMode }) => {
   const tabletM = useBreakpoint(991);
   const { width: windowWidth } = useWindowSize();
 
+  const [activeOp, setActiveOp] = useState(true);
+  const isItNavLink = () => {
+    const navLinks = ["/", "/news", "/command-list", "/about"];
+    return navLinks.includes(pathname);
+  };
   //styling-start
   const menuStyles = useSpring({
     maxHeight: openMenu ? menuHeight : 0,
   });
 
+  // desktop active link indicator
   const activeEffect = useSpring({
+    opacity: activeOp ? 1 : 0,
     background: hoverLocation.bgColor,
     left: hoverLocation.left,
     width: hoverLocation.width,
@@ -47,7 +57,7 @@ const NavBar = ({ darkMode, setDarkMode }) => {
   });
 
   const mobileActiveEffect = useSpring({
-    opacity: openMenu ? 1 : 0,
+    opacity: activeOp && openMenu ? 1 : 0,
     background: hoverLocation.bgColor,
     left: 10,
     top: hoverLocation.top,
@@ -57,6 +67,8 @@ const NavBar = ({ darkMode, setDarkMode }) => {
   });
 
   //styling-end
+
+  //  functions
   const handleMouseEnter = (e) => {
     const {
       offsetTop,
@@ -71,6 +83,7 @@ const NavBar = ({ darkMode, setDarkMode }) => {
       left: offsetLeft,
       top: offsetTop,
     });
+    setActiveOp(true);
   };
   const handleMouseLeave = () => {
     const {
@@ -87,7 +100,10 @@ const NavBar = ({ darkMode, setDarkMode }) => {
       height: offsetHeight,
       width: offsetWidth,
     });
+    if (!isItNavLink()) setActiveOp(false);
   };
+
+  // hooks
   useEffect(() => {
     let i = 0;
     if (pathname === "/") i = 0;
@@ -115,6 +131,10 @@ const NavBar = ({ darkMode, setDarkMode }) => {
       width: offsetWidth,
       height: offsetHeight,
     });
+    if (activeOp !== isItNavLink()) {
+      console.log("Setting activeOp");
+      setActiveOp(isItNavLink());
+    }
   }, [pathname, windowWidth]);
 
   return (
