@@ -64,20 +64,20 @@ const About = () => {
             <IconContainer>
               <Icon src={community} alt="community" />
             </IconContainer>
-            <ItemTitle>WE ARE A TRUSTED MEMBER OF THE COMMUNITY</ItemTitle>
+            <ItemTitle>WE WORK FOR THE BEST OF THE COMMUNITY</ItemTitle>
             <Text>
-              We are an established member of the community, and a trusted
-              channel for local businesses.
+              We want people belong to our community get the best experience on reading
+              a newspaper. 
             </Text>
           </Item>
           <Item>
             <IconContainer>
               <Icon src={growth} alt="growth" />
             </IconContainer>
-            <ItemTitle>WE HELP LOCAL BUSINESSES SUCCEED</ItemTitle>
+            <ItemTitle>WE HELP GIVING AWAY KNOWLEDGE</ItemTitle>
             <Text>
-              We have the solutions and the people to take your business to the
-              next level
+              We want people to gain knowledge through our app, and use the knowledge in 
+              their life.
             </Text>
           </Item>
           <Item>
@@ -85,21 +85,21 @@ const About = () => {
               <Icon src={network} alt="network data" />
             </IconContainer>
             <ItemTitle>
-              WE ARE A MASSIVE AUDIENCE NETWORK & POWERFUL DATA
+              WE WORK FOR ACCURACY
             </ItemTitle>
             <Text>
-              We have exclusive access to the Postmedia Network and powerful
-              data insights for better performance.
+              We want people to get the accurate news everyday in order to follow the 
+              trends.
             </Text>
           </Item>
           <Item>
             <IconContainer>
               <Icon src={client} alt="hand shake" />
             </IconContainer>
-            <ItemTitle>WE PROVIDE A BETTER CLIENT EXPERIENCE</ItemTitle>
+            <ItemTitle>WE PROVIDE A BETTER USER INTERFACE</ItemTitle>
             <Text>
-              We offer dedicated account management & unparalleled performance
-              transparency.
+              Our app has the better interface than other newspaper, and our app is easy
+              to use.
             </Text>
           </Item>
         </Grid>
@@ -108,15 +108,11 @@ const About = () => {
         <Flex>
           <Image src={NewsPaper} alt="reading newspaper" />
           <Content style={{ margin: 0 }}>
-            <FooterTitle>Talented Experts</FooterTitle>
+            <FooterTitle>Reliable Sources</FooterTitle>
             <FooterText>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et culpa
-              incidunt repellat natus dolorum maiores accusantium. Fugiat nobis
-              repellat sunt cupiditate aliquam. Maxime magnam eius quis vel
-              ipsam et non a, modi harum porro odit culpa, nihil iure deserunt
-              nam. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Eius commodi veritatis inventore quisquam voluptas eveniet
-              accusantium, veniam suscipit dolore. Dolorum!
+              We bring you the best news from the best sources. We prioritize the accuracy
+              more than the quantity of the news. In order to make this happen, we bring 
+              you the news from the most reliable sources, sources that you can trust.
             </FooterText>
           </Content>
         </Flex>
