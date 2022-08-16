@@ -1,7 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import { blue } from "../../../../../utils/colors";
+import React, { useState, useCallback, useRef, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import styled, { useTheme } from "styled-components";
+import { BsCheck2Circle as Tik } from "react-icons/bs";
+import { blue } from "@mui/material/colors";
 import GradientButton from "../../../../button/gradient-button";
+import Modal from "../../../../newsletter-modal";
+import {
+  setEmail,
+  setSubscribed,
+} from "../../../../../redux/features/subscribe/sub-slice";
 
 const Container = styled.form`
   width: 100%;
@@ -46,16 +53,60 @@ const Input = styled.input`
 `;
 
 const Newsletter = () => {
+  const [open, setOpen] = useState(false);
+  const theme = useTheme();
+  const dispatch = useDispatch();
+  const { email, subscribed } = useSelector((state) => state.subscriber);
+  console.log("sub: ", subscribed);
+  const inputRef = useRef();
+  const subsRef = useRef();
+
   const btnStyle = {
     padding: "0.5rem 1rem",
     fontSize: "1.25rem",
     width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "0.5rem",
   };
 
   function handleSubmit(e) {
     e.preventDefault();
-    alert("Successfully subscribed!");
+    inputRef.current.blur();
+    inputRef.current.disabled = true;
+    inputRef.current.style.userSelect = "none";
+    inputRef.current.style.pointerEvents = "none";
+    inputRef.current.style.color = theme.darkMode
+      ? "rgba(255,255,255,0.25)"
+      : "rgba(0,0,0,0.25)";
+    subsRef.current.disabled = true;
+    subsRef.current.style.userSelect = "none";
+    subsRef.current.style.pointerEvents = "none";
+    setOpen(true);
+    dispatch(setEmail(inputRef.current.value));
+    dispatch(setSubscribed(true));
   }
+
+  const handleClose = useCallback(() => {
+    setOpen(false);
+  }, []);
+
+  useEffect(() => {
+    if (email !== null) {
+      inputRef.current.value = email;
+      inputRef.current.blur();
+      inputRef.current.disabled = true;
+      inputRef.current.style.userSelect = "none";
+      inputRef.current.style.pointerEvents = "none";
+      inputRef.current.style.color = theme.darkMode
+        ? "rgba(255,255,255,0.25)"
+        : "rgba(0,0,0,0.25)";
+      subsRef.current.disabled = true;
+      subsRef.current.style.userSelect = "none";
+      subsRef.current.style.pointerEvents = "none";
+    }
+  }, [subscribed]);
 
   return (
     <Container onSubmit={handleSubmit}>
@@ -63,10 +114,17 @@ const Newsletter = () => {
       <SubTitle>
         No spam, notifications only about latest news & updates.
       </SubTitle>
-      <Input type="email" required placeholder="...@exampl.com" />
-      <GradientButton style={btnStyle} type="submit">
-        Subscribe Now
+      <Input
+        ref={inputRef}
+        type="email"
+        required
+        placeholder="...@exampl.com"
+      />
+      <GradientButton ref={subsRef} style={btnStyle} type="submit">
+        {subscribed ? "Subscribed" : "Subscribe Now"}
+        {subscribed && <Tik />}
       </GradientButton>
+      <Modal open={open} handleClose={handleClose} />
     </Container>
   );
 };

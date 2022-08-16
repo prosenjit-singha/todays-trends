@@ -24,43 +24,52 @@ const Button = styled.button`
   }
 `;
 
-const GradientButton = ({
-  color = "red",
-  children,
-  handleClick,
-  style,
-  type = "button",
-  data,
-}) => {
-  const red = `linear-gradient(to right, hsl(10, 100%, 59%) 0%, hsl(333, 73%, 50%) 51%, hsl(10, 100%, 59%) 100%
+const GradientButton = React.forwardRef(
+  (
+    { color = "red", children, handleClick, style, type = "button", data },
+    ref
+  ) => {
+    const red = `linear-gradient(to right, hsl(10, 100%, 59%) 0%, hsl(333, 73%, 50%) 51%, hsl(10, 100%, 59%) 100%
       )`;
-  const blue = `linear-gradient(to right, hsl(230, 68%, 60%) 0%, hsl(260, 82%, 62%) 51%, hsl(230, 68%, 60%) 100%
+    const blue = `linear-gradient(to right, hsl(230, 68%, 60%) 0%, hsl(260, 82%, 62%) 51%, hsl(230, 68%, 60%) 100%
     )`;
-  const cyan = `linear-gradient(to right, 	hsl(205, 100%, 56%) 0%, 	hsl(189, 96%, 53%) 51%, 	hsl(205, 100%, 56%)100%
+    const cyan = `linear-gradient(to right, 	hsl(205, 100%, 56%) 0%, 	hsl(189, 96%, 53%) 51%, 	hsl(205, 100%, 56%)100%
     )`;
 
-  let bgColor;
-  switch (color) {
-    case "red":
-      bgColor = red;
-      break;
-    case "blue":
-      bgColor = blue;
-      break;
-    case "cyan":
-      bgColor = cyan;
-      break;
-    default:
-      bgColor = red;
-      break;
-  }
+    let bgColor;
+    switch (color) {
+      case "red":
+        bgColor = red;
+        break;
+      case "blue":
+        bgColor = blue;
+        break;
+      case "cyan":
+        bgColor = cyan;
+        break;
+      default:
+        bgColor = red;
+        break;
+    }
 
-  if (data !== undefined && data.to === "a")
+    if (data !== undefined && data.to === "a")
+      return (
+        <Button
+          ref={ref}
+          as={data.to}
+          href={data.url}
+          target={data.target}
+          color={bgColor}
+          onClick={handleClick}
+          style={style}
+          type={type}
+        >
+          {children}
+        </Button>
+      );
     return (
       <Button
-        as={data.to}
-        href={data.url}
-        target={data.target}
+        ref={ref}
         color={bgColor}
         onClick={handleClick}
         style={style}
@@ -69,11 +78,7 @@ const GradientButton = ({
         {children}
       </Button>
     );
-  return (
-    <Button color={bgColor} onClick={handleClick} style={style} type={type}>
-      {children}
-    </Button>
-  );
-};
+  }
+);
 
 export default GradientButton;

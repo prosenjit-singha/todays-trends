@@ -41,7 +41,8 @@ const App = () => {
   const { darkMode, setDarkMode } = useUserColorScheme();
   const { api_key } = useSelector((state) => state.news);
   //hooks
-  useAlan();
+
+  // useAlan();
 
   // landing page required fetch api calls
   useEffect(() => {

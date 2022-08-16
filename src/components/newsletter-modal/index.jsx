@@ -5,9 +5,9 @@ import { Snackbar, Alert } from "@mui/material";
 const Modal = ({ open, handleClose }) => {
   return (
     <Snackbar
-      anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       open={open}
-      autoHideDuration={5000}
+      // autoHideDuration={5000}
       onClose={handleClose}
     >
       <Alert

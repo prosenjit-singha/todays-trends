@@ -10,6 +10,7 @@ import bbcReducer from "../features/news/bbc-slice";
 import cnnReducer from "../features/news/cnn-slice";
 import latestNewsReducer from "../features/news/latest-news-slice";
 import popularNewsReducer from "../features/news/popular-news";
+import subscriberReducer from "../features/subscribe/sub-slice";
 
 const store = configureStore({
   reducer: {
@@ -24,6 +25,7 @@ const store = configureStore({
     cnnNews: cnnReducer,
     latestNews: latestNewsReducer,
     popularNews: popularNewsReducer,
+    subscriber: subscriberReducer,
   },
 });
 
