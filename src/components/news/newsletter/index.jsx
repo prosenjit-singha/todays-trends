@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Header, Text, TextBox, Span } from "./styles.js";
-import { Button } from "../../styles/button";
+import { Button } from "../../../styles/button";
 
 const Newsletter = () => {
   function handleSubmit(e) {

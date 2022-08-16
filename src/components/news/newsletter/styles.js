@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { purple } from "@mui/material/colors";
-import { margin } from "../../styles/global-constants";
-import { device } from "../../utils/device";
+import { margin } from "../../../styles/global-constants";
+import { device } from "../../../utils/device";
 
 export const Container = styled.form`
   background-color: ${(props) => props.theme.background.paper};

@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import NewsCards from "./news-cards";
 import Filter from "./filter";
 import Pages from "./pages";
-import Newsletter from "../newsletter";
+import Newsletter from "./newsletter";
 import PagesSkeleton from "./pages-skeleton";
 
 // importing styles
