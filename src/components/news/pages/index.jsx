@@ -5,9 +5,9 @@ import { setPage, setAPI_KEY } from "../../../redux/features/news/news-slice";
 
 import { Container } from "./styles";
 
-// const Pages = ({ totalResults }) => {
-const Pages = () => {
-  const totalResults = 100;
+const Pages = ({ totalResults }) => {
+  // const Pages = () => {
+  //   const totalResults = 100;
   //consts
   const api = useSelector((state) => state.news.api);
   const dispatch = useDispatch();

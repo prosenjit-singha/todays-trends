@@ -29,7 +29,7 @@ const useAlan = () => {
   const [alan, setAlan] = useState();
   const dispatch = useDispatch();
 
-  // useCommands(alan);
+  useCommands(alan);
   useEffect(() => {
     if (alan !== undefined) return;
     else {

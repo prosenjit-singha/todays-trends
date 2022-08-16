@@ -23,9 +23,10 @@ const Icon = ({ mode }) => {
   );
 };
 
-const ThemeSwitch = ({ setDarkMode }) => {
+const ThemeSwitch = ({ darkMode, setDarkMode }) => {
   const theme = useTheme();
   const handleClick = () => {
+    localStorage.setItem("theme", darkMode ? "light" : "dark");
     setDarkMode((prev) => !prev);
   };
   return (

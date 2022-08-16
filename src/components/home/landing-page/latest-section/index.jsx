@@ -27,7 +27,7 @@ import Newsletter from "./newsletter";
 import Skeleton from "./skeleton";
 
 const LatestNews = () => {
-  const { articles, loading } = useSelector((state) => state.latestNews);
+  const { articles, loading } = useSelector((state) => state.news);
 
   return (
     <Container>
@@ -39,7 +39,7 @@ const LatestNews = () => {
           <Skeleton />
         ) : (
           <Main>
-            {articles.map((article, index) => (
+            {articles.slice(0, 4).map((article, index) => (
               <Item key={index}>
                 <ImageContainer>
                   <Image src={article.urlToImage} />

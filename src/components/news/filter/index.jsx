@@ -92,6 +92,7 @@ const Filter = () => {
   }, [data.keyword]);
 
   const handleSearch = () => {
+    console.log("handle search clicked");
     dispatch(setCountry(tempCountry.selected));
     dispatch(setCategory(tempCategory.selected));
     dispatch(setSource(tempSource.selected));
@@ -105,9 +106,9 @@ const Filter = () => {
       keyword: getString(tempKeyword),
     };
     dispatch(setAPI(getAPI(params)));
-    dispatch(setAPI_KEY(getAPI(params)));
-    localStorage.setItem("API", getAPI(params));
-    localStorage.setItem("API_KEY", getAPI(params));
+    dispatch(setAPI_KEY(getAPI(params) + "&page=1"));
+    // localStorage.setItem("API", getAPI(params));
+    // localStorage.setItem("API_KEY", getAPI(params));
     //dispatch(fetchArticles(getAPI(params)));
     //handleAPI();
   };

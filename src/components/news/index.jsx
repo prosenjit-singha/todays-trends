@@ -1,8 +1,8 @@
-import React, { useEffect, useCallback } from "react";
+import React from "react";
 // import articles from "../../data/articles.json";
 
 // importing react hooks
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 // importing components
 import NewsCards from "./news-cards";
@@ -14,21 +14,11 @@ import PagesSkeleton from "./pages-skeleton";
 // importing styles
 import { Container } from "../../styles/containers";
 
-// actions
-import { fetchArticles } from "../../redux/features/news/news-slice";
-
 const News = () => {
   // console.log("<======== News rendered ==========>");
-  const dispatch = useDispatch();
-  const { articles, api_key, loading, totalResults } = useSelector(
+  const { articles, loading, totalResults } = useSelector(
     (state) => state.news
   );
-
-  useEffect(() => {
-    console.log("Fetching will called....");
-    console.log("API_KEY: ", api_key);
-    // dispatch(fetchArticles(api_key));
-  }, [api_key]);
 
   return (
     <Container>

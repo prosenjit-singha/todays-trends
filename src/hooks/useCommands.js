@@ -26,7 +26,6 @@ const useCommands = (alan) => {
 
   const openArticle = useCallback(
     ({ detail }) => {
-      const page = page;
       function getIndex(number) {
         return number - 1 - (page - 1) * 12;
       }
@@ -34,6 +33,8 @@ const useCommands = (alan) => {
       function isValid(number) {
         const startIndex = (page - 1) * 12;
         const endIndex = 1 + page * 12;
+        console.log("number: ", number);
+        console.log("page:", page);
         if (startIndex < number && number < endIndex) return true;
         else return false;
       }

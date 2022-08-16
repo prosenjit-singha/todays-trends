@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Navigate, Routes, Route } from "react-router-dom";
 import useAlan from "./hooks/useAlan";
 import "../node_modules/aos/dist/aos.css";
@@ -37,9 +37,9 @@ import { fetchPopularNews } from "./redux/features/news/popular-news";
 const App = () => {
   console.log("<-------APP rendered------->");
   //<<<<<<<<<<<<<< Const >>>>>>>>>>>>>>>
-  // const [darkMode, setDarkMode] = useState(false);
   const dispatch = useDispatch();
   const { darkMode, setDarkMode } = useUserColorScheme();
+  const { api_key } = useSelector((state) => state.news);
   //hooks
   useAlan();
 
@@ -53,9 +53,14 @@ const App = () => {
     // dispatch(fetchABCNews());
     // dispatch(fetchBBCNews());
     // dispatch(fetchCNNNews());
-    // dispatch(fetchLatestNews());
+    // dispatch(fetchLatestNews()); do not call this leave it as a comment
     // dispatch(fetchPopularNews());
   }, []);
+
+  useEffect(() => {
+    console.log("API_KEY: ", api_key);
+    // dispatch(fetchArticles(api_key));
+  }, [api_key]);
 
   return (
     <React.Fragment>
