@@ -39,6 +39,7 @@ export const Button = styled(animated.button)`
   height: fit-content;
   margin-block: 0.5rem;
   padding: 0.25em 0.5em;
+  border-radius: 0.25rem;
   border-radius: ${(props) => convertInRem(props.border_radius)};
   display: flex;
   justify-content: center;
@@ -65,7 +66,6 @@ export const Button = styled(animated.button)`
         ? props.theme.forgroundShadow
         : red[400]};
     border: none;
-    border-radius: 0.25rem;
     transition: color 400ms ease;
     &::before {
       content: "";

@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback } from "react";
+// import articles from "../../data/articles.json";
 
 // importing react hooks
 import { useSelector, useDispatch } from "react-redux";
@@ -16,47 +17,15 @@ import { Container } from "../../styles/containers";
 // actions
 import { fetchArticles } from "../../redux/features/news/news-slice";
 
-const News = ({ alan }) => {
+const News = () => {
   // console.log("<======== News rendered ==========>");
   const dispatch = useDispatch();
-  const { articles, api, api_key, loading, totalResults } = useSelector(
+  const { articles, api_key, loading, totalResults } = useSelector(
     (state) => state.news
   );
 
-  // const updateData = useCallback(() => {
-  //   console.log("<=============== Updating Data To Alan Api ==========>");
-  //   if (alan !== undefined) {
-  //     const isActive = alan.isActive();
-  //     if (!isActive) {
-  //       alan.activate();
-  //       alan.callProjectApi("updateData", {
-  //         articles,
-  //         activeArticle,
-  //         page,
-  //         totalResults,
-  //         command,
-  //         error,
-  //       });
-  //       alan.deactivate();
-  //     } else {
-  //       alan.callProjectApi("updateData", {
-  //         articles,
-  //         activeArticle,
-  //         page,
-  //         totalResults,
-  //         command,
-  //         error,
-  //       });
-  //     }
-  //   }
-  // }, [articles]);
-
-  // useEffect(() => {
-  //   updateData();
-  // }, [articles]);
-
   useEffect(() => {
-    console.log("API: ", api);
+    console.log("Fetching will called....");
     console.log("API_KEY: ", api_key);
     // dispatch(fetchArticles(api_key));
   }, [api_key]);

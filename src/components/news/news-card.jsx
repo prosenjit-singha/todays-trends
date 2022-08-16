@@ -1,6 +1,9 @@
 import React, { useState, useEffect, createRef } from "react";
 import { useSelector } from "react-redux";
 import { formatDate } from "../../utils/functions";
+import { Button } from "../../styles/button";
+import styled from "styled-components";
+import { device } from "../../utils/device";
 
 import {
   CardContainer,
@@ -13,12 +16,23 @@ import {
   ContentWrapper,
   Content,
   BottomBlock,
-  ReadMore,
+  // ReadMore,
   Accuracy,
   Tooltip,
 } from "../../styles/card-styles";
 import wave from "../../img/animated-wave.svg";
 import Progress from "./progress";
+
+const ReadMore = styled(Button)`
+  &:hover {
+    color: ${(props) => props.theme.accent};
+  }
+  @media ${device.laptop} {
+    &:hover {
+      color: ${(props) => props.theme.light};
+    }
+  }
+`;
 
 const NewsCard = ({
   article: { description, publishedAt, source, title, url, urlToImage },
@@ -77,7 +91,7 @@ const NewsCard = ({
           ) : (
             ""
           )}
-          <ReadMore href={url} target="_blank">
+          <ReadMore as="a" href={url} target="_blank">
             Read More
           </ReadMore>
           <Tooltip style={{ display: showTip ? "block" : "none" }}>

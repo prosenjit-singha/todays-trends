@@ -41,7 +41,7 @@ const App = () => {
   const dispatch = useDispatch();
   const { darkMode, setDarkMode } = useUserColorScheme();
   //hooks
-  const alan = useAlan();
+  useAlan();
 
   // landing page required fetch api calls
   useEffect(() => {

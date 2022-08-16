@@ -171,9 +171,7 @@ const NavBar = ({ darkMode, setDarkMode }) => {
             ref={activeRef}
             style={tabletM ? mobileActiveEffect : activeEffect}
           />
-          {!tabletM && (
-            <ThemeSwitch darkMode={darkMode} setDarkMode={setDarkMode} />
-          )}
+          {!tabletM && <ThemeSwitch setDarkMode={setDarkMode} />}
         </MenuList>
       </Nav>
     </Header>

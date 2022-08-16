@@ -177,10 +177,12 @@ export const BottomBlock = styled.div`
   border-top: 1px solid ${(props) => props.theme.forgroundShadow};
   background-color: ${(props) => props.theme.forground};
   bottom: 0rem;
+  z-index: 2;
 `;
 
 export const Accuracy = styled.span`
   margin-left: auto;
+  color: ${(props) => props.theme.text.secondary};
   font-size: 1rem;
   font-weight: bold;
   text-align: right;
