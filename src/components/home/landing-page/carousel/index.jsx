@@ -4,7 +4,7 @@ import { ImageContainer, Image, Title, Subtitle, Caption } from "./styles";
 import "bootstrap/dist/css/bootstrap.min.css";
 // importing images
 import picture1 from "../../../../img/hero/hero-5.jpg";
-import picture2 from "../../../../img/hero/hero-8.jpg";
+import picture2 from "../../../../img/hero/hero-12.jpg";
 import picture3 from "../../../../img/hero/hero-10.jpg";
 
 export default function ControlledCarousel() {

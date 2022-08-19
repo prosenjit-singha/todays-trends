@@ -22,7 +22,8 @@ const Hamburger = ({ openMenu, toggleMenu, darkMode, setDarkMode }) => {
 
   return (
     <HamburgerContainer>
-      <ThemeSwitch darkMode={darkMode} setDarkMode={setDarkMode} />
+      {/* for mobile */}
+      {/* <ThemeSwitch darkMode={darkMode} setDarkMode={setDarkMode} /> */}
       <HB onClick={() => toggleMenu(!openMenu)}>
         <Line style={firstLine} />
         <Line style={secondLine} />

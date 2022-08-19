@@ -37,6 +37,7 @@ export const Nav = styled(animated.nav)`
   grid-row: 2/-1;
   width: 100%;
   height: 100%;
+  margin-block: auto;
   @media ${device.laptop} {
     position: relative;
     display: flex;

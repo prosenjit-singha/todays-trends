@@ -166,14 +166,15 @@ const NavBar = ({ darkMode, setDarkMode }) => {
               </MenuLink>
             </MenuListItem>
           ))}
-
           <ActiveLinkEffect
             ref={activeRef}
             style={tabletM ? mobileActiveEffect : activeEffect}
           />
-          {!tabletM && (
+          <ThemeSwitch darkMode={darkMode} setDarkMode={setDarkMode} />
+          {/* for desktop  */}
+          {/* {!tabletM && (
             <ThemeSwitch darkMode={darkMode} setDarkMode={setDarkMode} />
-          )}
+          )} */}
         </MenuList>
       </Nav>
     </Header>

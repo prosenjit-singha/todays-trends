@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 // import { redG } from "../../utils/gradient-colors";
-import FavIcon from "../../img/icons/favicon-2.png";
+import FavIcon from "../../img/icons/favicon.png";
 
 export const Hero = styled(Link)`
   font-family: Staatliches;

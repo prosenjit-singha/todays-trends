@@ -17,6 +17,8 @@ export const Image = styled.img`
 
 export const Title = styled.h1`
   font-family: Nexa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   font-weight: bold;
   font-size: 3rem;
 `;
