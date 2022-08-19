@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 // import { redG } from "../../utils/gradient-colors";
+import FavIcon from "../../img/icons/favicon-2.png";
 
 export const Hero = styled(Link)`
   font-family: Staatliches;
@@ -17,6 +18,8 @@ export const Hero = styled(Link)`
   padding-left: 1em;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
   transition: color 500ms ease;
   background-image: linear-gradient(
     to right,
@@ -40,6 +43,11 @@ const Logo = ({ toggleMenu }) => {
       onClick={() => toggleMenu(false)}
       text={"Today's Trends"}
     >
+      <img
+        src={FavIcon}
+        alt="logo"
+        style={{ width: "3.5rem", marginRight: "0.5rem" }}
+      />
       Today's Trends
     </Hero>
   );

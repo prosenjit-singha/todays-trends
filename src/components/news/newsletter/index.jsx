@@ -54,6 +54,7 @@ const Newsletter = () => {
       inputRef.current.disabled = true;
       inputRef.current.style.userSelect = "none";
       inputRef.current.style.pointerEvents = "none";
+      inputRef.current.style.border = `2px solid ${theme.success.default}`;
       inputRef.current.style.color = theme.darkMode
         ? "rgba(255,255,255,0.25)"
         : "rgba(0,0,0,0.25)";

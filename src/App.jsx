@@ -42,7 +42,7 @@ const App = () => {
   const { api_key } = useSelector((state) => state.news);
   //hooks
 
-  // useAlan();
+  useAlan();
 
   // landing page required fetch api calls
   useEffect(() => {
@@ -54,8 +54,8 @@ const App = () => {
     // dispatch(fetchABCNews());
     // dispatch(fetchBBCNews());
     // dispatch(fetchCNNNews());
-    // dispatch(fetchLatestNews()); do not call this leave it as a comment
     // dispatch(fetchPopularNews());
+    // dispatch(fetchLatestNews()); do not call this leave it as a comment
   }, []);
 
   useEffect(() => {

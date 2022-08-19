@@ -22,10 +22,10 @@ const Footer = () => {
         <BriefAbout>
           <Logo />
           <TextBox>
-            Today's Trends was built for people to follow everyday's trends. To make it 
-            more interesting, the voice search was added as some of us get bored easily 
-            when reading anything. So, Today's Trends is for everyone who want to know 
-            what's happening around the world.
+            Today's Trends was built for people to follow everyday's trends. To
+            make it more interesting, the voice search was added as some of us
+            get bored easily when reading anything. So, Today's Trends is for
+            everyone who want to know what's happening around the world.
           </TextBox>
           <Hr />
         </BriefAbout>
