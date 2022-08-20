@@ -86,6 +86,7 @@ const initialState = {
       All: "all",
       "BBC NEWS": "bbc-news",
       CNN: "cnn",
+      "ABC NEWS": "abc-news",
     },
   },
   keyword: {
