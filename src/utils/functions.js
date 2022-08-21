@@ -6,11 +6,9 @@ const logic = (keyword, selected, source) => {
 
 export const getAPI = (params) => {
   const { country, source, keyword, category } = params;
-  const API_KEY = `https://newsapi.org/v2/${keyword}apiKey=daeddbe4bc074bf48d19a82ff073c046&pageSize=12${logic(
-    keyword,
-    country,
-    source
-  )}${category}${source}`;
+  const API_KEY = `https://newsapi.org/v2/${keyword}apiKey=${
+    process.env.REACT_APP_NEWS_API
+  }&pageSize=12${logic(keyword, country, source)}${category}${source}`;
 
   return API_KEY;
 };

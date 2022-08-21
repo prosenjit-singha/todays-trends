@@ -51,7 +51,7 @@ const App = () => {
     // dispatch(fetchBusinessArticles());
     // dispatch(fetchScienceArticles());
     // dispatch(fetchHealthArticles());
-    // dispatch(fetchABCNews());
+    dispatch(fetchABCNews());
     // dispatch(fetchBBCNews());
     // dispatch(fetchCNNNews());
     // dispatch(fetchPopularNews());
@@ -60,7 +60,7 @@ const App = () => {
 
   useEffect(() => {
     console.log("API_KEY: ", api_key);
-    // dispatch(fetchArticles(api_key));
+    dispatch(fetchArticles(api_key));
   }, [api_key]);
 
   return (

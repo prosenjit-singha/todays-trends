@@ -25,7 +25,7 @@ import { useRippleEffect } from "../../../hooks/ripple-effect";
 import { red } from "../../../utils/colors";
 import { getAPI } from "../../../utils/functions";
 
-const getString = (data) => {
+const getString = (data, source) => {
   if (typeof data === "string")
     if (data !== "")
       return (
@@ -36,6 +36,7 @@ const getString = (data) => {
           .join("-") +
         "&"
       );
+    else if (source.selected !== "All") return "everything?";
     else return "top-headlines?";
   if (data.selected === "All") return "";
   else {
@@ -103,7 +104,7 @@ const Filter = () => {
       country: getString(tempCountry),
       category: getString(tempCategory),
       source: getString(tempSource),
-      keyword: getString(tempKeyword),
+      keyword: getString(tempKeyword, tempSource),
     };
     dispatch(setAPI(getAPI(params)));
     dispatch(setAPI_KEY(getAPI(params) + "&page=1"));

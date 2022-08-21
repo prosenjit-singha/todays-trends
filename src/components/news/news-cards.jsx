@@ -13,7 +13,7 @@ export const Grid = styled.section`
   grid-gap: 1.5rem;
   margin-inline: ${margin};
 
-  @media ${device.laptopL} {
+  @media ${device.laptop} {
     grid-auto-flow: row;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }

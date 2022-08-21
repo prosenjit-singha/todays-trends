@@ -75,6 +75,6 @@ export const Title = styled.div`
 `;
 export const Container = styled(animated.div)`
   position: relative;
-  width: 160px;
+  min-width: 160px;
   height: fit-content;
 `;
