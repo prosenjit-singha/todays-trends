@@ -93,6 +93,12 @@ const useAlan = () => {
               navigate(-1);
             } else if (command === COMMANDS.GO_FORWARD) {
               navigate(1);
+            } else if (command === COMMANDS.SET_THEME) {
+              window.dispatchEvent(
+                new CustomEvent(command, { detail: payload })
+              );
+            } else if (command === COMMANDS.TOGGLE_THEME) {
+              window.dispatchEvent(new CustomEvent(command));
             }
           },
         })

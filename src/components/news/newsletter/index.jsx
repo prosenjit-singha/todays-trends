@@ -12,7 +12,6 @@ import {
 
 const Newsletter = () => {
   const theme = useTheme();
-  console.log(theme.darkMode);
   const dispatch = useDispatch();
   const { email, subscribed } = useSelector((state) => state.subscriber);
   const inputRef = useRef();

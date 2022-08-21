@@ -82,7 +82,7 @@ const useCommands = (alan) => {
       window.removeEventListener(COMMANDS.OPEN_ARTICLE, openArticle);
       window.removeEventListener(COMMANDS.READ_HEADLINES, readHeadlines);
     };
-  }, [openArticle]);
+  }, [openArticle, readHeadlines]);
   return null;
 };
 

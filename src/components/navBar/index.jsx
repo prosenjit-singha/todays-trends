@@ -19,8 +19,7 @@ import { red } from "@mui/material/colors";
 import { set } from "lodash";
 
 const NavBar = ({ darkMode, setDarkMode }) => {
-  // checks if the current location is nav link item or not
-  console.log("<--------------- Navbar Rendered --------------->");
+  // console.log("<--------------- Navbar Rendered --------------->");
   const activeRef = useRef();
   const menuRefs = useRef([]);
   const { pathname } = useLocation();

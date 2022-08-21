@@ -57,7 +57,6 @@ const Newsletter = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const { email, subscribed } = useSelector((state) => state.subscriber);
-  console.log("sub: ", subscribed);
   const inputRef = useRef();
   const subsRef = useRef();
 

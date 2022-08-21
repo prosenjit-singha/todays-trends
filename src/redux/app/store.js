@@ -11,6 +11,7 @@ import cnnReducer from "../features/news/cnn-slice";
 import latestNewsReducer from "../features/news/latest-news-slice";
 import popularNewsReducer from "../features/news/popular-news";
 import subscriberReducer from "../features/subscribe/sub-slice";
+import themeReducer from "../features/theme/theme-slice";
 
 const store = configureStore({
   reducer: {
@@ -26,6 +27,7 @@ const store = configureStore({
     latestNews: latestNewsReducer,
     popularNews: popularNewsReducer,
     subscriber: subscriberReducer,
+    theme: themeReducer,
   },
 });
 

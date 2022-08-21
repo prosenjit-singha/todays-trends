@@ -10,4 +10,6 @@ export const COMMANDS = {
   STOP_ACTIVE_ARTICLE_EFFECT: "stop-active-article-effect",
   GO_BACKWARD: "go-backward",
   GO_FORWARD: "go-forward",
+  SET_THEME: "set-theme",
+  TOGGLE_THEME: "toggle-theme",
 };
