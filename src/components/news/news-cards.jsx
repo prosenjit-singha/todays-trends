@@ -1,13 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { margin } from "../../styles/global-constants";
-import { useSelector } from "react-redux";
+import { device } from "../../utils/device";
 //components
 import NewsCard from "./news-card";
 import CardSkeleton from "./card-skeleton";
-
-//used in useCommands and here
-// import articles from "../../data/articles.json";
 
 export const Grid = styled.section`
   display: grid;
@@ -15,13 +12,14 @@ export const Grid = styled.section`
   grid-auto-rows: 1fr;
   grid-gap: 1.5rem;
   margin-inline: ${margin};
+
+  @media ${device.laptopL} {
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 `;
 
 const NewsCards = ({ articles, loading }) => {
-  // console.log("<========== NewsCards Rendered ========>");
-  // const loading = false;
-
-  // [...Array(12).keys()] will return [0, 1,2,3,4,5,6,7,8,9,10,11]
   return (
     <Grid>
       {loading
